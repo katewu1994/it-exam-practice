@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A company is designing a canary deployment strategy for a payment processing API. The system must 
+support automated gradual traffic shifting between multiple Amazon Bedrock models based on real-time 
+inference metrics, historical traffic patterns, and service health. The solution must be able to gradually 
+increase traffic to new model versions. The system must increase traffic if metrics remain healthy and 
+decrease traffic if the performance degrades below acceptable thresholds.
+The company needs to comprehensively monitor inference latency and error rates during the deployment 
+phase. The company must also be able to halt deployments and revert to a previous model version without any 
+manual intervention.
+Which solution will meet these requirements?
+Use Amazon Bedrock with provisioned throughput to host model versions. Configure an Amazon 
+EventBridge rule to invoke an AWS Step Functions workflow when a new model version is released. 
+Configure the workflow to shift traffic in stages, wait for a specified time period, and invoke an AWS 
+Lambda function to check Amazon CloudWatch performance metrics. Configure the workflow to 
+increase traffic if metrics meet thresholds and to trigger a traffic rollback if performance metrics fall 
+below thresholds.
+Use AWS Lambda functions to invoke various Amazon Bedrock model versions. Use an Amazon API 
+Gateway HTTP API with stage variables and weighted routing to shift traffic gradually. Use Amazon 
+CloudWatch to monitor performance. Use external logic to adjust traffic and roll back if performance 
+falls below thresholds.
+Use Amazon SageMaker AI endpoint variants to represent multiple Amazon Bedrock model versions. 
+Use variant weights to shift traffic. Use Amazon CloudWatch and SageMaker Model Monitor to trigger 
+rollbacks. Use EventBridge to roll back deployments if an anomaly is detected.
+Use Amazon OpenSearch Service to track inference logs. Configure OpenSearch Service to invoke an 
+AWS Systems Manager Automation runbook to update Amazon Bedrock model endpoints to shift 
+traffic based on inference logs.
+Answer: A
+Explanation
+Option A is the most complete solution because it provides a fully automated canary strategy with staged 
+traffic shifts, metric-based decisioning, and automatic rollback, all using managed AWS services. The 
+requirement emphasizes automation, health-based traffic progression, and zero manual intervention to revert 
+if performance degrades.
+AWS Step Functions is well suited for orchestrating controlled deployment workflows with deterministic 
+stages, waits, and conditional branches. By shifting traffic in stages and pausing for observation windows, the 
+system can evaluate real-time inference latency and error rates before promoting more traffic to the new 
+model version. Amazon CloudWatch provides the necessary real-time metrics and alarms for latency and 
+error monitoring.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

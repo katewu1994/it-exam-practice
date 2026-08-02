@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Option A is the correct solution because it uses native Amazon Bedrock governance and evaluation 
+capabilities to meet regulatory, performance, and deployment timeline requirements with the least operational 
+overhead.
+Amazon Bedrock guardrails provide built-in safety controls that enforce responsible AI policies directly 
+during inference. Custom content filters and toxicity detection protect customer interactions and prevent 
+disallowed investment guidance patterns without requiring custom application logic. Guardrails operate inline 
+and are optimized for low latency, which helps meet the strict 200 ms response-time requirement.
+Hallucination detection is addressed through Amazon Bedrock Model Evaluation, which supports automated 
+evaluation at scale using LLM-as-a-judge techniques. This enables the company to detect factual inaccuracies 
+and policy violations systematically, without building custom evaluation pipelines or requiring extensive 
+human review. Evaluation outputs can be surfaced as metrics.
+Storing all prompt-response pairs in Amazon DynamoDB provides a low-latency, highly scalable audit store 
+that aligns with financial regulatory requirements. Using TTL enforces data retention policies automatically, 
+reducing compliance risk and storage overhead.
+Amazon CloudWatch custom metrics integrate seamlessly with existing compliance dashboards, allowing 
+near–real-time monitoring of safety interventions, hallucination rates, and drift indicators. CloudWatch 
+anomaly detection can be applied to these metrics to surface behavior changes quickly.
+Option B relies on custom Lambda logic and S3-based auditing, increasing latency and operational 
+complexity. Option C introduces additional services that increase setup time and may exceed the 60-day 
+deployment window. Option D uses non–Bedrock-native monitoring and adds unnecessary infrastructure 
+layers.
+Therefore, Option A provides the most complete, compliant, and low-overhead governance solution for a 
+regulated GenAI financial services application.
+Question #:8 - [Operational Efficiency and Optimization for GenAI Applications]
+A company is using Amazon Bedrock and Anthropic Claude 3 Haiku to develop an AI assistant. The AI 
+assistant normally processes 10,000 requests each hour but experiences surges of up to 30,000 requests each 
+hour during peak usage periods. The AI assistant must respond within 2 seconds while operating across 
+multiple AWS Regions.
+The company observes that during peak usage periods, the AI assistant experiences throughput bottlenecks 
+that cause increased latency and occasional request timeouts. The company must resolve the performance 
+issues.
+Which solution will meet this requirement?
+Purchase provisioned throughput and sufficient model units (MUs) in a single Region. Configure the 
+application to retry failed requests with exponential backoff.
+Implement token batching to reduce API overhead. Use cross-Region inference profiles to 
+automatically distribute traffic across available Regions.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

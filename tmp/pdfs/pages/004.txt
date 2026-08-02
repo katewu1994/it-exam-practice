@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+Deploy a multi-Region Amazon API Gateway HTTP API and AWS Lambda functions that implement 
+retry logic to handle throttling. Configure the Lambda functions to call the foundation model in the 
+nearest secondary Region when the application reaches service quotas in the primary Region. Use 
+intelligent routing to ensure compliance with data residency requirements.
+Configure provisioned throughput for Amazon Bedrock in multiple Regions. Implement failover logic 
+in the application code to switch between Regions when throttling occurs. Use AWS Global 
+Accelerator to route traffic to the appropriate endpoints based on user location.
+Answer: B
+Explanation
+Option  best meets the latency, resilience, and data residency requirements while keeping operational B
+complexity low by using built-in  behavior through Amazon Bedrock cross-Region inference inference 
+ . Cross-Region inference profiles are designed to provide higher availability and better traffic profiles
+absorption when a single Region experiences throttling, transient capacity constraints, or quota-related 
+degradation. By selecting the appropriate  inference profile (for example, a Europe-scoped geography-scoped
+profile for European users and a North America-scoped profile for North American users), the application can 
+keep inference traffic within the required geographic boundary. This directly supports EU data residency 
+needs because European requests can be served only by Europe-based Regions while still benefiting from 
+multi-Region resilience inside Europe.
+The question also highlights degradation when Regional traffic spikes hit quotas. Cross-Region inference 
+profiles help mitigate these conditions by allowing Bedrock to serve requests from another Region within the 
+same geography, improving continuity during spikes without requiring the company to implement custom 
+retry-and-failover logic across Regions. This reduces development and operational burden compared to 
+building and maintaining a bespoke routing and fallback system.
+Using separate  to direct European and North American users to the Amazon API Gateway HTTP APIs
+correct endpoints simplifies request routing and provides a clean boundary for compliance controls, logging, 
+and monitoring. It also allows each geography to scale independently and maintain consistently low latency 
+by keeping users close to the entry point and the Bedrock geography they must use.
+Option  requires custom routing and manual operational monitoring and does not inherently solve quota-A
+driven degradation. Option  adds significant complexity by embedding throttling retries and cross-Region C
+selection logic in Lambda while still needing careful controls to prevent cross-border routing mistakes. Option 
+ introduces the highest operational complexity and can inadvertently violate residency if failover crosses D
+geographies unless additional safeguards are implemented.
+Question #:3 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company is building a customer support application that retrieves relevant financial 
+regulation documents from a database based on semantic similarity to user queries. The application must 
+integrate with Amazon Bedrock to generate responses. The application must search documents in English, 
+Spanish, and Portuguese. The application must filter documents by metadata such as publication date, 
+regulatory agency, and document type.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

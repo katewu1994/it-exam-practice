@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Question #:34 - [Implementation and Integration]
+A company provides a service that helps users from around the world discover new restaurants. The service 
+has 50 million monthly active users. The company wants to implement a semantic search solution across a 
+database that contains 20 million restaurants and 200 million reviews. The company currently stores the data 
+in PostgreSQL.
+The solution must support complex natural language queries and return results for at least 95% of queries 
+within 500 ms. The solution must maintain data freshness for restaurant details that update hourly. The 
+solution must also scale cost-effectively during peak usage periods.
+Which solution will meet these requirements with the LEAST development effort?
+Migrate the restaurant data to Amazon OpenSearch Service. Implement keyword-based search rules 
+that use custom analyzers and relevance tuning to find restaurants based on attributes such as cuisine 
+type, features, and location. Create Amazon API Gateway HTTP API endpoints to transform user 
+queries into structured search parameters.
+Migrate the restaurant data to Amazon OpenSearch Service. Use a foundation model (FM) in Amazon 
+Bedrock to generate vector embeddings from restaurant descriptions, reviews, and menu items. When 
+users submit natural language queries, convert the queries to embeddings by using the same FM. 
+Perform k-nearest neighbors (k-NN) searches to find semantically similar results.
+Keep the restaurant data in PostgreSQL and implement a pgvector extension. Use a foundation model 
+(FM) in Amazon Bedrock to generate vector embeddings from restaurant data. Store the vector 
+embeddings directly in PostgreSQL. Create an AWS Lambda function to convert natural language 
+queries to vector representations by using the same FM. Configure the Lambda function to perform 
+similarity searches within the database.
+Migrate restaurant data to an Amazon Bedrock knowledge base by using a custom ingestion pipeline. 
+Configure the knowledge base to automatically generate embeddings from restaurant information. Use 
+the Amazon Bedrock Retrieve API with built-in vector search capabilities to query the knowledge base 
+directly by using natural language input.
+Answer: B
+Explanation
+Option B best satisfies the requirements while minimizing development effort by combining managed 
+semantic search capabilities with fully managed foundation models. AWS Generative AI guidance describes 
+semantic search as a vector-based retrieval pattern where both documents and user queries are embedded into 
+a shared vector space. Similarity search (such as k-nearest neighbors) then retrieves results based on meaning 
+rather than exact keywords.
+Amazon OpenSearch Service natively supports vector indexing and k-NN search at scale. This makes it well 
+suited for large datasets such as 20 million restaurants and 200 million reviews while still achieving sub-
+second latency for the majority of queries. Because OpenSearch is a distributed, managed service, it 
+automatically scales during peak traffic periods and provides cost-effective performance compared with 
+building and tuning custom vector search pipelines on relational databases.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

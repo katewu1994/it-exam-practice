@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+can see the answer forming immediately, even when the full response takes longer. Streaming also reduces the 
+impact of variable model latency and retrieval time because the client no longer waits for a single final 
+payload before rendering content. From a troubleshooting perspective, streaming makes it easier to 
+distinguish “slow generation” from “no response,” and it provides faster feedback during testing of complex 
+questions.
+Option  is not sufficient because increasing timeouts and adding retries can worsen load and cost while still B
+producing a stalled UI experience. Retries also risk duplicating requests to the knowledge base and can 
+amplify token usage. Option  introduces an awkward polling model for GraphQL interactions and adds C
+significant operational complexity, while not inherently improving interactivity. Option  adds major D
+architectural changes by replacing the knowledge base RetrieveAndGenerate call path with a different 
+streaming invocation API and introducing a WebSocket layer, which is unnecessary when the goal is 
+primarily to fix timeouts and improve UX within the existing AppSync and Amplify design.
+Therefore, streaming through Amplify AI Kit is the most effective and lowest-friction improvement.
+Thought for 24s
+Question #:47 - [AI Safety, Security, and Governance]
+A company uses AWS Lambda functions to build an AI agent solution. A GenAI developer must set up a 
+Model Context Protocol (MCP) server that accesses user information. The GenAI developer must also 
+configure the AI agent to use the new MCP server. The GenAI developer must ensure that only authorized 
+users can access the MCP server.
+Which solution will meet these requirements?
+Use a Lambda function to host the MCP server. Grant the AI agent Lambda functions permission to 
+invoke the Lambda function that hosts the MCP server. Configure the AI agent’s MCP client to invoke 
+the MCP server asynchronously.
+Use a Lambda function to host the MCP server. Grant the AI agent Lambda functions permission to 
+invoke the Lambda function that hosts the MCP server. Configure the AI agent to use the STDIO 
+transport with the MCP server.
+Use a Lambda function to host the MCP server. Create an Amazon API Gateway HTTP API that 
+proxies requests to the Lambda function. Configure the AI agent solution to use the Streamable HTTP 
+transport to make requests through the HTTP API. Use Amazon Cognito to enforce OAuth 2.1.
+Use a Lambda layer to host the MCP server. Add the Lambda layer to the AI agent Lambda functions. 
+Configure the agentic AI solution to use the STDIO transport to send requests to the MCP server. In the 
+AI agent’s MCP configuration, specify the Lambda layer ARN as the command. Specify the user 
+credentials as environment variables.
+Answer: C
+Explanation
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

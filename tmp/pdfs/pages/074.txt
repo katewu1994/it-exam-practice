@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+provisioned resource identifier that represents the purchased throughput, not the generic model identifier used 
+for on-demand inference.
+The code snippet uses modelId= " anthropic.claude-v2 " . This value selects the on-demand endpoint for that 
+model. As a result, requests are subject to on-demand quotas and throttling behavior, while the provisioned 
+throughput remains idle. This directly explains the CloudWatch observation: provisioned capacity metrics 
+show unused capacity because no traffic is being directed to the provisioned resource, and the on-demand 
+path is throttling because it is exceeding the applicable on-demand limits during peak volume.
+Replacing the modelId value with the provisioned throughput ARN returned by the 
+CreateProvisionedModelThroughput workflow ensures the runtime invocation is routed to the reserved 
+capacity. Once traffic is directed correctly, the purchased model units provide the consistent throughput 
+required for predictable performance during business hours, which is exactly why provisioned throughput is 
+used.
+Option A could increase capacity, but it does not fix the core issue that the application is not using the 
+provisioned resource at all. Option C can reduce the impact of throttling temporarily, but it adds latency and 
+does not guarantee consistent throughput; it also still wastes the provisioned capacity. Option D changes the 
+response delivery mechanism, but throttling is a capacity routing and quota issue, not a streaming API issue.
+Question #:65 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company is creating a Retrieval Augmented Generation (RAG) application that uses 
+Amazon Bedrock to generate summaries of market activities. The application relies on a vector database that 
+stores a small proprietary dataset with a low index count. The application must perform similarity searches. 
+The Amazon Bedrock model’s responses must maximize accuracy and maintain high performance.
+The company needs to configure the vector database and integrate it with the application.
+Which solution will meet these requirements?
+Launch an Amazon MemoryDB cluster and configure the index by using the Flat algorithm. Configure 
+a horizontal scaling policy based on performance metrics.
+Launch an Amazon MemoryDB cluster and configure the index by using the Hierarchical Navigable 
+Small World (HNSW) algorithm. Configure a vertical scaling policy based on performance metrics.
+Launch an Amazon Aurora PostgreSQL cluster and configure the index by using the Inverted File with 
+Flat Compression (IVFFlat) algorithm. Configure the instance class to scale to a larger size when the 
+load increases.
+Launch an Amazon DocumentDB cluster that has an IVFFlat index and a high probe value. Configure 
+connections to the cluster as a replica set. Distribute reads to replica instances.
+Answer: B
+Explanation
+Option B is the optimal solution because it maximizes similarity search accuracy and performance for a small, 
+proprietary dataset while maintaining low operational complexity. Amazon MemoryDB is a fully managed, in-
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

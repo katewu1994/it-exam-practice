@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+D.  Create an AWS Step Functions Standard workflow. Configure the first state to call an AWS Lambda 
+function to respond when an employee uploads a new file to the S3 bucket. Use a pipeline in 
+SageMaker Pipelines to re-deploy the model after it has been re-trained on the updated customer 
+dataset. Use the next state in the workflow to run the pipeline when the first state receives a response.
+Answer: D
+Explanation
+Option  is the best fit because it implements a reliable event-driven MLOps workflow that automates D
+retraining and redeployment with clear orchestration, auditability, and production-grade error handling. The 
+requirement is explicit: whenever a new file is uploaded to Amazon S3, the system must retrain and then 
+redeploy the model used by a web application. A common AWS pattern is to use an S3 event notification to 
+trigger an  function, which then starts a controlled workflow. In option D, Lambda serves as AWS Lambda
+the event handler that reacts immediately to the S3 upload event and passes the necessary context (bucket, 
+object key, dataset version) into an  state machine.AWS Step Functions Standard
+Step Functions Standard is appropriate for model retraining pipelines because training and deployment steps 
+can be long-running and benefit from durable state, retries, and failure handling. It provides execution history, 
+making it easier to troubleshoot why a particular retraining run failed and to prove which dataset version 
+produced which model version. This operational visibility is critical when the dataset is “growing rapidly” and 
+retraining is frequent.
+Within the workflow,  is the right service to run the ML lifecycle stages in a Amazon SageMaker Pipelines
+repeatable way: data processing (if needed), training, evaluation/quality checks, model registration, and 
+deployment to an endpoint used by the application. SageMaker Pipelines is purpose-built for CI/CD-style ML, 
+supporting automated redeployments when a new approved model artifact is produced. By calling a pipeline 
+execution from Step Functions, the company can add governance gates (for example, only deploy if 
+evaluation metrics meet thresholds), and can apply consistent rollback and notification steps when 
+deployment fails.
+The other options are weaker:  confuses inference with retraining and does not provide deployment A
+orchestration.  adds unnecessary webhook complexity and describes an awkward event bus configuration.  B C
+introduces Autopilot/Data Wrangler, which may be useful but adds extra moving parts and is not required to 
+meet the trigger-and-redeploy requirement.
+Question #:49 - [Foundation Model Integration, Data Management, and Compliance]
+A company runs a generative AI (GenAI)-powered summarization application in an application AWS account 
+that uses Amazon Bedrock. The application architecture includes an Amazon API Gateway REST API that 
+forwards requests to AWS Lambda functions that are attached to private VPC subnets. The application 
+summarizes sensitive customer records that the company stores in a governed data lake in a centralized data 
+storage account. The company has enabled Amazon S3, Amazon Athena, and AWS Glue in the data storage 
+account.
+The company must ensure that calls that the application makes to Amazon Bedrock use only private 
+connectivity between the company ' s application VPC and Amazon Bedrock. The company ' s data lake must 
+provide fine-grained column-level access across the company ' s AWS accounts.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

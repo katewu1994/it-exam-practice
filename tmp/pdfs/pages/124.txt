@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Amazon Bedrock guardrails are critical for preventing speculative behavioral claims, enforcing scientific and 
+ethical constraints at inference time. Guardrails provide a validated, auditable safety layer that custom 
+Lambda-based filters cannot reliably replicate.
+AWS AppConfig enables controlled prompt management and change governance, ensuring that research 
+prompts remain consistent and reviewable. AWS CloudTrail captures all access, query, and configuration 
+changes, supporting ethical research audits and regulatory reviews.
+Option A lacks grounding and speculative safeguards. Option C focuses on text analytics and does not 
+properly handle multimodal reasoning or safety enforcement. Option D relies heavily on custom logic and 
+introduces unnecessary operational risk.
+Therefore, Option B provides the most robust, ethical, and auditable GenAI architecture for wildlife behavior 
+research.
+Question #:108 - [Foundation Model Integration, Data Management, and Compliance]
+A university recently digitized a collection of archival documents, academic journals, and manuscripts. The 
+university stores the digital files in an AWS Lake Formation data lake.
+The university hires a GenAI developer to build a solution to allow users to search the digital files by using 
+text queries. The solution must return journal abstracts that are semantically similar to a user ' s query. Users 
+must be able to search the digitized collection based on text and metadata that is associated with the journal 
+abstracts. The metadata of the digitized files does not contain keywords. The solution must match similar 
+abstracts to one another based on the similarity of their text. The data lake contains fewer than 1 million files.
+Which solution will meet these requirements with the LEAST operational overhead?
+Use Amazon Titan Embeddings in Amazon Bedrock to create vector representations of the digitized 
+files. Store embeddings in the OpenSearch Neural plugin for Amazon OpenSearch Service.
+Use Amazon Comprehend to extract topics from the digitized files. Store the topics and file metadata in 
+an Amazon Aurora PostgreSQL database. Query the abstract metadata against the data in the Aurora 
+database.
+Use Amazon SageMaker AI to deploy a sentence-transformer model. Use the model to create vector 
+representations of the digitized files. Store embeddings in an Amazon Aurora PostgreSQL database that 
+has the pgvector extension.
+Use Amazon Titan Embeddings in Amazon Bedrock to create vector representations of the digitized 
+files. Store embeddings in an Amazon Aurora PostgreSQL Serverless database that has the pgvector 
+extension.
+Answer: D
+Explanation
+Option  is the best choice because it delivers true semantic search with the smallest operational footprint by D
+combining a fully managed embedding service with an automatically scaling vector-capable database. The 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

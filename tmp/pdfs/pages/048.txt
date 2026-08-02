@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+Answer: D
+Explanation
+Option D is the correct solution because Amazon Q Developer customizations are designed to incorporate 
+organization-approved knowledge and coding guidance without requiring per-project changes. A 
+customization can point Amazon Q Developer to curated internal sources such as approved libraries, coding 
+standards, architectural patterns, and proprietary techniques. This allows the assistant’s suggestions to align 
+with company policies and preferred implementations consistently across teams and repositories.
+The key requirement is that the company does not want to make project-level modifications. Options A, B, 
+and C all require adding files or repositories into the project workspace, which directly violates this constraint. 
+They also rely on developer behavior to “use workspace context,” which is harder to enforce and can lead to 
+inconsistent adherence to standards.
+With a customization, the organization centrally manages and updates approved resources. This reduces 
+operational overhead because updates to libraries, patterns, or guidelines propagate automatically to 
+developers using the customization, without requiring changes to each project. This is especially valuable for 
+a new team, where consistent enforcement of approved practices is important to reduce compliance risk, 
+security issues, and inconsistent code style.
+Additionally, customizations support governance by allowing the company to standardize how Amazon Q 
+Developer responds, ensuring that suggestions reflect approved internal content rather than generic public 
+patterns.
+Therefore, Option D best satisfies the requirement for centralized enforcement of approved resources with 
+minimal ongoing management and no project-level modifications.
+Question #:42 - [AI Safety, Security, and Governance]
+A financial services company is developing a customer service AI assistant by using Amazon Bedrock. The 
+AI assistant must not discuss investment advice with users. The AI assistant must block harmful content, 
+mask personally identifiable information (PII), and maintain audit trails for compliance reporting. The AI 
+assistant must apply content filtering to both user inputs and model responses based on content sensitivity.
+The company requires an Amazon Bedrock guardrail configuration that will effectively enforce policies with 
+minimal false positives. The solution must provide multiple handling strategies for multiple types of sensitive 
+content.
+Which solution will meet these requirements?
+Configure a single guardrail and set content filters to high for all categories. Set up denied topics for 
+investment advice and include sample phrases to block. Set up sensitive information filters that apply 
+the block action for all PII entities. Apply the guardrail to all model inference calls.
+Configure multiple guardrails by using tiered policies. Create one guardrail and set content filters to 
+high. Configure the guardrail to block PII for public interactions. Configure a second guardrail and set 
+content filters to medium. Configure the second guardrail to mask PII for internal use. Configure 
+multiple topic-specific guardrails to block investment advice and set up contextual grounding checks.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

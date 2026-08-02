@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Explanation
+This requirement explicitly calls for character-by-character streaming, long-running responses, low latency, 
+and massive concurrency, which aligns directly with Amazon Bedrock streaming inference patterns.
+Amazon Bedrock provides the InvokeModelWithResponseStream API specifically for streaming partial 
+model outputs as tokens are generated. This enables near-instant feedback to users instead of waiting for the 
+full response to complete, which is essential when responses last up to 45 seconds.
+Amazon API Gateway WebSocket APIs are purpose-built for bidirectional, low-latency, server-initiated 
+communication, allowing the backend to push characters or tokens to clients in real time. This eliminates 
+inefficient polling and supports thousands of concurrent open connections.
+AWS Lambda integrates natively with WebSocket APIs and scales automatically with connection volume, 
+enabling a fully managed, serverless architecture. This approach maintains security, centralized 
+authentication, throttling, and observability while avoiding direct client access to Bedrock APIs.
+Option B introduces polling latency and unnecessary API overhead and does not provide true streaming. 
+Option C violates AWS security best practices by exposing Bedrock directly to clients and does not scale 
+securely. Option D only serves completed responses and cannot meet the real-time streaming requirement.
+Therefore, Option A is the only solution that fully satisfies streaming behavior, concurrency, latency, and 
+managed-service constraints.
+Question #:56 - [Implementation and Integration]
+A company developed a multimodal content analysis application by using Amazon Bedrock. The application 
+routes different content types (text, images, and code) to specialized foundation models (FMs).
+The application needs to handle multiple types of routing decisions. Simple routing based on file extension 
+must have minimal latency. Complex routing based on content semantics requires analysis before FM 
+selection. The application must provide detailed history and support fallback options when primary FMs fail.
+Which solution will meet these requirements?
+Configure AWS Lambda functions that call Amazon Bedrock FMs for all routing logic. Use conditional 
+statements to determine the appropriate FM based on content type and semantics.
+Create a hybrid solution. Handle simple routing based on file extensions in application code. Handle 
+complex content-based routing by using an AWS Step Functions state machine with JSONata for 
+content analysis and the InvokeModel API for specialized FMs.
+Deploy separate AWS Step Functions workflows for each content type with routing logic in AWS 
+Lambda functions. Use Amazon EventBridge to coordinate between workflows when fallback to 
+alternate FMs is required.
+Use Amazon SQS with different SQS queues for each content type. Configure AWS Lambda 
+consumers that analyze content and invoke appropriate FMs based on message attributes by using 
+Amazon Bedrock with an AWS SDK.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

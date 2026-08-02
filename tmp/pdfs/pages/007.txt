@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option A increases complexity by introducing multiple pipelines and relies on provisioned models, which are 
+not necessary for FM evaluation and experimentation. Provisioned throughput is better suited for predictable, 
+high-volume production workloads rather than frequent model switching.
+Option B creates unnecessary operational overhead by duplicating CDK applications and pipelines, making 
+long-term maintenance more difficult.
+Option D directly conflicts with infrastructure-as-code best practices by manually recreating development 
+resources, which increases configuration drift and reduces reliability.
+Therefore, Option C provides the most flexible, scalable, and AWS-aligned solution for testing and switching 
+foundation models across development and production environments.
+Question #:5 - [Implementation and Integration]
+A company is building a real-time voice assistant system to assist customer service representatives during 
+customer calls. The system must convert audio calls to text with end-to-end latency of less than 500 ms. The 
+system must use generative AI (GenAI) to produce response suggestions. Human supervisors must be able to 
+rate the system ' s suggestions during a live customer call. The company must store all customer interactions 
+to comply with auditing policies. Which solution will meet these requirements?
+Use the Amazon Transcribe streaming API with standard settings to convert speech to text. Use 
+Amazon Bedrock batch processing to perform inference. Store call recordings and metadata in Amazon 
+S3. Use S3 Lifecycle policies to manage the storage.
+Use the Amazon Transcribe streaming API with 100-ms audio chunks to optimize latency for the voice 
+assistant. Call the Amazon Bedrock InvokeModelWithResponseStream operation to process client 
+inquiries in real time. Store supervisor ratings in an Amazon DynamoDB table.
+Use Amazon Transcribe batch processing to perform post-call analysis. Configure AWS Lambda 
+functions to generate responses by using the Amazon Bedrock InvokeModel operation. Use Amazon 
+CloudWatch to log supervisor feedback.
+Use Amazon Transcribe to convert speech to text and to perform real-time analytics. Use Amazon 
+Comprehend to perform sentiment analysis. Use Amazon SQS to queue processing tasks. Run the 
+Amazon Bedrock InvokeModel operation to generate responses.
+Answer: B
+Explanation
+To achieve the ultra-low latency requirement of less than 500 ms, the system must utilize streaming 
+capabilities at every stage. Using  with small (100-ms) audio chunks ensures Amazon Transcribe streaming
+that transcription begins immediately as the customer speaks. On the model side, Amazon Bedrock’s 
+ allows the application to receive tokens as they are generated, rather InvokeModelWithResponseStream
+than waiting for the entire completion, which is critical for real-time interactions.  is the Amazon DynamoDB
+ideal choice for storing supervisor ratings during a live call because it provides the single-digit millisecond 
+latency required for high-frequency writes without impacting the application ' s performance. Options 
+involving batch processing or SQS queuing are unsuitable for sub-500 ms interactive requirements.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

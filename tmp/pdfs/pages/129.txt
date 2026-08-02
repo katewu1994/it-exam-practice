@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The system must respond in near real time for high-confidence results. The system must process low-
+confidence requests asynchronously. The system must scale to meet sudden spikes in demand. The company 
+wants to optimize costs for the system by invoking the larger model only when required. The company wants 
+to use decoupled components to achieve high resiliency for the system.
+Which solution will meet these requirements?
+Use Amazon API Gateway to invoke the small model synchronously. If the small model’s confidence 
+score is below 0.65, synchronously call the larger model. Use provisioned concurrency to handle traffic 
+spikes.
+Use an AWS Step Functions workflow that has parallel branches to run both the small model and the 
+large model for every request. Choose the large model result when confidence score values differ.
+Send requests to an Amazon SQS queue. Use AWS Fargate to process messages. Invoke the small 
+model first. If the confidence score is below 0.65, place the request in a second SQS queue to process 
+asynchronously by using the large model.
+Deploy both models on Amazon EC2 instances and enable auto scaling. Use a custom application 
+heuristic to route requests to the appropriate instance based on phrase length and keyword rules.
+Answer: C
+Explanation
+Option C is the best answer because it implements a decoupled, queue-based moderation pipeline that invokes 
+the expensive model only when the low-latency model is not confident enough. Amazon SQS is designed to 
+decouple distributed application components and support asynchronous processing. AWS documentation 
+describes SQS as a fully managed message queuing service that enables decoupling and scaling of 
+microservices, distributed systems, and serverless applications. This matches the requirement for high 
+resiliency and sudden demand spikes because incoming requests can be buffered in a durable queue rather 
+than overwhelming the model-processing layer.
+Using AWS Fargate to process queue messages is also appropriate because Fargate provides serverless 
+container compute for Amazon ECS or Amazon EKS workloads. It allows the company to run scalable 
+processing workers without managing EC2 capacity directly. AWS Prescriptive Guidance includes 
+architectures that use API Gateway, Amazon SQS, and AWS Fargate to process events asynchronously, 
+which supports the same decoupled processing model required in this question.
+The two-stage queue design also optimizes cost. The small, low-latency classifier is used first for all requests. 
+Only requests with confidence below 0.65 are placed into the second queue and processed by the larger 
+model. This avoids running the larger model for every moderation request. High-confidence results can be 
+completed quickly by the first-stage processor, while uncertain results are isolated into an asynchronous 
+second-stage workflow.
+Option A is incorrect because it synchronously calls the larger model for low-confidence results, which 
+violates the requirement to process low-confidence requests asynchronously. Option B is incorrect because it 
+invokes both models for every request, increasing cost and eliminating the benefit of confidence-based 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The solution must maintain a consistent metadata structure across all uploaded documents and allow 
+foundation models (FMs) to understand document context without accessing full content.
+Which solution will meet these requirements?
+Store document timestamps in Amazon S3 system metadata. Use S3 object tags for domain 
+classification. Implement custom user-defined metadata to store author information.
+Set up S3 Object Lock with legal holds to track document timestamps. Use S3 object tags for author 
+information. Implement S3 access points for domain classification.
+Use S3 Inventory reports to track timestamps. Create S3 access points for domain classification. Store 
+author information in S3 Storage Lens dashboards.
+Use custom user-defined metadata to store author information. Use S3 Object Lock retention periods 
+for timestamps. Use S3 Event Notifications for domain classification.
+Answer: A
+Explanation
+Option A is the correct solution because it uses native Amazon S3 metadata mechanisms to create a 
+consistent, queryable, and model-friendly metadata framework with minimal complexity. S3 system metadata 
+automatically records object creation and modification timestamps, providing reliable and consistent temporal 
+context without additional processing.
+Custom user-defined metadata is the appropriate mechanism for storing structured attributes such as author 
+information. These key-value pairs are stored directly with the object, remain consistent across uploads, and 
+can be accessed programmatically by downstream indexing or retrieval systems used by GenAI applications.
+S3 object tags are ideal for domain classification because they are designed for lightweight categorization, 
+filtering, and access control. Tags can be standardized across the organization to ensure consistent research 
+domain labeling and can be consumed by search indexes or knowledge base ingestion pipelines without 
+requiring access to the full document body.
+Together, system metadata, user-defined metadata, and object tags provide a clean separation of concerns: 
+timestamps for temporal context, metadata for authorship, and tags for classification. This structure allows 
+foundation models to reason about document context (such as recency, domain relevance, and authorship) 
+based on metadata alone, improving retrieval precision and reducing unnecessary token usage.
+Options B, C, and D misuse features like Object Lock, access points, Storage Lens, or event notifications for 
+purposes they were not designed for, adding complexity without improving metadata quality or model 
+understanding.
+Therefore, Option A best satisfies the metadata consistency, context enrichment, and low-overhead 
+requirements for GenAI-driven document analysis.
+Question #:125 - [AI Safety, Security, and Governance]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

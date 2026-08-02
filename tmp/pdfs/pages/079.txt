@@ -1,0 +1,48 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+reasoning the agent uses to decide which action or query to take. AWS also describes trace data as a way to 
+understand how an agent arrived at a response. This directly addresses clinicians’ need to review diagnostic 
+reasoning and decision flow.
+Amazon Bedrock Guardrails are also the right service for policy compliance in GenAI applications. AWS 
+documentation states that Guardrails can implement safeguards aligned with responsible AI policies, 
+configure denied topics, filter harmful content, and remove sensitive information. For healthcare and life 
+sciences GenAI use cases, AWS Prescriptive Guidance recommends evaluating bias, fairness, and 
+hallucinations and implementing guardrails to prevent harmful responses. This supports strict governance and 
+privacy-sensitive clinical workflows.
+The prompt testing and A/B testing component supports rapid iteration. AWS guidance for generative AI 
+operations recommends prompt template management, creating and testing prompt variants, using A/B testing 
+workflows for prompt variants, and analyzing performance against metrics. This is relevant for testing 
+fairness behavior across demographic prompt sets and clinical scenarios.
+Option A includes SageMaker Clarify, which is useful for bias detection and model explainability, but it is 
+less directly aligned to Bedrock-native real-time tracing and policy enforcement for an FM application. 
+Option B handles medical text extraction and terminology but not reasoning transparency or governance. 
+Option D provides operational metrics and custom reports, but not native Bedrock reasoning traces or 
+guardrails. Therefore, option C best meets the GenAI governance requirements.
+==========
+Question #:69 - [Operational Efficiency and Optimization for GenAI Applications]
+A company is developing three specialized NLP models that support a customer service application. One 
+model categorizes each customer’s specific issue. Another model extracts key information from the customer 
+interactions. The third model generates responses. The company must ensure that the application achieves at 
+least 95% accuracy for all tasks. The application must handle up to 500 concurrent requests and respond in 
+less than 500 ms during daily 2-hour peak usage periods. The company must ensure that the application 
+optimizes resource usage during periods of low demand between usage spikes. Which solution will meet these 
+requirements?
+Deploy all three models to a single Amazon SageMaker AI multi-model endpoint. Enable dynamic 
+scaling on the endpoint. Use a compute optimized instance type. Configure auto scaling policies that are 
+based on invocation metrics to handle peak loads.
+Deploy each model to a separate Amazon SageMaker Serverless Inference endpoint. Set provisioned 
+concurrency to handle peak loads. Configure maximum concurrency limits and memory sizing based on 
+each model ' s specific requirements.
+Deploy the models by using Amazon Bedrock with provisioned throughput to handle peak loads. 
+Configure the number of model units (MUs) based on expected token throughput needs. Implement 
+request batching for each model.
+Deploy each model to a separate Amazon SageMaker AI endpoint. Use an asynchronous inference 
+configuration. Store model requests and responses in Amazon S3. Use Amazon SNS to send alerts to 
+users when the application finishes processing requests.
+Answer: B
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

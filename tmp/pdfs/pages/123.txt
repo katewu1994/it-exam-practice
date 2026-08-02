@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option A incorrectly relies on Amazon Macie, which is designed for data-at-rest discovery rather than real-
+time conversational filtering. Option B introduces custom Lambda pipelines and topic modeling, increasing 
+operational complexity. Option D relies on regex and prompt engineering, which do not meet financial-grade 
+compliance standards.
+Therefore, Option C delivers the strongest security, governance, and auditability with the least operational 
+effort.
+Question #:107 - [AI Safety, Security, and Governance]
+A wildlife conservation agency operates zoos globally. The agency uses various sensors, trackers, and 
+audiovisual recorders to monitor animal behavior. The agency wants to launch a generative AI (GenAI) 
+assistant that can ingest multimodal data to study animal behavior.
+The GenAI assistant must support natural language queries, avoid speculative behavioral interpretations, and 
+maintain audit logs for ethical research audits.
+Which solution will meet these requirements?
+Ingest raw videos into Amazon Rekognition to detect animal postures and expressions. Use Amazon 
+Data Firehose to stream sensor and GPS data into Amazon S3. Prompt an Amazon Bedrock FM using 
+basic templates stored in AWS Systems Manager Parameter Store. Use IAM for access control. Use 
+AWS CloudTrail for audit logging.
+Use Amazon SageMaker Processing and Amazon Transcribe to pre-process multimodal data. Ingest 
+curated summaries into an Amazon Bedrock Knowledge Bases. Apply Amazon Bedrock guardrails to 
+restrict speculative outputs. Use AWS AppConfig to manage prompt templates. Use AWS CloudTrail 
+to log research activity for audits.
+Use Amazon OpenSearch Serverless to index behavioral logs and telemetry. Use Amazon Comprehend 
+to extract entities. Use Amazon Bedrock to answer questions over indexed data. Use IAM for access 
+control and CloudTrail for audit logging.
+Configure Amazon O Business to federate data across Amazon S3, Amazon Kinesis, and Amazon 
+SageMaker Feature Store. Use EventBridge for ingestion orchestration. Use custom AWS Lambda 
+functions to filter LLM outputs for ethical compliance.
+Answer: B
+Explanation
+Option B best meets the multimodal, ethical, and auditability requirements using managed AWS services 
+designed for research-grade GenAI systems. Multimodal data such as audio, video, sensor telemetry, and 
+tracking data must be curated and summarized before being consumed by a foundation model. Amazon 
+SageMaker Processing and Amazon Transcribe provide scalable, managed preprocessing for audiovisual and 
+textual data.
+By ingesting summarized, validated observations into Amazon Bedrock Knowledge Bases, the GenAI 
+assistant can answer natural language queries using grounded, evidence-based context instead of raw sensor 
+signals. This significantly reduces the risk of speculative or anthropomorphic interpretations.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

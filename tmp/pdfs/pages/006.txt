@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Question #:4 - [Implementation and Integration]
+A company uses an AI assistant application to summarize the company’s website content and provide 
+information to customers. The company plans to use Amazon Bedrock to give the application access to a 
+foundation model (FM).
+The company needs to deploy the AI assistant application to a development environment and a production 
+environment. The solution must integrate the environments with the FM. The company wants to test the 
+effectiveness of various FMs in each environment. The solution must provide product owners with the ability 
+to easily switch between FMs for testing purposes in each environment.
+Which solution will meet these requirements?
+Create one AWS CDK application. Create multiple pipelines in AWS CodePipeline. Configure each 
+pipeline to have its own settings for each FM. Configure the application to invoke the Amazon Bedrock 
+FMs by using the aws_bedrock.ProvisionedModel.fromProvisionedModelArn() method.
+Create a separate AWS CDK application for each environment. Configure the applications to invoke 
+the Amazon Bedrock FMs by using the aws_bedrock.FoundationModel.fromFoundationModelId() 
+method. Create a separate pipeline in AWS CodePipeline for each environment.
+Create one AWS CDK application. Configure the application to invoke the Amazon Bedrock FMs by 
+using the aws_bedrock.FoundationModel.fromFoundationModelId() method. Create a pipeline in AWS 
+CodePipeline that has a deployment stage for each environment that uses AWS CodeBuild deploy 
+actions.
+Create one AWS CDK application for the production environment. Configure the application to invoke 
+the Amazon Bedrock FMs by using the aws_bedrock.ProvisionedModel.fromProvisionedModelArn() 
+method. Create a pipeline in AWS CodePipeline. Configure the pipeline to deploy to the production 
+environment by using an AWS CodeBuild deploy action. For the development environment, manually 
+recreate the resources by referring to the production application code.
+Answer: C
+Explanation
+Option C best satisfies the requirement for flexible FM testing across environments while minimizing 
+operational complexity and aligning with AWS-recommended deployment practices. Amazon Bedrock 
+supports invoking on-demand foundation models through the FoundationModel abstraction, which allows 
+applications to dynamically reference different models without requiring dedicated provisioned capacity. This 
+is ideal for experimentation and A/B testing in both development and production environments.
+Using a single AWS CDK application ensures infrastructure consistency and reduces duplication. 
+Environment-specific configuration, such as selecting different foundation model IDs, can be externalized 
+through parameters, context variables, or environment-specific configuration files. This allows product 
+owners to easily switch between FMs in each environment without modifying application logic.
+A single AWS CodePipeline with distinct deployment stages for development and production is an AWS best 
+practice for multi-environment deployments. It enforces consistent build and deployment steps while still 
+allowing environment-level customization. AWS CodeBuild deploy actions enable automated, repeatable 
+deployments, reducing manual errors and improving governance.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

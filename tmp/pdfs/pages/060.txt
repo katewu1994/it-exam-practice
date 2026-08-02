@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+temperatures) and for reducing hallucinated instructions that violate safety policies. Guardrails can be 
+enforced consistently regardless of prompt-chain complexity, providing a uniform safety layer around the 
+model outputs.
+Amazon Bedrock Prompt Management supports controlled prompt versioning and approval workflows. By 
+standardizing prompts, controlling changes, and ensuring the same prompt version is used for identical inputs, 
+the company improves output stability and reduces drift caused by unmanaged prompt edits. Combined with 
+strict configuration control (including fixed inference parameters such as temperature where appropriate), this 
+improves repeatability and increases the likelihood of achieving the 99.5% consistency target.
+Option B improves observability and experimentation but does not provide strong safety enforcement or 
+latency stabilization. Option C improves performance through caching and tracing but does not provide 
+validated safety controls and does not directly address cross-Region output consistency. Option D may 
+improve retrieval but does not enforce safety controls or ensure repeatable outputs.
+Therefore, Option A best meets the stability, performance, and safety requirements using AWS-native 
+controls.
+Question #:52 - [Implementation and Integration]
+A company is designing a solution that uses foundation models (FMs) to support multiple AI workloads. 
+Some FMs must be invoked on demand and in real time. Other FMs require consistent high-throughput access 
+for batch processing.
+The solution must support hybrid deployment patterns and run workloads across cloud infrastructure and on-
+premises infrastructure to comply with data residency and compliance requirements.
+Which combination of steps will meet these requirements? (Select TWO.)
+Use AWS Lambda to orchestrate low-latency FM inference by invoking FMs hosted on Amazon 
+SageMaker AI asynchronous endpoints.
+Configure provisioned throughput in Amazon Bedrock to ensure consistent performance for high-
+volume workloads.
+Deploy FMs to Amazon SageMaker AI endpoints with support for edge deployment by using Amazon 
+SageMaker Neo. Orchestrate the FMs by using AWS Lambda to support hybrid deployment.
+Use Amazon Bedrock with auto-scaling to handle unpredictable traffic surges.
+Use Amazon SageMaker JumpStart to host and invoke the FMs.
+Answer: B C
+Explanation
+The correct combination is B and C because together they address both workload diversity and hybrid 
+deployment requirements with minimal custom engineering.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

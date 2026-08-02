@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Configure Amazon Bedrock Studio prompt templates. Use Amazon CloudWatch dashboards to display 
+prompt usage metrics. Store approval status in Amazon DynamoDB. Use AWS Lambda functions to 
+enforce approvals.
+Use Amazon Bedrock Prompt Management to implement version control. Configure AWS CloudTrail 
+for audit logging. Use AWS Identity and Access Management policies to control approval permissions. 
+Create parameterized prompt templates by specifying variables.
+Use AWS Step Functions to create an approval workflow. Store prompts in Amazon S3. Use tags to 
+implement version control. Use Amazon EventBridge to send notifications.
+Deploy Amazon SageMaker Canvas with prompt templates stored in Amazon S3. Use AWS 
+CloudFormation for version control. Use AWS Config to enforce approval policies.
+Answer: B
+Explanation
+Option B is the correct solution because Amazon Bedrock Prompt Management is purpose-built to manage, 
+govern, and standardize prompt usage at scale across teams and Regions. It provides native version control, 
+allowing teams to track prompt changes over time and ensure that only approved versions are used in 
+production workflows.
+Prompt Management supports approval workflows that align with enterprise governance requirements. 
+Approval permissions can be enforced through IAM policies, ensuring that only authorized reviewers can 
+approve or publish prompt versions. This removes the need for custom workflow engines or external storage 
+systems, significantly reducing operational overhead.
+Parameterized prompt templates enable consistent prompt structure while allowing controlled variation 
+through defined variables. This ensures consistent quality standards and reduces prompt drift, which is critical 
+when hundreds of prompts are reused across multiple applications and teams.
+AWS CloudTrail integrates natively with Amazon Bedrock to provide immutable audit logs for prompt 
+creation, updates, approvals, and usage. These detailed audit trails satisfy compliance requirements and allow 
+security and governance teams to trace prompt activity across Regions and users.
+Option A requires significant custom development to coordinate approvals and maintain state. Option C relies 
+on general-purpose workflow services and manual versioning mechanisms that are error-prone and difficult to 
+scale. Option D uses services not designed for large-scale GenAI prompt governance and introduces 
+unnecessary complexity.
+Therefore, Option B best meets the requirements for scalable, auditable, and low-overhead governance of AI-
+generated content using Amazon Bedrock.
+Question #:112 - [Implementation and Integration]
+A media company is building an AI-powered content moderation system by using Amazon Bedrock. The 
+system first classifies text by using a small, low-latency model. Then the system escalates requests that have a 
+confidence score below 0.65 to a larger, more expensive model.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

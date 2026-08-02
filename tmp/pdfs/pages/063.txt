@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Answer: B
+Explanation
+Option B is the correct solution because it provides a scalable, durable, and secure architecture for 
+conversational GenAI workloads that require multi-step clarification workflows and persistent memory.
+AWS Step Functions Standard workflows are designed for long-running, stateful workflows with high 
+reliability, which is ideal for clarification loops that may require multiple back-and-forth interactions. The 
+Wait for a Callback pattern allows the workflow to pause while awaiting additional user input, making it well-
+suited for handling ambiguous queries without losing execution state.
+Storing conversation history in Amazon DynamoDB enables millisecond-latency reads and writes at massive 
+scale, supporting thousands of concurrent users. DynamoDB’s on-demand capacity mode automatically scales 
+with traffic, eliminating capacity planning. Server-side encryption ensures that stored conversation data is 
+encrypted at rest, meeting security and compliance requirements for personalized data.
+Option A uses Step Functions Express and Amazon RDS, which is not ideal for long-lived conversational 
+workflows and introduces scaling and connection management challenges. Option C stores conversations as 
+individual S3 objects, which increases latency and complicates context retrieval. Option D relies on Amazon 
+ElastiCache, which is optimized for ephemeral caching rather than durable, auditable conversation history.
+Therefore, Option B best balances scalability, performance, durability, and security for a conversational 
+Amazon Bedrock–based customer support application.
+Question #:55 - [Implementation and Integration]
+A company is developing a customer support application that uses Amazon Bedrock foundation models 
+(FMs) to provide real-time AI assistance to the company’s employees. The application must display AI-
+generated responses character by character as the responses are generated. The application needs to support 
+thousands of concurrent users with minimal latency. The responses typically take 15 to 45 seconds to finish.
+Which solution will meet these requirements?
+Configure an Amazon API Gateway WebSocket API with an AWS Lambda integration. Configure the 
+WebSocket API to invoke the Amazon Bedrock InvokeModelWithResponseStream API and stream 
+partial responses through WebSocket connections.
+Configure an Amazon API Gateway REST API with an AWS Lambda integration. Configure the REST 
+API to invoke the Amazon Bedrock standard InvokeModel API and implement frontend client-side 
+polling every 100 ms for complete response chunks.
+Implement direct frontend client connections to Amazon Bedrock by using IAM user credentials and 
+the InvokeModelWithResponseStream API without any intermediate gateway or proxy layer.
+Configure an Amazon API Gateway HTTP API with an AWS Lambda integration. Configure the 
+HTTP API to cache complete responses in an Amazon DynamoDB table and serve the responses 
+through multiple paginated GET requests to frontend clients.
+Answer: A
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

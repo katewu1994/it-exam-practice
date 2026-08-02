@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The database stores approximately 10 million document embeddings. To minimize operational overhead, the 
+company wants a solution that minimizes management and maintenance effort while providing low-latency 
+responses for real-time customer interactions.
+Which solution will meet these requirements?
+Use Amazon OpenSearch Serverless to provide vector search capabilities and metadata filtering. 
+Integrate with Amazon Bedrock Knowledge Bases to enable Retrieval Augmented Generation (RAG) 
+using an Anthropic Claude foundation model.
+Deploy an Amazon Aurora PostgreSQL database with the pgvector extension. Store embeddings and 
+metadata in tables. Use SQL queries for similarity search and send results to Amazon Bedrock for 
+response generation.
+Use Amazon S3 Vectors to configure a vector index and non-filterable metadata fields. Integrate S3 
+Vectors with Amazon Bedrock for RAG.
+Set up an Amazon Neptune Analytics database with a vector index. Use graph-based retrieval and 
+Amazon Bedrock for response generation.
+Answer: A
+Explanation
+Option A is the optimal solution because it provides scalable semantic search, rich metadata filtering, and 
+tight integration with Amazon Bedrock while minimizing operational overhead. Amazon OpenSearch 
+Serverless is designed for high-volume, low-latency search workloads and removes the need to manage 
+clusters, capacity planning, or scaling policies.
+With support for vector search and structured metadata filtering, OpenSearch Serverless enables efficient 
+similarity search across 10 million embeddings while applying constraints such as language, publication date, 
+regulatory agency, and document type. This is critical for financial services use cases where relevance and 
+compliance depend on precise filtering.
+Integrating OpenSearch Serverless with Amazon Bedrock Knowledge Bases enables a fully managed RAG 
+workflow. The knowledge base handles embedding generation, retrieval, and context assembly, while 
+Amazon Bedrock generates responses using a foundation model. This significantly reduces custom glue code 
+and operational complexity.
+Multilingual support is handled at the embedding and retrieval layer, allowing documents in English, Spanish, 
+and Portuguese to be searched semantically without language-specific query logic. OpenSearch’s distributed 
+architecture ensures consistent low-latency responses for real-time customer interactions.
+Option B increases operational overhead by requiring database tuning and scaling for vector workloads. 
+Option C does not support advanced metadata filtering, which is a key requirement. Option D introduces 
+unnecessary complexity and is not optimized for large-scale semantic document retrieval.
+Therefore, Option A best meets the requirements for performance, scalability, multilingual support, and 
+minimal management effort in an Amazon Bedrock–based RAG application.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

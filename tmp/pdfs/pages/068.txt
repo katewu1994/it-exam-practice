@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A company is building a legal research AI assistant that uses Amazon Bedrock with an Anthropic Claude 
+foundation model (FM). The AI assistant must retrieve highly relevant case law documents to augment the 
+FM’s responses. The AI assistant must identify semantic relationships between legal concepts, specific legal 
+terminology, and citations. The AI assistant must perform quickly and return precise results.
+Which solution will meet these requirements?
+Configure an Amazon Bedrock knowledge base to use a default vector search configuration. Use 
+Amazon Bedrock to expand queries to improve retrieval for legal documents based on specific 
+terminology and citations.
+Use Amazon OpenSearch Service to deploy a hybrid search architecture that combines vector search 
+with keyword search. Apply an Amazon Bedrock reranker model to optimize result relevance.
+Enable the Amazon Kendra query suggestion feature for end users. Use Amazon Bedrock to perform 
+post-processing of search results to identify semantic similarity in the documents and to produce precise 
+results.
+Use Amazon OpenSearch Service with vector search and Amazon Bedrock Titan Embeddings to index 
+and search legal documents. Use custom AWS Lambda functions to merge results with keyword-based 
+filters that are stored in an Amazon RDS database.
+Answer: B
+Explanation
+Option B is the correct solution because legal research workloads require both semantic understanding and 
+exact lexical precision, especially for statutes, citations, and domain-specific terminology. A hybrid search 
+architecture directly addresses this need by combining vector similarity search with traditional keyword-based 
+retrieval.
+Vector search alone is often insufficient for legal research because exact phrases, citation formats, and 
+jurisdiction-specific terms must be matched precisely. Keyword search ensures high recall and precision for 
+citations and legal terms, while vector search captures deeper semantic relationships between legal concepts, 
+precedents, and arguments. Amazon OpenSearch Service natively supports hybrid search, enabling efficient 
+scoring and ranking without external orchestration.
+Applying an Amazon Bedrock reranker model further improves relevance by reordering retrieved documents 
+based on deeper contextual understanding. Reranking is especially valuable in legal research because multiple 
+documents may appear relevant, but only a subset truly addresses the user’s legal question. The reranker 
+optimizes final results before they are passed to the Anthropic Claude FM, improving answer accuracy and 
+reducing hallucinations.
+Option A relies on default vector search, which does not reliably handle citations and exact terminology. 
+Option C focuses on query suggestions and post-processing rather than retrieval quality. Option D introduces 
+unnecessary operational complexity by merging results across multiple systems.
+Therefore, Option B best meets the requirements for precision, performance, and semantic understanding in a 
+legal research AI assistant.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

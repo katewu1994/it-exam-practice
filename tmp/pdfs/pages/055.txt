@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Option C is the correct solution because it provides a secure, scalable, and standards-compliant way to expose 
+an MCP server to an AI agent while enforcing strong user authorization. The Model Context Protocol 
+supports HTTP-based transports for remote MCP servers, making Streamable HTTP the appropriate choice 
+when the server is hosted as a managed service rather than a local process.
+Hosting the MCP server in AWS Lambda enables automatic scaling and cost-efficient execution. By placing 
+Amazon API Gateway in front of the Lambda function, the company creates a secure, managed HTTP 
+endpoint that the AI agent can invoke reliably. This architecture cleanly separates transport, authentication, 
+and business logic, which aligns with AWS serverless best practices.
+Using Amazon Cognito to enforce OAuth 2.1 ensures that only authenticated and authorized users can access 
+the MCP server. This satisfies security and compliance requirements when the MCP server handles sensitive 
+user information. Cognito integrates natively with API Gateway, removing the need for custom authentication 
+logic and reducing operational overhead.
+Option A lacks user-level authorization controls. Option B and Option D rely on STDIO transport, which is 
+intended for local or tightly coupled processes and is not suitable for distributed, serverless architectures. 
+Option D also introduces security risks by handling credentials through environment variables.
+Therefore, Option C best meets the requirements for secure access control, scalability, and correct MCP 
+integration in an AWS-based AI agent architecture.
+Question #:48 - [Implementation and Integration]
+An insurance company uses existing Amazon SageMaker AI infrastructure to support a web-based application 
+that allows customers to predict what their insurance premiums will be. The company stores customer data 
+that is used to train the SageMaker AI model in an Amazon S3 bucket. The dataset is growing rapidly. The 
+company wants a solution to continuously re-train the model. The solution must automatically re-train and re-
+deploy the model to the application when an employee uploads a new customer data file to the S3 bucket.
+Which solution will meet these requirements?
+Use AWS Glue to run an ETL job on each uploaded file. Configure the ETL job to use the AWS SDK 
+to invoke the SageMaker AI model endpoint. Use real-time inference with the endpoint to re-deploy the 
+model after it is re-trained on the updated customer dataset.
+Create an AWS Lambda function and webhook handlers to generate an event when an employee 
+uploads a new file. Configure SageMaker Pipelines to re-deploy the model after it is re-trained on the 
+updated customer dataset. Use Amazon EventBridge to create an event bus. Set the Lambda function 
+event as the source and SageMaker Pipelines as the target.
+Create an AWS Step Functions Express workflow with AWS SDK integrations to retrieve the customer 
+data from the S3 bucket when an employee uploads a new file to the S3 bucket. Use a SageMaker Data 
+Wrangler flow to export the data from the S3 bucket to SageMaker Autopilot. Use the SageMaker 
+Autopilot to re-deploy the model after it has been re-trained on the updated customer dataset.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

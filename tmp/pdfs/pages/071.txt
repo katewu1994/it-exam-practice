@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Question #:62 - [Foundation Model Integration, Data Management, and Compliance]
+A company is building a generative AI (GenAI) application that produces content based on a variety of 
+internal and external data sources. The company wants to ensure that the generated output is fully traceable. 
+The application must support data source registration and enable metadata tagging to attribute content to its 
+original source. The application must also maintain audit logs of data access and usage throughout the 
+pipeline.
+Which solution will meet these requirements?
+Use AWS Lake Formation to catalog data sources and control access. Apply metadata tags directly in 
+Amazon S3. Use AWS CloudTrail to monitor API activity.
+Use AWS Glue Data Catalog to register and tag data sources. Use Amazon CloudWatch Logs to 
+monitor access patterns and application behavior.
+Store data in Amazon S3 and use object tagging for attribution. Use AWS Glue Data Catalog to manage 
+schema information. Use AWS CloudTrail to log access to S3 buckets.
+Use AWS Glue Data Catalog to register all data sources. Apply metadata tags to attribute data sources. 
+Use AWS CloudTrail to log access and activity across services.
+Answer: D
+Explanation
+Option D is the correct solution because it directly satisfies all three core requirements: data source 
+registration, metadata-based attribution, and end-to-end audit logging, while remaining service-agnostic and 
+scalable across internal and external data sources.
+The AWS Glue Data Catalog is the AWS-native service for registering datasets and managing metadata 
+centrally. It supports structured registration of diverse data sources and enables consistent tagging that can be 
+used to attribute generated content back to its original source. This is essential for GenAI applications that 
+combine multiple datasets and must provide traceability for outputs.
+Metadata tags applied within the Glue Data Catalog ensure a consistent attribution framework that 
+downstream systems—such as Retrieval Augmented Generation (RAG) pipelines or evaluation systems—can 
+reference without embedding attribution logic directly in application code. This improves maintainability and 
+governance.
+AWS CloudTrail provides immutable audit logs of API activity across AWS services, including data access, 
+metadata changes, and pipeline interactions. CloudTrail logs are critical for compliance and regulatory review 
+because they capture who accessed which data, when, and through which service. This satisfies the 
+requirement to maintain audit logs “throughout the pipeline,” not just at storage or application layers.
+Option A introduces Lake Formation, which is primarily intended for fine-grained data lake permissions and 
+is not required solely for traceability. Option B relies on CloudWatch Logs, which does not provide 
+authoritative audit logging across services. Option C limits audit scope to S3 access and does not register or 
+govern all data sources comprehensively.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

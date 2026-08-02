@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Explanation
+Option B best meets the requirements because it provides systematic diagnosis, measurable comparison, and 
+historical traceability of prompt performance. By placing prompts under version control and testing them 
+against complex clinical documents, the company can consistently reproduce issues, track regressions, and 
+compare prompt behavior using quantifiable metrics such as factual accuracy, completeness, and consistency. 
+Automated testing ensures scalability and repeatability, while version history preserves prompt evolution over 
+time.
+Option A lacks objective metrics and does not address complex documents. Option C focuses on live traffic 
+experimentation but does not inherently diagnose prompt inconsistencies or preserve detailed historical 
+evaluations. Option D adds medical entity analysis but introduces unnecessary service coupling and does not 
+provide robust prompt version history or automated comparative benchmarking. Therefore, Option B is the 
+most complete and disciplined solution.
+Question #:15 - [Foundation Model Integration, Data Management, and Compliance]
+A GenAI developer is building a Retrieval Augmented Generation (RAG)-based customer support application 
+that uses Amazon Bedrock foundation models (FMs). The application needs to process 50 GB of historical 
+customer conversations that are stored in an Amazon S3 bucket as JSON files. The application must use the 
+processed data as its retrieval corpus. The application’s data processing workflow must extract relevant data 
+from customer support documents, remove customer personally identifiable information (PII), and generate 
+embeddings for vector storage. The processing workflow must be cost-effective and must finish within 4 
+hours.
+Which solution will meet these requirements with the LEAST operational overhead?
+Use AWS Lambda and Amazon Comprehend to process files in parallel, remove PII, and call Amazon 
+Bedrock APIs to generate vectors. Configure Lambda concurrency limits and memory settings to 
+optimize throughput.
+Create an AWS Glue ETL job to run PII detection scripts on the data. Use Amazon SageMaker 
+Processing to run the HuggingFaceProcessor to generate embeddings by using a pre-trained model. 
+Store the embeddings in Amazon OpenSearch Service .
+Deploy an Amazon EMR cluster that runs Apache Spark with user-defined functions (UDFs) that call 
+Amazon Comprehend to detect PII. Use Amazon Bedrock APIs to generate vectors. Store outputs in 
+Amazon Aurora PostgreSQL with the pgvector extension.
+Implement a data processing pipeline that uses AWS Step Functions to orchestrate a workload that uses 
+Amazon Comprehend to detect PII and Amazon Bedrock to generate embeddings. Directly integrate the 
+workflow with Amazon OpenSearch Serverless to store vectors and provide similarity search 
+capabilities.
+Answer: D
+Explanation
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A company is building a serverless application that uses AWS Lambda functions to help students around the 
+world summarize notes. The application uses Anthropic Claude through Amazon Bedrock. The company 
+observes that most of the traffic occurs during evenings in each time zone. Users report experiencing 
+throttling errors during peak usage times in their time zones.
+The company needs to resolve the throttling issues by ensuring continuous operation of the application. The 
+solution must maintain application performance quality and must not require a fixed hourly cost during low 
+traffic periods.
+Which solution will meet these requirements?
+Create custom Amazon CloudWatch metrics to monitor model errors. Set provisioned throughput to a 
+value that is safely higher than the peak traffic observed.
+Create custom Amazon CloudWatch metrics to monitor model errors. Set up a failover mechanism to 
+redirect invocations to a backup AWS Region when the errors exceed a specified threshold.
+Enable invocation logging in Amazon Bedrock. Monitor key metrics such as Invocations, 
+InputTokenCount, OutputTokenCount, and InvocationThrottles. Distribute traffic across cross-Region 
+inference endpoints.
+Enable invocation logging in Amazon Bedrock. Monitor InvocationLatency, InvocationClientErrors, 
+and InvocationServerErrors metrics. Distribute traffic across multiple versions of the same model.
+Answer: C
+Explanation
+Option C is the correct solution because it resolves throttling while preserving performance and avoiding 
+fixed costs during low-traffic periods. Amazon Bedrock supports on-demand inference with usage-based 
+pricing, making it well suited for applications with time-zone–dependent traffic spikes.
+Throttling during peak hours typically occurs when inference requests exceed available regional capacity. 
+Cross-Region inference allows Amazon Bedrock to automatically distribute requests across multiple AWS 
+Regions, reducing contention and preventing throttling without requiring reserved or provisioned capacity. 
+This approach ensures continuous operation while maintaining low latency for users in different geographic 
+locations.
+Invocation logging and native metrics such as InvocationThrottles, InputTokenCount, and OutputTokenCount 
+provide visibility into usage patterns and capacity constraints. Monitoring these metrics enables teams to 
+validate that traffic distribution is working as intended and that performance remains consistent during peak 
+periods.
+Option A introduces fixed hourly costs by relying on provisioned throughput, which directly violates the 
+requirement to avoid unnecessary spend during low-traffic periods. Option B introduces regional failover 
+complexity and reactive behavior instead of proactive load distribution. Option D does not address the root 
+cause of throttling, as distributing traffic across model versions within the same Region does not increase 
+available capacity.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

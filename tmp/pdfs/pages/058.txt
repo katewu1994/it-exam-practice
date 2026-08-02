@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A pharmaceutical company is developing a Retrieval Augmented Generation (RAG) application that uses an 
+Amazon Bedrock knowledge base. The knowledge base uses Amazon OpenSearch Service as a data source 
+for more than 25 million scientific papers. Users report that the application produces inconsistent answers that 
+cite irrelevant sections of papers when queries span methodology, results, and discussion sections of the 
+papers.
+The company needs to improve the knowledge base to preserve semantic context across related paragraphs on 
+the scale of the entire corpus of data.
+Which solution will meet these requirements?
+Configure the knowledge base to use fixed-size chunking. Set a 300-token maximum chunk size and a 
+10% overlap between chunks. Use an appropriate Amazon Bedrock embedding model.
+Configure the knowledge base to use hierarchical chunking. Use parent chunks that contain 1,000 
+tokens and child chunks that contain 200 tokens. Set a 50-token overlap between chunks.
+Configure the knowledge base to use semantic chunking. Use a buffer size of 1 and a breakpoint 
+percentile threshold of 85% to determine chunk boundaries based on content meaning.
+Configure the knowledge base not to use chunking. Manually split each document into separate files 
+before ingestion. Apply post-processing reranking during retrieval.
+Answer: B
+Explanation
+Option B is the best solution because hierarchical chunking is specifically designed to preserve broader 
+semantic context while still enabling precise retrieval at paragraph or sub-paragraph granularity. The problem 
+described—answers citing irrelevant sections when a query spans multiple paper sections—often occurs when 
+chunks are either too small (losing cross-paragraph context) or too “flat” (retrieving isolated snippets without 
+their surrounding rationale).
+In a scientific paper, related information is frequently distributed across methodology, results, and discussion. 
+Flat, fixed-size chunking (Option A) can split these logically connected ideas into separate chunks, causing 
+retrieval to surface fragments that match a term but not the full intent. Semantic chunking (Option C) 
+improves boundary placement, but it does not inherently provide a multi-resolution structure that helps 
+preserve section-level continuity at massive scale.
+Hierarchical chunking solves this by creating parent chunks (larger context windows) that capture broader 
+section context and child chunks (smaller units) that retain retrieval precision. When the retriever identifies 
+relevant child chunks, it can also bring in the associated parent context so the foundation model sees the 
+surrounding methodological or discussion framing. The defined overlaps further reduce the risk that key 
+transitions or references are split across chunks.
+This approach is well suited for a corpus of 25 million papers because it improves relevance without requiring 
+a custom reranking model or a manual preprocessing pipeline. It remains operationally efficient because it is 
+configured at the knowledge base level rather than implemented through custom code per document.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

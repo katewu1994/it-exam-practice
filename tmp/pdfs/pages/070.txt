@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option A and C require custom logic for validation, monitoring, and chunking, increasing development 
+complexity. Option D introduces unnecessary infrastructure management and services not optimized for data 
+preprocessing.
+Therefore, Option B best meets the requirements while minimizing development effort and aligning with 
+AWS Generative AI data preparation best practices.
+Question #:61 - [AI Safety, Security, and Governance]
+A global healthcare company is deploying a GenAI application on Amazon Bedrock to produce treatment 
+recommendations. Regulations vary for each country where the company operates. Some countries require the 
+company to retain all model inputs and outputs for 2 years. Other countries require the company to submit 
+data for local audits only. Medical providers require consistent medical terminology across all locations. 
+However, the treatment recommendations that the model produces must adapt to local patient demographics. 
+The solution must also integrate with existing electronic health record (EHR) systems. The application must 
+support up to 10,000 healthcare provider queries every day with sub-second response times. The company 
+must be able to review the application before deployments and approve of prompt changes. The application 
+must produce comprehensive logs for prompts, responses, and user context. Which solution will meet these 
+requirements?
+Use AWS CloudTrail to log API calls. Create standard prompts in Amazon Bedrock Prompt 
+Management that include variables for patient demographics. Implement IAM policies to ensure that 
+only approves users can access prompts.
+Use Amazon CloudWatch Logs to collect detailed model invocation logs. Store the logs in Amazon S3. 
+Create parameterized prompts in Amazon Bedrock Prompt Management that include variables for 
+treatment options. Enable prompt versioning and set up an approval workflow.
+Create AWS Lambda functions to dynamically generate prompts that enforce clinical language 
+requirements. Use Amazon CloudWatch Logs to track model invocations. Use Amazon SQS queues to 
+implement a prompt approval workflow.
+Store prompt templates in Amazon S3. Use S3 Object Lock to implement version control. Use Amazon 
+EventBridge to track model invocations. Use AWS Config to monitor changes to prompt templates.
+Answer: B
+Explanation
+This complex set of requirements is best addressed by  . It allows Amazon Bedrock Prompt Management
+the creation of  where variables (like demographics) can be injected at runtime, parameterized prompts
+ensuring consistent medical terminology while adapting recommendations to the specific patient. Prompt 
+Management natively supports  , which is a requirement for clinical versioning and approval workflows
+safety and compliance. For audit and retention,  can be configured to send Bedrock model invocation logging
+detailed prompt and response data to  . Storing these logs in S3 supports the 2-year retention Amazon S3
+requirement and facilitates local audits. S3 is more cost-effective for long-term storage than CloudWatch 
+Logs alone. CloudTrail (Option A) only logs management events, not the actual prompt/response content 
+required for medical auditing.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

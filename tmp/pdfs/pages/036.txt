@@ -1,0 +1,39 @@
+Amazon Web Services - AIP-C01
+A.  
+Answer: C
+Explanation
+Option C best meets the requirements by combining native Amazon Bedrock logging with adaptive 
+monitoring and minimal operational overhead. Amazon Bedrock model invocation logging can be sent 
+directly to CloudWatch Logs, where detailed fields such as InputTokenCount, OutputTokenCount, and tool 
+invocation metadata are captured for each request.
+CloudWatch metric filters allow extraction of structured metrics from logs, including tool-specific token 
+consumption patterns. By defining filters per tool integration, the company can isolate which tools are 
+responsible for increased token usage without building custom log-processing pipelines.
+CloudWatch anomaly detection provides automatic baseline modeling and dynamic thresholds based on 
+historical traffic patterns. Unlike static alarms, anomaly detection adapts as usage evolves, making it ideal for 
+applications with changing workloads or seasonal usage patterns. This directly satisfies the requirement to 
+automatically adjust thresholds as traffic patterns change.
+When abnormal token consumption occurs, anomaly detection alarms trigger immediately, enabling rapid 
+investigation and remediation. Because this solution uses fully managed AWS services without custom 
+analytics jobs or manual threshold tuning, it significantly reduces operational effort.
+Option A fails to adapt to changing patterns. Option B introduces batch analysis and delayed insights. Option 
+D requires manual intervention and custom code, increasing maintenance burden.
+Therefore, Option C provides the most scalable, adaptive, and low-maintenance solution for monitoring and 
+controlling token consumption in Amazon Bedrock–based applications.
+Question #:32 - [Implementation and Integration]
+An ecommerce company is using Amazon Bedrock to build a generative AI (GenAI) application. The 
+application uses AWS Step Functions to orchestrate a multi-agent workflow to produce detailed product 
+descriptions. The workflow consists of three sequential states: a description generator, a technical 
+specifications validator, and a brand voice consistency checker. Each state produces intermediate reasoning 
+traces and outputs that are passed to the next state. The application uses an Amazon S3 bucket for process 
+storage and to store outputs.
+During testing, the company discovers that outputs between Step Functions states frequently exceed the 256 
+KB quota and cause workflow failures. A GenAI Developer needs to revise the application architecture to 
+efficiently handle the Step Functions 256 KB quota and maintain workflow observability. The revised 
+architecture must preserve the existing multi-agent reasoning and acting (ReAct) pattern.
+Which solution will meet these requirements with the LEAST operational overhead?
+Store intermediate outputs in Amazon DynamoDB . Pass only references between states. Create a Map 
+state that retrieves the complete data from DynamoDB when required for each agent ' s processing step.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+Deploy the models by using Amazon Bedrock with provisioned throughput to handle peak loads. 
+Configure the number of model units (MUs) based on expected token throughput needs. Implement 
+request batching for each model.
+Deploy each model to a separate Amazon SageMaker AI endpoint. Use an asynchronous inference 
+configuration. Store model requests and responses in Amazon S3. Use Amazon SNS to send alerts to 
+users when the application finishes processing requests.
+Answer: B
+Explanation
+Option B is correct because the workload has predictable short peak periods, strict low-latency requirements, 
+and lower demand between spikes. Amazon SageMaker Serverless Inference is designed for intermittent or 
+unpredictable traffic because SageMaker manages the infrastructure and the customer pays based on usage 
+rather than continuously running idle instances. AWS documentation describes serverless inference as 
+suitable when traffic is intermittent or unpredictable and when users do not want to manage instances or 
+scaling policies.
+Provisioned concurrency is the key part of this answer. For latency-sensitive serverless inference workloads, 
+provisioned concurrency keeps the required number of serverless instances initialized and ready to respond. 
+AWS documentation states that SageMaker Serverless Inference integrates with Application Auto Scaling so 
+provisioned concurrency can be scaled up or down based on a target metric or schedule. This fits a daily 2-
+hour peak window because the company can configure enough provisioned concurrency for 500 concurrent 
+requests during peak periods and scale down when demand decreases.
+Deploying each model to a separate serverless endpoint is also important. The categorization, extraction, and 
+response-generation models likely have different memory, latency, and concurrency needs. Separate 
+endpoints allow independent memory sizing, maximum concurrency configuration, monitoring, and scaling 
+for each task. AWS API documentation also shows that serverless endpoint configuration includes maximum 
+concurrency and provisioned concurrency settings, with provisioned concurrency required to be less than or 
+equal to maximum concurrency.
+Option A is less suitable because multi-model endpoints are usually best when many models can share 
+infrastructure, but model loading and shared capacity can add latency risk. Option C assumes Amazon 
+Bedrock provisioned throughput for models, but the company is developing specialized NLP models and 
+needs task-specific deployment controls. Request batching can also add latency. Option D uses asynchronous 
+inference, which is inappropriate for a less-than-500-ms synchronous response requirement. Therefore, option 
+B best satisfies latency, concurrency, accuracy isolation, and resource optimization.
+==========
+Question #:58 - [Operational Efficiency and Optimization for GenAI Applications]
+A company deploys multiple Amazon Bedrock–based generative AI (GenAI) applications across multiple 
+business units for customer service, content generation, and document analysis. Some applications show 
+unpredictable token consumption patterns. The company requires a comprehensive observability solution that 
+provides real-time visibility into token usage patterns across multiple models. The observability solution must 
+support custom dashboards for multiple stakeholder groups and provide alerting capabilities for token 
+consumption across all the foundation models that the company’s applications use.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+CloudWatch metrics allow teams to monitor both workflow execution time and individual model inference 
+latency, enabling performance tuning and operational visibility. Configuring client-side timeouts ensures that 
+slow or failed model invocations do not block the entire batch.
+Option A still processes tasks sequentially and therefore cannot meet the strict latency requirement. Option C 
+introduces queuing delays and sequential processing within each report, which increases total execution time. 
+Option D relies on container-based sequential processing and adds unnecessary operational overhead for a 
+workload that is event-driven and latency-sensitive.
+Therefore, Option B best meets the performance, scalability, and operational efficiency requirements for high-
+speed batch document analysis using Amazon Bedrock.
+Question #:118 - [Foundation Model Integration, Data Management, and Compliance]
+A GenAI developer is building a RAG system that uses Amazon Bedrock Knowledge Bases. The system 
+needs to process 50 textbooks that are stored in an Amazon S3 bucket. The textbooks are all an average of 
+500 pages long. The system needs to generate a knowledge base to answer domain-specific customer 
+questions.
+During initial testing on a subset of documents, the GenAI developer notices that query responses contain 
+irrelevant information and sometimes miss critical context from the source materials. The GenAI developer 
+must ensure that the solution provides accurate responses with low latency and no hallucinations.
+Which solution will meet these requirements?
+Configure fixed-size chunking with a 256-token chunk size. Implement metadata filtering based on 
+document sections. Use an Amazon Titan Embeddings model to create vector representations that are 
+optimized for semantic search.
+Use Amazon ElastiCache to implement semantic caching for common queries. Use Anthropic Claude 
+Sonnet to reformulate user queries. Configure real-time model feedback loops to continuously improve 
+response quality based on user interactions.
+Apply hierarchical chunking with both 200-token chunks and 1,000-token chunks. Implement hybrid 
+search that combines vector and keyword search. Adjust the relevance score threshold to filter out low-
+confidence retrieval results.
+Use semantic chunking to automatically segment documents based on topic boundaries. Configure the 
+knowledge base to use a single embedding model for all content types. Implement query expansion to 
+reformulate user questions before retrieval.
+Answer: C
+Explanation
+Option C is correct because the issue is retrieval quality: responses contain irrelevant information and 
+sometimes miss important surrounding context. Amazon Bedrock Knowledge Bases supports hierarchical 
+chunking with parent and child chunks. In this pattern, smaller child chunks improve precise retrieval, while 
+larger parent chunks provide broader surrounding context when returned for generation. AWS documentation 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

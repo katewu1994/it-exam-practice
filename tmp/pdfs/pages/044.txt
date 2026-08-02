@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+A company uses an organization in AWS Organizations with all features enabled to manage multiple AWS 
+accounts. Employees use Amazon Bedrock across multiple accounts. The company must prevent specific 
+topics and proprietary information from being included in prompts to Amazon Bedrock models. The company 
+must ensure that employees can use only approved Amazon Bedrock models. The company wants to manage 
+these controls centrally.
+Which combination of solutions will meet these requirements? (Select TWO.)
+Create an IAM permissions boundary for each employee ' s IAM role. Configure the permissions 
+boundary to require an approved Amazon Bedrock guardrail identifier to invoke Amazon Bedrock 
+models. Create an SCP that allows employees to use only approved models.
+Create an SCP that allows employees to use only approved models. Configure the SCP to require 
+employees to specify a guardrail identifier in calls to invoke an approved model.
+Create an SCP that prevents an employee from invoking a model if a centrally deployed guardrail 
+identifier is not specified in a call to the model. Create a permissions boundary on each employee ' s 
+IAM role that allows each employee to invoke only approved models.
+Use AWS CloudFormation to create a custom Amazon Bedrock guardrail that has a block filtering 
+policy. Use stack sets to deploy the guardrail to each account in the organization.
+Use AWS CloudFormation to create a custom Amazon Bedrock guardrail that has a mask filtering 
+policy. Use stack sets to deploy the guardrail to each account in the organization.
+Answer: C D
+Explanation
+The correct combination is  because together they enforce centralized governance over both C and D model 
+ and  , which are the two core requirements of the scenario.access prompt content controls
+To ensure employees can use  , governance must be enforced at the only approved Amazon Bedrock models
+organization level and not rely on individual application logic.  are the Service Control Policies (SCPs)
+strongest control mechanism available in AWS Organizations because they define the maximum permissions 
+an account or principal can have. In option  , the SCP prevents any Amazon Bedrock model invocation C
+unless a centrally approved guardrail identifier is specified. This ensures that guardrails are always enforced, 
+regardless of how or where the invocation originates. The additional use of  IAM permissions boundaries
+ensures that even within allowed accounts, employees are restricted to invoking only explicitly approved 
+foundation models.
+To prevent  , specific topics and proprietary information from being included in prompts Amazon 
+ must be used. Guardrails operate inline during model invocation and can block Bedrock Guardrails
+disallowed content before it is processed by the model. Option  correctly specifies a  , D block filtering policy
+which is appropriate when content must be prevented entirely rather than partially redacted. Deploying the 
+guardrail using  allows the company to centrally manage and consistently AWS CloudFormation StackSets
+deploy the same guardrail configuration across all accounts in the organization, ensuring uniform enforcement.
+Option  uses mask filtering, which is better suited for redacting sensitive output rather than preventing E
+prohibited content from being submitted in prompts. Option  attempts to use SCPs alone but does not B
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

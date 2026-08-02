@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+escalation. Option D requires managing EC2 instances and uses keyword heuristics instead of model 
+confidence, so it is less resilient and less aligned with Bedrock-based moderation. Therefore, option C is 
+correct.
+Question #:113 - [Testing, Validation, and Troubleshooting]
+A company wants to select a new FM for its AI assistant. A GenAI developer needs to generate evaluation 
+reports to help a data scientist assess the quality and safety of various foundation models FMs. The data 
+scientist provides the GenAI developer with sample prompts for evaluation. The GenAI developer wants to 
+use Amazon Bedrock to automate report generation and evaluation.
+Which solution will meet this requirement?
+Combine the sample prompts into a single JSON document. Create an Amazon Bedrock knowledge 
+base with the document. Write a prompt that asks the FM to generate a response to each sample prompt. 
+Use the RetrieveAndGenerate API to generate a report for each model.
+Combine the sample prompts into a single JSONL document. Store the document in an Amazon S3 
+bucket. Create an Amazon Bedrock evaluation job that uses a judge model. Specify the S3 location as 
+input and a different S3 location as output. Run an evaluation job for each FM and select the FM as the 
+generator.
+Combine the sample prompts into a single JSONL document. Store the document in an Amazon S3 
+bucket. Create an Amazon Bedrock evaluation job that uses a judge model. Specify the S3 location as 
+input and Amazon QuickSight as output. Run an evaluation job for each FM and select the FM as the 
+evaluator.
+Combine the sample prompts into a single JSON document. Create an Amazon Bedrock knowledge 
+base from the document. Create an Amazon Bedrock evaluation job that uses the retrieval and response 
+generation evaluation type. Specify an Amazon S3 bucket as the output. Run an evaluation job for each 
+FM.
+Answer: B
+Explanation
+Option B is correct because it uses the managed evaluation capability in Amazon Bedrock that is intended 
+specifically for comparing foundation models using a consistent prompt set and producing structured results 
+with minimal custom tooling. In a Bedrock evaluation workflow, you provide an input dataset of prompts, 
+typically in JSON Lines format so each line represents one evaluation record. Storing the JSONL file in 
+Amazon S3 allows Bedrock to read the dataset at scale and write standardized evaluation outputs back to S3 
+for downstream analysis, sharing, and retention.
+The key requirement is to assess both quality and safety across multiple models. A Bedrock evaluation job 
+can use a judge model to score the generated outputs against defined criteria. This approach supports 
+repeatable, apples-to-apples comparisons because the same judge model and scoring rubric can be applied to 
+every candidate foundation model. The candidate models are configured as generators, meaning each 
+evaluation job run uses one selected FM to produce answers for the same prompt set, and the judge model 
+evaluates those answers. That matches the requirement to generate evaluation reports that help a data scientist 
+select the best FM.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

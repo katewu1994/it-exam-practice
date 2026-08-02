@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A.  
+B.  
+A retail company runs an application that makes product recommendations to customers on the company’s 
+website. The application uses Amazon Bedrock to generate recommendations by dynamically constructing 
+prompts and sending them to foundation models (FMs). A GenAI developer has deployed an update to the 
+application that instructs the FM to include a specific promotional message when the FM generates a response 
+to prompts. When the developer tests the application, the promotional message does not always appear in the 
+responses. When the promotional message does appear in the responses, it does not always flow with the rest 
+of the text. The GenAI developer must ensure that the promotional message always appears in the FM 
+responses. Which solution will meet this requirement?
+Use an Amazon Bedrock Guardrails filter on the prompt. Set the input filter strength to HIGH.
+Generate multiple response variants that include the promotional message in different ways. Use a 
+reranker model to select the most coherent version based on relevance to the original prompt.
+Run the prompt through Amazon Bedrock. Process the response through Amazon Bedrock AgentCore 
+to add the promotional message. Rerank the results by using the original prompt and the desired 
+message as context.
+Reinforce the requirement to include the new promotional message within product recommendations by 
+using an output indicator in prompts to the FM.
+Answer: D
+Explanation
+When a foundation model fails to include specific required content or fails to integrate it coherently, prompt 
+engineering techniques like  or " wrappers " are highly effective. By explicitly defining output indicators
+where the promotional message should appear (e.g., " The response must end with the following message: 
+[PROMO TEXT] " ) or providing an example output structure, the developer reinforces the constraint within 
+the model ' s generation path. This is more direct and less computationally expensive than generating multiple 
+variants and reranking them (Option B) or adding complex post-processing layers (Option C). Guardrails 
+(Option A) are intended for filtering harmful content rather than enforcing specific promotional copy insertion.
+Question #:13 - [Testing, Validation, and Troubleshooting]
+A healthcare company wants to develop a proof-of-concept application that uses Amazon Bedrock to 
+automatically summarize medical documents. The company has 3 weeks to validate the application ' s 
+accuracy. The application must comply with the company’s data privacy policies. The application must 
+include metrics to evaluate summarization accuracy and processing time. Which solution will meet these 
+requirements?
+Create a dataset that includes 50-100 anonymized patient records. Implement Retrieval Augmented 
+Generation (RAG) with a secure knowledge base. Use a judge model to evaluate accuracy metrics 
+across three foundation models (FMs).
+Fine-tune a single foundation model (FM) on patient records. Deploy the FM on Amazon Bedrock. Use 
+Amazon Bedrock AgentCore to configure the FM as an agent. Conduct user testing on 500 company 
+staff members.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

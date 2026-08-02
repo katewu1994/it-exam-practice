@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option D is the best solution because it delivers a fully managed, scalable pipeline with minimal 
+infrastructure management while meeting the 50 GB and 4-hour constraint. AWS Step Functions provides a 
+serverless orchestration layer that can coordinate parallel processing steps, retries, and error handling without 
+managing clusters or tuning long-running compute.
+Using Amazon Comprehend for PII detection fulfills the requirement to remove customer PII in a managed 
+and consistent way. Step Functions can coordinate Comprehend calls at scale and route sanitized outputs into 
+the embedding step. Generating embeddings with Amazon Bedrock keeps the entire workflow within AWS 
+managed services, eliminates the need to maintain custom embedding models, and supports consistent vector 
+representations for downstream retrieval.
+Direct integration with Amazon OpenSearch Serverless provides a low-operations vector store that can handle 
+large-scale indexing and similarity search without cluster sizing, node maintenance, or shard management. 
+This aligns strongly with the requirement for least operational overhead and supports growth beyond the 
+initial 50 GB corpus. Step Functions can batch and parallelize ingestion into OpenSearch Serverless to meet 
+the 4-hour completion goal in a cost-effective manner by controlling concurrency, chunk sizes, and failure 
+handling.
+Option A can be difficult and costly at this scale because Lambda concurrency and per-invocation overhead 
+can become complex to tune for 50 GB within 4 hours. Option B introduces SageMaker Processing and 
+embedding model management, increasing operational complexity. Option C requires EMR cluster 
+management and tuning, which is the opposite of minimal overhead.
+Therefore, Option D is the most operationally efficient, scalable, and managed approach to build the required 
+PII-sanitized embedding pipeline for a RAG corpus.
+Question #:16 - [AI Safety, Security, and Governance]
+A company is using Amazon Bedrock to build a customer-facing AI assistant that handles sensitive customer 
+inquiries. The company must use defense-in-depth safety controls to block sophisticated prompt injection 
+attacks. The company must keep audit logs of all safety interventions. The AI assistant must have cross-
+Region failover capabilities.
+Which solution will meet these requirements?
+Configure Amazon Bedrock guardrails with content filters set to high to protect against prompt 
+injection attacks. Use a guardrail profile to implement cross-Region guardrail inference. Use Amazon 
+CloudWatch Logs with custom metrics to capture detailed guardrail intervention events.
+Configure Amazon Bedrock guardrails with content filters set to high. Use AWS WAF to block 
+suspicious inputs. Use AWS CloudTrail to log API calls.
+Deploy Amazon Comprehend custom classifiers to detect prompt injection attacks. Use Amazon API 
+Gateway request validation. Use CloudWatch Logs to capture intervention events.
+Configure Amazon Bedrock guardrails with custom content filters and word filters set to high. 
+Configure cross-Region guardrail replication for failover. Store logs in AWS CloudTrail for compliance 
+auditing.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

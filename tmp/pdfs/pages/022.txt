@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Integrate Amazon Bedrock with Amazon Kendra to retrieve approved documents. Implement custom 
+post-processing to compare generated responses against source documents and to include citations.
+Deploy an Amazon Bedrock Knowledge Base and connect it to approved clinical source documents. 
+Use the Amazon Bedrock RetrieveAndGenerate API to return citations from the knowledge base.
+Use Amazon Bedrock and Amazon Comprehend Medical to extract medical entities. Implement 
+verification logic against a medical terminology database.
+Use an Amazon Bedrock knowledge base with Retrieve API calls and InvokeModel API calls to 
+retrieve approved clinical source documents. Implement verification logic to compare against retrieved 
+sources and to cite sources.
+Answer: B
+Explanation
+Option B is the correct solution because Amazon Bedrock Knowledge Bases with the RetrieveAndGenerate 
+API provide a fully managed Retrieval Augmented Generation (RAG) capability that directly addresses 
+grounding, citation, and hallucination prevention with the least operational overhead.
+Amazon Bedrock Knowledge Bases automatically manage document ingestion, chunking, embedding, 
+retrieval, and ranking from approved data sources. When used with the RetrieveAndGenerate API, the model 
+is constrained to generate responses only from retrieved, approved clinical documentation, significantly 
+reducing the risk of hallucinations or unsupported claims. The API also returns explicit source citations, 
+which satisfies regulatory and clinical transparency requirements without requiring custom comparison or 
+validation logic.
+This approach aligns with AWS best practices for healthcare GenAI workloads, where correctness and 
+traceability are critical. Because retrieval and generation are tightly integrated, the system avoids multi-step 
+orchestration, custom verification pipelines, or additional compute layers that would increase latency and 
+maintenance burden.
+Option A introduces Amazon Kendra and custom post-processing logic, increasing operational complexity. 
+Option C focuses on entity extraction rather than controlled knowledge grounding and does not guarantee 
+citation or hallucination prevention. Option D requires manual orchestration between retrieval and generation 
+and custom verification logic, which increases development and maintenance effort.
+Therefore, Option B delivers accurate, grounded, and cited clinical recommendations with minimal 
+infrastructure and operational overhead.
+Question #:20 - [Foundation Model Integration, Data Management, and Compliance]
+A medical device company wants to feed reports of medical procedures that used the company’s devices into 
+an AI assistant. To protect patient privacy, the AI assistant must expose patient personally identifiable 
+information (PII) only to surgeons. The AI assistant must redact PII for engineers. The AI assistant must 
+reference only medical reports that are less than 3 years old.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

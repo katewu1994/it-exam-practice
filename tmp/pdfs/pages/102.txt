@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A healthcare company is developing an application to process medical queries. The application must answer 
+complex queries with high accuracy by reducing semantic dilution. The application must refer to domain-
+specific terminology in medical documents to reduce ambiguity in medical terminology. The application must 
+be able to respond to 1,000 queries each minute with response times less than 2 seconds.
+Which solution will meet these requirements with the LEAST operational overhead?
+Use Amazon API Gateway to route incoming queries to an Amazon Bedrock agent. Configure the agent 
+to use an Anthropic Claude model to decompose queries and an Amazon Titan model to expand 
+queries. Create an Amazon Bedrock knowledge base to store the reference medical documents.
+Configure an Amazon Bedrock knowledge base to store the reference medical documents. Enable query 
+decomposition in the knowledge base. Configure an Amazon Bedrock flow that uses a foundation 
+model and the knowledge base to support the application.
+Use Amazon SageMaker AI to host custom ML models for both query decomposition and query 
+expansion. Configure Amazon Bedrock knowledge bases to store the reference medical documents. 
+Encrypt the documents in the knowledge base.
+Create an Amazon Bedrock agent to orchestrate multiple AWS Lambda functions to decompose 
+queries. Create an Amazon Bedrock knowledge base to store the reference medical documents. Use the 
+agent’s built-in knowledge base capabilities. Add deep research and reasoning capabilities to the agent 
+to reduce ambiguity in the medical terminology.
+Answer: B
+Explanation
+Option B provides the least operational overhead because it keeps the solution primarily inside managed 
+Amazon Bedrock capabilities, minimizing custom orchestration code and infrastructure to operate. The core 
+requirements are domain grounding, reduced semantic dilution for complex questions, and consistent low-
+latency responses at high request volume. A Bedrock knowledge base is purpose-built for Retrieval 
+Augmented Generation by ingesting domain documents, chunking content, generating embeddings, and 
+retrieving the most relevant passages at runtime. This directly addresses the need to reference domain-specific 
+medical terminology from authoritative documents to reduce ambiguity and improve factual accuracy.
+Reducing semantic dilution typically requires improving the retrieval query so that the retriever focuses on the 
+most relevant concepts, especially for long or multi-intent questions. Enabling query decomposition allows 
+the system to break a complex medical query into smaller, more targeted sub-queries. This increases retrieval 
+precision and recall for each sub-question, which helps the model generate a more accurate synthesized 
+response grounded in the retrieved medical context.
+Amazon Bedrock Flows provide a managed way to orchestrate multi-step generative AI workflows, such as 
+preprocessing the input, performing retrieval against the knowledge base, invoking a foundation model, and 
+formatting the final response. Because flows are managed, the company avoids maintaining custom state 
+machines, multiple Lambda functions, or bespoke routing logic. This reduces operational overhead while still 
+supporting repeatable, observable execution.
+Compared with the alternatives, option A introduces an agent plus API Gateway routing and multiple model 
+choices, increasing configuration and runtime complexity. Option C requires hosting and scaling custom 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

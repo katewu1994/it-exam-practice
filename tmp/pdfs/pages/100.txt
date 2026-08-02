@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Question #:87 - [Testing, Validation, and Troubleshooting]
+An enterprise application uses an Amazon Bedrock foundation model (FM) to process and analyze 50 to 200 
+pages of technical documents. Users are experiencing inconsistent responses and receiving truncated outputs 
+when processing documents that exceed the FM ' s context window limits.
+Which solution will resolve this problem?
+Configure fixed-size chunking at 4,000 tokens for each chunk with 20% overlap. Use application-level 
+logic to link multiple chunks sequentially until the FM ' s maximum context window of 200,000 tokens 
+is reached before making inference calls.
+Use hierarchical chunking with parent chunks of 8,000 tokens and child chunks of 2,000 tokens. Use 
+Amazon Bedrock Knowledge Bases built-in retrieval to automatically select relevant parent chunks 
+based on query context. Configure overlap tokens to maintain semantic continuity.
+Use semantic chunking with a breakpoint percentile threshold of 95% and a buffer size of 3 sentences. 
+Use the RetrieveAndGenerate API to dynamically select the most relevant chunks based on embedding 
+similarity scores.
+Create a pre-processing AWS Lambda function that analyzes document token count by using the FM ' s 
+tokenizer. Configure the Lambda function to split documents into equal segments that fit within 80% of 
+the context window. Configure the Lambda function to process each segment independently before 
+aggregating the results.
+Answer: C
+Explanation
+Option C directly addresses the root cause of truncated and inconsistent responses by using AWS-
+recommended semantic chunking and dynamic retrieval rather than static or sequential chunk processing. 
+Amazon Bedrock documentation emphasizes that foundation models have fixed context windows and that 
+sending oversized or poorly structured input can lead to truncation, loss of context, and degraded output 
+quality.
+Semantic chunking breaks documents based on meaning instead of fixed token counts. By using a breakpoint 
+percentile threshold and sentence buffers, the content remains coherent and semantically complete. This 
+approach reduces the likelihood that important concepts are split across chunks, which is a common cause of 
+inconsistent summarization results.
+The RetrieveAndGenerate API is designed specifically to handle large documents that exceed a model’s 
+context window. Instead of forcing all content into a single inference call, the API generates embeddings for 
+chunks and dynamically selects only the most relevant chunks based on similarity to the user query. This 
+ensures that the FM receives only high-value context while staying within its context window limits.
+Option A is ineffective because chaining chunks sequentially does not align with how FMs process context 
+and risks exceeding context limits or introducing irrelevant information. Option B improves structure but still 
+relies on larger parent chunks, which can lead to inefficiencies when processing very large documents. Option 
+D processes segments independently, which often causes loss of global context and inconsistent summaries.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

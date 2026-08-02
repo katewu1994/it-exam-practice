@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+(GenAI) model. To improve output relevance and personalization, Example Corp wants to enhance the 
+prompts by using customer-specific context such as product preferences, customer attributes, and business 
+history.
+The customers have strict data governance requirements. The customers must retain full ownership and 
+control over their own data. The customers do not require real-time access. However, semantic accuracy must 
+be high and retrieval latency must remain low to support customer experience use cases.
+Example Corp wants to minimize architectural complexity in its integration pattern. Example Corp does not 
+want to deploy and manage services in each customer’s environment unless necessary.
+Which solution will meet these requirements?
+Ensure that each customer sets up an Amazon Q Business index that includes the customer’s internal 
+data. Ensure that each customer designates Example Corp as a data accessor to allow Example Corp to 
+retrieve relevant content by using a secure API to enrich prompts at runtime.
+Use federated search with Model Context Protocol (MCP) by deploying real-time MCP servers for each 
+customer. Retrieve data in real time during prompt generation.
+Ensure that each customer configures an Amazon Bedrock knowledge base. Allow cross-account 
+querying so Example Corp can retrieve structured data for prompt augmentation.
+Configure Amazon Kendra to crawl customer data sources. Share the resulting indexes across accounts 
+so Example Corp can query each customer’s Amazon Kendra index to retrieve augmentation data.
+Answer: A
+Explanation
+Option A is the correct solution because Amazon Q Business is explicitly designed to provide secure, 
+governed access to enterprise data while preserving customer ownership and control. Each customer 
+maintains their own Amazon Q Business index, which ensures that data never leaves the customer’s control 
+boundary unless explicitly shared through approved access mechanisms.
+By designating Example Corp as a data accessor, customers can allow controlled, auditable access to their 
+indexed content through secure APIs. This model satisfies strict data governance requirements, including data 
+ownership, access transparency, and revocation capability. Customers do not need to expose raw data or 
+deploy infrastructure in Example Corp’s environment.
+Amazon Q Business provides high semantic accuracy through managed indexing, ranking, and retrieval 
+optimizations. Because real-time access is not required, this approach avoids the complexity and latency 
+challenges of live federated retrieval while still delivering fast query performance suitable for customer 
+experience use cases.
+Option B introduces unnecessary operational complexity by requiring real-time MCP servers per customer. 
+Option C requires customers to manage Amazon Bedrock knowledge bases and enable cross-account access, 
+which increases integration complexity and governance risk. Option D requires shared Amazon Kendra 
+indexes across accounts, which complicates access control and data ownership boundaries.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

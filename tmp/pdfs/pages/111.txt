@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Therefore, Option B provides the best balance of performance, scalability, cost control, and operational 
+simplicity using AWS-native GenAI services.
+Question #:97 - [AI Safety, Security, and Governance]
+A retail company has a generative AI (GenAI) product recommendation application that uses Amazon 
+Bedrock. The application suggests products to customers based on browsing history and demographics. The 
+company needs to implement fairness evaluation across multiple demographic groups to detect and measure 
+bias in recommendations between two prompt approaches. The company wants to collect and monitor fairness 
+metrics in real time. The company must receive an alert if the fairness metrics show a discrepancy of more 
+than 15% between demographic groups. The company must receive weekly reports that compare the 
+performance of the two prompt approaches.
+Which solution will meet these requirements with the LEAST custom development effort?
+Configure an Amazon CloudWatch dashboard to display default metrics from Amazon Bedrock API 
+calls. Create custom metrics based on model outputs. Set up Amazon EventBridge rules to invoke AWS 
+Lambda functions that perform post-processing analysis on model responses and publish custom 
+fairness metrics.
+Create the two prompt variants in Amazon Bedrock Prompt Management. Use Amazon Bedrock Flows 
+to deploy the prompt variants with defined traffic allocation. Configure Amazon Bedrock guardrails to 
+monitor demographic fairness. Set up Amazon CloudWatch alarms on the GuardrailContentSource 
+dimension by using InvocationsIntervened metrics to detect recommendation discrepancy threshold 
+violations.
+Set up Amazon SageMaker Clarify to analyze model outputs. Publish fairness metrics to Amazon 
+CloudWatch. Create CloudWatch composite alarms that combine SageMaker Clarify bias metrics with 
+Amazon Bedrock latency metrics.
+Create an Amazon Bedrock model evaluation job to compare fairness between the two prompt variants. 
+Enable model invocation logging in Amazon CloudWatch. Set up CloudWatch alarms for 
+InvocationsIntervened metrics with a dimension for each demographic group.
+Answer: B
+Explanation
+Option B best satisfies the requirements with the least custom development effort by using native Amazon 
+Bedrock capabilities for prompt experimentation, traffic management, fairness monitoring, and alerting. 
+Amazon Bedrock Prompt Management allows teams to define and manage multiple prompt variants without 
+code changes, making it ideal for comparing recommendation strategies across demographic groups.
+Amazon Bedrock Flows enables controlled traffic allocation between prompt variants, which supports real-
+time A/B testing. This allows the company to collect live fairness metrics under production conditions instead 
+of relying on offline analysis. Because Flows are fully managed, they eliminate the need for custom routing or 
+experimentation frameworks.
+Amazon Bedrock guardrails provide built-in monitoring and intervention mechanisms. When configured for 
+fairness-related checks, guardrails can detect policy violations and surface metrics such as 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

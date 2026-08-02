@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+Answer: B
+Explanation
+Option B is correct because it is the only option that satisfies all requirements: centralized cataloging, 
+automatic data-source discovery, citation metadata, model input/output logging, and tamper-evident 
+immutable audit retention. AWS Glue Data Catalog is designed as a central metadata repository, and AWS 
+Glue crawlers can automatically discover and catalog new or updated data sources. AWS documentation 
+states that crawlers can infer metadata and keep the Data Catalog up to date across sources such as Amazon 
+S3, Amazon RDS, Amazon Redshift, and other supported stores. This directly addresses the requirement to 
+catalog all data sources centrally and update them automatically.
+Storing generated summaries in Amazon S3 and writing object tags that include source IDs is appropriate 
+because S3 object tags are queryable metadata that can be used for organization, lifecycle policies, access 
+controls, cost allocation, and downstream indexing. For GenAI traceability, the source ID tag can represent 
+the citation or provenance link from the generated summary back to the original technical document.
+Amazon Bedrock model invocation logging is also required here because the company must retain input
+/output records for every model invocation. AWS documentation states that model invocation logging can 
+collect invocation logs, model input data, and model output data for Amazon Bedrock invocations, with 
+Amazon S3 as a supported delivery destination.
+For immutable retention, S3 Object Lock provides write-once-read-many protection and helps prevent objects 
+from being deleted or overwritten for a fixed period or indefinitely. CloudTrail log file integrity validation 
+adds tamper evidence by using hashing and digital signing to detect whether log files were changed, deleted, 
+or forged after delivery.
+Option A explicitly omits logs for each invocation, so it fails the audit requirement. Option C lacks automatic 
+source discovery and immutable audit retention. Option D uses configuration tooling, not a cataloging and 
+audit architecture. Therefore, option B is the complete AWS-aligned solution.
+==========
+Question #:93 - [Operational Efficiency and Optimization for GenAI Applications]
+A global financial services company hosts a fraud-alert system that uses an Amazon Bedrock foundation 
+model (FM) to generate explanations for suspicious transactions. The company processes regulated financial 
+data across three geographic areas. The system must maintain consistent responsiveness globally, support 
+multi-Region failover, and provide full observability for audit and compliance teams.
+Load testing shows that the FM’s total inference time cannot be reduced. The company cannot increase its 
+inference costs, change the FM, modify token counts, or provision additional compute capacity. Users report 
+that the UI performs slowly because it waits for the complete model response before it shows any content.
+The company must improve perceived responsiveness during peak periods, when the system can receive 
+10,000–15,000 concurrent requests. The solution must maintain multi-Region resiliency and full monitoring 
+visibility.
+Which solution will meet these requirements?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

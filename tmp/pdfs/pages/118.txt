@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Using a single acl.json file at the bucket root minimizes operational overhead by centralizing access control 
+logic in one location. Administrators can update department mappings without touching individual folders or 
+changing IAM permissions, which simplifies governance and reduces the risk of configuration drift. Amazon 
+Q Business automatically evaluates the user’s IAM Identity Center group membership at query time and 
+filters accessible documents accordingly.
+Option A increases operational complexity by requiring a separate ACL file in every department folder, which 
+becomes difficult to maintain as departments or prefixes change. Option C attempts to enforce access using 
+IAM permissions sets, but Amazon Q Business access control for S3 data sources is not designed to be 
+managed through IAM condition logic and would significantly increase complexity. Option D introduces a 
+custom metadata structure that is not the supported mechanism for Amazon Q Business access enforcement.
+Therefore, Option B provides the cleanest, most scalable, and AWS-recommended solution for enforcing 
+department-based access control with the least operational effort.
+Question #:103 - [Implementation and Integration]
+A financial services company is developing a real-time generative AI (GenAI) assistant to support human call 
+center agents. The GenAI assistant must transcribe live customer speech, analyze context, and provide 
+incremental suggestions to call center agents while a customer is still speaking. To preserve responsiveness, 
+the GenAI assistant must maintain end-to-end latency under 1 second from speech to initial response display. 
+The architecture must use only managed AWS services and must support bidirectional streaming to ensure 
+that call center agents receive updates in real time.
+Which solution will meet these requirements?
+Use Amazon Transcribe streaming to transcribe calls. Pass the text to Amazon Comprehend for 
+sentiment analysis. Feed the results to Anthropic Claude on Amazon Bedrock by using the 
+InvokeModel API. Store results in Amazon DynamoDB. Use a WebSocket API to display the results.
+Use Amazon Transcribe streaming with partial results enabled to deliver fragments of transcribed text 
+before customers finish speaking. Forward text fragments to Amazon Bedrock by using the 
+InvokeModelWithResponseStream API. Stream responses to call center agents through an Amazon API 
+Gateway WebSocket API.
+Use Amazon Transcribe batch processing to convert calls to text. Pass complete transcripts to 
+Anthropic Claude on Amazon Bedrock by using the ConverseStream API. Return responses through an 
+Amazon Lex chatbot interface.
+Use the Amazon Transcribe streaming API with an AWS Lambda function to transcribe each audio 
+segment. Call the Amazon Titan Embeddings model on Amazon Bedrock by using the InvokeModel 
+API. Publish results to Amazon SNS.
+Answer: B
+Explanation
+Option B is the only solution that satisfies all strict real-time, streaming, and latency requirements. Amazon 
+Transcribe streaming with partial results allows transcription fragments to be delivered before the speaker 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

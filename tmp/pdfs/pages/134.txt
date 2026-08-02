@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+ uses cryptographic hashes to provide non-repudiation and a AWS CloudTrail log file integrity validation
+verifiable audit trail. This combination covers data management, metadata attribution, and high-standard 
+security compliance.
+Question #:117 - [Operational Efficiency and Optimization for GenAI Applications]
+A financial services company needs to build a document analysis system that uses Amazon Bedrock to 
+process quarterly reports. The system must analyze financial data, perform sentiment analysis, and validate 
+compliance across batches of reports. Each batch contains 5 reports. Each report requires multiple foundation 
+model (FM) calls. The solution must finish the analysis within 10 seconds for each batch. Current sequential 
+processing takes 45 seconds for each batch.
+Which solution will meet these requirements?
+Use AWS Lambda functions with provisioned concurrency to process each analysis type sequentially. 
+Configure the Lambda function timeouts to 10 seconds. Configure automatic retries with exponential 
+backoff.
+Use AWS Step Functions with a Parallel state to invoke separate AWS Lambda functions for each 
+analysis type simultaneously. Configure Amazon Bedrock client timeouts. Use Amazon CloudWatch 
+metrics to track execution time and model inference latency.
+Create an Amazon SQS queue to buffer analysis requests. Deploy multiple AWS Lambda functions 
+with reserved concurrency. Configure each Lambda function to process different aspects of each report 
+sequentially and then combine the results.
+Deploy an Amazon ECS cluster that runs containers that process each report sequentially. Use a load 
+balancer to distribute batch workloads. Configure an auto-scaling policy based on CPU utilization.
+Answer: B
+Explanation
+Option B is the correct solution because it parallelizes independent foundation model inference tasks while 
+maintaining orchestration, observability, and time-bound execution. AWS Generative AI best practices 
+emphasize reducing end-to-end latency by parallelizing independent inference calls rather than scaling 
+individual calls vertically.
+In this scenario, each report requires multiple independent analyses such as financial extraction, sentiment 
+analysis, and compliance validation. These tasks do not depend on each other’s output, making them ideal 
+candidates for parallel execution. AWS Step Functions provides a Parallel state that can invoke multiple AWS 
+Lambda functions simultaneously, drastically reducing total processing time compared to sequential execution.
+By invoking Amazon Bedrock from separate Lambda functions in parallel, the system can reduce batch 
+execution time from 45 seconds to well under the 10-second requirement, assuming each inference call 
+remains within acceptable latency bounds. Step Functions also provide built-in error handling, retries, and 
+state tracking, which improves reliability without increasing complexity.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,48 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Which solution will meet these requirements?
+Use AWS Glue Data Catalog to register all data sources and track lineage. Use Amazon Bedrock 
+Guardrails PII filters. Enable AWS CloudTrail logging for all Amazon Bedrock API calls with Amazon 
+S3 integration. Use Amazon Macie to scan stored data for sensitive information and publish findings to 
+Amazon CloudWatch Logs. Create CloudWatch dashboards to visualize the findings and generate 
+automated compliance reports.
+Use AWS Config to track data source configurations and changes. Use AWS WAF with custom rules to 
+filter PII at the application layer before Amazon Bedrock processes the data. Configure Amazon 
+EventBridge to capture and route audit events to Amazon S3. Use Amazon Comprehend Medical with 
+scheduled AWS Lambda functions to analyze stored outputs for compliance violations.
+Use AWS DataSync to replicate data sources to track lineage. Configure Amazon Macie to scan 
+Amazon Bedrock outputs for sensitive information. Use AWS Systems Manager Session Manager to 
+log user interactions. Deploy Amazon Textract with AWS Step Functions workflows to identify and 
+redact PII from generated reports.
+Configure Amazon Athena to query data sources to analyze and report on data lineage. Use Amazon 
+CloudWatch custom metrics to monitor PII exposure in Amazon Bedrock responses and establish AWS 
+X-Ray tracing to generate an audit trail. Use an Amazon Rekognition Custom Labels model to detect 
+sensitive information in the data that Amazon Bedrock processes.
+Answer: A
+Explanation
+Option  is the most comprehensive and architecturally aligned solution for meeting end-to-end data lineage, A
+real-time PII filtering, and automated compliance reporting requirements in a medical GenAI system built on 
+Amazon Bedrock. Each requirement maps directly to a managed AWS service that is purpose-built for 
+governance, security, and compliance.
+AWS Glue Data Catalog is designed to register datasets across multiple sources and maintain metadata that 
+supports lineage tracking. By cataloging all inputs that flow into the Bedrock-based system, the organization 
+can trace how data moves from ingestion through processing and storage, which is essential for regulatory 
+audits in healthcare environments.
+For  ,  provide native PII detection and filtering during real-time PII filtering Amazon Bedrock Guardrails
+model inference. Guardrails operate inline with model invocation, ensuring sensitive information is blocked 
+or redacted before responses are returned to users. This satisfies the requirement for real-time protection 
+rather than post-processing analysis.
+AWS CloudTrail delivers a complete audit trail of all Amazon Bedrock API calls, including InvokeModel 
+requests and configuration changes. Storing these logs in Amazon S3 enables long-term retention and 
+supports compliance audits. CloudTrail ensures traceability of who accessed the system, when, and how it 
+was used.
+To strengthen compliance monitoring,  continuously scans stored data for sensitive Amazon Macie
+information and automatically classifies findings. Publishing Macie findings to  Amazon CloudWatch Logs
+and visualizing them through dashboards enables near-real-time visibility into compliance posture and 
+supports automated reporting workflows.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

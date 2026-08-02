@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+with compliance expectations for customer account data. Block mode is appropriate once confidence in the 
+guardrail configuration has been established during testing.
+The  is addressed by deploying a copy of the guardrail in each AWS Region data residency requirement
+where the application operates. Amazon Bedrock guardrails are Region-specific resources, and using Region-
+local guardrails ensures that inference, filtering, and enforcement all occur within the same Region as the 
+customer data. This avoids cross-Region processing and helps the company comply with regulatory and 
+contractual data residency policies.
+Option  and  incorrectly rely on cross-Region guardrails, which can violate data residency constraints. A D
+Option  focuses on topic filtering rather than sensitive information filtering and keeps detect mode enabled C
+in production, which does not actively prevent PII exposure. Therefore,  is the only option that fully satisfies B
+safety, compliance, and evaluation requirements.
+Question #:64 - [Operational Efficiency and Optimization for GenAI Applications]
+A financial services company uses an AI application to process financial documents by using Amazon 
+Bedrock. During business hours, the application handles approximately 10,000 requests each hour, which 
+requires consistent throughput.
+The company uses the CreateProvisionedModelThroughput API to purchase provisioned throughput. Amazon 
+CloudWatch metrics show that the provisioned capacity is unused while on-demand requests are being 
+throttled. The company finds the following code in the application:
+python
+response = bedrock_runtime.invoke_model(modelId= " anthropic.claude-v2 " , body=json.dumps(payload))
+The company needs the application to use the provisioned throughput and to resolve the throttling issues.
+Which solution will meet these requirements?
+Increase the number of model units (MUs) in the provisioned throughput configuration.
+Replace the model ID parameter with the ARN of the provisioned model that the 
+CreateProvisionedModelThroughput API returns.
+Add exponential backoff retry logic to handle throttling exceptions during peak hours.
+Modify the application to use the InvokeModelWithResponseStream API instead of the InvokeModel 
+API.
+Answer: B
+Explanation
+Option B is correct because the application is currently invoking the base foundation model identifier, which 
+routes traffic to the on-demand capacity pool rather than the company’s purchased provisioned throughput. In 
+Amazon Bedrock, provisioned throughput is attached to a specific provisioned resource created through the 
+provisioned throughput APIs. To consume that reserved capacity, inference requests must target the 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

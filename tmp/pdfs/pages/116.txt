@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+Invoking a Lambda function to evaluate CloudWatch metrics enables dynamic logic: increase traffic if 
+thresholds remain healthy, reduce traffic or roll back if error rates rise or latency exceeds limits. Step 
+Functions can halt the deployment by stopping progression or triggering rollback steps immediately, meeting 
+the requirement for automated revert without human action.
+Amazon EventBridge provides reliable automation triggers when a new model version is released, ensuring 
+the deployment process is event-driven and repeatable.
+Option B depends on “external logic,” which introduces operational risk and does not guarantee automatic 
+rollback without custom systems. Option C incorrectly uses SageMaker endpoint variants to represent 
+Bedrock model versions, which is not the intended integration model. Option D is overly indirect and 
+operationally complex, using log pipelines and automation runbooks instead of direct metric-based traffic 
+control.
+Therefore, Option A best meets the requirements for automated gradual traffic shifting, real-time monitoring, 
+and automatic rollback for Amazon Bedrock model deployments in a canary strategy.
+Question #:101 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company is developing an AI-powered search assistant application to help investment 
+advisors quickly retrieve investment data. The application runs as an AWS Lambda function. The company is 
+using Amazon Bedrock to develop the application by using an Amazon Bedrock knowledge base that uses 
+Amazon OpenSearch Serverless as its data source. The application agent must manage collections at scale by 
+automatically assigning access permissions to collections and indexes that match a specific pattern. The 
+company uses Amazon Bedrock tools to test the knowledge base. The knowledge base sync process finishes 
+successfully. However, the test reveals a 400 Bad Authorization error from the BedrockAgentRuntime API 
+and a 403 Forbidden error when the test attempts to access OpenSearch Serverless. The company must 
+resolve the permissions issues. Which combination of solutions will meet this requirement? (Select TWO.)
+Update the Lambda function execution role to include the bedrock:InvokeAgent permission. Add the 
+aoss:APIAccessAll permission to the Lambda execution role.
+Create an OpenSearch Serverless data access policy that includes pattern-based resource rules.
+Configure a VPC endpoint policy for OpenSearch Serverless. Add the endpoint to the Lambda function 
+' s VPC configuration.
+Configure AWS Secrets Manager to store OpenSearch Serverless credentials. Grant the Lambda 
+function access to retrieve the credentials.
+Enable IAM authentication for the OpenSearch Serverless domain. Add the es:ESHttp* permission to 
+the Lambda function execution role.
+Answer: A B
+Explanation
+The errors described indicate missing permissions at both the application orchestration and data access levels. 
+The  from BedrockAgentRuntime indicates the Lambda execution role lacks the 400 Bad Authorization
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

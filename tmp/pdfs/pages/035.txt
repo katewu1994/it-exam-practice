@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Explanation
+Option C is the correct solution because it directly addresses the root cause of the problem—overly broad 
+retrieval—while requiring minimal architectural change. Amazon Bedrock Knowledge Bases support 
+metadata-aware filtering, which allows the system to constrain retrieval queries based on indexed metadata 
+such as content type, publication date, source, or category.
+By indexing Amazon S3 object metadata, the company can restrict vector searches to relevant subsets of the 
+corpus, such as recent emergency reports, specific content formats, or trusted sources. This significantly 
+reduces the number of documents evaluated during retrieval, which improves both latency and result 
+relevance without changing embedding models or retrieval infrastructure.
+This approach aligns with AWS best practices for optimizing RAG systems: when embeddings are already 
+strong, retrieval quality is often improved by narrowing the candidate set rather than increasing model 
+complexity. Metadata filtering reduces noise and ensures that retrieved documents are more contextually 
+aligned with user queries.
+Option A requires retraining or adapting embedding models, which the company has already determined will 
+not provide additional benefit. Option B introduces a migration to OpenSearch, which adds operational 
+overhead and deviates from the existing Bedrock knowledge base architecture. Option D requires moving to a 
+different indexing service, increasing complexity and implementation effort.
+Therefore, Option C provides the most effective and low-effort solution to improve retrieval accuracy and 
+performance in the existing Amazon Bedrock RAG system.
+Question #:31 - [Operational Efficiency and Optimization for GenAI Applications]
+A company is developing a generative AI (GenAI) application that uses Amazon Bedrock foundation models. 
+The application has several custom tool integrations. The application has experienced unexpected token 
+consumption surges despite consistent user traffic.
+The company needs a solution that uses Amazon Bedrock model invocation logging to monitor 
+InputTokenCount and OutputTokenCount metrics. The solution must detect unusual patterns in tool usage and 
+identify which specific tool integrations cause abnormal token consumption. The solution must also 
+automatically adjust thresholds as traffic patterns change.
+Which solution will meet these requirements?
+Use Amazon CloudWatch Logs to capture model invocation logs. Create CloudWatch dashboards for 
+token metrics. Configure static CloudWatch alarms with fixed thresholds for each tool integration.
+Store model invocation logs in Amazon S3. Use AWS Glue and Amazon Athena to analyze token 
+usage trends.
+Use Amazon CloudWatch Logs to capture model invocation logs. Create CloudWatch metric filters to 
+extract tool-specific invocation patterns. Apply CloudWatch anomaly detection alarms that 
+automatically adjust baselines for each tool’s token metrics.
+Store model invocation logs in an Amazon S3 bucket. Use AWS Lambda to process logs in real time. 
+Manually update CloudWatch alarm thresholds based on trends identified by the Lambda function.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

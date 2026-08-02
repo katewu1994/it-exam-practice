@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+enforce guardrail deployment or content filtering. Option  incorrectly places guardrail enforcement in A
+permissions boundaries, which are not designed to validate request parameters such as guardrail identifiers.
+By combining  with  , options  SCP-based enforcement centrally deployed Bedrock guardrails C and D
+together provide strong, scalable, and centrally managed controls for both content safety and model 
+governance across the organization.
+Question #:39 - [Implementation and Integration]
+A company is designing an API for a generative AI (GenAI) application that uses a foundation model (FM) 
+that is hosted on a managed model service. The API must stream responses to reduce latency, enforce token 
+limits to manage compute resource usage, and implement retry logic to handle model timeouts and partial 
+responses.
+Which solution will meet these requirements with the LEAST operational overhead?
+Integrate an Amazon API Gateway HTTP API with an AWS Lambda function to invoke Amazon 
+Bedrock. Use Lambda response streaming to stream responses. Enforce token limits within the Lambda 
+function. Implement retry logic for model timeouts by using Lambda and API Gateway timeout 
+configurations.
+Connect an Amazon API Gateway HTTP API directly to Amazon Bedrock. Simulate streaming by 
+using client-side polling. Enforce token limits on the frontend. Configure retry behavior by using API 
+Gateway integration settings.
+Connect an Amazon API Gateway WebSocket API to an Amazon ECS service that hosts a 
+containerized inference server. Stream responses by using the WebSocket protocol. Enforce token 
+limits within Amazon ECS. Handle model timeouts by using ECS task lifecycle hooks and restart 
+policies.
+Integrate an Amazon API Gateway REST API with an AWS Lambda function that invokes Amazon 
+Bedrock. Use Lambda response streaming to stream responses. Enforce token limits within the Lambda 
+function. Implement retry logic by using Lambda and API Gateway timeout configurations.
+Answer: A
+Explanation
+Option A is the best solution because it satisfies streaming, token control, and retry requirements while 
+keeping operational overhead low by using fully managed, serverless AWS services. Amazon API Gateway 
+HTTP APIs provide a lightweight, cost-effective front door for APIs and integrate cleanly with AWS Lambda 
+for request processing and security controls.
+AWS Lambda response streaming allows the API to begin returning content to the client as soon as partial 
+model output is available, reducing perceived latency and improving user experience for long responses. 
+Using Lambda as the integration layer also provides a centralized place to enforce token-aware request 
+handling, such as rejecting oversized requests, truncating optional context, or applying consistent limits across 
+users and tenants to manage compute usage.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

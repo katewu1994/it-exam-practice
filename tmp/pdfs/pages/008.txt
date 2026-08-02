@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Question #:6 - [Implementation and Integration]
+A company is building a multicloud generative AI (GenAI)-powered secret resolution application that uses 
+Amazon Bedrock and Agent Squad. The application resolves secrets from multiple sources, including key 
+stores and hardware security modules (HSMs). The application uses AWS Lambda functions to retrieve 
+secrets from the sources. The application uses AWS AppConfig to implement dynamic feature gating. The 
+application supports secret chaining and detects secret drift. The application handles short-lived and expiring 
+secrets. The application also supports prompt flows for templated instructions. The application uses AWS 
+Step Functions to orchestrate agents to resolve the secrets and to manage secret validation and drift detection.
+The company finds multiple issues during application testing. The application does not refresh expired secrets 
+in time for agents to use. The application sends alerts for secret drift, but agents still use stale data. Prompt 
+flows within the application reuse outdated templates, which cause cascading failures. The company must 
+resolve the performance issues.
+Which solution will meet this requirement?
+Use Step Functions Map states to run agent workflows in parallel. Pass updated secret metadata through 
+Lambda function outputs. Use AWS AppConfig to version all prompt flows to gate and roll back faulty 
+templates.
+Use Amazon Bedrock Agents only. Configure Amazon Bedrock guardrails to restrict prompt variation. 
+Use an inline JSON schema for a single agent’s workflow definition to chain tool calls.
+Use a centralized Amazon EventBridge pipeline to invoke each agent. Store intermediate prompts in 
+Amazon DynamoDB. Resolve agent ordering by using TTL-based backoff and retries.
+Use Amazon EventBridge Pipes to invoke resolvers based on Amazon CloudWatch log patterns. Store 
+response metadata in DynamoDB with TTL and versioned writes. Use Amazon Q Developer to 
+dynamically generate fallback prompts.
+Answer: A
+Explanation
+Option A is the correct solution because it directly addresses all identified failure modes while preserving the 
+existing Step Functions–based orchestration architecture with minimal redesign.
+Using Step Functions Map states enables parallel execution of secret resolution workflows, which improves 
+refresh latency for short-lived and expiring secrets. This ensures that secrets are refreshed in time before 
+downstream agents require them. Passing updated secret metadata through Lambda outputs guarantees that 
+subsequent steps always consume the latest resolved values, preventing agents from using stale data even after 
+drift alerts are generated.
+Versioning prompt flows in AWS AppConfig is critical to resolving cascading failures caused by outdated 
+templates. AppConfig natively supports version control, validation, staged rollout, and rollback of 
+configuration artifacts. By gating prompt flows through AppConfig, the company can immediately roll back 
+faulty templates and prevent agents from reusing outdated instructions.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

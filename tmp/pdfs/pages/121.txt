@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Create AWS Systems Manager Parameter Store parameters for each configuration. Use Lambda 
+functions to poll for parameter updates. Use Amazon EventBridge events to trigger redeployments 
+when configurations change.
+Store model configurations in Amazon DynamoDB tables. Optimize access patterns to retrieve 
+configurations according to customer tier. Configure Lambda functions to query DynamoDB at the 
+beginning of each request to determine which model to use.
+Use AWS AppConfig to manage model configurations. Use feature flags to perform A/B testing. 
+Define JSON schema validation rules for model parameters. Configure Lambda functions to retrieve 
+configurations by using the AWS AppConfig Agent.
+Create an Amazon ElastiCache (Redis OSS) cluster to store model configurations. Set short TTL 
+values. Run custom validation logic in Lambda functions. Use Amazon CloudWatch metrics to monitor 
+configuration usage.
+Answer: C
+Explanation
+Option C is the correct solution because AWS AppConfig is purpose-built to manage dynamic application 
+configurations with low latency, strong validation, and minimal operational overhead, which directly matches 
+the company’s requirements.
+AWS AppConfig enables the company to centrally manage model selection logic, inference parameters, and 
+customer-tier routing rules without redeploying Lambda functions. By using feature flags, the company can 
+easily perform A/B testing of new models or prompt strategies by gradually rolling out changes to a subset of 
+users or customer tiers. This allows experimentation and controlled releases without code changes.
+AppConfig also supports JSON schema validation, which is critical for validating parameters such as 
+temperature, maximum token limits, and other model-specific settings before they are applied. This prevents 
+invalid or unsafe configurations from being deployed and reduces the risk of runtime errors or degraded 
+model behavior in production.
+Using the AWS AppConfig Agent allows Lambda functions to retrieve configurations efficiently with built-in 
+caching and polling mechanisms, minimizing latency and avoiding excessive calls to configuration services. 
+This approach scales well for high-throughput, low-latency applications such as GenAI APIs behind Amazon 
+API Gateway.
+Option A introduces unnecessary redeployment logic and polling complexity. Option B requires building and 
+maintaining custom configuration access patterns in DynamoDB and does not natively support feature flags or 
+schema validation. Option D adds operational overhead by requiring ElastiCache cluster management and 
+custom validation logic.
+Therefore, Option C provides the most scalable, flexible, and low-maintenance solution for dynamic model 
+switching, A/B testing, and safe configuration management in a GenAI application.
+Question #:106 - [AI Safety, Security, and Governance]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

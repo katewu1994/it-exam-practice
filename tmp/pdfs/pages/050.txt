@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Which solution will meet these requirements with the LEAST implementation effort?
+Create a multi-stage architecture that uses a small foundation model (FM) to classify the complexity of 
+each inquiry. Route simple inquiries to a smaller, more cost-effective model. Route complex inquiries 
+to a larger, more capable model. Use AWS Lambda functions to handle routing logic.
+Use Amazon Bedrock intelligent prompt routing to automatically analyze inquiries. Route simple 
+product inquiries to smaller models and route complex return policy inquiries to more capable larger 
+models.
+Implement a single-model solution that uses an Amazon Bedrock mid-sized foundation model (FM) 
+with on-demand pricing. Include special instructions in model prompts to handle both simple and 
+complex inquiries by using the same model.
+Create separate Amazon Bedrock endpoints for simple and complex inquiries. Implement a rule-based 
+routing system based on keyword detection. Use on-demand pricing for the smaller model and 
+provisioned throughput for the larger model.
+Answer: B
+Explanation
+Option B is the correct solution because it leverages native Amazon Bedrock intelligent prompt routing, 
+which is specifically designed to reduce cost and complexity in multi-model GenAI architectures. Intelligent 
+prompt routing automatically analyzes incoming prompts and selects the most appropriate foundation model 
+based on prompt characteristics and complexity—without requiring custom classification logic or 
+orchestration code.
+This approach directly meets the requirement for least implementation effort. The company does not need to 
+deploy additional Lambda functions, maintain routing rules, or manage separate classification stages. Routing 
+decisions are handled by Bedrock, which simplifies architecture and reduces operational risk.
+By routing the majority (70%) of simple product inquiries to smaller, lower-cost models, the company 
+minimizes inference cost and latency. More complex return policy inquiries are automatically routed to larger 
+models that provide better reasoning capabilities, preserving response quality and customer satisfaction.
+Because routing is handled inline by Bedrock, response latency remains low compared to multi-stage 
+architectures that require an additional classification model call before inference. This is critical for customer 
+service scenarios where responsiveness directly impacts satisfaction.
+Option A introduces additional inference steps and custom logic. Option C increases cost by overusing a mid-
+sized model for all queries. Option D relies on brittle keyword rules and increases operational overhead 
+through endpoint management.
+Therefore, Option B delivers the optimal balance of cost efficiency, performance, and simplicity for dynamic 
+model selection in Amazon Bedrock.
+Question #:44 - [AI Safety, Security, and Governance]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

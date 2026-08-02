@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+D.  
+E.  
+A.  
+Configure the recommendation system to use the Converse API. Modify the 
+additionalModelRequestFields parameter to increase the maximum token limit beyond the model’s 
+default context-window size.
+Implement RAG by using a knowledge base to index the customer data with vector embeddings. 
+Retrieve only the most semantically relevant information for each recommendation request based on the 
+current customer context.
+Answer: A E
+Explanation
+Options A and E are correct because the failure pattern is caused by exceeding the model’s usable context 
+window and by sending too much raw customer data directly to the FM. Amazon Bedrock Knowledge Bases 
+follows the RAG pattern by splitting source content into manageable chunks, converting chunks into 
+embeddings, storing them in a vector index, and using semantic similarity to retrieve relevant content for a 
+user query. This supports option E because the application can index customer purchases, profiles, and review-
+related information, then retrieve only the most relevant records for the current recommendation request 
+instead of stuffing all raw data into one prompt.
+Option A is also correct because chunking and staged synthesis are standard ways to handle inputs that exceed 
+an FM’s context capacity. Processing smaller segments avoids context-length-exceeded errors, and a final 
+synthesis call can combine intermediate findings into a complete recommendation. This is especially useful 
+when the company says it wants the system to consider all customer data, not merely truncate older or less 
+important data. Amazon Bedrock Knowledge Bases also lets teams configure how content is chunked for 
+storage and retrieval, which supports a structured approach rather than an oversized one-shot prompt.
+Option B is not sufficient because truncating “less important” data conflicts with the requirement to consider 
+all customer data. Option C violates the implied design direction because the company wants to use 
+Knowledge Bases, and simply choosing a larger context model does not solve long-term growth of customer 
+histories. Option D is technically incorrect: model parameters such as max_tokens control output generation 
+limits, not the model’s maximum context window, and different Claude models have model-specific 
+maximum values. You cannot use additionalModelRequestFields to bypass the FM’s context limit.
+==========
+Question #:36 - [Operational Efficiency and Optimization for GenAI Applications]
+A large ecommerce company has deployed a foundation model (FM) to generate product descriptions. The 
+company ' s engineering team monitors technical metrics such as token usage, latency, and error rates by 
+using Amazon CloudWatch. The company ' s marketing team tracks business metrics such as conversion rates 
+and revenue impact in its own systems. The company needs a unified observability solution that correlates 
+technical performance with business outcomes. The solution must provide automatic alerts to stakeholders 
+when operational metrics indicate degradation. The solution must provide comprehensive visibility across 
+both technical and business metrics. Which solution will meet these requirements?
+Create CloudWatch dashboards that include technical metrics and imported business metrics. Configure 
+CloudWatch composite alarms that combine technical data and business data. Use Amazon SNS to set 
+up notifications to stakeholders.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

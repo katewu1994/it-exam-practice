@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Explanation
+Option D is the correct solution because the Amazon Bedrock Converse API is purpose-built for multi-turn 
+conversational interactions and is designed to work consistently across SDKs and compute environments. The 
+Converse API standardizes how messages, roles, and context are represented, which ensures consistent 
+behavior whether the application is running in AWS Lambda with Python or in Amazon EKS with JavaScript.
+By passing previous messages in the messages array, the application explicitly maintains conversational 
+context across turns without relying on external state stores. This approach is recommended by AWS for 
+conversational GenAI workflows because it avoids state synchronization complexity and ensures 
+deterministic model behavior across environments.
+Using IAM roles for authentication provides a single, consistent security model for both Lambda and EKS. 
+IAM roles integrate natively with AWS SDKs, eliminating the need for custom authentication logic or 
+environment-specific credentials. This aligns with AWS best practices for least privilege and simplifies 
+governance.
+Option A introduces inconsistent authentication and custom formatting logic, increasing complexity. Option B 
+unnecessarily introduces ElastiCache for state management, which is not required when using the Converse 
+API correctly. Option C stores state in process memory, which is unsafe and unreliable for serverless and 
+containerized workloads.
+Therefore, Option D best satisfies the requirements for conversational consistency, multi-environment 
+support, shared model usage, and consistent authentication with minimal operational overhead.
+Question #:72 - [Testing, Validation, and Troubleshooting]
+A company has a customer service application that uses Amazon Bedrock to generate personalized responses 
+to customer inquiries. The company needs to establish a quality assurance process to evaluate prompt 
+effectiveness and model configurations across updates. The process must automatically compare outputs from 
+multiple prompt templates, detect response quality issues, provide quantitative metrics, and allow human 
+reviewers to give feedback on responses. The process must prevent configurations that do not meet a 
+predefined quality threshold from being deployed.
+Which solution will meet these requirements?
+Create an AWS Lambda function that sends sample customer inquiries to multiple Amazon Bedrock 
+model configurations and stores responses in Amazon S3. Use Amazon QuickSight to visualize 
+response patterns. Manually review outputs daily. Use AWS CodePipeline to deploy configurations that 
+meet the quality threshold.
+Use Amazon Bedrock evaluation jobs to compare model outputs by using custom prompt datasets. 
+Configure AWS CodePipeline to run the evaluation jobs when prompt templates change. Configure 
+CodePipeline to deploy only configurations that exceed the predefined quality threshold.
+Set up Amazon CloudWatch alarms to monitor response latency and error rates from Amazon Bedrock. 
+Use Amazon EventBridge rules to notify teams when thresholds are exceeded. Configure a manual 
+approval workflow in AWS Systems Manager.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

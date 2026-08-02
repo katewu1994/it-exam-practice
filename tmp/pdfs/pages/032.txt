@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+The company must ensure that GenAI developers can use the Amazon Nova Pro model through Amazon 
+Bedrock only by using cross-Region inference (CRI) and only in eu-central-1. The company enables model 
+access for the GenAI developer IAM roles in Amazon Bedrock. However, when a GenAI developer attempts 
+to invoke the model through the Amazon Bedrock Chat/Text playground, the GenAI developer receives the 
+following error:
+User arn:aws:sts:123456789012:assumed-role/AssumedDevRole/DevUserName
+Action: bedrock:InvokeModelWithResponseStream
+On resource(s): arn:aws:bedrock:eu-west-3::foundation-model/amazon.nova-pro-v1:0
+Context: a service control policy explicitly denies the action
+The company needs a solution to resolve the error. The solution must retain the company ' s existing 
+governance controls and must provide precise access control. The solution must comply with the company ' s 
+existing data residency policies.
+Which combination of solutions will meet these requirements? (Select TWO.)
+Add an AdministratorAccess policy to the GenAI developer IAM role
+Extend the existing SCPs to enable CRI for the eu.amazon.nova-pro-v1:0 inference profile
+Enable Amazon Bedrock model access for Amazon Nova Pro in the eu-west-3 Region
+Validate that the GenAI developer IAM roles have permissions to invoke Amazon Nova Pro through 
+the eu.amazon.nova-pro-v1:0 inference profile on all European Union AWS Regions that can serve the 
+model
+Extend the existing SCP to enable CRI for the eu-* inference profile
+Answer: B E
+Explanation
+This error occurs because SCPs override IAM permissions, and the SCP currently blocks Bedrock inference 
+calls that resolve to eu-west-3, even though the company intends to use cross-Region inference (CRI) from eu-
+central-1.
+Amazon Nova Pro is not hosted in eu-central-1, so when invoked, Amazon Bedrock transparently routes the 
+request to a supporting Region (such as eu-west-3) through CRI inference profiles. However, SCPs that 
+restrict Regions or specific Bedrock resources will block this routing unless explicitly allowed.
+Option B is required because the SCP must explicitly allow the eu.amazon.nova-pro-v1:0 inference profile, 
+which is the Bedrock abstraction that enables CRI while preserving data residency guarantees. Without this, 
+Bedrock cannot legally route the request.
+Option E is also required to allow EU-scoped inference profiles rather than individual Regions. This preserves 
+precise governance while allowing Bedrock-managed CRI routing within the EU boundary, ensuring no data 
+leaves Europe.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

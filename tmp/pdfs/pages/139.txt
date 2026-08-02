@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+B.  
+C.  
+D.  
+Run Amazon Bedrock evaluation jobs that use LLM-based judgments to detect hallucinations. 
+Configure Amazon CloudWatch to track token usage. Create an AWS Lambda function to process 
+CloudWatch metrics. Configure the Lambda function to send usage pattern notifications.
+Configure Amazon Bedrock to store model invocation logs in an Amazon S3 bucket. Enable text output 
+logging. Configure Amazon Bedrock guardrails to run contextual grounding checks to detect 
+hallucinations. Create Amazon CloudWatch anomaly detection alarms for token usage metrics.
+Use AWS CloudTrail to log all Amazon Bedrock API calls. Create a custom dashboard in Amazon 
+QuickSight to visualize token usage patterns. Use Amazon SageMaker Model Monitor to detect quality 
+drift in generated summaries.
+Answer: C
+Explanation
+Option C is the correct solution because it provides near real-time monitoring, hallucination detection, and 
+cost anomaly awareness using built-in Amazon Bedrock and Amazon CloudWatch capabilities, with minimal 
+custom development.
+By configuring Amazon Bedrock invocation logging with text output logging, the company captures detailed 
+prompt and response data for auditing and analysis without building custom logging pipelines. This data is 
+stored in Amazon S3, providing durable storage for compliance and retrospective investigation.
+Using Amazon Bedrock guardrails with contextual grounding checks allows the application to automatically 
+detect hallucinations by verifying whether generated summaries are grounded in the provided clinical 
+documents. This is the AWS-recommended approach for hallucination detection in RAG and summarization 
+workloads and avoids the need to maintain custom evaluation models or pipelines.
+Creating Amazon CloudWatch anomaly detection alarms for InputTokenCount and OutputTokenCount 
+metrics enables automatic detection of abnormal token usage patterns that often correlate with runaway 
+prompts, inefficient summarization, or prompt injection attempts. Anomaly detection adapts dynamically to 
+usage trends, making it more effective than static thresholds for early cost warnings.
+Option A introduces batch analytics with Glue and Athena, which is not near real time and increases 
+operational overhead. Option B requires managing evaluation jobs and Lambda-based notification logic. 
+Option D focuses on infrastructure-level monitoring and offline dashboards rather than near real-time GenAI 
+quality and cost signals.
+Therefore, Option C best meets the requirements with the least operational effort and maintenance overhead.
+Question #:122
+A legal research company has a Retrieval Augmented Generation (RAG) application that uses Amazon 
+Bedrock and Amazon OpenSearch Service. The application stores 768-dimensional vector embeddings for 15 
+million legal documents, including statutes, court rulings, and case summaries.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Exposing a  also minimizes client complexity and keeps routing logic server-single API Gateway endpoint
+side, which is important when rules change frequently. Lambda can cache configuration between invocations 
+(within the execution environment) to reduce repeated fetch overhead while still picking up changes quickly, 
+enabling both low latency and rapid rule rollout under high concurrency.
+Option  relies on Lambda environment variables, which are not intended for frequent real-time updates and A
+typically require function configuration updates that are slower and operationally brittle. Option  uses B
+mapping templates and stage variables, which are limited for complex rule evaluation and safe rollout 
+patterns. Option  misuses authorizers for business routing, adds extra latency and complexity, and D
+complicates observability and error handling by splitting decisioning from execution.
+Question #:46 - [Testing, Validation, and Troubleshooting]
+A company has deployed an AI assistant as a React application that uses AWS Amplify, an AWS AppSync 
+GraphQL API, and Amazon Bedrock Knowledge Bases. The application uses the GraphQL API to call the 
+Amazon Bedrock RetrieveAndGenerate API for knowledge base interactions. The company configures an 
+AWS Lambda resolver to use the RequestResponse invocation type.
+Application users report frequent timeouts and slow response times. Users report these problems more 
+frequently for complex questions that require longer processing.
+The company needs a solution to fix these performance issues and enhance the user experience.
+Which solution will meet these requirements?
+Use AWS Amplify AI Kit to implement streaming responses from the GraphQL API and to optimize 
+client-side rendering.
+Increase the timeout value of the Lambda resolver. Implement retry logic with exponential backoff.
+Update the application to send an API request to an Amazon SQS queue. Update the AWS AppSync 
+resolver to poll and process the queue.
+Change the RetrieveAndGenerate API to the InvokeModelWithResponseStream API. Update the 
+application to use an Amazon API Gateway WebSocket API to support the streaming response.
+Answer: A
+Explanation
+Option  is the best solution because it directly addresses both observed problems: user-perceived latency and A
+resolver timeouts that occur more frequently for complex prompts. In the current design, an AWS AppSync 
+Lambda resolver is configured with synchronous RequestResponse behavior. That means the client receives 
+nothing until the entire retrieval and generation workflow completes. For longer-running knowledge base 
+queries, this increases the likelihood of hitting request time limits in the synchronous path and creates a poor 
+user experience because the UI appears stalled.
+Using  to implement  allows the application to return partial AWS Amplify AI Kit streaming responses
+output incrementally as the model produces tokens. This improves perceived responsiveness because users 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

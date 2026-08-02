@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Retry logic is best handled in the client or integration layer for transient failures such as timeouts and 
+throttling. Lambda can implement controlled retries with exponential backoff and jitter, while API Gateway 
+timeouts help bound request lifetimes and prevent hung connections from consuming resources indefinitely. 
+Because the model service is managed, the company avoids infrastructure management and focuses only on 
+request shaping, safety, and resiliency behavior.
+Option B is not suitable because client-side polling is not true streaming, front-end token enforcement is 
+insecure and inconsistent, and API Gateway does not provide model-aware retry behavior on its own. Option 
+C introduces container hosting and scaling complexity, which increases operational overhead compared to 
+serverless. Option D can work, but REST APIs are generally heavier than HTTP APIs for this pattern and do 
+not reduce overhead compared to Option A.
+Therefore, Option A provides the required streaming and resiliency capabilities with the least infrastructure 
+management effort.
+Question #:40 - [AI Safety, Security, and Governance]
+A media company is launching a platform that allows thousands of users every hour to upload images and text 
+content. The platform uses Amazon Bedrock to process the uploaded content to generate creative 
+compositions.
+The company needs a solution to ensure that the platform does not process or produce inappropriate content. 
+The platform must not expose personally identifiable information (PII) in the compositions. The solution must 
+integrate with the company ' s existing Amazon S3 storage workflow.
+Which solution will meet these requirements with the LEAST infrastructure management overhead?
+Enable the Enhanced Monitoring tool. Use an Amazon CloudWatch alarm to filter traffic to the 
+platform. Use Amazon Comprehend PII detection to pre-process the data. Create a CloudWatch alarm 
+to monitor for Amazon Comprehend PII detection events. Create an AWS Step Functions workflow 
+that includes an Amazon Rekognition image moderation step.
+Use an Amazon API Gateway HTTP API with request validation templates to screen content before 
+storing the uploaded content in Amazon S3. Use Amazon SageMaker AI to build custom content 
+moderation models that process content before sending the processed content to Amazon Bedrock.
+Create an Amazon Cognito user pool that uses pre-authentication AWS Lambda functions to run 
+content moderation checks. Use Amazon Textract to filter text content and Amazon Rekognition to 
+filter image content before allowing users to upload content to the platform.
+Create an AWS Step Functions workflow that uses built-in Amazon Bedrock guardrails to filter 
+content. Use Amazon Comprehend PII detection to pre-process the content. Use Amazon Rekognition 
+image moderation.
+Answer: D
+Explanation
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

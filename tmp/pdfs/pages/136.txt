@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+states that hierarchical chunking supports two levels: a parent chunk size and a child chunk size, with 
+configurable overlap. This directly addresses the textbook problem because dense technical materials often 
+need both fine-grained matching and enough context to avoid incomplete or misleading answers.
+Hybrid search is also the strongest retrieval option for domain-specific textbooks. AWS documentation for 
+Knowledge Bases explains that HYBRID search uses both vector embeddings and raw text, while 
+SEMANTIC search uses only vector embeddings. For technical content, equations, terms, acronyms, product 
+names, and exact phrases may be missed by pure semantic search. Hybrid search reduces this risk by 
+combining semantic similarity with keyword matching. The Knowledge Base vector search configuration also 
+supports controls such as number of source chunks, metadata filters, search type override, and reranking 
+configuration, all of which help tune retrieval quality.
+Adjusting the relevance threshold, or filtering low-confidence retrieval results in the application layer, helps 
+reduce hallucinations because the model should not generate answers from weak or unrelated context. The 
+key GenAI principle is that RAG quality depends on retrieving the right evidence before generation. If 
+irrelevant chunks are passed to the FM, the FM can produce irrelevant or unsupported answers.
+Option A uses very small fixed chunks, which can miss context across sections. Option B adds caching and 
+feedback loops but does not fix the underlying retrieval issue. Option D’s semantic chunking can help topic 
+boundaries, but it does not explicitly solve exact-term retrieval or low-confidence filtering. Therefore, 
+hierarchical chunking plus hybrid search and relevance filtering is the best answer.
+==========
+Question #:119 - [Operational Efficiency and Optimization for GenAI Applications]
+A financial services company uses multiple foundation models (FMs) through Amazon Bedrock for its 
+generative AI (GenAI) applications. To comply with a new regulation for GenAI use with sensitive financial 
+data, the company needs a token management solution.
+The token management solution must proactively alert when applications approach model-specific token 
+limits. The solution must also process more than 5,000 requests each minute and maintain token usage metrics 
+to allocate costs across business units.
+Which solution will meet these requirements?
+Develop model-specific tokenizers in an AWS Lambda function. Configure the Lambda function to 
+estimate token usage before sending requests to Amazon Bedrock. Configure the Lambda function to 
+publish metrics to Amazon CloudWatch and trigger alarms when requests approach thresholds. Store 
+detailed token usage in Amazon DynamoDB to report costs.
+Implement Amazon Bedrock Guardrails with token quota policies. Capture metrics on rejected requests. 
+Configure Amazon EventBridge rules to trigger notifications based on Amazon Bedrock Guardrails 
+metrics. Use Amazon CloudWatch dashboards to visualize token usage trends across models.
+Deploy an Amazon SQS dead-letter queue for failed requests. Configure an AWS Lambda function to 
+analyze token-related failures. Use Amazon CloudWatch Logs Insights to generate reports on token 
+usage patterns based on error logs from Amazon Bedrock API responses.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

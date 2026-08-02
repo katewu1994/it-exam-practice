@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Which solution will meet these requirements with the LEAST operational overhead?
+Configure hybrid search by combining vector similarity with keyword matching to improve semantic 
+understanding and exact term and acronym matching.
+Increase the dimensions of the vector embeddings from 384 to 1536. Use a post-processing AWS 
+Lambda function to filter out irrelevant results after retrieval.
+Replace OpenSearch Service with Amazon Kendra. Use query expansion to handle medical acronyms 
+and terminology variants during pre-processing.
+Implement a two-stage retrieval architecture in which initial vector search results are re-ranked by an 
+ML model hosted on Amazon SageMaker.
+Answer: A
+Explanation
+Option A is the correct solution because hybrid search directly addresses the core retrieval failure modes 
+while maintaining low latency and minimal operational overhead. In medical and scientific domains, exact 
+terminology, abbreviations, and acronyms (for example, drug names, procedures, or conditions) are critical. 
+Pure vector similarity search often underweights these exact matches, leading to missed results and excessive 
+semantically related but irrelevant documents.
+Amazon OpenSearch Service natively supports hybrid search, which combines keyword-based retrieval (such 
+as BM25) with vector similarity search. Keyword search ensures precise matching for exact terms and 
+acronyms, while vector search captures semantic meaning and contextual similarity. By blending these 
+approaches, the retrieval system improves both precision and recall without introducing additional 
+infrastructure.
+Hybrid search operates within the same OpenSearch index and query path, which preserves low end-user 
+latency even at large scale. This is especially important as the document collection grows to millions of 
+documents. Because OpenSearch handles scoring and ranking internally, no additional orchestration layers or 
+post-processing steps are required.
+Option B increases computational cost and latency while failing to address exact-term recall. Option C 
+introduces a new service and ingestion pipeline, increasing operational overhead and latency. Option D adds 
+model hosting, re-ranking infrastructure, and complexity that is unnecessary when OpenSearch provides 
+native hybrid retrieval.
+Therefore, Option A delivers the best balance of retrieval quality, scalability, latency, and operational 
+simplicity for medical RAG workloads.
+Question #:124 - [Foundation Model Integration, Data Management, and Compliance]
+A healthcare company is developing a document management system that stores medical research papers in 
+an Amazon S3 bucket. The company needs a comprehensive metadata framework to improve search precision 
+for a GenAI application. The metadata must include document timestamps, author information, and research 
+domain classifications.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

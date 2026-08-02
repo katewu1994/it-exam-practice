@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+Explanation
+Option D is correct because it separates the United States and European workloads and uses the correct 
+Amazon Bedrock inference pattern for European data residency. AWS documentation states that geographic 
+cross-Region inference keeps data processing within specified geographic boundaries such as US, EU, and 
+APAC, and is intended for organizations with data residency and compliance requirements. The regional 
+availability documentation further explains that a geographic profile routes within a defined geography and 
+that prompts and outputs may move within that geography but not outside it. This directly satisfies the 
+requirement that European customer data must be processed only in Europe-based AWS Regions.
+Provisioned throughput is appropriate for the US workload because the system has a demanding and 
+predictable performance target: 1,000 transactions per second with sub-500 ms response times. Provisioned 
+capacity is generally used when an application needs reserved throughput and consistent performance rather 
+than depending only on on-demand capacity. Automatic scaling based on utilization metrics supports 
+changing demand while maintaining performance. EventBridge and Lambda can coordinate failover 
+workflows or routing updates when connectivity disruptions occur, supporting high availability across 
+Regions.
+Option A is not the best answer because it includes a global inference profile. AWS documentation states that 
+global cross-Region inference can route requests across supported commercial AWS Regions worldwide and 
+has no geographic data-residency restriction. AWS explicitly notes that organizations with data residency or 
+compliance requirements should assess whether global cross-Region inference fits their framework because 
+requests may be processed in other supported commercial Regions. That conflicts with the European data 
+processing requirement.
+Option B uses separate Regional provisioned throughput, but it relies on a custom Application Load Balancer 
+approach for Bedrock routing and does not use the Bedrock geographic inference profile that is designed for 
+EU data residency. Option C uses response streaming, which improves perceived response latency for text 
+generation but does not guarantee sub-500 ms fraud-processing latency or European-only processing. 
+Therefore, option D is the most complete AWS-aligned solution.
+Question #:99 - [Operational Efficiency and Optimization for GenAI Applications]
+A company has a recommendation system. The system ' s applications run on Amazon EC2 instances. The 
+applications make API calls to Amazon Bedrock foundation models (FMs) to analyze customer behavior and 
+generate personalized product recommendations.
+The system is experiencing intermittent issues. Some recommendations do not match customer preferences. 
+The company needs an observability solution to monitor operational metrics and detect patterns of operational 
+performance degradation compared to established baselines. The solution must also generate alerts with 
+correlation data within 10 minutes when FM behavior deviates from expected patterns.
+Which solution will meet these requirements?
+Configure Amazon CloudWatch Container Insights for the application infrastructure. Set up 
+CloudWatch alarms for latency thresholds. Add custom metrics for token counts by using the 
+CloudWatch embedded metric format. Create CloudWatch dashboards to visualize the data.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

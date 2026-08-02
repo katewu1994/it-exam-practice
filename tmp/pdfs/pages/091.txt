@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Explanation
+Option B is the correct evaluation configuration because it enables end-to-end assessment of both retrieval 
+and generation quality while supporting direct comparison of chunking strategies and foundation models. 
+Amazon Bedrock evaluation jobs are designed to support RAG workflows by evaluating how well retrieved 
+context supports accurate and high-quality model outputs.
+A retrieve-and-generate evaluation job evaluates the complete RAG pipeline, not just retrieval. This is 
+essential for medical information use cases, where both the relevance of retrieved content and the correctness 
+of generated responses directly impact user safety and trust. Including multiple chunking strategies in the 
+evaluation dataset allows side-by-side comparison under identical prompts and conditions.
+Custom precision-at-k metrics measure how effectively the retrieval component surfaces relevant chunks, 
+while an LLM-as-a-judge metric provides qualitative scoring of generated responses. Using a numeric scale 
+enables consistent, repeatable evaluation and supports automated quality gates. Amazon Bedrock supports 
+LLM-based evaluators to score dimensions such as accuracy, completeness, and relevance.
+Using the same evaluator model to assess outputs from both FMs ensures consistent scoring and eliminates 
+evaluator bias. This configuration allows the company to define quantitative thresholds that must be met 
+before deployment, enabling automated promotion through CI/CD pipelines.
+Option A evaluates retrieval only and cannot assess generation quality. Option C introduces manual review, 
+which does not scale and delays deployment. Option D separates retrieval and generation evaluation, making 
+it harder to correlate chunking strategies with final output quality.
+Therefore, Option B best meets the requirements for systematic evaluation, comparison, and quality 
+enforcement in an Amazon Bedrock–based RAG system.
+Question #:80 - [Foundation Model Integration, Data Management, and Compliance]
+A company is building an AI advisory application by using Amazon Bedrock. The application will provide 
+recommendations to customers. The company needs the application to explain its reasoning process and cite 
+specific sources for data. The application must retrieve information from company data sources and show step-
+by-step reasoning for recommendations. The application must also link data claims to source documents and 
+maintain response latency under 3 seconds.
+Which solution will meet these requirements with the LEAST operational overhead?
+Use Amazon Bedrock Knowledge Bases with source attribution enabled. Use the Anthropic Claude 
+Messages API with RAG to set high-relevance thresholds for source documents. Store reasoning and 
+citations in Amazon S3 for auditing purposes.
+Use Amazon Bedrock with Anthropic Claude models and extended thinking. Configure a 4,000-token 
+thinking budget. Store reasoning traces and citations in Amazon DynamoDB for auditing purposes.
+Configure Amazon SageMaker AI with a custom Anthropic Claude model. Use the model’s reasoning 
+parameter and AWS Lambda to process responses. Add source citations from a separate Amazon RDS 
+database.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

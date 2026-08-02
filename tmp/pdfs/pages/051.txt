@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+An elevator service company has developed an AI assistant application by using Amazon Bedrock. The 
+application generates elevator maintenance recommendations to support the company’s elevator technicians. 
+The company uses Amazon Kinesis Data Streams to collect the elevator sensor data.
+New regulatory rules require that a human technician must review all AI-generated recommendations. The 
+company needs to establish human oversight workflows to review and approve AI recommendations. The 
+company must store all human technician review decisions for audit purposes.
+Which solution will meet these requirements?
+Create a custom approval workflow by using AWS Lambda functions and Amazon SQS queues for 
+human review of AI recommendations. Store all review decisions in Amazon DynamoDB for audit 
+purposes.
+Create an AWS Step Functions workflow that has a human approval step that uses the 
+waitForTaskToken API to pause execution. After a human technician completes a review, use an AWS 
+Lambda function to call the SendTaskSuccess API with the approval decision. Store all review 
+decisions in Amazon DynamoDB.
+Create an AWS Glue workflow that has a human approval step. After the human technician review, 
+integrate the application with an AWS Lambda function that calls the SendTaskSuccess API. Store all 
+human technician review decisions in Amazon DynamoDB.
+Configure Amazon EventBridge rules with custom event patterns to route AI recommendations to 
+human technicians for review. Create AWS Glue jobs to process human technician approval queues. 
+Use Amazon ElastiCache to cache all human technician review decisions.
+Answer: B
+Explanation
+AWS Step Functions provides native support for human-in-the-loop workflows, making it the best fit for 
+regulatory oversight requirements. The waitForTaskToken integration pattern is explicitly designed to pause a 
+workflow until an external actor—such as a human reviewer—completes a task.
+In this architecture, AI-generated recommendations are sent to a human technician for review. The workflow 
+pauses execution using a task token. Once the technician approves or rejects the recommendation, an AWS 
+Lambda function calls SendTaskSuccess or SendTaskFailure, allowing the workflow to continue 
+deterministically.
+This approach ensures full auditability, as Step Functions records every state transition, timestamp, and 
+execution path. Storing review outcomes in Amazon DynamoDB provides durable, queryable audit records 
+required for regulatory compliance.
+Option A requires custom orchestration and lacks native workflow state management. Option C incorrectly 
+uses AWS Glue, which is not designed for approval workflows. Option D uses caching instead of durable 
+audit storage and introduces unnecessary complexity.
+Therefore, Option B is the AWS-recommended, lowest-risk, and most auditable solution for mandatory 
+human review of AI outputs.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

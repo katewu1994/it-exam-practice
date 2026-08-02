@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Using Amazon Bedrock to generate embeddings significantly reduces development complexity. AWS 
+manages the foundation models, eliminates the need for custom model hosting, and ensures consistency by 
+using the same FM for both document embeddings and query embeddings. This aligns directly with AWS-
+recommended semantic search architectures and removes the need for model lifecycle management.
+Hourly updates to restaurant data can be handled efficiently through incremental re-indexing in OpenSearch 
+without disrupting query performance. This approach cleanly separates transactional data storage from search 
+workloads, which is a best practice in AWS architectures.
+Option A does not meet the semantic search requirement because keyword-based search cannot reliably 
+interpret complex natural language intent. Option C introduces scalability and performance risks by running 
+large-scale vector similarity searches inside PostgreSQL, which increases operational complexity. Option D 
+adds unnecessary ingestion and abstraction layers intended for retrieval-augmented generation, not high-
+throughput semantic search.
+Therefore, Option B provides the optimal balance of performance, scalability, data freshness, and minimal 
+development effort using AWS Generative AI services.
+Question #:35 - [Foundation Model Integration, Data Management, and Compliance]
+An ecommerce company is using an Anthropic Claude Sonnet model in Amazon Bedrock to generate product 
+recommendations. An AWS Lambda function retrieves customer purchase data from Amazon DynamoDB, 
+product reviews from Amazon S3, and customer profile information from Amazon RDS. Then the function 
+sends the data directly to the Amazon Bedrock model through API calls. Recently, customers who have 
+extensive purchase histories have begun to receive incomplete recommendations.
+Amazon CloudWatch logs for the Lambda function show execution timeouts. CloudWatch logs for Amazon 
+Bedrock API calls show intermittent errors. The company reviews the logs and finds that some requests are 
+failing with context-length-exceeded errors. Other requests finish but appear to ignore portions of the input 
+data.
+The company wants the recommendation system to consider all customer data when the system generates 
+recommendations. The company wants to use Amazon Bedrock Knowledge Bases to improve data 
+organization and retrieval.
+Which combination of solutions will meet these requirements? (Select TWO.)
+Implement a chunking strategy that divides the customer data into smaller segments. Configure the 
+model to process each segment separately. Invoke the model a final time to synthesize the individual 
+responses into comprehensive recommendations.
+Modify the prompt structure to place the most critical information at the beginning and end of the 
+context window. Implement token-counting logic to truncate less important data when the interaction 
+approaches the model’s maximum context length.
+Replace Claude Sonnet with a model that has a larger context-window capacity. Increase the Lambda 
+function timeout to accommodate longer processing times for larger inputs.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

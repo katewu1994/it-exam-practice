@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option D is the correct solution because it relies primarily on managed, purpose-built AWS services and 
+minimizes custom infrastructure and model management. Amazon Bedrock guardrails provide native, 
+configurable content safety controls that can block or redact disallowed content before or after model 
+inference. This directly ensures that the platform does not process or produce inappropriate outputs while 
+maintaining low operational overhead.
+Using Amazon Comprehend PII detection as a preprocessing step integrates cleanly with an Amazon S3–
+based ingestion workflow. Comprehend is a fully managed service that detects and optionally redacts PII in 
+text without requiring custom models or pipelines. This ensures that sensitive information is removed before 
+content is passed to Amazon Bedrock for generation.
+Amazon Rekognition image moderation is purpose-built for detecting unsafe or inappropriate visual content 
+and integrates naturally into Step Functions workflows. Step Functions provides orchestration without 
+requiring servers or long-running infrastructure, allowing the company to integrate text and image moderation 
+steps in a clear, auditable pipeline.
+Option A introduces redundant monitoring logic and alarms that do not directly enforce content safety. Option 
+B requires building and maintaining custom SageMaker models, increasing complexity and operational 
+burden. Option C applies moderation at authentication time and uses services like Textract that are not 
+designed for content moderation, increasing latency and management overhead.
+Therefore, Option D best satisfies content safety, PII protection, S3 integration, and minimal infrastructure 
+management requirements.
+Question #:41 - [Implementation and Integration]
+A company has set up Amazon Q Developer Pro licenses for all developers at the company. The company 
+maintains a list of approved resources that developers must use when developing applications. The approved 
+resources include internal libraries, proprietary algorithmic techniques, and sample code with approved 
+styling.
+A new team of developers is using Amazon Q Developer to develop a new Java-based application. The 
+company must ensure that the new developer team uses the company’s approved resources. The company 
+does not want to make project-level modifications.
+Which solution will meet these requirements?
+Create a Git repository that contains all of the approved internal libraries, algorithms, and code samples. 
+Include this Git repository in the application project locally as part of the workspace. Ensure that the 
+developers use the workspace context to retrieve suggestions from the Git repository.
+In the project root folder, create a folder named amazonq/rules. Add the approved internal libraries, 
+algorithms, and code samples to the folder.
+Create a folder in the application project named rules. Store the guidelines and code in the folder for 
+Amazon Q Developer to reference for code suggestions.
+Create an Amazon Q Developer customization that includes the approved data sources. Ensure that the 
+developers use the customization to develop the application.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

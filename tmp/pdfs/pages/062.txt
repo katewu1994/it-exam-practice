@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The combination of Options A and B provides the most scalable and AWS-native architecture for building 
+reasoning agents with persistent memory, session awareness, secure access control, and flexible invocation 
+models.
+Amazon Bedrock AgentCore is purpose-built to manage agent memory, session context, and identity-aware 
+reasoning across interactions. It eliminates the need for developers to manually store and retrieve agent state, 
+manage session lifecycles, or implement custom memory layers. AgentCore natively supports both 
+synchronous requests and event-driven execution, making it ideal for support workflow automation.
+Option B complements AgentCore by enabling seamless tool invocation. By registering AWS Lambda 
+functions and REST APIs as agent actions through API Gateway and EventBridge, the agent can invoke tools 
+reactively or synchronously without custom orchestration code. EventBridge enables event-driven execution, 
+while API Gateway supports synchronous request-response patterns.
+This combination provides built-in security, observability, and scaling, while avoiding the operational burden 
+of managing queues, databases, or custom workflow engines.
+Option C introduces unnecessary orchestration complexity. Option D increases infrastructure management 
+and cost. Option E stores agent state in S3, which is not suitable for low-latency, session-based reasoning.
+Therefore, A and B together deliver the most scalable, secure, and low-overhead solution for production-
+grade reasoning agents on AWS.
+Question #:54 - [Implementation and Integration]
+A company is developing a generative AI (GenAI)-powered customer support application that uses Amazon 
+Bedrock foundation models (FMs). The application must maintain conversational context across multiple 
+interactions with the same user. The application must run clarification workflows to handle ambiguous user 
+queries. The company must store encrypted records of each user conversation to use for personalization. The 
+application must be able to handle thousands of concurrent users while responding to each user quickly.
+Which solution will meet these requirements?
+Use an AWS Step Functions Express workflow to orchestrate conversation flow. Invoke AWS Lambda 
+functions to run clarification logic. Store conversation history in Amazon RDS and use session IDs as 
+the primary key.
+Use an AWS Step Functions Standard workflow to orchestrate clarification workflows. Include Wait 
+for a Callback patterns to manage the workflows. Store conversation history in Amazon DynamoDB. 
+Purchase on-demand capacity and configure server-side encryption.
+Deploy the application by using an Amazon API Gateway REST API to route user requests to an AWS 
+Lambda function to update and retrieve conversation context. Store conversation history in Amazon S3 
+and configure server-side encryption. Save each interaction as a separate JSON file.
+Use AWS Lambda functions to call Amazon Bedrock inference APIs. Use Amazon SQS queues to 
+orchestrate clarification steps. Store conversation history in an Amazon ElastiCache (Redis OSS) 
+cluster. Configure encryption at rest.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

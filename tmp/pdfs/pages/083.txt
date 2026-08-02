@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+D.  
+A.  
+B.  
+Use AWS Lambda functions to create an automated testing framework that samples production traffic 
+and routes duplicate requests to the updated model version. Use Amazon Comprehend sentiment 
+analysis to compare results. Block deployment if sentiment scores decrease.
+Answer: B
+Explanation
+Option B is the correct solution because Amazon Bedrock evaluation jobs are purpose-built to assess prompt 
+effectiveness, model behavior, and response quality in a repeatable and automated manner. Evaluation jobs 
+support both quantitative metrics and LLM-based judgment, making them suitable for detecting subtle 
+response quality regressions that simple sentiment or latency metrics cannot capture.
+By using custom prompt datasets, the company can consistently test multiple prompt templates and model 
+configurations against the same inputs. This enables accurate comparison across updates and eliminates 
+variability introduced by live traffic sampling. Amazon Bedrock evaluation jobs also support structured 
+scoring outputs, which can be used to enforce objective quality thresholds.
+Integrating evaluation jobs directly into AWS CodePipeline ensures that quality checks are automatically 
+triggered whenever prompt templates or configurations change. This creates a gated deployment workflow in 
+which only configurations that meet or exceed the predefined quality threshold are promoted. This directly 
+satisfies the requirement to prevent low-quality configurations from being deployed.
+Human reviewers can be incorporated by reviewing evaluation results and scores produced by the jobs, 
+enabling informed feedback without manual data collection. Option A and D rely on custom frameworks and 
+indirect quality signals, increasing complexity and reducing reliability. Option C focuses on operational health 
+rather than response quality.
+Therefore, Option B provides the most robust, scalable, and AWS-aligned quality assurance process for 
+Amazon Bedrock–based applications.
+Question #:73 - [Foundation Model Integration, Data Management, and Compliance]
+A pharmaceutical company is developing a Retrieval Augmented Generation application that uses an Amazon 
+Bedrock knowledge base. The knowledge base uses Amazon OpenSearch Service as a data source for more 
+than 25 million scientific papers. Users report that the application produces inconsistent answers that cite 
+irrelevant sections of papers when queries span methodology, results, and discussion sections of the papers.
+The company needs to improve the knowledge base to preserve semantic context across related paragraphs on 
+the scale of the entire corpus of data.
+Which solution will meet these requirements?
+Configure the knowledge base to use fixed-size chunking. Set a 300-token maximum chunk size and a 
+10% overlap between chunks. Use an appropriate Amazon Bedrock embedding model.
+Configure the knowledge base to use hierarchical chunking. Use parent chunks that contain 1,000 
+tokens and child chunks that contain 200 tokens. Set a 50-token overlap between chunks.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+reduces the likelihood of inventing products, because the response is conditioned on retrieved catalog records 
+rather than relying on the model’s parametric memory.
+The requirement also notes that most interactions are unique. That makes response caching far less effective, 
+because there are fewer repeated prompts to benefit from cached outputs. Instead, improving the retrieval and 
+model invocation path is the better optimization. Using the PerformanceConfigLatency parameter set to 
+optimized prioritizes lower latency behavior for model inference, helping meet faster recommendation 
+generation without requiring the company to build and operate additional infrastructure.
+The other options do not solve the root cause as reliably. Prompt engineering and streaming can improve 
+perceived latency, but they do not guarantee catalog-only recommendations because the model can still 
+hallucinate items. Guardrails can help detect or block certain undesired outputs, but without consistent catalog 
+grounding they do not ensure every recommendation is derived from the company’s product data. Building a 
+custom OpenSearch validation and caching layer increases operational complexity, and caching is misaligned 
+with predominantly unique interactions.
+Alright, after comparing  against  , I have identified the unique questions. List B (txt file) List A (Word file)
+These questions cover scenarios or architectural configurations that were not present in the existing list.
+Here are the unique questions from List B, formatted as requested:
+Question #:78 - [AI Safety, Security, and Governance]
+A company is developing a generative AI (GenAI) application by using Amazon Bedrock. The application 
+will analyze patterns and relationships in the company’s data. The application will process millions of new 
+data points daily across AWS Regions in Europe, North America, and Asia before storing the data in Amazon 
+S3.
+The application must comply with local data protection and storage regulations. Data residency and 
+processing must occur within the same continent. The application must also maintain audit trails of the 
+application’s decision-making processes and provide data classification capabilities.
+Which solution will meet these requirements?
+Deploy the application in each Region with local IAM policies. Use Amazon Bedrock cross-Region 
+inference to distribute the workload. Use Amazon CloudWatch to log AI decision-making processes. 
+Manually track compliance certifications across Regions.
+Use SCPs with AWS Organizations to manage location-specific permissions. Use AWS CloudTrail 
+immutable logs to audit decision-making processes. Import a custom model into Amazon Bedrock and 
+deploy the model to each Region.
+Use Amazon S3 Object Lock with Region-specific S3 bucket policies. Pre-process the data points 
+within the Region based on geographic origin before sending the data points to Amazon Bedrock. Use 
+Amazon Macie to classify the data. Use AWS CloudTrail immutable logs to audit the decision-making 
+processes.
+Create separate AWS accounts for each Region with individual compliance frameworks. Use Amazon 
+SageMaker AI with custom monitoring. Create manual compliance reports for each regulatory 
+jurisdiction.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

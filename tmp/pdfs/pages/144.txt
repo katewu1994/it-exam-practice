@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Therefore, Option A is the only solution that fully meets security, compliance, and observability requirements.
+Question #:126 - [Operational Efficiency and Optimization for GenAI Applications]
+A company runs a Retrieval Augmented Generation (RAG) application that uses Amazon Bedrock 
+Knowledge Bases to perform regulatory compliance queries. The application uses the 
+RetrieveAndGenerateStream API. The application retrieves relevant documents from a knowledge base that 
+contains more than 50,000 regulatory documents, legal precedents, and policy updates.
+The RAG application is producing suboptimal responses because the initial retrieval often returns 
+semantically similar but contextually irrelevant documents. The poor responses are causing model 
+hallucinations and incorrect regulatory guidance. The company needs to improve the performance of the RAG 
+application so it returns more relevant documents.
+Which solution will meet this requirement with the LEAST operational overhead?
+Deploy an Amazon SageMaker endpoint to run a fine-tuned ranking model. Use an Amazon API 
+Gateway REST API to route requests. Configure the application to make requests through the REST 
+API to rerank the results.
+Use Amazon Comprehend to classify documents and apply relevance scores. Integrate the RAG 
+application’s reranking process with Amazon Textract to run document analysis. Use Amazon Neptune 
+to perform graph-based relevance calculations.
+Implement a retrieval pipeline that uses the Amazon Bedrock Knowledge Bases Retrieve API to 
+perform initial document retrieval. Call the Amazon Bedrock Rerank API to rerank the results. Invoke 
+the InvokeModelWithResponseStream operation to generate responses.
+Use the latest Amazon reranker model through the reranking configuration within Amazon Bedrock 
+Knowledge Bases. Use the model to improve document relevance scoring and to reorder results based 
+on contextual assessments.
+Answer: D
+Explanation
+Option D is the correct solution because Amazon Bedrock Knowledge Bases natively support reranking by 
+using Amazon-managed reranker models, which are specifically designed to improve contextual relevance 
+after the initial vector retrieval step. This approach directly addresses the root cause of the issue: semantically 
+similar but contextually irrelevant documents being passed to the foundation model.
+By enabling the reranking configuration within Amazon Bedrock Knowledge Bases, the application can 
+automatically reorder retrieved documents based on deeper contextual understanding, such as regulatory 
+scope, legal applicability, and semantic intent. This significantly improves retrieval precision, which reduces 
+hallucinations and improves the factual accuracy of generated regulatory guidance.
+Option D requires no additional infrastructure, no custom orchestration logic, and no separate model hosting. 
+The reranking is fully managed by Amazon Bedrock and integrates seamlessly with the existing 
+RetrieveAndGenerateStream workflow. This makes it the lowest operational overhead solution.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

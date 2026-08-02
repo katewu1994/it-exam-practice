@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+services, and that this data can be viewed in Amazon CloudWatch. AgentCore observability also supports 
+sessions, traces, and spans, where traces represent full request-response cycles and spans represent operations 
+inside a trace. This directly matches the need to analyze multi-agent interactions, tool invocations, latency, 
+throttling, and error behavior during peak traffic.
+Option A is also correct because Amazon Bedrock AgentCore integrates with AWS X-Ray for distributed 
+tracing of AI agents and tools. AWS X-Ray support helps follow requests across service boundaries and 
+identify performance bottlenecks in agent and tool execution. CloudWatch provides curated GenAI 
+observability views for AgentCore and can show operational health, metrics, traces, sessions, and error 
+breakdowns. This gives the developer end-to-end visibility with minimal additional overhead because the core 
+telemetry is service-provided rather than extracted through a custom pipeline.
+Option B is incorrect because Container Insights focuses on container infrastructure and would not provide 
+native visibility into Bedrock AgentCore agent reasoning paths or tool-level traces. Polling APIs with Lambda 
+adds custom logic and operational overhead. Option C is incorrect because a custom ETL pipeline, 
+DynamoDB storage, and QuickSight reporting do not satisfy the “built-in Amazon Bedrock capabilities” and 
+“minimal overhead” requirements. Option D starts correctly with AgentCore Observability, but then adds 
+custom Lambda processing and Grafana, which introduces unnecessary custom instrumentation and 
+processing. Therefore, option A is the most AWS-aligned solution.
+==========
+Question #:71 - [Implementation and Integration]
+A company is building a generative AI (GenAI) application that processes financial reports and provides 
+summaries for analysts. The application must run two compute environments. In one environment, AWS 
+Lambda functions must use the Python SDK to analyze reports on demand. In the second environment, 
+Amazon EKS containers must use the JavaScript SDK to batch process multiple reports on a schedule. The 
+application must maintain conversational context throughout multi-turn interactions, use the same foundation 
+model (FM) across environments, and ensure consistent authentication.
+Which solution will meet these requirements?
+Use the Amazon Bedrock InvokeModel API with a separate authentication method for each 
+environment. Store conversation states in Amazon DynamoDB. Use custom I/O formatting logic for 
+each programming language.
+Use the Amazon Bedrock Converse API directly in both environments with a common authentication 
+mechanism that uses IAM roles. Store conversation states in Amazon ElastiCache. Create programming 
+language-specific wrappers for model parameters.
+Create a centralized Amazon API Gateway REST API endpoint that handles all model interactions by 
+using the InvokeModel API. Store interaction history in application process memory in each Lambda 
+function or EKS container. Use environment variables to configure model parameters.
+Use the Amazon Bedrock Converse API and IAM roles for authentication. Pass previous messages in 
+the request messages array to maintain conversational context. Use programming language-specific 
+SDKs to establish consistent API interfaces.
+Answer: D
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

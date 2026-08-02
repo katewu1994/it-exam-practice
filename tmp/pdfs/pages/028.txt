@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The use of Amazon Bedrock built-in evaluations provides standardized metrics specifically designed for RAG 
+systems, including retrieval precision, faithfulness to source documents, and hallucination rates. These 
+evaluations integrate directly with Amazon Bedrock knowledge bases and models, eliminating the need to 
+build and maintain custom evaluation pipelines.
+Option A focuses on entity extraction confidence, which does not reliably detect hallucinations in generative 
+text. Option B requires maintaining and scaling a separate fine-tuned evaluation model, increasing complexity 
+and cost. Option C is useful for regression testing but cannot detect hallucinations in real-world, open-ended 
+clinical queries.
+Therefore, Option D provides the most effective and operationally efficient approach to maintaining clinical-
+grade accuracy while minimizing human review effort.
+Question #:25 - [AI Safety, Security, and Governance]
+A company is building a video analysis platform on AWS. The platform will analyze a large video archive by 
+using Amazon Rekognition and Amazon Bedrock. The platform must comply with predefined privacy 
+standards. The platform must also use secure model I/O, control foundation model (FM) access patterns, and 
+provide an audit of who accessed what and when.
+Which solution will meet these requirements?
+Configure VPC endpoints for Amazon Bedrock model API calls. Implement Amazon Bedrock 
+guardrails to filter harmful or unauthorized content in prompts and responses. Use Amazon Bedrock 
+trace events to track all agent and model invocations for auditing purposes. Export the traces to Amazon 
+CloudWatch Logs as an audit record of model usage. Store all prompts and outputs in Amazon S3 with 
+server-side encryption with AWS KMS keys (SSE-KMS).
+Define access control by using IAM with attribute-based access control (ABAC) to map departments to 
+specific permissions. Configure VPC endpoints for Amazon Bedrock model API calls. Use IAM 
+condition keys to enforce specific GuardrailIdentifier and ModelId values. Configure AWS CloudTrail 
+to capture management and data events for S3 objects and KMS key usage activities. Enable S3 server 
+access logging to record detailed file-level interactions with the video archives. Send all CloudTrail 
+logs to AWS CloudTrail Lake. Set up Amazon CloudWatch alarms to detect and alert on unexpected 
+activity from Amazon Bedrock, Amazon Rekognition, and AWS KMS.
+Restrict access to services by using VPC endpoint policies. Use AWS Config to track resource changes 
+and compliance with security rules. Use server-side encryption with AWS KMS keys (SSE-KMS) to 
+encrypt data at rest. Store the model’s I/O in separate Amazon S3 buckets. Enable S3 server access 
+logging to track file-level interactions.
+Configure AWS CloudTrail Insights to analyze API call patterns across accounts and detect anomalous 
+activity in Amazon Bedrock, Amazon Rekognition, Amazon S3, and AWS KMS. Deploy Amazon 
+Macie to scan and classify the video archive. Use server-side encryption with AWS KMS keys (SSE-
+KMS) to encrypt all stored data. Configure CloudTrail to capture KMS API usage events for audit 
+purposes. Configure Amazon EventBridge rules to process CloudTrail Insights anomalies and Macie 
+findings. Use CloudWatch alarms to trigger automated notifications and security responses when 
+potential security issues are detected.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

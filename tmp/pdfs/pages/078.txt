@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The other options fall short. Option  performs PII filtering at the application edge rather than at inference B
+time and relies on scheduled analysis instead of real-time enforcement. Option  focuses on replication and C
+document processing rather than inline GenAI governance. Option  uses services that are not designed for D
+PII detection in text-based GenAI workflows and lacks native lineage tracking.
+Therefore,  best fulfills all stated requirements using AWS-recommended governance and security A
+capabilities.
+Question #:68 - [AI Safety, Security, and Governance]
+A healthcare company is deploying an AI system that uses a foundation model (FM) to help clinicians make 
+diagnostic decisions. The company’s ethics board requires the AI system to demonstrate fairness across 
+patient demographic groups and comply with medical AI governance policies. During initial testing, the AI 
+system provides recommendations without clear explanations or decision tracing. Clinicians are unable to 
+review how the AI system produces diagnostic conclusions.
+The company needs to implement a solution that provides transparent reasoning for AI outputs, enables 
+systematic fairness testing, and ensures policy compliance for responsible AI use in healthcare settings. The 
+solution must balance comprehensive explainability with real-time performance requirements. The solution 
+must support rapid iteration for bias testing across multiple demographic variables. The solution must 
+integrate seamlessly with existing clinical workflows while maintaining strict data privacy controls. The 
+solution must handle complex medical and regulatory terminology.
+Which solution will meet these requirements?
+Use Amazon SageMaker Clarify to generate model explanations. Use Amazon Augmented AI (Amazon 
+A2I) to implement human review workflows. Use AWS Config to enforce compliance policies across 
+the AI system.
+Use Amazon Comprehend Medical to analyze medical terminology. Use Amazon Textract to process 
+documents. Use AWS CloudFormation to standardize deployment configurations.
+Use Amazon Bedrock agent tracing to provide reasoning traces. Use Amazon Bedrock Prompt 
+Management with A/B testing to perform fairness evaluations. Use Amazon Bedrock Guardrails to 
+ensure policy compliance.
+Use Amazon CloudWatch to collect performance metrics. Use Amazon EventBridge to trigger 
+compliance checks. Use AWS Lambda functions to generate custom explanation reports.
+Answer: C
+Explanation
+Option C is the best answer because the scenario is centered on a foundation-model GenAI application that 
+needs explainability, fairness iteration, and responsible AI controls inside an Amazon Bedrock workflow. 
+Amazon Bedrock Agents support tracing, and AWS documentation states that traces can show the agent’s 
+path from user input to response, including action group inputs and outputs, knowledge base queries, and the 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

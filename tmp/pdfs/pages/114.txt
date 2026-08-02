@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+B.  
+C.  
+D.  
+Implement AWS X-Ray to trace requests through the application components. Enable CloudWatch 
+Logs Insights for error pattern detection. Set up AWS CloudTrail to monitor all API calls to Amazon 
+Bedrock. Create custom dashboards in Amazon QuickSight.
+Enable Amazon CloudWatch Application Insights for the application resources. Create custom metrics 
+for recommendation quality, token usage, and response latency by using the CloudWatch embedded 
+metric format with dimensions for request types and user segments. Configure CloudWatch anomaly 
+detection on the model metrics. Establish log pattern analysis by using CloudWatch Logs Insights.
+Use Amazon OpenSearch Service with the Observability plugin. Ingest model metrics and logs by 
+using Amazon Kinesis. Create custom Piped Processing Language (PPL) queries to analyze model 
+behavior patterns. Establish operational dashboards to visualize anomalies in real time.
+Answer: C
+Explanation
+Option C best satisfies the requirements because it combines application-aware observability, metric 
+baselining, anomaly detection, and correlated alerting using fully managed AWS services with minimal 
+operational overhead. Amazon CloudWatch Application Insights is designed to automatically monitor 
+application health by analyzing metrics, logs, and events across EC2-based workloads. This aligns directly 
+with the need to detect intermittent performance issues and deviations from expected behavior.
+By publishing custom metrics using the CloudWatch embedded metric format, the application can track 
+generative AI–specific signals such as recommendation quality indicators, token usage, request volume, and 
+response latency from Amazon Bedrock foundation model calls. Adding di mensions such as request type or 
+user segment enables fine-grained visibility into which workloads or customer groups are impacted when 
+recommendation quality degrades.
+A critical requirement is detecting degradation compared to established baselines and generating alerts within 
+10 minutes. CloudWatch anomaly detection automatically builds statistical models of normal behavior for 
+time-series metrics and flags deviations without requiring manually tuned thresholds. This capability is well 
+suited for monitoring foundation model behavior, which can vary subtly over time. When anomalies are 
+detected, CloudWatch alarms can trigger notifications with contextual metric data quickly, meeting the 
+alerting requirement.
+CloudWatch Logs Insights complements the metric-based view by enabling log pattern analysis and 
+correlation. Engineers can query application logs and model response logs to identify recurring error patterns 
+or shifts in output behavior that explain why recommendations no longer align with user preferences. 
+Application Insights further correlates metrics and logs to surface probable root causes, reducing mean time to 
+resolution.
+The other options lack one or more critical elements. Option A focuses on infrastructure-level metrics without 
+baseline anomaly detection. Option B emphasizes tracing and auditing but does not provide automated 
+performance deviation analysis. Option D offers flexibility but requires significantly more development and 
+operational effort than a native CloudWatch-based solution.
+Question #:100 - [Operational Efficiency and Optimization for GenAI Applications]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

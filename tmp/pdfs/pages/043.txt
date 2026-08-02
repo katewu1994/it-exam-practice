@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+B.  
+C.  
+D.  
+Create a separate supervisor agent for each department. Configure individual collaborator agents to 
+perform natural language intent classification for each specialty domain within each department. 
+Integrate each collaborator agent with department-specific knowledge bases only. Implement manual 
+handoff processes between the supervisor agents.
+Isolate data for each department in separate knowledge bases. Use IAM filtering to control access to 
+each knowledge base. Deploy a single general-purpose agent. Configure multiple action groups within 
+the general-purpose agent to perform specific department functions. Implement rule-based routing logic 
+within the general-purpose agent instructions.
+Implement multiple independent supervisor agents that run in parallel to respond to patient inquiries for 
+each department. Configure multiple collaborator agents for each supervisor agent. Integrate all agents 
+with the same knowledge base. Use external routing logic to merge responses from multiple supervisor 
+agents.
+Answer: A
+Explanation
+Option A is the most appropriate design because it provides scalable multi-agent orchestration, clear domain 
+separation, and strong governance with minimal operational complexity. A supervisor-agent pattern is a 
+standard AWS-recommended approach for multi-agent systems: one agent performs intent classification and 
+routing, while specialized agents handle domain-specific tasks.
+Isolating data with separate knowledge bases ensures that each specialized collaborator agent retrieves only 
+the information relevant to its department. This improves response accuracy, reduces hallucinations, and 
+supports privacy controls because clinical content, claims content, and scheduling content can have different 
+access policies. IAM-based filtering ensures that each agent has permission only to the knowledge base it is 
+authorized to use.
+Routing patient inquiries through a supervisor agent supports high concurrency and extensibility. New 
+departments or features can be added by introducing new collaborator agents and knowledge bases without 
+redesigning the entire system. Because routing is handled centrally, changes in classification logic do not 
+require updates across many independent supervisors.
+Using RAG within each collaborator agent ensures that responses are grounded in department-approved 
+information sources, which is critical in healthcare settings to reduce unsafe or incorrect guidance. This 
+approach also improves performance because each retrieval scope is smaller and more relevant, supporting 
+thousands of parallel interactions.
+Option B introduces manual handoffs that do not scale. Option C relies on rule-based routing inside one 
+general agent, which becomes brittle and difficult to govern as complexity grows. Option D mixes all 
+departments into a single knowledge base and merges responses externally, increasing risk of incorrect 
+domain answers and operational overhead.
+Therefore, Option A best meets the scalability, correctness, and multi-agent onboarding requirements.
+Question #:38 - [AI Safety, Security, and Governance]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

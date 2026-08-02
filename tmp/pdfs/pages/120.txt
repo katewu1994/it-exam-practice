@@ -1,0 +1,39 @@
+Amazon Web Services - AIP-C01
+D.  Set up standardized multilingual test conversations with identical meaning. Run the test conversations 
+in parallel by using Amazon Bedrock model evaluation jobs. Apply similarity and hallucination 
+thresholds. Integrate the process into the CI/CD pipeline to block releases that fail.
+Answer: D
+Explanation
+Option D is the correct solution because it directly evaluates multilingual output consistency and quality in an 
+automated, scalable, and deployment-gating workflow. Amazon Bedrock model evaluation jobs are designed 
+to run large-scale, repeatable evaluations against defined datasets and to produce quantitative metrics that can 
+be used as objective release criteria.
+The core issue is semantic inconsistency across languages for equivalent inputs. The most reliable way to 
+detect this is to create standardized test conversations where each language version expresses the same intent 
+and constraints. Running those tests through the updated model and comparing results with similarity metrics 
+(for example, semantic similarity between expected and actual answers, or between language variants) 
+surfaces regressions that infrastructure testing cannot detect.
+Bedrock evaluation jobs support running evaluations at scale and are well suited for processing large datasets 
+quickly. By parallelizing evaluation runs across languages and conversations, the company can meet the 45-
+minute requirement while executing at least 15,000 conversations. Because the process is standardized, it also 
+allows consistent baseline comparisons across releases.
+Applying hallucination thresholds ensures that answers remain grounded and do not introduce fabricated 
+details, which is particularly important when language-specific behavior shifts after a model upgrade. 
+Integrating evaluation jobs into the CI/CD pipeline enables fully automated execution on every model or 
+configuration update. The pipeline can enforce a hard quality gate that blocks deployment if thresholds are not 
+met, preventing regressions from reaching production.
+Option A focuses on performance and infrastructure bottlenecks, not multilingual response quality. Option B 
+is post-deployment and too slow to prevent regressions. Option C normalizes inputs but does not measure 
+multilingual output equivalence or provide robust, quantitative gating.
+Therefore, Option D best meets the automation, scale, timing, and deployment-blocking requirements.
+Question #:105 - [Operational Efficiency and Optimization for GenAI Applications]
+A financial services company is developing a generative AI (GenAI) application that serves both premium 
+customers and standard customers. The application uses AWS Lambda functions behind an Amazon API 
+Gateway REST API to process requests. The company needs to dynamically switch between AI models based 
+on which customer tier each user belongs to. The company also wants to perform A/B testing for new features 
+without redeploying code. The company needs to validate model parameters like temperature and maximum 
+token limits before applying changes.
+Which solution will meet these requirements with the LEAST operational overhead?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

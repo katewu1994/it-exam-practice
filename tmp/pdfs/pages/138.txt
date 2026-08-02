@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+B.  
+C.  
+D.  
+A.  
+Deploy the FM on Amazon EC2 instances in eu-north-1. Deploy a private Amazon API Gateway REST 
+API in front of the EC2 instances. Configure an Amazon Bedrock VPC endpoint. Integrate the REST 
+API with the business application.
+Configure the FM to use cross-Region inference through a Europe-scoped endpoint. Configure an 
+Amazon Bedrock VPC endpoint. Extend existing SCPs to allow employees to use the FM through 
+inference profiles in Europe-based Regions where the FM is available. Use an inference profile to 
+integrate Amazon Bedrock with the business application.
+Deploy the FM in Amazon SageMaker in eu-north-1. Configure a SageMaker VPC endpoint. Extend 
+existing SCPs to allow employees to use the SageMaker endpoint. Integrate the FM in SageMaker with 
+the business application.
+Answer: C
+Explanation
+Option C is the correct solution because it uses Amazon Bedrock cross-Region inference profiles, which are 
+explicitly designed to support regional data residency, private connectivity, and resilience with minimal 
+operational overhead.
+By using a Europe-scoped inference profile, the application ensures that all inference requests are routed only 
+within European Regions where the FM is deployed, such as eu-central-1 and eu-west-3. This satisfies data 
+residency requirements while still providing resilience and load distribution across Regions.
+Configuring an Amazon Bedrock VPC endpoint ensures that all traffic remains on the AWS private network. 
+No public endpoints are used, which aligns with the company’s private networking requirements.
+Extending existing SCPs to allow inference profile usage ensures that employees can access the FM only in 
+approved Regions, maintaining governance across the Control Tower environment.
+Options A and B introduce unnecessary custom routing layers and EC2 management. Option D moves away 
+from Amazon Bedrock entirely and increases operational complexity.
+Therefore, Option C is the only solution that satisfies private access, regional confinement, governance 
+controls, and low operational overhead.
+Question #:121 - [Operational Efficiency and Optimization for GenAI Applications]
+A healthcare company uses Amazon Bedrock to deploy an application that generates summaries of clinical 
+documents. The application experiences inconsistent response quality with occasional factual hallucinations. 
+Monthly costs exceed the company’s projections by 40%. A GenAI developer must implement a near real-
+time monitoring solution to detect hallucinations, identify abnormal token consumption, and provide early 
+warnings of cost anomalies. The solution must require minimal custom development work and maintenance 
+overhead.
+Which solution will meet these requirements?
+Configure Amazon CloudWatch alarms to monitor InputTokenCount and OutputTokenCount metrics to 
+detect anomalies. Store model invocation logs in an Amazon S3 bucket. Use AWS Glue and Amazon 
+Athena to identify potential hallucinations.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+Option A improves safety and latency predictability but does not ensure recommendations are limited to valid 
+products. Option B relies on prompt constraints, which are not sufficient to prevent hallucinations. Option D 
+introduces additional validation and caching layers but increases complexity and does not improve generation 
+relevance.
+Therefore, Option C best resolves both relevance and latency challenges using AWS-native, low-maintenance 
+GenAI integration patterns.
+Question #:115 - [Operational Efficiency and Optimization for GenAI Applications]
+A publishing company is developing a chat assistant that uses a containerized large language model (LLM) 
+that runs on Amazon SageMaker AI. The architecture consists of an Amazon API Gateway REST API that 
+routes user requests to an AWS Lambda function. The Lambda function invokes a SageMaker AI real-time 
+endpoint that hosts the LLM.
+Users report uneven response times. Analytics show that a high number of chats are abandoned after 2 
+seconds of waiting for the first token. The company wants a solution to ensure that p95 latency is under 800 
+ms for interactive requests to the chat assistant.
+Which combination of solutions will meet this requirement? (Select TWO.)
+Enable model preload upon container startup. Implement dynamic batching to process multiple user 
+requests together in a single inference pass.
+Select a larger GPU instance type for the SageMaker AI endpoint. Set the minimum number of 
+instances to 0. Continue to perform per-request processing. Lazily load model weights on the first 
+request.
+Switch to a multi-model endpoint. Use lazy loading without request batching.
+Set the minimum number of instances to greater than 0. Enable response streaming.
+Switch to Amazon SageMaker Asynchronous Inference for all requests. Store requests in an Amazon 
+S3 bucket. Set the minimum number of instances to 0.
+Answer: A D
+Explanation
+The correct answers are A and D because they directly reduce time-to-first-token and stabilize p95 latency for 
+interactive, real-time chat workloads hosted on Amazon SageMaker AI real-time endpoints.
+Option D addresses the biggest driver of uneven latency: cold starts and scale-to-zero behavior. By setting the 
+minimum number of instances to greater than 0, the endpoint always has warm capacity and loaded runtime 
+resources, eliminating the first-request penalty that causes users to wait multiple seconds. Enabling response 
+streaming improves perceived latency by returning the first tokens as soon as they are generated rather than 
+waiting for the complete response. This directly targets the abandonment problem described (users leaving 
+after waiting for the first token).
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

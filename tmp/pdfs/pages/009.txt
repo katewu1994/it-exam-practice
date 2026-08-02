@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+This solution maintains clear separation of concerns: Step Functions handle orchestration and parallelism, 
+Lambda handles secret retrieval and metadata propagation, and AppConfig governs prompt lifecycle 
+management. No additional event pipelines or custom retry coordination layers are required.
+Option B oversimplifies the architecture and does not address secret lifecycle or drift. Option C introduces 
+event-driven ordering complexity without solving prompt versioning. Option D introduces unnecessary 
+tooling and dynamic prompt generation risk.
+Therefore, Option A best resolves performance, correctness, and stability issues while minimizing operational 
+overhead.
+Question #:7 - [AI Safety, Security, and Governance]
+A financial services company is deploying a generative AI (GenAI) application that uses Amazon Bedrock to 
+assist customer service representatives to provide personalized investment advice to customers. The company 
+must implement a comprehensive governance solution that follows responsible AI practices and meets 
+regulatory requirements.
+The solution must detect and prevent hallucinations in recommendations. The solution must have safety 
+controls for customer interactions. The solution must also monitor model behavior drift in real time and 
+maintain audit trails of all prompt-response pairs for regulatory review. The company must deploy the 
+solution within 60 days. The solution must integrate with the company ' s existing compliance dashboard and 
+respond to customers within 200 ms.
+Which solution will meet these requirements with the LEAST operational overhead?
+Configure Amazon Bedrock guardrails to apply custom content filters and toxicity detection. Use 
+Amazon Bedrock Model Evaluation to detect hallucinations. Store prompt-response pairs in Amazon 
+DynamoDB to capture audit trails and set a TTL. Integrate Amazon CloudWatch custom metrics with 
+the existing compliance dashboard.
+Deploy Amazon Bedrock and use AWS PrivateLink to access the application securely. Use AWS 
+Lambda functions to implement custom prompt validation. Store prompt-response pairs in an Amazon 
+S3 bucket and configure S3 Lifecycle policies. Create custom Amazon CloudWatch dashboards to 
+monitor model performance metrics.
+Use Amazon Bedrock Agents and Amazon Bedrock Knowledge Bases to ground responses. Use 
+Amazon Bedrock Guardrails to enforce content safety. Use Amazon OpenSearch Service to store and 
+index prompt-response pairs. Integrate OpenSearch Service with Amazon QuickSight to create 
+compliance reports and to detect model behavior drift.
+Use Amazon SageMaker Model Monitor to detect model behavior drift. Use AWS WAF to filter 
+content. Store customer interactions in an encrypted Amazon RDS database. Use Amazon API Gateway 
+to create custom HTTP APIs to integrate with the compliance dashboard.
+Answer: A
+Explanation
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

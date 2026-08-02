@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+F.  
+Answer: A
+Explanation
+Option A provides the most complete, AWS-native defense-in-depth solution for protecting against prompt 
+injection attacks while meeting audit and resiliency requirements. Amazon Bedrock guardrails are designed 
+specifically to enforce safety policies on both user inputs and model outputs, including protections against 
+prompt injection and jailbreak attempts.
+Setting content filters to high increases sensitivity to malicious or manipulative inputs. Guardrail profiles 
+allow the same guardrail configuration to be applied consistently across multiple Regions, enabling cross-
+Region inference and failover without configuration drift. This directly satisfies the requirement for regional 
+resilience.
+Amazon CloudWatch Logs captures detailed guardrail intervention events, including when content is blocked, 
+modified, or flagged. Custom metrics derived from these logs enable fine-grained auditing, alerting, and 
+reporting on safety enforcement actions. This provides a more detailed audit trail of safety interventions than 
+API-level logs alone.
+Option B adds WAF protection but lacks detailed guardrail intervention logging. Option C introduces 
+additional services and custom logic that increase complexity and may miss model-specific injection patterns. 
+Option D references replication concepts that are not aligned with Bedrock guardrail operational models and 
+relies on word filters, which are insufficient against sophisticated prompt injection techniques.
+Therefore, Option A best meets the requirements for layered protection, auditability, and cross-Region 
+resilience using managed Amazon Bedrock safety controls.
+Question #:17 - [AI Safety, Security, and Governance]
+A finance company is developing an AI assistant to help clients plan investments and manage their portfolios. 
+The company identifies several high-risk conversation patterns such as requests for specific stock 
+recommendations or guaranteed returns. High-risk conversation patterns could lead to regulatory violations if 
+the company cannot implement appropriate controls.
+The company must ensure that the AI assistant does not provide inappropriate financial advice, generate 
+content about competitors, or make claims that are not factually grounded in the company ' s approved 
+financial guidance. The company wants to use Amazon Bedrock Guardrails to implement a solution.
+Which combination of steps will meet these requirements? (Select THREE)
+Add the high-risk conversation patterns to a denied topics guardrail.
+Configure a content filter guardrail to filter prompts that contain the high-risk conversation patterns.
+Configure a content filter guardrail to filter prompts that contain competitor names.
+Add the names of competitors as custom word filters. Set the input and output actions to block.
+Set a low grounding score threshold.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

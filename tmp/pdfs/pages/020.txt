@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+F.  
+A.  
+B.  
+C.  
+Set a high grounding score threshold.
+Answer: A D F
+Explanation
+The correct combination is A, D, and F because these guardrail features directly map to the stated financial 
+compliance and governance requirements.
+Option A is required because denied topics guardrails are explicitly designed to block entire categories of 
+requests, such as requests for guaranteed returns or specific stock recommendations. These are regulatory-
+sensitive scenarios where partial filtering is insufficient and full blocking is required to prevent violations.
+Option D is correct because custom word filters are the appropriate guardrail mechanism to block references 
+to specific competitor names. Content filters are category-based (such as hate, sexual, or violence-related 
+content) and are not suitable for blocking organization-specific competitor references. Custom word filters 
+allow precise blocking at both input and output stages.
+Option F is required because a high grounding score threshold enforces that model outputs must be strongly 
+supported by approved source material. This prevents the AI assistant from making speculative or unfounded 
+claims that are not aligned with the company’s approved financial guidance, which is critical in regulated 
+financial environments.
+Option B is incorrect because content filters do not target domain-specific financial advice patterns. Option C 
+is incorrect for the same reason—competitor names are not a content filter category. Option E would weaken 
+factual grounding and increase hallucination risk.
+Therefore, A, D, and F together provide topic blocking, competitor exclusion, and factual grounding 
+enforcement.
+Question #:18 - [Foundation Model Integration, Data Management, and Compliance]
+A company is using Amazon Bedrock to design an application to help researchers apply for grants. The 
+application is based on an Amazon Nova Pro foundation model (FM). The application contains four required 
+inputs and must provide responses in a consistent text format. The company wants to receive a notification in 
+Amazon Bedrock if a response contains bullying language. However, the company does not want to block all 
+flagged responses.
+The company creates an Amazon Bedrock flow that takes an input prompt and sends it to the Amazon Nova 
+Pro FM. The Amazon Nova Pro FM provides a response.
+Which additional steps must the company take to meet these requirements? (Select TWO.)
+Use Amazon Bedrock Prompt Management to specify the required inputs as variables. Select an 
+Amazon Nova Pro FM. Specify the output format for the response. Add the prompt to the prompts node 
+of the flow.
+Create an Amazon Bedrock guardrail that applies the hate content filter. Set the filter response to block. 
+Add the guardrail to the prompts node of the flow.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

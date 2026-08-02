@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+D.  
+A.  
+B.  
+Use Amazon API Gateway to create a proxy for all Amazon Bedrock API calls. Configure request 
+throttling based on custom usage plans with predefined token quotas. Configure API Gateway to reject 
+requests that will exceed token limits.
+Answer: A
+Explanation
+Option A is the correct solution because it provides proactive, model-aware token management with fine-
+grained visibility and alerting, which is required for regulated financial workloads. Amazon Bedrock currently 
+exposes token usage metrics after invocation, but it does not natively enforce proactive, model-specific token 
+limits across multiple applications or business units.
+By implementing model-specific tokenizers in AWS Lambda, the company can estimate input and output 
+token usage before sending requests to Amazon Bedrock. This enables early detection of requests that are 
+approaching or exceeding model limits and allows the application to block, truncate, or reroute requests 
+proactively rather than reacting to failures.
+Publishing token usage metrics to Amazon CloudWatch enables real-time monitoring and alerting at scale, 
+easily supporting more than 5,000 requests per minute. Storing detailed token usage data in Amazon 
+DynamoDB allows the company to attribute usage and costs to specific applications, teams, or business 
+units—an essential requirement for regulatory reporting and internal chargeback.
+Option B is incorrect because Amazon Bedrock Guardrails do not currently provide token quota enforcement 
+or proactive token alerts. Option C is reactive and only analyzes failures after they occur. Option D throttles 
+requests but cannot enforce token-based limits or provide per-model cost attribution.
+Therefore, Option A best satisfies proactive alerting, scalability, compliance reporting, and cost allocation 
+requirements with acceptable operational effort.
+Question #:120 - [AI Safety, Security, and Governance]
+A GenAI developer is evaluating Amazon Bedrock foundation models (FMs) to enhance a Europe-based 
+company ' s internal business application. The company has a multi-account landing zone in AWS Control 
+Tower. The company uses Service Control Policies (SCPs) to allow its accounts to use only the eu-north-1 
+and eu-west-1 Regions. All customer data must remain in private networks within the approved AWS Regions.
+The GenAI developer selects an FM based on analysis and testing and hosts the model in the eu-central-1 
+Region and the eu-west-3 Region. The GenAI developer must enable access to the FM for the company ' s 
+employees. The GenAI developer must ensure that requests to the FM are private and remain within the same 
+Regions as the FM.
+Which solution will meet these requirements?
+Deploy an AWS Lambda function that is exposed by a private Amazon API Gateway REST API to a 
+VPC in eu-north-1. Create a VPC endpoint for the selected FM in eu-central-1 and eu-west-3. Extend 
+existing SCPs to allow employees to use the FM. Integrate the REST API with the business application.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

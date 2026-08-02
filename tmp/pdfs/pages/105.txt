@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+plus automated compliance enforcement before deployment. Standardized CloudFormation templates provide 
+reusable building blocks for security controls (identity, networking boundaries, encryption), observability 
+practices (metrics, logs, traces), and RAG deployment patterns (knowledge base integration, ingestion 
+pipelines, retrieval controls). This aligns with AWS guidance to operationalize well-architected patterns 
+through repeatable templates rather than ad hoc implementations.
+A centralized repository enables version control, change review, and governance of templates across all five 
+business units. This satisfies the “versioned” and “reusable” requirements and provides a single source of 
+truth for approved architectures. Integrating a CI/CD pipeline ensures that deployments are consistent and 
+automated, reducing drift between business units and Regions.
+CloudFormation Guard is most effective when used as a preventive control in the pipeline, not only after 
+deployment. By running Guard rules during build or pre-deploy stages, the organization can enforce 
+mandatory security and observability configurations and block noncompliant changes before they reach 
+production. This supports consistent governance while still enabling business units to deploy quickly.
+Option A performs compliance validation after deployment, which allows policy violations to be deployed 
+first and remediated later. Option C provides governed provisioning but requiring console-based deployment 
+reduces automation and can slow standardized CI/CD adoption; it also adds an additional governance layer 
+that is not required to meet the stated needs. Option D is not enforceable and does not provide reusable, 
+versioned, governed components.
+Therefore, Option B provides the strongest, most scalable, and most consistently governed approach for 
+standardized GenAI deployments across business units.
+Question #:92 - [Data Management, and Compliance]
+A research company is developing a GenAI system to produce summaries of technical documents. The 
+company must catalog all data sources in a central location. The company needs a solution that can 
+automatically discover and update data sources. The solution must tag each generated summary with citations 
+as metadata that users can query. The solution must retain tamper-evident, immutable audit logs for every 
+model invocation and store input/output records.
+Which solution will meet these requirements?
+Use Amazon Comprehend to identify data sources in the documents. Store generated summaries in 
+Amazon S3 and enable S3 Object Lock. Use Amazon CloudWatch metrics to generate reports about 
+application throughput. Do not include logs for each invocation.
+Use AWS Glue Data Catalog with crawlers to maintain data sources. Store generated summaries in 
+Amazon S3. Write object tags that include a source ID. Store Amazon Bedrock model invocation logs 
+in Amazon S3. Enable S3 Object Lock on the S3 bucket that stores invocation logs. Use AWS 
+CloudTrail log file integrity validation to provide tamper-evident immutability.
+Store application outputs in Amazon DynamoDB. Apply item-level tags that include source attribution. 
+Write application events to Amazon CloudWatch Logs. Use IAM roles to provide audit traceability.
+Use AWS AppConfig feature flags to implement data versioning. Restrict access to the model by using 
+IAM condition keys. Maintain a versioned mapping file of source-to-output relationships in Amazon S3.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

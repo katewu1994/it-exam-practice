@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+main application " with minimal overhead,  provide a managed orchestration layer. Amazon Bedrock Flows
+Flows allow developers to link managed prompts with AWS services (like knowledge bases or Lambda 
+functions) without writing complex state-machine logic in Step Functions (Option B). This combination 
+ensures consistent, auditable, and easily deployable prompt assets across the university ' s diverse use cases.
+Question #:96 - [Operational Efficiency and Optimization for GenAI Applications]
+A company is developing a generative AI (GenAI) application that analyzes customer service calls in real 
+time and generates suggested responses for human customer service agents. The application must process 
+500,000 concurrent calls during peak hours with less than 200 ms end-to-end latency for each suggestion. The 
+company uses existing architecture to transcribe customer call audio streams. The application must not exceed 
+a predefined monthly compute budget and must maintain auto scaling capabilities.
+Which solution will meet these requirements?
+Deploy a large, complex reasoning model on Amazon Bedrock. Purchase provisioned throughput and 
+optimize for batch processing.
+Deploy a low-latency, real-time optimized model on Amazon Bedrock. Purchase provisioned 
+throughput and set up automatic scaling policies.
+Deploy a large language model (LLM) on an Amazon SageMaker real-time endpoint that uses 
+dedicated GPU instances.
+Deploy a mid-sized language model on an Amazon SageMaker serverless endpoint that is optimized for 
+batch processing.
+Answer: B
+Explanation
+Option B is the correct solution because it aligns with AWS guidance for building high-throughput, ultra-low-
+latency GenAI applications while maintaining predictable costs and automatic scaling. Amazon Bedrock 
+provides access to foundation models that are specifically optimized for real-time inference use cases, 
+including conversational and recommendation-style workloads that require responses within milliseconds.
+Low-latency models in Amazon Bedrock are designed to handle very high request rates with minimal per-
+request overhead. Purchasing provisioned throughput ensures that sufficient model capacity is reserved to 
+handle peak loads, eliminating cold starts and reducing request queuing during traffic surges. This is critical 
+when supporting up to 500,000 concurrent calls with strict latency requirements.
+Automatic scaling policies allow the application to dynamically adjust capacity based on demand, ensuring 
+cost efficiency during off-peak hours while maintaining performance during peak usage. This directly 
+supports the requirement to stay within a predefined monthly compute budget.
+Option A fails because batch processing and complex reasoning models introduce higher latency and are not 
+suitable for real-time suggestions. Option C introduces significantly higher operational and cost overhead due 
+to dedicated GPU instances and manual scaling responsibilities. Option D is optimized for batch workloads 
+and cannot meet the sub-200 ms latency requirement.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

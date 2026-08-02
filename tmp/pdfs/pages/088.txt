@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Using the AWS AppConfig Agent, Lambda functions can retrieve cached configurations efficiently, ensuring 
+low latency even under thousands of concurrent requests. This approach allows the Lambda function to apply 
+proprietary business logic—such as user tier, transaction value, Region compliance, and real-time cost 
+metrics—before selecting the appropriate FM.
+Option A is operationally fragile because environment variable changes require function restarts and do not 
+support validation or controlled rollouts. Option B is too limited for complex, dynamic logic and is difficult to 
+maintain at scale. Option D misuses Lambda authorizers, which are intended for authentication and 
+authorization, not high-frequency dynamic routing decisions.
+Therefore, Option C provides the most scalable, flexible, and low-overhead architecture for dynamic, 
+regulation-aware FM routing in a global GenAI system.
+Question #:77 - [Foundation Model Integration, Data Management, and Compliance]
+An ecommerce company is developing a generative AI application that uses Amazon Bedrock with Anthropic 
+Claude to recommend products to customers. Customers report that some recommended products are not 
+available for sale on the website or are not relevant to the customer. Customers also report that the solution 
+takes a long time to generate some recommendations.
+The company investigates the issues and finds that most interactions between customers and the product 
+recommendation solution are unique. The company confirms that the solution recommends products that are 
+not in the company’s product catalog. The company must resolve these issues.
+Which solution will meet this requirement?
+Increase grounding within Amazon Bedrock Guardrails. Enable Automated Reasoning checks. Set up 
+provisioned throughput.
+Use prompt engineering to restrict the model responses to relevant products. Use streaming techniques 
+such as the InvokeModelWithResponseStream action to reduce perceived latency for the customers.
+Create an Amazon Bedrock knowledge base. Implement Retrieval Augmented Generation RAG. Set the 
+PerformanceConfigLatency parameter to optimized.
+Store product catalog data in Amazon OpenSearch Service. Validate the model’s product 
+recommendations against the product catalog. Use Amazon DynamoDB to implement response caching.
+Answer: C
+Explanation
+Option C best addresses both core problems: hallucinated recommendations that do not exist in the catalog 
+and slow response times, while keeping operational overhead low. The most direct way to prevent the model 
+from recommending unavailable products is to ground generation on authoritative product catalog data at 
+inference time. An Amazon Bedrock knowledge base is designed for this pattern by ingesting domain data, 
+chunking content, creating embeddings, and retrieving the most relevant catalog entries when a user asks for 
+recommendations. Implementing Retrieval Augmented Generation ensures the foundation model receives 
+only approved, catalog-backed context and can cite or base its output on those retrieved items. This sharply 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

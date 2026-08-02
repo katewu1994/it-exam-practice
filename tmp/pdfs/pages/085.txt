@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Implement a custom retry mechanism with a fixed delay of 1 second between retries. Configure 
+Amazon CloudWatch alarms to monitor the application’s error rates and latency metrics.
+Configure the AWS SDK with standard retry mode and exponential backoff with jitter. Use AWS X-
+Ray tracing with annotations to identify and filter service components.
+Implement client-side caching of all FM responses. Add custom logging statements in the application 
+code to record API call durations.
+Configure the AWS SDK with adaptive retry mode. Use AWS CloudTrail distributed tracing to monitor 
+throttling events.
+Answer: B
+Explanation
+Option B best meets the combined resiliency and observability requirements because it applies AWS-
+recommended retry behavior for transient throttling and enables true distributed tracing across service 
+boundaries. During peak traffic, intermittent failures are commonly caused by throttling and other transient 
+conditions. The AWS SDK standard retry mode provides exponential backoff with jitter, which reduces 
+synchronized retry storms, prevents cascading failures, and improves overall system stability. Jitter is 
+important because it spreads retry attempts over time, reducing load amplification during throttling events.
+For observability, AWS X-Ray provides distributed tracing that follows a request across components such as 
+API Gateway or load balancers, application services, and downstream calls to Amazon Bedrock. X-Ray can 
+identify where latency is being introduced and which downstream call is contributing most to end-to-end 
+response time. This is required to “identify latency contributors” and isolate performance issues under load.
+The requirement also states that the company must correlate performance issues with specific FM 
+characteristics. X-Ray annotations are designed for this purpose: the application can annotate traces with the 
+model ID, inference parameters, region, or inference profile used. This enables filtering and analysis (for 
+example, comparing latency or error patterns by model, parameter set, or endpoint configuration) without 
+building a separate telemetry system.
+Option A’s fixed-delay retries increase synchronized retry behavior and do not provide distributed tracing. 
+Option C does not prevent cascading failures and cannot provide cross-service tracing. Option D is incorrect 
+because CloudTrail is an audit logging service and does not provide distributed tracing for request latency 
+analysis.
+Therefore, Option B provides the correct combination of resilient retries and deep, model-correlated 
+distributed observability for Amazon Bedrock workloads.
+Question #:75 - [Foundation Model Integration, Data Management, and Compliance]
+Example Corp provides a personalized video generation service that millions of enterprise customers use. 
+Customers generate marketing videos by submitting prompts to the company’s proprietary generative AI 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

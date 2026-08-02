@@ -1,0 +1,48 @@
+Amazon Web Services - AIP-C01
+B.  
+C.  
+D.  
+E.  
+Import the datasets to an Amazon S3 bucket. Provide appropriate IAM permissions and a VPC endpoint 
+configuration to give the evaluation jobs access to the datasets.
+Configure an AWS Lambda function to create model evaluation jobs on a schedule in the Amazon 
+Bedrock console. Provide the URI of the S3 bucket that contains the datasets as an input. Configure the 
+evaluation jobs to measure the real world knowledge (RWK) score for text generation and BERTScore 
+for summarization. Configure a second Lambda function to check the status of the jobs and publish 
+custom logs to Amazon CloudWatch. Create a custom Amazon CloudWatch Logs Insights dashboard.
+Use Amazon SageMaker Clarify on a schedule to create model evaluation jobs. Use open source 
+frameworks to create and run standardized evaluations. Publish results to Amazon CloudWatch 
+namespaces. Use an AWS Lambda function to check the status of the jobs and publish custom logs to 
+Amazon CloudWatch. Create a custom Amazon CloudWatch Logs Insights dashboard.
+Run an Amazon SageMaker AI notebook job on a schedule by using the fmvelos or ragas framework to 
+run evaluations that use the datasets in the S3 bucket. Write Python code in the notebook that makes 
+direct InvokeModel API calls to the FMs and processes their responses for evaluation. Publish job 
+status and results to Amazon CloudWatch Logs to measure the real world knowledge (RWK) score for 
+text generation and toxicity for summarization as metrics for accuracy. Create a custom CloudWatch 
+Logs Insights dashboard.
+Answer: B C
+Explanation
+The least operational overhead approach is to use managed  workflows Amazon Bedrock model evaluation
+with datasets stored in  , and then publish results into  for dashboards. That Amazon S3 Amazon CloudWatch
+is exactly what options  and  combine.B C
+Step  correctly places standardized evaluation inputs in Amazon S3 and focuses on granting the evaluation B
+workflow the right permissions to read those datasets. In practice, the key requirement is controlled access to 
+the S3 objects used as evaluation datasets. Establishing IAM permissions and private access patterns (such as 
+using VPC connectivity patterns where applicable to the organization’s networking posture) is aligned with 
+enterprise requirements and avoids building custom storage or data distribution systems for evaluators.
+Step  then operationalizes the evaluation lifecycle with minimal infrastructure: a scheduled  C AWS Lambda
+function starts evaluation jobs using the S3 dataset location, and a second Lambda function checks job status 
+and pushes results and operational signals to  . This meets the platform requirement to surface CloudWatch
+accuracy metrics in dashboards because CloudWatch metrics/logs can be visualized in dashboards and 
+queried through  . It also supports continuous, standardized comparisons across CloudWatch Logs Insights
+models without requiring developers to run ad-hoc experiments.
+The alternatives introduce more operational burden.  and  rely on  -based tooling, D E Amazon SageMaker
+notebook jobs, and open source evaluation frameworks, which require more environment management, 
+dependency control, scaling considerations, and maintenance over time.  includes CORS, which is primarily A
+a browser-access concern and does not address how Bedrock-managed evaluation jobs securely access S3 in 
+the typical service-to-service pattern.
+Therefore,  achieves standardized model evaluation, automated scheduling, and dashboard-ready B + C
+observability with the smallest operations footprint.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

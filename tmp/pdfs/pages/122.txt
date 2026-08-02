@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A bank is developing a generative AI (GenAI)-powered AI assistant that uses Amazon Bedrock to assist the 
+bank’s website users with account inquiries and financial guidance. The bank must ensure that the AI assistant 
+does not reveal any personally identifiable information (PII) in customer interactions.
+The AI assistant must not send PII in prompts to the GenAI model. The AI assistant must not respond to 
+customer requests to provide investment advice. The bank must collect audit logs of all customer interactions, 
+including any images or documents that are transmitted during customer interactions.
+Which solution will meet these requirements with the LEAST operational effort?
+Use Amazon Macie to detect and redact PII in user inputs and in the model responses. Apply prompt 
+engineering techniques to force the model to avoid investment advice topics. Use AWS CloudTrail to 
+capture conversation logs.
+Use an AWS Lambda function and Amazon Comprehend to detect and redact PII. Use Amazon 
+Comprehend topic modeling to prevent the AI assistant from discussing investment advice topics. Set 
+up custom metrics in Amazon CloudWatch to capture customer conversations.
+Configure Amazon Bedrock guardrails to apply a sensitive information policy to detect and filter PII. 
+Set up a topic policy to ensure that the AI assistant avoids investment advice topics. Use the Converse 
+API to log model invocations. Enable delivery and image logging to Amazon S3.
+Use regex controls to match patterns for PII. Apply prompt engineering techniques to avoid returning 
+PII or investment advice topics to customers. Enable model invocation logging, delivery logging, and 
+image logging to Amazon S3.
+Answer: C
+Explanation
+Option C is the correct solution because Amazon Bedrock guardrails are purpose-built to enforce defense-in-
+depth safety controls for GenAI applications with minimal operational overhead. Guardrails provide managed, 
+policy-based enforcement that operates before prompts are sent to the foundation model and after responses 
+are generated, which directly satisfies the requirement that PII must not be sent to the model and must not 
+appear in outputs.
+By configuring a sensitive information policy, the application can automatically detect and redact PII in user 
+inputs and model responses without building custom preprocessing pipelines. This approach is more reliable 
+and scalable than regex or prompt engineering techniques, which are brittle and error-prone for sensitive data 
+handling.
+The topic policy capability in Amazon Bedrock guardrails allows the bank to explicitly block investment 
+advice topics, ensuring regulatory compliance. This policy-based approach is safer and more auditable than 
+attempting to steer the model only through prompt instructions.
+Using the Converse API enables structured, standardized interactions with the model and supports consistent 
+logging of requests and responses. Enabling delivery logging and image logging to Amazon S3 ensures that 
+all customer interactions, including documents and images, are captured in a durable, auditable storage layer. 
+This directly supports compliance, regulatory audits, and forensic analysis.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

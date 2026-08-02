@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+D.  
+A.  
+Use Amazon Bedrock with Anthropic Claude models and chain-of-thought reasoning. Configure 
+custom retrieval tracking with the Amazon Bedrock Knowledge Bases API. Use Amazon CloudWatch 
+to monitor response latency metrics.
+Answer: A
+Explanation
+Option A is the best solution because it natively delivers retrieval grounding, source attribution, and low 
+operational overhead through Amazon Bedrock Knowledge Bases. The key requirements are: retrieve from 
+company data sources, cite sources, link claims to source documents, and keep latency under 3 seconds. 
+Knowledge Bases are a managed RAG capability that handles document ingestion, chunking, embeddings, 
+retrieval, and assembly of context for model generation. This eliminates the need to build and maintain 
+custom retrieval infrastructure.
+Source attribution is crucial: the application must “link data claims to source documents.” When source 
+attribution is enabled, the RAG pipeline can return references to the underlying documents and segments used 
+for generation. This enables traceable citations that can be surfaced to end users and used for internal auditing.
+Using the Anthropic Claude Messages API (or equivalent conversational interface) with RAG allows the 
+application to generate recommendations grounded in retrieved context while keeping responses 
+conversational. Setting relevance thresholds helps reduce noisy retrieval, which supports both accuracy and 
+latency targets by limiting the context passed to the model.
+Storing reasoning and citations in Amazon S3 supports audit and retention needs with minimal operational 
+burden. While the prompt may request step-by-step reasoning, AWS best practice is to produce user-facing 
+explanations that are faithful and attributable without exposing internal reasoning traces unnecessarily. With 
+source-grounded outputs, the system can provide concise rationale tied to citations while maintaining fast 
+response times.
+Option B emphasizes extended thinking, which increases latency and does not ensure source linkage. Option 
+C adds significant operational overhead through custom model hosting and separate citation systems. Option 
+D requires more custom tracking work than A while not improving retrieval attribution beyond what 
+Knowledge Bases already provide.
+Therefore, Option A best meets the requirements with the least operational overhead.
+Question #:81 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company wants to develop an Amazon Bedrock application that gives analysts the ability 
+to query quarterly earnings reports and financial statements. The financial docu ments are typically 5–100 
+pages long and contain both tabular data and text. The application must provide contextually accurate 
+responses that preserve the relationship between financial metrics and their explanatory text. To support 
+accurate and scalable retrieval, the application must incorporate document segmentation and context 
+management strategies.
+Which solution will meet these requirements?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

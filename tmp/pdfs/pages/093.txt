@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Use a direct model invocation approach that uses Anthropic Claude to process each financial document 
+as a single input. Use fine-tuned prompts that instruct the model to parse tables and text separately.
+Use Amazon Bedrock Knowledge Bases to create a Retrieval Augmented Generation (RAG) 
+application that retrieves relevant information from contextually chunked sections of financial 
+documents. Segment documents based on their structural layout. Include citations that reference the 
+original source materials.
+Deploy an Amazon Bedrock agent that has an action group that calls custom AWS Lambda functions to 
+analyze financial documents. Configure the Lambda functions to perform fixed-size chunking when a 
+user submits a query about financial metrics.
+Create one specialized Amazon Bedrock application that is optimized for structured data. Create a 
+second application that is optimized for unstructured data. Configure each application to use a tailored 
+chunking strategy that is suited to the application ' s content type. Implement logic to link queries to the 
+appropriate sources.
+Answer: B
+Explanation
+Option  best satisfies the requirements because it directly applies Retrieval Augmented Generation B
+principles using managed Amazon Bedrock Knowledge Bases, which are designed to handle large, complex 
+documents while preserving contextual relationships. Financial reports often interleave tables with 
+explanatory narrative, and accurate analysis depends on keeping those elements logically connected. By 
+segmenting documents based on their  —for example, sections, subsections, tables, and structural layout
+surrounding commentary—the knowledge base can retrieve semantically relevant chunks that maintain this 
+relationship during inference.
+Amazon Bedrock Knowledge Bases support contextual chunking strategies that go beyond simple fixed-size 
+segmentation. This is critical for financial documents, where a metric in a table may be explained in adjacent 
+paragraphs or footnotes. Context-aware chunking ensures that retrieved content includes both the numeric 
+data and its interpretation, enabling the foundation model to generate accurate, grounded responses. Including 
+citations further improves analyst trust and auditability by allowing users to trace answers back to specific 
+source sections, which is a common requirement in financial environments.
+Scalability is another key requirement. Knowledge Bases manage embedding generation, indexing, and 
+retrieval orchestration as a managed service, which allows the solution to scale across large document 
+collections without requiring custom infrastructure or model hosting. This approach also supports efficient 
+updates as new quarterly reports are added, ensuring the retrieval layer remains current.
+Option  does not scale well because processing entire 5–100 page documents in a single prompt increases A
+token usage, latency, and cost while risking context truncation. Option  relies on fixed-size chunking C
+triggered at query time, which often breaks semantic relationships in structured financial content. Option  D
+introduces unnecessary architectural complexity by splitting structured and unstructured data into separate 
+applications, increasing operational overhead without providing better contextual retrieval than a unified RAG 
+approach.
+Question #:82 - [Operational Efficiency and Optimization for GenAI Applications]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

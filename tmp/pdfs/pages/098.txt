@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+D.  
+A.  
+B.  
+Use toxicity detection with thresholds configured to 0.5 for all categories. Use parallel processing for 
+both prompt safety classification and personally identifiable information (PII) detection with entity 
+redaction. Apply Amazon CloudWatch alarms to filter metrics.
+Answer: D
+Explanation
+Option D best satisfies all functional, performance, and governance requirements while minimizing 
+architectural complexity. The requirement explicitly states that all filtering must complete before content 
+reaches the foundation model, which rules out asynchronous or streaming-based approaches that could delay 
+enforcement.
+Amazon Comprehend supports toxicity detection, prompt safety classification, and PII detection with entity 
+redaction as managed capabilities. Running these filters in parallel ensures low end-to-end latency, which is 
+essential for customer-facing communication platforms. Parallel execution avoids the cumulative latency that 
+would be introduced by sequential pipelines.
+Toxicity detection identifies offensive or abusive content early. Prompt safety classification detects requests 
+for unethical, harmful, or manipulative advice, which directly addresses inappropriate advice solicitation 
+requirements. PII detection with entity redaction ensures that customer privacy is preserved before data is sent 
+to the FM, preventing sensitive information from being processed or echoed in generated responses.
+Configuring thresholds allows fine-grained control over sensitivity while maintaining acceptable false-
+positive rates. Using CloudWatch metrics and alarms enables continuous monitoring of filtering behavior and 
+intervention rates without adding custom routing or human review pipelines that would slow responses.
+Option A lacks PII redaction. Option B introduces unnecessary model-building complexity and delayed PII 
+checks. Option C adds sequential latency and introduces human review routing, which violates the response-
+time requirement.
+Therefore, Option D provides the most robust, performant, and AWS-aligned layered content filtering 
+solution.
+Question #:86 - [Testing, Validation, and Troubleshooting]
+An ecommerce company is building an internal platform to develop generative AI applications by using 
+Amazon Bedrock foundation models (FMs). Developers need to select models based on evaluations that are 
+aligned to ecommerce use cases. The platform must display accuracy metrics for text generation and 
+summarization in dashboards. The company has custom ecommerce datasets to use as standardized evaluation 
+inputs.
+Which combination of steps will meet these requirements with the LEAST operational overhead? (Select 
+TWO.)
+Import the datasets to an Amazon S3 bucket. Provide appropriate IAM permissions and cross-origin 
+resource sharing (CORS) permissions to give the evaluation jobs access to the datasets.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

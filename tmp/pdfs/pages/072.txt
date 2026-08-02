@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Therefore, Option D provides the most complete and least intrusive solution for traceable, auditable GenAI 
+data pipelines.
+Question #:63 - [AI Safety, Security, and Governance]
+A company is using Amazon Bedrock to develop a customer support AI assistant. The AI assistant must 
+respond to customer questions about their accounts. The AI assistant must not expose personal information in 
+responses. The company must comply with data residency policies by ensuring that all processing occurs 
+within the same AWS Region where each customer is located.
+The company wants to evaluate how effective the AI assistant is at preventing the exposure of personal 
+information before the company makes the AI assistant available to customers.
+Which solution will meet these requirements?
+Configure a cross-Region Amazon Bedrock guardrail to apply sensitive information filters. Set the 
+guardrail to detect mode during development and testing. Switch to block mode for production 
+deployment.
+Configure an Amazon Bedrock guardrail to apply sensitive information filters. Set the guardrail to mask 
+mode during development and testing. Switch to block mode for production deployment. Deploy a copy 
+of the guardrail to each Region where the company operates.
+Configure an Amazon Bedrock guardrail to apply content and topic filters. Set the guardrail to detect 
+mode during development, testing, and production. Disable invocation logging for the Amazon Bedrock 
+model.
+Configure a cross-Region Amazon Bedrock guardrail to apply a set of content and word filters. Set the 
+guardrail to detect mode during development and testing. Switch to mask mode for production 
+deployment.
+Answer: B
+Explanation
+Option  best meets all stated requirements by correctly combining  , B PII protection evaluation before 
+ , and  using Amazon Bedrock Guardrails. Amazon Bedrock guardrails launch data residency compliance
+provide native sensitive information filtering that operates inline during model invocation, making them well 
+suited for preventing personal data exposure in customer-facing AI assistants.
+The requirement to  before release is best evaluate how effective the AI assistant is at preventing exposure
+addressed by using  . Mask mode allows responses to be mask mode during development and testing
+generated while automatically redacting detected personal information, making it easy for developers and 
+reviewers to see where and how PII would have appeared. This provides concrete validation that the guardrail 
+rules are correctly configured without fully blocking responses, which is ideal for quality assurance and pre-
+production evaluation.
+For  , switching the guardrail to  ensures that responses containing personal production block mode
+information are fully prevented from being returned to users. This offers the strongest protection and aligns 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

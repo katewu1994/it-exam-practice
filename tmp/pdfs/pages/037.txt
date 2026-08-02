@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+B.  
+C.  
+D.  
+Configure an Amazon Bedrock integration to use the S3 bucket URI in the input parameters for large 
+outputs. Use the ResultPath and ResultSelector fields to route S3 references between the agent steps 
+while maintaining the sequential validation workflow.
+Use AWS Lambda functions to compress outputs to less than 256 KB before each agent state. 
+Configure each agent task to decompress outputs before processing and to compress results before 
+passing them to the next state.
+Configure a separate Step Functions state machine to handle each agent’s processing. Use Amazon 
+EventBridge to coordinate the execution flow between state machines. Use S3 references for the 
+outputs as event data.
+Answer: B
+Explanation
+Option B is the best solution because it directly addresses the Step Functions 256 KB state payload quota by 
+externalizing large intermediate artifacts to Amazon S3 and passing only lightweight references (URIs/keys) 
+between states. This is a standard AWS pattern for workflows that produce large intermediate results, and it 
+avoids introducing additional databases, compression logic, or cross-state-machine coordination that increases 
+operational overhead.
+In a multi-agent ReAct workflow, intermediate reasoning traces can be verbose and grow quickly as each 
+agent produces chain-of-thought style artifacts, structured outputs, and supporting evidence. Step Functions is 
+designed to orchestrate state transitions and pass JSON payloads, but large payloads should be stored outside 
+the state machine and referenced by pointer values. Using Amazon S3 for intermediate outputs is 
+operationally efficient because the application already uses S3 for storage, and S3 provides durable, low-cost 
+storage with simple access patterns.
+ResultPath and ResultSelector allow each state to store or reshape results so that only the required reference 
+fields (such as s3Uri, object key, metadata, trace IDs) are forwarded to subsequent states. This preserves 
+observability because the workflow can still log trace references, correlate steps with S3 objects, and store 
+structured metadata for debugging. It also preserves the sequential validation design, keeping the existing 
+ReAct pattern intact while preventing failures due to oversized payloads.
+Option A adds additional services and read/write patterns that increase operational complexity. Option C 
+introduces custom compression/decompression logic that is fragile, adds latency, and complicates 
+troubleshooting. Option D increases orchestration overhead by splitting workflows and coordinating with 
+events, which makes debugging harder and increases failure modes.
+Therefore, Option B meets the payload limit requirement while keeping the architecture simple and 
+observable.
+Question #:33 - [Testing, Validation, and Troubleshooting]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

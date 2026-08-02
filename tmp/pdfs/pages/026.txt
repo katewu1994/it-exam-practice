@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Therefore, Option C best aligns with AWS Generative AI best practices for scalable, cost-efficient, global 
+serverless applications.
+Question #:23 - [Testing, Validation, and Troubleshooting]
+A financial technology company is using Amazon Bedrock to build an assessment system for the company’s 
+customer service AI assistant. The AI assistant must provide financial recommendations that are factually 
+accurate, compliant with financial regulations, and conversationally appropriate. The company needs to 
+combine automated quality evaluations at scale with targeted human reviews of critical interactions.
+What solution will meet these requirements?
+Configure a pipeline in which financial experts manually score all responses for accuracy, compliance, 
+and conversational quality. Use Amazon SageMaker notebooks to analyze results to identify 
+improvement areas.
+Configure Amazon Bedrock evaluations that use Anthropic Claude Sonnet as a judge model to assess 
+response accuracy and appropriateness. Configure custom Amazon Bedrock guardrails to check 
+responses for compliance with financial policies. Add Amazon Augmented AI (Amazon A2I) human 
+reviews for flagged critical interactions.
+Create an Amazon Lex bot to manage customer service interactions. Configure AWS Lambda functions 
+to check responses against a static compliance database. Configure intents that call the Lambda 
+functions. Add an additional intent to collect end-user reviews.
+Configure Amazon CloudWatch to monitor response patterns from the AI assistant. Configure 
+CloudWatch alerts for potential compliance violations. Establish a team of human evaluators to review 
+flagged interactions.
+Answer: B
+Explanation
+Option B meets the requirement to combine scalable automated evaluation with targeted human oversight 
+using managed AWS GenAI capabilities. Amazon Bedrock evaluations enable systematic, repeatable quality 
+assessment across large volumes of interactions. Using an LLM-as-a-judge approach with a strong evaluator 
+model such as Anthropic Claude Sonnet allows the company to automatically score outputs for dimensions 
+like factual accuracy, conversational appropriateness, and policy alignment. This directly supports “automated 
+quality evaluations at scale” without building custom scoring models.
+However, financial recommendations add higher risk because regulatory compliance requires additional 
+enforcement beyond general quality scoring. Amazon Bedrock guardrails provide a dedicated policy 
+enforcement layer that can block or intervene when responses violate compliance constraints. Guardrails are 
+particularly important for preventing disallowed financial guidance patterns and ensuring consistent behavior 
+across deployments.
+The requirement also calls for “targeted human reviews of critical interactions.” Amazon Augmented AI 
+(A2I) is a managed human review service that supports routing specific items to human reviewers based on 
+rules or confidence thresholds. In this design, the system can automatically send only high-risk or policy-
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

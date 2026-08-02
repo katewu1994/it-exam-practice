@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+The requirement to  maps to using separate knowledge bases per agent and enforcing access isolate data
+through  , ensuring that each agent can retrieve only from the authorized datasets. This is IAM controls
+important for minimizing unintended exposure of sensitive or irrelevant departmental data and supports 
+governance and compliance needs.
+For  , this architecture minimizes contention and scalability and thousands of parallel interactions
+bottlenecks. Each collaborator agent can scale independently because requests are distributed across multiple 
+agents and multiple retrieval backends. Operationally, onboarding new features is also simpler: the company 
+can add a new collaborator agent (for example, “billing disputes” or “pharmacy refills”) with its own 
+knowledge base and policies without redesigning the entire assistant.
+Option  introduces unnecessary complexity with multiple supervisors and manual handoffs. Option  B C
+overloads a single agent with broad instructions and rule-based routing, which increases prompt complexity 
+and reduces maintainability as features grow. Option  creates high operational complexity and risks D
+inconsistent outputs when merging responses from parallel supervisors, and it weakens data isolation by using 
+a shared knowledge base across agents.
+Question #:95 - [AI Safety, Security, and Governance]
+A university is building an AI-powered application that includes several sub-applications. The sub-
+applications include AI assistants, assignment graders, and internal analytics applications. The university is 
+defining and testing multiple prompts by using various foundation models (FMs). The university wants to 
+compare variants of each prompt and choose the variant that yield outputs that are best-suited for specified 
+use cases. The university requires a version control solution for the prompts. The university must be able to 
+test prompt variations and collect audit trails for prompt changes and usage. The solution must also maintain 
+consistency while allowing the prompts to integrate into the main application. Which combination of 
+solutions will meet these requirements with the LEAST operational overhead? (Select TWO.)
+Use Amazon Bedrock Prompt Management to create versioned prompts. Include parameterized 
+variables for each use case.
+Store prompts in Amazon S3. Use AWS Step Functions to orchestrate the model interactions and 
+service integrations.
+Use Amazon Bedrock Flows to create workflows that combine FMs and AWS services.
+Configure AWS Config to record prompt changes. Use AWS CloudTrail to track prompt usage.
+Configure Amazon Bedrock intelligent prompt routing.
+Answer: A C
+Explanation
+ is the purpose-built service for prompt lifecycle management. it Amazon Bedrock Prompt Management
+provides native  , allowing developers to test and compare variants side-by-side. Use of version control
+ ensures that a single prompt structure can be consistently reused across different parameterized variables
+sub-applications (assistants vs. graders) while still being tailored to the specific context. To " integrate into the 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

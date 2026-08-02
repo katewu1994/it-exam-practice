@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A company uses an application to process customer support tickets. The company wants to integrate AI-
+powered sentiment analysis and auto-response generation into the application by using Amazon Bedrock. The 
+company wants to prioritize urgent issues and reduce initial response times by 40% compared to manual 
+responses. The solution must process 100 concurrent webhook requests with response times under 500 ms. 
+The solution must maintain 99.9% availability across multiple AWS Regions and authenticate all incoming 
+requests. The company must avoid any authentication failures. The company does not want to modify the 
+existing application infrastructure, which includes several ticketing systems that use multiple webhook 
+authentication methods. The solution must support scaling to handle occasional spikes up to 250,000 daily 
+tickets during peak periods. Which solution will meet these requirements?
+Use an Amazon API Gateway REST API with a Regional endpoint to receive webhook requests and 
+invoke AWS Lambda functions. Configure Lambda authorizers to validate all the webhook 
+authentication methods. Configure the Lambda functions to call Amazon Bedrock to perform sentiment 
+analysis and generate responses. Store results in Amazon DynamoDB global tables to provide multi-
+Region availability.
+Create AWS Lambda function URLs for each ticketing system. Configure the function URLs with the 
+NONE authentication type. Configure separate Lambda functions to verify webhook signatures by 
+using Hash-based Message Authentication Code (HMAC) validation in the function code. Deploy the 
+functions to multiple Regions and use AWS Global Accelerator to route traffic. Use Amazon Bedrock 
+to perform sentiment analysis and generate responses. Return responses through webhook callbacks.
+Set up an Amazon SQS queue in each Region to receive webhook messages. Use the SQS queue to 
+invoke AWS Lambda functions that call Amazon Comprehend to perform sentiment analysis and 
+Amazon Lex to generate responses. Use Amazon EventBridge to retry message delivery to the 
+application API.
+Deploy an AWS AppSync GraphQL API to multiple Regions. Configure API tokens to authenticate 
+incoming requests. Create GraphQL mutation resolvers that publish events to Amazon EventBridge. 
+Configure EventBridge rules to invoke AWS Lambda functions that use Amazon Bedrock to perform 
+sentiment analysis and generate responses. Use Amazon CloudFront to reduce latency.
+Answer: A
+Explanation
+To handle high concurrency (100+ requests) with sub-500 ms response times and diverse authentication 
+methods without infrastructure changes,  with  is the optimal Amazon API Gateway Lambda authorizers
+choice. The Lambda authorizers can evaluate multiple authentication tokens or signatures centrally before the 
+request reaches the processing logic, preventing unauthorized traffic and potential authentication failures at 
+scale.  integrated with  provides the scalability to handle ticket surges (up to AWS Lambda Amazon Bedrock
+250,000 daily) without over-provisioning resources. For high availability (99.9%) and multi-region resilience, 
+storing the resulting sentiment and responses in  ensures that data is Amazon DynamoDB global tables
+accessible across regions with minimal latency. Option B is less secure due to the " NONE " auth type, and 
+Option C introduces queuing latency that may exceed the 500 ms target.
+Question #:22 - [Operational Efficiency and Optimization for GenAI Applications]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

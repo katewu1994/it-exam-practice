@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+Option B provides consistent, high-throughput access by configuring provisioned throughput in Amazon 
+Bedrock. Provisioned throughput guarantees predictable capacity and performance, which is essential for 
+batch processing workloads that require sustained inference rates. This eliminates cold starts and throttling 
+concerns that can occur with purely on-demand usage, making it well suited for high-volume enterprise 
+workloads.
+Option C enables hybrid deployment across cloud and on-premises environments by deploying foundation 
+models to Amazon SageMaker AI endpoints and using Amazon SageMaker Neo for edge and on-premises 
+optimization. SageMaker Neo compiles models for target hardware, allowing inference to run efficiently 
+outside the AWS cloud while still using AWS-managed tooling. Orchestrating these deployments with AWS 
+Lambda allows consistent invocation patterns across environments.
+Option A uses asynchronous endpoints, which are not suitable for real-time, low-latency inference. Option D 
+addresses scaling but does not support on-premises or hybrid deployment. Option E simplifies model 
+onboarding but does not address hybrid execution or guaranteed throughput.
+Therefore, Options B and C together provide real-time and batch support, predictable performance, and true 
+hybrid deployment while minimizing operational overhead.
+Question #:53 - [Implementation and Integration]
+A company is using AWS Lambda and REST APIs to build a reasoning agent to automate support workflows. 
+The system must preserve memory across interactions, share relevant agent state, and support event-driven 
+invocation and synchronous invocation. The system must also enforce access control and session-based 
+permissions.
+Which combination of steps provides the MOST scalable solution? (Select TWO.)
+Use Amazon Bedrock AgentCore to manage memory and session-aware reasoning. Deploy the agent 
+with built-in identity support, event handling, and observability.
+Register the Lambda functions and REST APIs as actions by using Amazon API Gateway and Amazon 
+EventBridge. Enable Amazon Bedrock AgentCore to invoke the Lambda functions and REST APIs 
+without custom orchestration code.
+Use Amazon Bedrock Agents for reasoning and conversation management. Use AWS Step Functions 
+and Amazon SQS for orchestration. Store agent state in Amazon DynamoDB.
+Deploy the reasoning logic as a container on Amazon ECS behind API Gateway. Use Amazon Aurora 
+to store memory and identity data.
+Build a custom RAG pipeline by using Amazon Kendra and Amazon Bedrock. Use AWS Lambda to 
+orchestrate tool invocations. Store agent state in Amazon S3.
+Answer: A B
+Explanation
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

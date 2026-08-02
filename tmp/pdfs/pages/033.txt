@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option A violates least-privilege and does not override SCPs. Option C breaks data residency by enabling 
+direct eu-west-3 access. Option D does not resolve the SCP denial.
+Therefore, Options B and E are the only combination that resolves the error while preserving governance and 
+EU-only data residency.
+Question #:29 - [Operational Efficiency and Optimization for GenAI Applications]
+A company is using Amazon Bedrock to develop an AI-powered application that uses a foundation model 
+(FM) that supports cross-Region inference and provisioned throughput. The application must serve users in 
+Europe and North America with consistently low latency. The application must comply with data residency 
+regulations that require European user data to remain within Europe-based AWS Regions.
+During testing, the application experiences service degradation when Regional traffic spikes reach service 
+quotas. The company needs a solution that maintains application resilience and minimizes operational 
+complexity.
+Which solution will meet these requirements?
+Deploy separate Amazon Bedrock instances in North American and European Regions. Use a custom 
+routing layer that directs traffic based on user location. Configure Amazon CloudWatch alarms to 
+monitor Regional service usage. Use Amazon SNS to send email alerts when usage approaches 
+thresholds.
+Use Amazon Bedrock cross-Region inference profiles by specifying geographical codes in profile IDs 
+when calling the InvokeModel API. Configure separate Amazon API Gateway HTTP APIs to direct 
+European and North American users to the appropriate Regional endpoints.
+Deploy a multi-Region Amazon API Gateway HTTP API and AWS Lambda functions that implement 
+retry logic to handle throttling. Configure the Lambda functions to call the FM in the nearest secondary 
+Region when quotas are reached.
+Configure provisioned throughput for Amazon Bedrock in multiple Regions. Implement failover logic 
+in application code to switch Regions when throttling occurs. Use AWS Global Accelerator to route 
+traffic based on user location.
+Answer: B
+Explanation
+Option B is the most appropriate solution because it directly uses Amazon Bedrock cross-Region inference 
+profiles, which are designed to provide resilience and load distribution while respecting data residency 
+boundaries. Cross-Region inference profiles allow applications to distribute inference requests across multiple 
+Regions within a defined geographic boundary, such as Europe or North America, without requiring custom 
+failover logic.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

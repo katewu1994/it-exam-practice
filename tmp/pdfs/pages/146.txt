@@ -1,0 +1,48 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+separate services to (1) generate embeddings for hundreds of millions of records, (2) store and manage 
+vectors, (3) build query-time embedding conversion logic, and (4) implement k-NN search orchestration. 
+Instead, the knowledge base is configured to automatically create embeddings during ingestion, and the 
+application queries it using the  , which accepts natural language input and Amazon Bedrock Retrieve API
+performs the vector search as a managed capability.
+The performance requirement (95% of queries within 500 ms) is best served by a purpose-built vector search 
+backend rather than running similarity search directly inside a transactional PostgreSQL system at this scale. 
+A knowledge base is designed for retrieval patterns and can be backed by scalable vector stores, which helps 
+meet latency goals under heavy concurrency. The hourly freshness requirement maps naturally to ingestion 
+updates: the pipeline can re-ingest updated restaurant details on a schedule so the knowledge base remains 
+current without building custom re-embedding workflows in application code.
+Cost-effective scaling during peak periods is also easier with a managed retrieval layer because scaling the 
+retrieval workload is separated from the operational database. This avoids overprovisioning PostgreSQL for 
+peak semantic-search traffic and reduces the engineering effort to tune performance, sharding, indexing, and 
+retry logic.
+Options  and  can work, but they require the team to build and maintain embedding pipelines, query B C
+embedding generation, vector index management, and operational scaling strategies. Option  does not A
+provide semantic search because it relies on keyword-based matching rather than embeddings.
+Question #:128 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company is developing a customer service AI assistant application that uses a foundation 
+model (FM) in Amazon Bedrock. The application must provide transparent responses by documenting 
+reasoning and by citing sources that are used for Retrieval Augmented Generation (RAG). The application 
+must capture comprehensive audit trails for all responses to users. The application must be able to serve up to 
+10,000 concurrent users and must respond to each customer inquiry within 2 seconds.
+Which solution will meet these requirements with the LEAST operational overhead?
+Enable tracing for Amazon Bedrock Agents. Configure structured prompts that direct the FM to provide 
+evidence presentations. Integrate Amazon Bedrock Knowledge Bases with data sources to enable RAG. 
+Configure the application to reference and cite authoritative content. Deploy the application in a Multi-
+AZ architecture. Use Amazon API Gateway and AWS Lambda functions to scale the application. Use 
+Amazon CloudFront to provide low-latency delivery.
+Enable tracing for Amazon Bedrock agents. Integrate a custom RAG pipeline with Amazon 
+OpenSearch Service to retrieve and cite sources. Configure structured prompts to present retrieved 
+evidence. Deploy the application behind an Amazon API Gateway REST API. Use AWS Lambda 
+functions and Amazon CloudFront to scale the application and to provide low latency. Store logs in 
+Amazon S3 and use AWS CloudTrail to capture audit trails.
+Use Amazon CloudWatch to monitor latency and error rates. Embed model prompts directly in the 
+application backend to cite sources. Store application interactions with users in Amazon RDS for audits.
+Store generated responses and supporting evidence in an Amazon S3 bucket. Enable versioning on the 
+bucket for audits. Use AWS Glue to catalog retrieved documents. Process the retrieved documents in 
+Amazon Athena to generate periodic compliance reports.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

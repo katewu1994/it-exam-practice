@@ -1,0 +1,48 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+university’s requirement is explicitly semantic: the metadata has no keywords, and the system must match 
+abstracts based on similarity of meaning. This is a direct fit for an embeddings-based approach, where each 
+abstract is converted into a vector representation and searched using vector similarity. Amazon Titan 
+ provides a managed way to generate these vectors without hosting or Embeddings in Amazon Bedrock
+maintaining an ML model, eliminating the operational work of model provisioning, patching, scaling, and 
+lifecycle management.
+For storage and retrieval,  with the  extension supports Amazon Aurora PostgreSQL Serverless pgvector
+vector storage and similarity search while minimizing infrastructure operations. Aurora Serverless reduces 
+capacity planning and scaling tasks because it can automatically adjust to changes in workload, which is 
+valuable for a university search application with variable usage patterns. With fewer than 1 million files, a 
+PostgreSQL-based vector store is commonly operationally simpler than running a dedicated search cluster, 
+while still meeting the requirement to query using both text-derived similarity and associated metadata filters 
+stored alongside the vectors.
+Option  can also enable vector search, but operating an OpenSearch domain typically introduces additional A
+concerns such as domain sizing, shard strategy, cluster scaling, and performance tuning for k-NN workloads. 
+Option  increases operational overhead the most because it requires deploying and operating a sentence-C
+transformer model endpoint in SageMaker AI, including scaling, monitoring, and model management. Option 
+ does not meet the semantic similarity requirement reliably because topic extraction is not equivalent to B
+embedding-based semantic matching, especially when the metadata lacks keywords and the system must 
+compare abstracts by meaning.
+Therefore,  best satisfies semantic search needs with the least operational overhead.D
+Question #:109 - [Foundation Model Integration, Data Management, and Compliance]
+A hotel company wants to enhance a legacy Java-based property management system (PMS) by adding AI 
+capabilities. The company wants to use Amazon Bedrock Knowledge Bases to provide staff with room 
+availability information and hotel-specific details. The solution must maintain separate access controls for 
+each hotel that the company manages. The solution must provide room availability information in near real 
+time and must maintain consistent performance during peak usage periods.
+Which solution will meet these requirements?
+Deploy a single Amazon Bedrock knowledge base that contains combined data for all hotels. Configure 
+AWS Lambda functions to synchronize data from each hotel’s PMS database through direct API 
+connections. Implement AWS CloudTrail logging with hotel-specific filters to audit access logs for 
+each hotel’s data.
+Create an Amazon EventBridge rule for each hotel that is invoked by changes to the PMS database. 
+Configure the rule to send updates to a centralized Amazon Bedrock knowledge base in a management 
+AWS account. Configure resource-based policies to enforce hotel-specific access controls.
+Implement one Amazon Bedrock knowledge base for each hotel in a multi-account structure. Use direct 
+data ingestion to provide near real-time room availability information. Schedule regular synchronization 
+for less critical information.
+Build a centralized Amazon Bedrock Agents solution that uses multiple knowledge bases. Implement 
+AWS IAM Identity Center with hotel-specific permission sets to control staff access.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

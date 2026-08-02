@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The company stores reports in an Amazon S3 bucket as soon as each report is published. The company has 
+already set up an Amazon Bedrock Knowledge Bases. The AI assistant uses Amazon Cognito to authenticate 
+users.
+Which solution will meet these requirements?
+Enable Amazon Macie PII detection on the S3 bucket. Use an S3 trigger to invoke an AWS Lambda 
+function that redacts PII from the reports. Configure the Lambda function to delete outdated documents 
+and invoke knowledge base syncing.
+Invoke an AWS Lambda function to sync the S3 bucket and the knowledge base when a new report is 
+uploaded. Use a second Lambda function with Amazon Comprehend to redact PII for engineers. Use S3 
+Lifecycle rules to remove reports older than 3 years.
+Set up an S3 Lifecycle configuration to remove reports that are older than 3 years. Schedule an AWS 
+Lambda function to run daily syncs between the bucket and the knowledge base. When users interact 
+with the AI assistant, apply a guardrail configuration selected based on the user’s Cognito user group to 
+redact PII from responses when required.
+Create a second knowledge base. Use Lambda and Amazon Comprehend to redact PII before syncing to 
+the second knowledge base. Route users to the appropriate knowledge base based on Cognito group 
+membership.
+Answer: C
+Explanation
+Option C is the correct solution because it enforces privacy controls at inference time, not at ingestion time, 
+which is required when different user roles require different visibility into the same underlying data.
+Using an S3 Lifecycle configuration ensures that documents older than 3 years are automatically removed, 
+guaranteeing that the knowledge base references only compliant, recent medical reports. Scheduling Lambda-
+based syncs keeps the knowledge base aligned with the bucket contents without introducing complex per-
+upload orchestration.
+The most important requirement is role-based PII exposure. Amazon Bedrock guardrails support dynamic 
+application at inference time, allowing the system to select a guardrail configuration based on the 
+authenticated user’s Amazon Cognito group. Surgeons can receive full responses, while engineers receive 
+responses with PII masked—without duplicating data or maintaining multiple knowledge bases.
+This approach preserves a single source of truth for medical reports while enforcing privacy through response-
+level controls. It also maintains full auditability of access and redaction behavior.
+Option A permanently removes PII and violates surgeon access requirements. Option B redacts data 
+inconsistently and couples privacy logic to ingestion. Option D doubles storage, increases cost, and introduces 
+data drift risk.
+Therefore, Option C best meets privacy, compliance, scalability, and operational efficiency requirements.
+Question #:21 - [Operational Efficiency and Optimization for GenAI Applications]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

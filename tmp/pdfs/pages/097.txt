@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+reviewers. Deploying Textract and A2I within the same Region ensures that the human review loop remains 
+regionally constrained, meeting strict data residency requirements for applicants.
+Option B satisfies the requirement to redact PII before inference by using AWS Lambda preprocessing. It also 
+adds Amazon Bedrock guardrails to enforce safety controls on model outputs. Region-specific IAM roles 
+ensure that only authorized principals in the correct Region can access the extracted data and invoke 
+downstream services, strengthening residency enforcement and auditability.
+Option D ensures that source documents are stored in Amazon S3 in the same Region as the applicant. Object 
+metadata and tagging provide an auditable trail, supporting compliance reporting and traceability. S3 also 
+provides the durability and availability needed to support 99.9% application availability as part of a well-
+architected pipeline.
+Option C is not the correct approach for structured extraction from scans. Option E adds useful quality 
+validation but is not strictly required to meet the stated requirements compared to A, B, and D. Option F is 
+unrelated to the extraction/redaction/residency workflow requirements.
+Therefore, A, B, and D are the best three choices to meet all stated requirements with minimal operational 
+overhead.
+Question #:85 - [AI Safety, Security, and Governance]
+A company is developing a customer communication platform that uses an AI assistant powered by an 
+Amazon Bedrock foundation model (FM). The AI assistant summarizes customer messages and generates 
+initial response drafts.
+The company wants to use Amazon Comprehend to implement layered content filtering. The layered content 
+filtering must prevent sharing of offensive content, protect customer privacy, and detect potential 
+inappropriate advice solicitation. Inappropriate advice solicitation includes requests for unethical practices, 
+harmful activities, or manipulative behaviors.
+The solution must maintain acceptable overall response times, so all pre-processing filters must finish before 
+the content reaches the FM.
+Which solution will meet these requirements?
+Use parallel processing with asynchronous API calls. Use toxicity detection for offensive content. Use 
+prompt safety classification for inappropriate advice solicitation. Use personally identifiable 
+information (PII) detection without redaction.
+Use custom classification to build an FM that detects offensive content and inappropriate advice 
+solicitation. Apply personally identifiable information (PII) detection as a secondary filter only when 
+messages pass the custom classifier.
+Deploy a multi-stage process. Configure the process to use prompt safety classification first, then 
+toxicity detection on safe prompts only, and finally personally identifiable information (PII) detection in 
+streaming mode. Route flagged messages through Amazon EventBridge for human review.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

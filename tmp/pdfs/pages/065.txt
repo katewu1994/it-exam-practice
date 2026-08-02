@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+Answer: B
+Explanation
+Option B is the most appropriate solution because it directly aligns with AWS-recommended architectural 
+patterns for building scalable, observable, and resilient generative AI applications on Amazon Bedrock. The 
+requirements clearly distinguish between simple and complex routing decisions, and this option addresses 
+both in an optimal way.
+Simple routing based on file extension is latency sensitive. Handling this logic directly in the application code 
+avoids unnecessary orchestration, state transitions, and service calls. This approach ensures that 
+straightforward requests, such as routing images to vision-capable foundation models or text files to language 
+models, are processed with minimal overhead and maximum performance.
+For complex routing based on content semantics, AWS Step Functions is specifically designed for multi-step 
+workflows that require analysis, branching logic, and error handling. Semantic routing often requires 
+inspecting meaning, intent, or structure before selecting the appropriate foundation model. Step Functions 
+enables this by orchestrating analysis steps and applying conditional logic to determine the correct model to 
+invoke using the Amazon Bedrock InvokeModel API.
+A key requirement is detailed execution history. Step Functions provides built-in execution tracing, including 
+state inputs, outputs, and error details, which is essential for auditing, debugging, and compliance. 
+Additionally, Step Functions supports native retry and catch mechanisms, allowing the workflow to 
+automatically fall back to alternate foundation models if a primary model invocation fails. This directly 
+satisfies the fallback requirement without introducing excessive custom code.
+The other options lack one or more critical capabilities. Lambda-only logic lacks deep observability and 
+structured fallback handling, SQS introduces additional latency and limited workflow visibility, and multiple 
+coordinated workflows increase architectural complexity without added benefit.
+Question #:57 - [Operational Efficiency and Optimization for GenAI Applications]
+A company is developing three specialized NLP models that support a customer service application. One 
+model categorizes each customer’s specific issue. Another model extracts key information from the customer 
+interactions. The third model generates responses.
+The company must ensure that the application achieves at least 95% accuracy for all tasks. The application 
+must handle up to 500 concurrent requests and respond in less than 500 ms during daily 2-hour peak usage 
+periods. The company must ensure that the application optimizes resource usage during periods of low 
+demand between usage spikes.
+Which solution will meet these requirements?
+Deploy all three models to a single Amazon SageMaker AI multi-model endpoint. Enable dynamic 
+scaling on the endpoint. Use a compute-optimized instance type. Configure auto scaling policies that 
+are based on invocation metrics to handle peak loads.
+Deploy each model to a separate Amazon SageMaker Serverless Inference endpoint. Set provisioned 
+concurrency to handle peak loads. Configure maximum concurrency limits and memory sizing based on 
+each model’s specific requirements.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

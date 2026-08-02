@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+Configure a guardrail and set content filters to medium for harmful content. Set up denied topics for 
+investment advice and include clear definitions and sample phrases to block. Configure sensitive 
+information filters to mask PII in responses and to block financial information in inputs. Enable both 
+input and output evaluations that use custom blocked messages for audits.
+Create a separate guardrail for each use case. Create one guardrail that applies a harmful content filter. 
+Create a guardrail to apply topic filters for investment advice. Create a guardrail to apply sensitive 
+information filters to block PII. Use AWS Step Functions to chain the guardrails sequentially.
+Answer: C
+Explanation
+Option C is the correct solution because it uses a single, well-tuned Amazon Bedrock guardrail that applies 
+different actions to different content types, which is the recommended approach for minimizing false positives 
+while enforcing strong policy controls.
+Setting content filters to medium rather than high reduces overblocking of benign customer conversations 
+while still preventing harmful content. Amazon Bedrock guardrails are designed to balance precision and 
+recall, and medium sensitivity is commonly recommended for customer-facing financial services use cases.
+Denied topics explicitly prevent the assistant from discussing investment advice, which is a regulatory 
+requirement. Including definitions and sample phrases improves detection accuracy and reduces ambiguity.
+Sensitive information filters support different actions per context. Masking PII in responses preserves 
+conversational usefulness for legitimate customer support while preventing exposure of sensitive data. 
+Blocking sensitive financial information in inputs prevents downstream processing of disallowed content 
+before it reaches the foundation model.
+Critically, enabling both input and output evaluation ensures that guardrails are applied consistently at every 
+stage of interaction. Custom blocked messages and audit logging provide clear compliance evidence for 
+regulators and internal audits.
+Option A causes excessive false positives by blocking all PII outright. Option B introduces unnecessary 
+complexity and is not how Bedrock guardrails are intended to be applied. Option D uses orchestration logic 
+that Bedrock guardrails already handle natively.
+Therefore, Option C best satisfies enforcement, flexibility, auditability, and accuracy requirements.
+Question #:43 - [Operational Efficiency and Optimization for GenAI Applications]
+A retail company is using Amazon Bedrock to develop a customer service AI assistant. Analysis shows that 
+70% of customer inquiries are simple product questions that a smaller model can effectively handle. However, 
+30% of inquiries are complex return policy questions that require advanced reasoning.
+The company wants to implement a cost-effective model selection framework to automatically route customer 
+inquiries to appropriate models based on inquiry complexity. The framework must maintain high customer 
+satisfaction and minimize response latency.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

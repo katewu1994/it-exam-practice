@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Regions. By ensuring the same approved prompt templates and parameters are used consistently, the company 
+can materially improve repeatability for the same structured inputs and retrieval context, which is essential in 
+multi-stage prompt chains.
+The other options are incomplete.  improves experimentation and observability but does not enforce safety B
+controls or stabilize latency.  can improve performance, but it does not provide validated safety enforcement C
+at inference time.  can help retrieval relevance, but it does not address unsafe outputs or inference stability. D
+Therefore,  is the only option that simultaneously targets predictable latency, governance of prompt A
+behavior, and strong safety controls within Amazon Bedrock.
+Question #:11 - [Operational Efficiency and Optimization for GenAI Applications]
+A company purchases Amazon Q Developer Pro subscriptions for 500 developers to improve code quality 
+and productivity. The company needs to create an observability system that tracks adoption metrics across the 
+company. The observability system must be able to identify active subscription users compared to underused 
+subscriptions. The system must give the company the ability to recognize power users every quarter and to 
+identify teams that require additional training. The system must provide visibility into usage patterns such as 
+the number of lines of Amazon Q generated code that each user has accepted. Which solution will meet these 
+requirements?
+Create a usage dashboard for Amazon Q Developer. Use the usage dashboard to track aggregated usage 
+adoption metrics.
+Use the Amazon Q Developer built-in administrator dashboard to track user adoption metrics across the 
+company’s organization in AWS Organizations.
+Collect user-level metrics in Amazon Q Developer. Store the metrics in an Amazon S3 bucket. Use 
+Amazon QuickSight to visualize the usage data. Create dashboards to show adoption metrics for users 
+and teams.
+Configure AWS CloudTrail to track all Amazon Q Developer API calls in the company’s organization 
+in AWS Organizations. Use an AWS Lambda function to process the logs. Store the processed logs in 
+Amazon DynamoDB. Create custom dashboards in Amazon Managed Grafana to visualize the data.
+Answer: B
+Explanation
+ provides a built-in  designed specifically for Amazon Q Developer Pro administrator dashboard
+organizational observability. This dashboard provides native visibility into user-level metrics across the entire 
+AWS Organization, allowing administrators to identify active vs. underused subscriptions and recognize 
+power users. Crucially, it tracks high-level usage patterns, including  (such as lines code acceptance metrics
+of code generated and accepted), which is a key requirement for measuring ROI and identifying training 
+needs. Using the built-in dashboard provides the necessary insights with the least operational overhead, as it 
+does not require building custom data pipelines (Option C) or complex log processing architectures (Option 
+D).
+Question #:12 - [Implementation and Integration]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

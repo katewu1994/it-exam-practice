@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Therefore, Option B directly resolves the throttling issue by correctly routing traffic to the reserved capacity 
+and ensures that the company benefits from the provisioned throughput it has purchased.
+Question #:83 - [Implementation and Integration]
+A company is implementing a serverless inference API by using AWS Lambda. The API will dynamically 
+invoke multiple AI models hosted on Amazon Bedrock. The company needs to design a solution that can 
+switch between model providers without modifying or redeploying Lambda code in real time. The design 
+must include safe rollout of configuration changes and validation and rollback capabilities.
+Which solution will meet these requirements?
+Store the active model provider in AWS Systems Manager Parameter Store. Configure a Lambda 
+function to read the parameter at runtime to determine which model to invoke.
+Store the active model provider in AWS AppConfig. Configure a Lambda function to read the 
+configuration at runtime to determine which model to invoke.
+Configure an Amazon API Gateway REST API to route requests to separate Lambda functions. 
+Hardcode each Lambda function to a specific model provider. Switch the integration target manually.
+Store the active model provider in a JSON file hosted on Amazon S3. Use AWS AppConfig to 
+reference the S3 file as a hosted configuration source. Configure a Lambda function to read the file 
+through AppConfig at runtime to determine which model to invoke.
+Answer: B
+Explanation
+Option B is the correct solution because AWS AppConfig is specifically designed to support dynamic 
+configuration management with safe rollout, validation, and rollback, which are explicit requirements in the 
+scenario.
+By storing the active model provider configuration in AWS AppConfig, the company can switch between 
+Amazon Bedrock model providers in real time without redeploying Lambda code. AppConfig supports 
+deployment strategies such as canary releases, linear rollouts, and immediate deployments, allowing safe and 
+controlled changes. If a configuration causes issues, AppConfig supports automatic rollback, reducing 
+operational risk.
+AWS AppConfig also supports schema validation, ensuring that configuration values such as model 
+identifiers, provider names, or inference parameters are valid before being applied. This prevents 
+misconfiguration from impacting production workloads.
+Option A uses Parameter Store, which lacks native rollout strategies, validation, and automated rollback, 
+making it unsuitable for safe real-time switching. Option C requires manual routing changes and code 
+coupling, increasing operational overhead and deployment risk. Option D introduces unnecessary complexity 
+by hosting configuration files in Amazon S3 when AppConfig already supports native hosted configurations.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

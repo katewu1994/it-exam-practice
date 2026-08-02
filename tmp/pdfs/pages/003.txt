@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+orchestrate large-scale, multimodal data processing pipelines and integrates naturally with foundation models 
+for summarization and concept extraction. Using BDA to process document files ensures consistent 
+preprocessing and model invocation at scale, which is essential for handling more than 10,000 sources per day 
+with high concurrency.
+Integrating Amazon Textract for PDFs enables accurate extraction of structured and unstructured text from 
+scanned and digital documents, while Amazon Transcribe is the appropriate service for converting recorded 
+videos into text for downstream semantic analysis. These services are optimized for their respective media 
+types and feed clean, normalized inputs into Bedrock foundation models, improving the quality of contextual 
+summaries.
+Storing processed content in Amazon S3 with versioning enabled directly addresses the requirement for 
+version control. S3 versioning provides immutable object history and rollback capabilities without additional 
+complexity. Metadata storage in Amazon DynamoDB supports high-throughput, low-latency access patterns 
+and scales automatically to handle peak upload concurrency.
+Real-time collaboration is achieved through AWS AppSync GraphQL subscriptions combined with 
+DynamoDB. AppSync enables real-time updates to connected clients whenever study materials are created or 
+modified, making it well suited for collaborative editing and live synchronization. DynamoDB streams 
+integrate seamlessly with AppSync to propagate changes efficiently.
+The other options misuse services or fail to meet key requirements. Amazon SNS does not support 
+collaborative state synchronization, Amazon DocumentDB is not optimized for versioned document storage, 
+Amazon Neptune is unsuitable for document-centric workloads, and Amazon ElastiCache is not designed for 
+durable storage or version control. Option B aligns with AWS best practices for scalable, multimodal 
+generative AI systems built on Amazon Bedrock.
+Question #:2 - [Foundation Model Integration, Data Management, and Compliance]
+A company is using Amazon Bedrock to develop an AI-powered application that uses a foundation model that 
+supports cross-Region inference and provisioned throughput. The application must serve users in Europe and 
+North America with consistently low latency. The application must comply with data residency regulations 
+that require European user data to remain within Europe-based AWS Regions.
+During testing, the application experiences service degradation when Regional traffic spikes reach service 
+quotas. The company needs a solution that maintains application resilience and minimizes operational 
+complexity.
+Which solution will meet these requirements?
+Deploy separate Amazon Bedrock instances in North American and European Regions. Use a custom 
+routing layer that directs traffic based on user location. Configure Amazon CloudWatch alarms to 
+monitor Regional service usage. Use Amazon SNS to send email alerts to the company when usage 
+approaches specified thresholds.
+Use Amazon Bedrock cross-Region inference profiles by specifying geographical codes in profile IDs 
+when the application calls the InvokeModel API. Configure separate Amazon API Gateway HTTP 
+APIs to direct European and North American users to the appropriate Regional endpoints.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

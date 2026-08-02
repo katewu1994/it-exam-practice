@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Question #:60 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company needs to pre-process unstructured data such as customer transcripts, financial 
+reports, and documentation. The company stores the unstructured data in Amazon S3 to support an Amazon 
+Bedrock application.
+The company must validate data quality, create auditable metadata, monitor data metrics, and customize text 
+chunking to optimize foundation model (FM) performance.
+Which solution will meet these requirements with the LEAST development effort?
+Use Amazon SageMaker Data Wrangler to create a data flow. Configure Amazon CloudWatch metrics 
+and alarms to monitor data quality. Use a custom AWS Lambda function to pre-process the data. Load 
+processed data into Amazon Bedrock.
+Set up an AWS Glue crawler to catalog data sources. Create AWS Glue ETL jobs to run custom 
+transformation scripts. Use AWS Glue Data Quality to validate and monitor data quality. Load 
+processed data into Amazon Bedrock.
+Use Amazon Comprehend to extract entities. Create an AWS Lambda function to chunk text. Run 
+Amazon Athena to query and validate data quality. Load processed data into Amazon Bedrock.
+Create an AWS Step Functions workflow to orchestrate data pre-processing tasks. Run custom code on 
+Amazon EC2 instances. Use Amazon SageMaker Model Monitor to monitor data quality. Load 
+processed data into Amazon Bedrock.
+Answer: B
+Explanation
+Option B is the most appropriate solution because it uses AWS-native, purpose-built data engineering and 
+governance services to address data quality validation, metadata creation, monitoring, and transformation with 
+minimal custom development. AWS Glue is designed specifically for large-scale data preparation and 
+integrates seamlessly with Amazon S3, making it ideal for preprocessing unstructured datasets for 
+downstream GenAI applications.
+AWS Glue crawlers automatically infer schemas and populate the AWS Glue Data Catalog, creating 
+auditable, queryable metadata for all datasets. This satisfies the requirement for traceability and governance, 
+which is especially critical in financial services environments. Glue ETL jobs allow teams to implement 
+customizable transformation logic, including text normalization and chunking strategies optimized for 
+foundation model context windows.
+AWS Glue Data Quality provides built-in rulesets for validating completeness, accuracy, and consistency. It 
+also publishes quality metrics that can be monitored over time, meeting the requirement for ongoing data 
+quality monitoring without building custom validation frameworks.
+Because AWS Glue is fully managed, it eliminates the need to manage infrastructure, scaling, or 
+orchestration. This significantly reduces development and operational effort compared to custom Lambda 
+pipelines or EC2-based processing. The processed and validated data can then be safely ingested into Amazon 
+Bedrock workflows or knowledge bases.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

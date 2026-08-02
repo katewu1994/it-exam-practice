@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A specialty coffee company has a mobile app that generates personalized coffee roast profiles by using 
+Amazon Bedrock with a three-stage prompt chain. The prompt chain converts user inputs into structured 
+metadata, retrieves relevant logs for coffee roasts, and generates a personalized roast recommendation for 
+each customer.
+Users in multiple AWS Regions report inconsistent roast recommendations for identical inputs, slow 
+inference during the retrieval step, and unsafe recommendations such as brewing at excessively high 
+temperatures. The company must improve the stability of outputs for repeated inputs. The company must also 
+improve app performance and the safety of the app ' s outputs. The updated solution must ensure 99.5% 
+output consistency for identical inputs and achieve inference latency of less than 1 second. The solution must 
+also block unsafe or hallucinated recommendations by using validated safety controls.
+Which solution will meet these requirements?
+Deploy Amazon Bedrock with provisioned throughput to stabilize inference latency. Apply Amazon 
+Bedrock guardrails that have semantic denial rules to block unsafe outputs. Use Amazon Bedrock 
+Prompt Management to manage prompts by using approval workflows.
+Use Amazon Bedrock Agents to manage chaining. Log model inputs and outputs to Amazon 
+CloudWatch Logs. Use logs from Amazon CloudWatch to perform A/B testing for prompt versions.
+Cache prompt results in Amazon ElastiCache. Use AWS Lambda functions to pre-process metadata and 
+to trace end-to-end latency. Use AWS X-Ray to identify and remediate performance bottlenecks.
+Use Amazon Kendra to improve roast log retrieval accuracy. Store normalized prompt metadata within 
+Amazon DynamoDB. Use AWS Step Functions to orchestrate multi-step prompts.
+Answer: A
+Explanation
+Option  best meets the combined requirements of low latency, stability, and validated safety controls by A
+using purpose-built Amazon Bedrock features designed for production GenAI operations. The company’s 
+latency target of under 1 second and its observation of degradation during spikes strongly indicate capacity 
+and throughput variability.  for Amazon Bedrock is intended to deliver more Provisioned throughput
+predictable performance by reserving inference capacity for a chosen model, reducing throttling risk and 
+stabilizing response times under load. This directly improves operational consistency across Regions where 
+on-demand capacity can vary.
+The requirement to “block unsafe or hallucinated recommendations” is most directly addressed by Amazon 
+ . Guardrails provide managed safety enforcement, including sensitive information Bedrock Guardrails
+controls and configurable content policies. Using  enables the application to prevent semantic denial rules
+unsafe guidance such as dangerous brewing temperatures or other harmful procedural instructions, enforcing 
+safety at the model boundary rather than relying on downstream filtering.
+The remaining requirement is “99.5% output consistency for identical inputs.” While generative models can 
+be probabilistic, production systems achieve practical consistency by controlling prompt versions, inputs, and 
+policy behavior.  supports controlled prompt lifecycle practices, Amazon Bedrock Prompt Management
+including versioning and approval workflows, which reduce unintended drift across deployments and 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

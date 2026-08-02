@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+The company ' s current chunking strategy segments text into fixed-length blocks of 500 tokens. The current 
+chunking strategy often splits contextually linked information such as legal arguments, court opinions, or 
+statute references across separate chunks. Researchers report that generated outputs frequently omit key 
+context or cite outdated legal information.
+Recent application logs show a 40% increase in response times. The p95 latency metric exceeds 2 seconds. 
+The company expects storage needs for the application to grow from 90 GB to 360 GB within a year.
+The company needs a solution to improve retrieval relevance and system performance at scale.
+Which solution will meet these requirements?
+Increase the embedding vector dimensionality from 768 to 4,096 without changing the existing 
+chunking or pre-processing strategy.
+Replace dynamic retrieval with static, pre-written summaries that are stored in Amazon S3. Use 
+Amazon CloudFront to serve the summaries to reduce compute demand and improve predictability.
+Update the chunking strategy to use semantic boundaries such as complete legal arguments, clauses, or 
+sections rather than fixed token limits. Regenerate vector embeddings to align with the new chunk 
+structure.
+Migrate from OpenSearch Service to Amazon DynamoDB. Implement keyword-based indexes to 
+enable faster lookups for legal concepts.
+Answer: C
+Explanation
+Option C directly addresses both retrieval relevance and performance scalability. Fixed token chunking breaks 
+semantic continuity in legal texts, causing incomplete context retrieval and degraded response quality. By 
+switching to semantic chunking—based on legal arguments, clauses, or sections—the application preserves 
+contextual integrity, improving retrieval accuracy and reducing hallucinations.
+Regenerating embeddings aligned with the new chunk structure also improves vector search efficiency, 
+reducing unnecessary comparisons and helping control latency as the dataset scales.
+Option A increases cost and latency without fixing the core issue. Option B removes dynamic reasoning, 
+which defeats the purpose of a legal RAG system. Option D discards vector semantics entirely and is 
+unsuitable for nuanced legal research. Therefore, Option C is the correct and scalable solution.
+Question #:123 - [Foundation Model Integration, Data Management, and Compliance]
+A medical company is building a generative AI (GenAI) application that uses Retrieval Augmented 
+Generation (RAG) to provide evidence-based medical information. The application uses Amazon OpenSearch 
+Service to retrieve vector embeddings. Users report that searches frequently miss results that contain exact 
+medical terms and acronyms and return too many semantically similar but irrelevant documents. The 
+company needs to improve retrieval quality and maintain low end-user latency, even as the document 
+collection grows to millions of documents.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+F.  
+Therefore, Option B provides the most robust, scalable, and low-maintenance solution for dynamic model 
+switching in a serverless Amazon Bedrock inference architecture.
+Question #:84 - [AI Safety, Security, and Governance]
+A bank is building a generative AI (GenAI) application that uses Amazon Bedrock to assess loan applications 
+by using scanned financial documents. The application must extract structured data from the documents. The 
+application must redact personally identifiable information (PII) before inference. The application must use 
+foundation models (FMs) to generate approvals. The application must route low-confidence document 
+extraction results to human reviewers who are within the same AWS Region as the loan applicant.
+The company must ensure that the application complies with strict Regional data residency and auditability 
+requirements. The application must be able to scale to handle 25,000 applications each day and provide 99.9% 
+availability.
+Which combination of solutions will meet these requirements? (Select THREE.)
+Deploy Amazon Textract and Amazon Augmented AI within the same Region to extract relevant data 
+from the scanned documents. Route low-confidence pages to human reviewers.
+Use AWS Lambda functions to detect and redact PII from submitted documents before inference. 
+Apply Amazon Bedrock guardrails to prevent inappropriate or unauthorized content in model outputs. 
+Configure Region-specific IAM roles to enforce data residency requirements and to control access to 
+the extracted data.
+Use Amazon Kendra and Amazon OpenSearch Service to extract field-level values semantically from 
+the uploaded documents before inference.
+Store uploaded documents in Amazon S3 and apply object metadata. Configure IAM policies to store 
+original documents within the same Region as each applicant. Enable object tagging for future audits.
+Use AWS Glue Data Quality to validate the structured document data. Use AWS Step Functions to 
+orchestrate a review workflow that includes a prompt engineering step that transforms validated data 
+into optimized prompts before invoking Amazon Bedrock to assess loan applications.
+Use Amazon SageMaker Clarify to generate fairness and bias reports based on model scoring decisions 
+that Amazon Bedrock makes.
+Answer: A B D
+Explanation
+The correct combination is A, B, and D because these three options collectively satisfy the mandatory 
+requirements for structured extraction, PII redaction before inference, regional human review, data residency, 
+auditability, and high-scale availability with managed AWS services.
+Option A is essential because Amazon Textract is the AWS-managed service designed to extract structured 
+data from scanned documents such as forms, tables, and financial statements. Textract provides confidence 
+scores, and Amazon Augmented AI (A2I) is purpose-built to route low-confidence extractions to human 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

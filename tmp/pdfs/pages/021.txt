@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+E.  
+Create an Amazon Bedrock prompt router. Specify an Amazon Nova Pro FM. Add the required inputs 
+as variables to the input node of the flow. Add the prompt router to the prompts node. Add the output 
+format to the output node.
+Create an Amazon Bedrock guardrail that applies the insults content filter. Set the filter response to 
+detect. Add the guardrail to the prompts node of the flow.
+Create an Amazon Bedrock application inference profile that specifies an Amazon Nova Pro FM. 
+Specify the output format for the response in the description. Include a tag for each of the input 
+variables. Add the profile to the prompts node of the flow.
+Answer: A D
+Explanation
+The correct answers are A and D because they collectively satisfy the requirements for structured inputs, 
+consistent output formatting, and non-blocking detection of bullying language.
+Option A is required because Amazon Bedrock Prompt Management enables prompt templates with explicit 
+input variables and defined output formats. By defining the four required inputs as variables, the company 
+ensures that every invocation of the Amazon Nova Pro FM receives the correct structured inputs. Specifying 
+the output format ensures consistent responses, which is essential for a grants application workflow. Adding 
+the managed prompt to the prompts node of the flow allows Bedrock Flows to invoke the model using this 
+standardized configuration.
+Option D addresses the requirement to receive notifications when bullying language is detected without 
+blocking responses. Amazon Bedrock guardrails support content filters with configurable actions. By 
+applying the insults content filter and setting the response action to detect, the system flags responses 
+containing bullying or insulting language while still allowing the response to be returned. This enables 
+monitoring, alerting, and auditing without interrupting application functionality.
+Option B is incorrect because setting the filter response to block contradicts the requirement not to block all 
+flagged responses. Option C introduces a prompt router, which is unnecessary because the application uses a 
+single Amazon Nova Pro FM. Option E incorrectly attempts to enforce input variables and output formatting 
+through an inference profile, which does not provide prompt-level variable enforcement or formatting 
+guarantees.
+Therefore, A and D together provide structured prompt management and non-blocking safety detection with 
+minimal operational complexity.
+Question #:19 - [Foundation Model Integration, Data Management, and Compliance]
+A healthcare company is using Amazon Bedrock to build a system to help practitioners make clinical 
+decisions. The system must provide treatment recommendations to physicians based only on approved 
+medical documentation and must cite specific sources. The system must not hallucinate or produce factually 
+incorrect information.
+Which solution will meet these requirements with the LEAST operational overhead?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

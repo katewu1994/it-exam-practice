@@ -1,0 +1,47 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Create a flow in Amazon Bedrock Flows. Configure S3 action nodes at the beginning and end of the 
+flow to retrieve and store the communications and the model responses. In the middle of the flow, 
+configure an expression to parse each communication. Configure an agent step to send the parsed input 
+to the model for review.
+Create an AWS Step Functions Express workflow state machine. Use an Amazon S3 integration 
+GetObject step to retrieve the original communications. Use an intrinsic function Pass step to parse the 
+communications and to pass the results to an Amazon Bedrock InvokeModel step. Configure an 
+Amazon S3 integration PutObject step to store the model responses back to the S3 bucket.
+Create an Amazon Bedrock agent that has an action group. Configure instructions to define how the 
+agent should parse the communications. Configure the action group to retrieve the communications 
+from the S3 bucket, invoke the Amazon Bedrock model, and store the model responses back to the S3 
+bucket.
+Create an Amazon Bedrock agent that has a single action group. Configure three AWS Lambda 
+functions in the action group. Configure the functions to retrieve the communications from the S3 
+bucket, parse the communications and invoke the Amazon Bedrock model, and store the model 
+responses back to the S3 bucket.
+Answer: A
+Explanation
+Option A is the correct answer because Amazon Bedrock Flows is purpose-built to orchestrate generative AI 
+workflows that combine data access, deterministic transformations, and model invocation with minimal 
+operational overhead. The requirements explicitly state that the workflow must retrieve content from Amazon 
+S3, extract a specific portion of a predefined template, send that portion to an Amazon Bedrock model, and 
+store the model’s response back into the same S3 bucket. Amazon Bedrock Flows natively supports all of 
+these steps.
+By configuring S3 action nodes at the beginning and end of the flow, the workflow can retrieve the original 
+communications and persist the reviewed output without custom code. The expression step allows 
+deterministic parsing of a specific portion of the template, which is essential when only part of the message 
+should be reviewed. This avoids relying on generative logic for parsing, which would be less predictable and 
+harder to audit. The agent step is then used specifically for the review task, where the foundation model 
+evaluates or modifies the extracted content.
+Option B uses AWS Step Functions, which can achieve similar outcomes but requires more explicit 
+orchestration logic and does not provide GenAI-native constructs such as expressions and agent steps in a 
+single managed experience. Options C and D rely on Amazon Bedrock agents and AWS Lambda functions to 
+handle parsing and data movement, which increases complexity, operational overhead, and maintenance 
+burden.
+Because Amazon Bedrock Flows directly integrates S3 actions, parsing expressions, and model review steps 
+in a single managed workflow, Option A best meets the requirements with the least development and 
+operational effort.
+Question #:10 - [Operational Efficiency and Optimization for GenAI Applications]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

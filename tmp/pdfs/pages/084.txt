@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+Configure the knowledge base to use semantic chunking. Use a buffer size of 1 and a breakpoint 
+percentile threshold of 85% to determine chunk boundaries based on content meaning.
+Configure the knowledge base not to use chunking. Manually split each document into separate files 
+before ingestion. Apply post-processing reranking during retrieval.
+Answer: B
+Explanation
+Option  is the best fit because  is designed to preserve local detail while keeping B hierarchical chunking
+broader document context available during retrieval, which directly addresses the problem of questions 
+spanning methodology, results, and discussion. In large scientific papers, a single answer often depends on 
+linked paragraphs across adjacent sections. If the knowledge base retrieves only small, isolated chunks, the 
+RAG system can cite text that is semantically close to a query term but not contextually correct, producing 
+inconsistent answers and irrelevant citations.
+With hierarchical chunking, the knowledge base creates  that are small enough for high-child chunks
+precision vector similarity matching, such as 200 tokens, which improves the likelihood that the retrieved text 
+is tightly related to the user’s query. At the same time, each child chunk is associated with a larger parent 
+ , such as 1,000 tokens, which retains the surrounding narrative and section-level context. This structure chunk
+helps the retrieval pipeline return passages that include the relevant subsection plus the explanatory framing 
+that prevents misinterpretation, which is especially important in scientific writing where methods, results, and 
+discussion are interdependent.
+The configured  further reduces boundary effects where key statements split across chunks. This overlap
+improves continuity for paragraphs that bridge sections, such as a results paragraph that references the 
+methodological setup or a discussion paragraph interpreting a specific metric.
+Option  can improve consistency slightly, but fixed-size chunking still risks separating related paragraphs A
+and does not provide a built-in mechanism to retrieve broader context linked to precise matches. Option  can C
+create more meaningful boundaries, but it does not guarantee the parent-level context that hierarchical 
+chunking provides at retrieval time. Option  increases operational burden and is not practical at the scale of D
+25 million
+Question #:74 - [Operational Efficiency and Optimization for GenAI Applications]
+A company has a generative AI (GenAI) application that uses Amazon Bedrock to provide real-time 
+responses to customer queries. The company has noticed intermittent failures with API calls to foundation 
+models (FMs) during peak traffic periods.
+The company needs a solution to handle transient errors and provide detailed observability into FM 
+performance. The solution must prevent cascading failures during throttling events and provide distributed 
+tracing across service boundaries to identify latency contributors. The solution must also enable correlation of 
+performance issues with specific FM characteristics.
+Which solution will meet these requirements?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

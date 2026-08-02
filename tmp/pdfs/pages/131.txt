@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option A does not use Bedrock evaluation jobs, and a knowledge base plus RetrieveAndGenerate is a RAG 
+pattern, not an evaluation framework. It would produce responses but not standardized scoring and reporting 
+suitable for model selection. Option C is incorrect because Bedrock evaluation outputs are delivered to S3, not 
+directly to a BI destination, and selecting the candidate FM as the evaluator conflicts with the intended pattern 
+of using a stable judge model. Option D misuses knowledge bases and retrieval evaluation types when the 
+requirement is prompt-based model assessment rather than evaluating retrieval quality.
+Question #:114 - [Implementation and Integration]
+An ecommerce company is developing a generative AI (GenAI) solution that uses Amazon Bedrock with 
+Anthropic Claude to recommend products to customers. Customers report that some recommended products 
+are not available for sale or are not relevant. Customers also report long response times for some 
+recommendations.
+The company confirms that most customer interactions are unique and that the solution recommends products 
+not present in the product catalog.
+Which solution will meet this requirement?
+Increase grounding within Amazon Bedrock Guardrails. Enable automated reasoning checks. Set up 
+provisioned throughput.
+Use prompt engineering to restrict model responses to relevant products. Use streaming inference to 
+reduce perceived latency.
+Create an Amazon Bedrock Knowledge Bases and implement Retrieval Augmented Generation (RAG). 
+Set the PerformanceConfigLatency parameter to optimized.
+Store product catalog data in Amazon OpenSearch Service. Validate model recommendations against 
+the catalog. Use Amazon DynamoDB for response caching.
+Answer: C
+Explanation
+Option C is the correct solution because it directly addresses both correctness and performance issues by 
+grounding the model’s responses in authoritative product data using Retrieval Augmented Generation. 
+Amazon Bedrock Knowledge Bases are designed to connect foundation models to trusted enterprise data 
+sources, ensuring that generated responses are constrained to known, validated content.
+By ingesting the product catalog into a knowledge base, the GenAI application retrieves only products that 
+actually exist in the catalog. This prevents hallucinated or unavailable recommendations, which is a common 
+issue when models rely solely on prompt instructions without retrieval grounding. RAG ensures that the 
+model’s output is based on retrieved facts rather than learned generalizations.
+Setting the PerformanceConfigLatency parameter to optimized enables Bedrock to prioritize lower-latency 
+retrieval and inference paths, improving responsiveness for real-time recommendation scenarios. This directly 
+addresses the reported performance issues without requiring provisioned throughput or caching strategies that 
+are ineffective for mostly unique interactions.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

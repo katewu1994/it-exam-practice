@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+models on SageMaker AI, which adds significant operational burden and latency risk. Option D relies on 
+multiple Lambda functions orchestrated by an agent, which adds more moving parts and increases cold-start 
+and integration overhead. Option B most directly meets the requirements with the smallest operational 
+footprint.
+Question #:90 - [Operational Efficiency and Optimization for GenAI Applications]
+A company has a recommendation system running on Amazon EC2 instances. The applications make API 
+calls to Amazon Bedrock foundation models (FMs) to analyze customer behavior and generate personalized 
+product recommendations.
+The system experiences intermittent issues where some recommendations do not match customer preferences. 
+The company needs an observability solution to monitor operational metrics and detect patterns of 
+performance degradation compared to established baselines. The solution must generate alerts with 
+correlation data within 10 minutes when FM behavior deviates from expected patterns.
+Which solution will meet these requirements?
+Configure Amazon CloudWatch Container Insights. Set up alarms for latency thresholds. Add custom 
+token metrics using the CloudWatch embedded metric format.
+Implement AWS X-Ray. Enable CloudWatch Logs Insights. Set up AWS CloudTrail and create 
+dashboards in Amazon QuickSight.
+Enable Amazon CloudWatch Application Insights. Create custom metrics for recommendation quality, 
+token usage, and response latency using the CloudWatch embedded metric format with dimensions for 
+request types and user segments. Configure CloudWatch anomaly detection on model metrics. Use 
+CloudWatch Logs Insights for pattern analysis.
+Use Amazon OpenSearch Service with the Observability plugin. Ingest metrics and logs through 
+Amazon Kinesis and analyze behavior with custom queries.
+Answer: C
+Explanation
+Option C best satisfies the requirement for rapid, correlated detection of model-related performance 
+degradation. Amazon CloudWatch Application Insights provides automated observability across application 
+components running on Amazon EC2, identifying abnormal behavior patterns without requiring extensive 
+manual configuration.
+Using custom metrics for recommendation quality, token usage, and response latency allows the company to 
+directly monitor FM behavior, not just infrastructure health. Applying dimensions such as request type and 
+user segment enables fine-grained correlation between performance issues and specific customer interactions 
+or workloads.
+CloudWatch anomaly detection is critical because it establishes dynamic baselines from historical data and 
+detects deviations automatically. This enables alerts to be generated within minutes when FM behavior 
+changes unexpectedly, satisfying the 10-minute alerting requirement without static thresholds that can miss 
+subtle degradations.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

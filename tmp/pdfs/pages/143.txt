@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A company is creating a generative AI (GenAI) application that uses Amazon Bedrock foundation models 
+(FMs). The application must use Microsoft Entra ID to authenticate. All FM API calls must stay on private 
+network paths. Access to the application must be limited by department to specific model families. The 
+company also needs a comprehensive audit trail of model interactions.
+Which solution will meet these requirements?
+Configure SAML federation between Microsoft Entra ID and AWS Identity and Access Management. 
+Create department-specific IAM roles that allow only the required ModelId values. Create AWS 
+PrivateLink interface VPC endpoints for Amazon Bedrock runtime services. Enable AWS CloudTrail 
+to capture Amazon Bedrock API calls. Configure Amazon Bedrock model invocation logging to record 
+detailed model interactions.
+Create an identity provider (IdP) connection in IAM to authenticate by using Microsoft Entra ID. 
+Assign department permission sets to control access to specific model families. Deploy AWS Lambda 
+functions in private subnets with a NAT gateway for egress to Amazon Bedrock public endpoints. 
+Enable CloudWatch Logs to capture model interactions for auditing purposes.
+Create a SAML identity provider (IdP) in IAM to authenticate by using Microsoft Entra ID. Use IAM 
+permissions boundaries to limit department roles ' access to specific model families. Configure public 
+Amazon Bedrock API endpoints with VPC routing to maintain private network connectivity. Set up 
+CloudTrail with Amazon S3 Lifecycle rules to manage audit logs of model interactions.
+Configure OpenID Connect (OIDC) federation between Microsoft Entra ID and IAM. Use attribute-
+based access control to map department attributes to specific model access permissions. Apply SCP 
+policies to restrict access to Amazon Bedrock FM families based on department. Use Microsoft Entra 
+ID ' s built-in logging capabilities to maintain an audit trail of model interactions.
+Answer: A
+Explanation
+Option A is the correct solution because it satisfies authentication, private connectivity, fine-grained 
+authorization, and auditing using AWS-recommended patterns.
+SAML federation between Microsoft Entra ID and IAM is a mature, well-supported integration that enables 
+centralized enterprise authentication. Department-specific IAM roles allow precise control over which 
+Bedrock ModelId values each department can invoke, enforcing access by model family.
+Using AWS PrivateLink interface VPC endpoints for Amazon Bedrock runtime services ensures that all 
+inference traffic stays on private AWS network paths, with no public internet exposure. NAT gateways and 
+public endpoints, as used in other options, violate this requirement.
+AWS CloudTrail provides authoritative audit logs of all Bedrock API calls, which is required for compliance. 
+Amazon Bedrock model invocation logging complements CloudTrail by capturing detailed prompt and 
+response metadata for deeper auditing and investigation.
+Option B uses public endpoints via NAT. Option C incorrectly claims public endpoints can be private. Option 
+D relies on IdP-side logs, which do not capture Bedrock API activity.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

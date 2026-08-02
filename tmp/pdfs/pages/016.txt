@@ -1,0 +1,45 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+A.  
+B.  
+C.  
+D.  
+Select the most powerful available AWS foundation model (FM). Create a chat interface by using 
+Converse APIs. Test the application on 50-100 actual patient records by using only qualitative feedback 
+from stakeholders. Use a custom web interface to gather real-world performance metrics.
+Use the Strands SDK to deploy multiple agents that connect to multiple knowledge bases that contain 
+specialized medical documents. Compare the responses of the agents. Evaluate the integration of the 
+agents with the company ' s existing systems.
+Answer: A
+Explanation
+For a 3-week proof-of-concept in a regulated field like healthcare,  Retrieval Augmented Generation (RAG)
+is more efficient and safer than fine-tuning. RAG allows the use of  without anonymized patient records
+risking the leak of sensitive data into the model ' s permanent memory. To evaluate accuracy quantitatively 
+and rapidly, the " LLM-as-a-judge " pattern is recommended. Using a strong  to score the outputs judge model
+of multiple candidate FMs provides objective metrics (e.g., factual alignment, completeness) that manual 
+qualitative feedback (Option C) cannot scale to provide within the timeline. Fine-tuning (Option B) typically 
+takes longer than 3 weeks to properly data-prep and validate for clinical accuracy.
+Question #:14
+A medical company uses Amazon Bedrock to power a clinical documentation summarization system. The 
+system produces inconsistent summaries when handling complex clinical documents. The system performed 
+well on simple clinical documents.
+The company needs a solution that diagnoses inconsistencies, compares prompt performance against 
+established metrics, and maintains historical records of prompt versions.
+Which solution will meet these requirements?
+Create multiple prompt variants by using Prompt management in Amazon Bedrock. Manually test the 
+prompts with simple clinical documents. Deploy the highest performing version by using the Amazon 
+Bedrock console.
+Implement version control for prompts in a code repository with a test suite that contains complex 
+clinical documents and quantifiable evaluation metrics. Use an automated testing framework to 
+compare prompt versions and document performance patterns.
+Deploy each new prompt version to separate Amazon Bedrock API endpoints. Split production traffic 
+between the endpoints. Configure Amazon CloudWatch to capture response metrics and user feedback 
+for automatic version selection.
+Create a custom prompt evaluation flow in Amazon Bedrock Flows that applies the same clinical 
+document inputs to different prompt variants. Use Amazon Comprehend Medical to analyze and score 
+the factual accuracy of each version.
+Answer: B
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

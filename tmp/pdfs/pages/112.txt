@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+InvocationsIntervened, which indicate when outputs are modified or blocked due to rule enforcement. These 
+metrics integrate directly with Amazon CloudWatch, enabling real-time dashboards and threshold-based 
+alarms. Setting an alarm at a 15% discrepancy threshold satisfies the alerting requirement with minimal 
+configuration.
+Weekly reporting can be generated from CloudWatch metrics using scheduled exports or dashboards without 
+building custom analytics pipelines. Option A requires significant custom post-processing logic. Option C 
+introduces an additional service with higher operational overhead and is not optimized for real-time 
+monitoring. Option D focuses on offline evaluation jobs and does not provide continuous real-time fairness 
+monitoring.
+Therefore, Option B provides the most AWS-native, scalable, and low-effort solution for fairness evaluation 
+and monitoring.
+Question #:98 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company is building a fraud detection system by using Amazon Bedrock. The system will 
+monitor activity in multiple stock trading applications that run in the United States and Europe. The system 
+must process 1,000 transactions every second with sub-500 ms response times. The system must also maintain 
+high availability during connectivity disruptions.
+The company must ensure that data for European customers is processed only in AWS Regions that are based 
+in Europe.
+Which solution will meet these requirements?
+Configure AWS Lambda functions and Amazon EKS applications to use the InvokeModel API with a 
+global inference profile. Deploy an automated failover system that uses Amazon Route 53 health 
+checks. Create a dedicated European inference profile and enable geographic cross-Region inference 
+for European applications. Use Amazon CloudWatch alarms to monitor utilization metrics.
+Configure all applications to use the InvokeModel API with provisioned throughput for an Anthropic 
+Claude model in each Region separately. Set up a custom Application Load Balancer to distribute 
+traffic based on Regional capacity and response times. Implement a Regional failover mechanism that 
+uses Amazon EventBridge rules to handle connectivity disruptions.
+Configure all applications to use the InvokeModelWithResponseStream API with on-demand 
+throughput. Deploy an Amazon API Gateway REST API with Regional endpoints in each location 
+where the company operates to route requests to the closest Amazon Bedrock endpoint. Create separate 
+IAM roles for applications that run in the United States and Europe. Grant the IAM roles Region-
+specific permissions.
+Configure applications that run in the United States to use provisioned throughput with the 
+InvokeModel API. Configure European applications to use a Europe-specific geographic inference 
+profile to ensure data sovereignty. Configure automatic scaling for provisioned capacity based on 
+utilization metrics. Use Amazon EventBridge and AWS Lambda functions to implement cross-Region 
+failover mechanisms.
+Answer: D
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

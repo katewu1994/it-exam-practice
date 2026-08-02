@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+flagged interactions to qualified financial experts for review, keeping human effort focused where it matters 
+most while maintaining scale.
+Option A is not scalable because it requires manual review of all responses. Option C relies on static rules and 
+end-user feedback, which is insufficient for regulatory compliance and factual accuracy assurance. Option D 
+provides monitoring but not structured quality evaluation or policy enforcement.
+Therefore, Option B provides the most complete, AWS-aligned solution for scalable evaluation plus human 
+oversight in a regulated financial context.
+Question #:24 - [Testing, Validation, and Troubleshooting]
+A healthcare company is using Amazon Bedrock to build a Retrieval Augmented Generation (RAG) 
+application that helps practitioners make clinical decisions. The application must achieve high accuracy for 
+patient information retrievals, identify hallucinations in generated content, and reduce human review costs.
+Which solution will meet these requirements?
+Use Amazon Comprehend to analyze and classify RAG responses and to extract medical entities and 
+relationships. Use AWS Step Functions to orchestrate automated evaluations. Configure Amazon 
+CloudWatch metrics to track entity recognition confidence scores. Configure CloudWatch to send an 
+alert when accuracy falls below specified thresholds.
+Implement automated large language model (LLM)-based evaluations that use a specialized model that 
+is fine-tuned for medical content to assess all responses. Deploy AWS Lambda functions to parallelize 
+evaluations. Publish results to Amazon CloudWatch metrics that track relevance and factual accuracy.
+Configure Amazon CloudWatch Synthetics to generate test queries that have known answers on a 
+regular schedule, and track model success rates. Set up dashboards that compare synthetic test results 
+against expected outcomes.
+Deploy a hybrid evaluation system that uses an automated LLM-as-a-judge evaluation to initially 
+screen responses and targeted human reviews for edge cases. Use a built-in Amazon Bedrock 
+evaluation to track retrieval precision and hallucination rates.
+Answer: D
+Explanation
+Option D is the correct solution because it directly addresses all three requirements: high retrieval accuracy, 
+hallucination detection, and reduced human review costs. AWS recommends a layered evaluation strategy for 
+high-stakes domains such as healthcare, where generative outputs must be both accurate and safe.
+Using an automated LLM-as-a-judge evaluation enables scalable, consistent assessment of generated 
+responses for factual grounding, relevance, and hallucination risk. This automated screening significantly 
+reduces the number of responses that require manual inspection. Only responses that fall below defined 
+quality thresholds or exhibit ambiguous behavior are escalated to targeted human reviews, which optimizes 
+review effort and cost.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option A further improves p95 latency and throughput by removing model loading overhead during inference 
+and improving GPU utilization. Preloading model weights during container startup ensures the model is ready 
+before traffic arrives and avoids unpredictable on-demand weight loading. Dynamic batching increases 
+efficiency by grouping compatible requests into a single inference pass, reducing per-request overhead and 
+improving GPU saturation. When tuned properly for interactive workloads, batching can reduce tail latency 
+while preserving responsiveness by enforcing small batch windows.
+Option B makes latency worse because setting minimum instances to 0 and lazily loading weights guarantees 
+cold-start delays and unpredictable first-token performance. Option C similarly increases cold-start behavior 
+through lazy loading and offers no batching benefits. Option E is designed for non-interactive workloads and 
+introduces queueing and storage latency, which conflicts with the 800 ms p95 requirement for interactive chat.
+Therefore, A and D are the best combination to achieve consistently low p95 latency and fast first-token 
+streaming for a SageMaker-hosted chat assistant.
+Question #:116 - [Foundation Model Integration, Data Management, and Compliance]
+A research company is developing a GenAI system to produce summaries of technical documents. The 
+company must catalog all data sources in a central location. The company needs a solution that can 
+automatically discover and update data sources. The solution must tag each generated summary with citations 
+as metadata that users can query. The solution must retain tamper-evident, immutable audit logs for every 
+model invocation and store I/O records. Which solution will meet these requirements?
+Use Amazon Comprehend to identify data sources in the documents. Store generated summaries in 
+Amazon S3 and enable S3 Object Lock. Use Amazon CloudWatch metrics to generate reports about 
+application throughput. Do not include logs for each invocation.
+Use AWS Glue Data Catalog with crawlers to maintain data sources. Store generated summaries in 
+Amazon S3. Write object tags that include a source ID. Store Amazon Bedrock model invocation logs 
+in Amazon S3. Enable S3 Object Lock on the S3 bucket that stores invocation logs. Use AWS 
+CloudTrail log file integrity validation to provide tamper-evident immutability.
+Store application outputs in Amazon DynamoDB. Apply item-level tags that include source attribution. 
+Write application events to Amazon CloudWatch Logs. Use IAM roles to provide audit traceability.
+Use AWS AppConfig feature flags to implement data versioning. Restrict access to the model by using 
+IAM condition keys. Maintain a versioned mapping file of source-to-output relationships in Amazon S3.
+Answer: B
+Explanation
+ and its associated  are the standard AWS tools for automatic discovery AWS Glue Data Catalog crawlers
+and centralized cataloging of datasets. For the generated summaries, storing them in  allows the Amazon S3
+use of  for metadata (like source IDs), making them easily queryable. The critical requirement for object tags
+" tamper-evident, immutable audit logs " is met by enabling  to an S3 Bedrock model invocation logging
+bucket protected by  (compliance mode). To further guarantee that logs have not been altered, S3 Object Lock
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

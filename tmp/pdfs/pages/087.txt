@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Therefore, Option A provides the cleanest, lowest-overhead architecture that meets data governance, 
+accuracy, performance, and scalability requirements while minimizing operational burden for both Example 
+Corp and its customers.
+Question #:76 - [Implementation and Integration]
+An ecommerce company operates a global product recommendation system that needs to switch between 
+multiple foundation models (FM) in Amazon Bedrock based on regulations, cost optimization, and 
+performance requirements. The company must apply custom controls based on proprietary business logic, 
+including dynamic cost thresholds, AWS Region-specific compliance rules, and real-time A/B testing across 
+multiple FMs.
+The system must be able to switch between FMs without deploying new code. The system must route user 
+requests based on complex rules including user tier, transaction value, regulatory zone, and real-time cost 
+metrics that change hourly and require immediate propagation across thousands of concurrent requests.
+Which solution will meet these requirements?
+Deploy an AWS Lambda function that uses environment variables to store routing rules and Amazon 
+Bedrock FM IDs. Use the Lambda console to update the environment variables when business 
+requirements change. Configure an Amazon API Gateway REST API to read request parameters to 
+make routing decisions.
+Deploy Amazon API Gateway REST API request transformation templates to implement routing logic 
+based on request attributes. Store Amazon Bedrock FM endpoints as REST API stage variables. Update 
+the variables when the system switches between models.
+Configure an AWS Lambda function to fetch routing configurations from the AWS AppConfig Agent 
+for each user request. Run business logic in the Lambda function to select the appropriate FM for each 
+request. Expose the FM through a single Amazon API Gateway REST API endpoint.
+Use AWS Lambda authorizers for an Amazon API Gateway REST API to evaluate routing rules that 
+are stored in AWS AppConfig. Return authorization contexts based on business logic. Route requests to 
+model-specific Lambda functions for each Amazon Bedrock FM.
+Answer: C
+Explanation
+Option C is the correct solution because AWS AppConfig is designed for real-time, validated, centrally 
+managed configuration changes with safe rollout, immediate propagation, and rollback support—exactly 
+matching the company’s requirements.
+By storing routing rules, cost thresholds, regulatory constraints, and A/B testing logic in AWS AppConfig, the 
+company can switch between Amazon Bedrock foundation models without redeploying Lambda code. 
+AppConfig supports feature flags, dynamic configuration updates, JSON schema validation, and staged 
+rollouts, which are essential for safely managing complex and frequently changing routing logic.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+A financial services company uses an AI application to process financial documents by using Amazon 
+Bedrock. During business hours, the application handles approximately 10,000 requests each hour, which 
+requires consistent throughput.
+The company uses the CreateProvisionedModelThroughput API to purchase provisioned throughput. Amazon 
+CloudWatch metrics show that the provisioned capacity is unused while on-demand requests are being 
+throttled. The company finds the following code in the application:
+response = bedrock_runtime.invoke_model(
+modelId= " anthropic.claude-v2 " ,
+body=json.dumps(payload)
+)
+The company needs the application to use the provisioned throughput and to resolve the throttling issues.
+Which solution will meet these requirements?
+Increase the number of model units (MUs) in the provisioned throughput configuration.
+Replace the model ID parameter with the ARN of the provisioned model that the 
+CreateProvisionedModelThroughput API returns.
+Add exponential backoff retry logic to handle throttling exceptions during peak hours.
+Modify the application to use the invokeModelWithResponseStream API instead of the invokeModel 
+API.
+Answer: B
+Explanation
+Option B is the correct solution because Amazon Bedrock provisioned throughput is only used when the 
+application explicitly invokes the provisioned model ARN, not the base foundation model ID. In the provided 
+code, the application is calling the standard model identifier (anthropic.claude-v2), which routes requests to 
+on-demand capacity instead of the purchased provisioned throughput.
+When the CreateProvisionedModelThroughput API is used, Amazon Bedrock returns a provisioned model 
+ARN that represents the reserved capacity. Applications must reference this ARN in the modelId parameter 
+when invoking the model. If the base model ID is used instead, Bedrock treats the request as on-demand 
+traffic, which explains why CloudWatch metrics show unused provisioned capacity alongside throttled on-
+demand requests.
+Option A would increase capacity but would not fix the root cause because the application is not using the 
+provisioned resource at all. Option C adds resiliency but does not ensure usage of provisioned throughput and 
+would still incur throttling. Option D changes the response delivery mechanism but does not affect capacity 
+routing.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

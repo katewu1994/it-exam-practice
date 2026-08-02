@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+Which combination of solutions will meet these requirements with the LEAST operational overhead? (Select 
+TWO.)
+Use Amazon CloudWatch metrics as data sources to create custom Amazon QuickSight dashboards that 
+show token usage trends and usage patterns across FMs.
+Use CloudWatch Logs Insights to analyze Amazon Bedrock invocation logs for token consumption 
+patterns and usage attribution by application. Create custom queries to identify high-usage scenarios. 
+Add log widgets to dashboards to enable continuous monitoring.
+Create custom Amazon CloudWatch dashboards that combine native Amazon Bedrock token and 
+invocation CloudWatch metrics. Set up CloudWatch alarms to monitor token usage thresholds.
+Create dashboards that show token usage trends and patterns across the company’s FMs by using an 
+Amazon Bedrock zero-ETL integration with Amazon Managed Grafana.
+Implement Amazon EventBridge rules to capture Amazon Bedrock model invocation events. Route 
+token usage data to Amazon OpenSearch Serverless by using Amazon Data Firehose. Use OpenSearch 
+dashboards to analyze usage patterns.
+Answer: C D
+Explanation
+The combination of Options C and D delivers comprehensive, real-time observability for Amazon Bedrock 
+workloads with the least operational overhead by relying on native integrations and managed services.
+Amazon Bedrock publishes built-in CloudWatch metrics for model invocations and token usage. Option C 
+leverages these native metrics directly, allowing teams to build centralized CloudWatch dashboards without 
+additional data pipelines or custom processing. CloudWatch alarms provide threshold-based alerting for token 
+consumption, enabling proactive cost and usage control across all foundation models. This approach aligns 
+with AWS guidance to use native service metrics whenever possible to reduce operational complexity.
+Option D complements CloudWatch by enabling advanced, stakeholder-specific visualizations through 
+Amazon Managed Grafana. The zero-ETL integration allows Bedrock and CloudWatch metrics to be 
+visualized directly in Grafana without building ingestion pipelines or managing storage layers. Grafana 
+dashboards are particularly well suited for serving different audiences, such as engineering, finance, and 
+product teams, each with customized views of token usage and trends.
+Option A introduces unnecessary complexity by adding a business intelligence layer that is better suited for 
+historical analytics than real-time operational monitoring. Option B is useful for deep log analysis but requires 
+query maintenance and does not provide efficient real-time dashboards at scale. Option E involves multiple 
+services and custom data flows, significantly increasing operational overhead compared to native metric-
+based observability.
+By combining CloudWatch dashboards and alarms with Managed Grafana’s zero-ETL visualization 
+capabilities, the company achieves real-time visibility, flexible dashboards, and automated alerting across all 
+Amazon Bedrock foundation models with minimal operational effort.
+Question #:59 - [Foundation Model Integration, Data Management, and Compliance]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

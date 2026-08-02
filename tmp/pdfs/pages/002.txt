@@ -1,0 +1,46 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Category Breakdown
+Category Number of Questions
+Foundation Model Integration, Data Management, and Compliance 32
+Implementation and Integration 25
+AI Safety, Security, and Governance 27
+Operational Efficiency and Optimization for GenAI Applications 28
+Testing, Validation, and Troubleshooting 13
+Data Management, and Compliance 1
+TOTAL 128
+Question #:1 - [Foundation Model Integration, Data Management, and Compliance]
+A company needs a system to automatically generate study materials from multiple content sources. The 
+content sources include document files (PDF files, PowerPoint presentations, and Word documents) and 
+multimedia files (recorded videos). The system must process more than 10,000 content sources daily with 
+peak loads of 500 concurrent uploads. The system must also extract key concepts from document files and 
+multimedia files and create contextually accurate summaries. The generated study materials must support real-
+time collaboration with version control.
+Which solution will meet these requirements?
+Use Amazon Bedrock Data Automation (BDA) with AWS Lambda functions to orchestrate document 
+file processing. Use Amazon Bedrock Knowledge Bases to process all multimedia. Store the content in 
+Amazon DocumentDB with replication. Collaborate by using Amazon SNS topic subscriptions. Track 
+changes by using Amazon Bedrock Agents.
+Use Amazon Bedrock Data Automation (BDA) with foundation models (FMs) to process document 
+files. Integrate BDA with Amazon Textract for PDF extraction and with Amazon Transcribe for 
+multimedia files. Store the processed content in Amazon S3 with versioning enabled. Store the 
+metadata in Amazon DynamoDB. Collaborate in real time by using AWS AppSync GraphQL 
+subscriptions and DynamoDB.
+Use Amazon Bedrock Data Automation (BDA) with Amazon SageMaker AI endpoints to host content 
+extraction and summarization models. Use Amazon Bedrock Guardrails to extract content from all file 
+types. Store document files in Amazon Neptune for time series analysis. Collaborate by using Amazon 
+Bedrock Chat for real-time messaging.
+Use Amazon Bedrock Data Automation (BDA) with AWS Lambda functions to process batches of 
+content files. Fine-tune foundation models (FMs) in Amazon Bedrock to classify documents across all 
+content types. Store the processed data in Amazon ElastiCache (Redis OSS) by using Cluster Mode 
+with sharding. Use Prompt management in Amazon Bedrock for version control.
+Answer: B
+Explanation
+Option B best fulfills all functional, scalability, and collaboration requirements by combining purpose-built 
+AWS services with Amazon Bedrock capabilities. Amazon Bedrock Data Automation is designed to 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

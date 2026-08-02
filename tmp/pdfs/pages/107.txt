@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Enable response streaming by using the InvokeModelWithResponseStream API so the frontend can 
+display generated tokens as the tokens arrive. Collect metrics in Amazon CloudWatch and enable 
+distributed tracing to monitor streaming latency and Regional performance.
+Deploy Regional Amazon Bedrock inference endpoints. Set up latency-based Amazon Route 53 
+routing. Cache partially processed explanations in a global Amazon DynamoDB table to serve 
+responses more quickly during peak periods.
+Use a Lambda@Edge preprocessing layer to condense inputs during peak periods. Asynchronously call 
+Amazon Bedrock while the system returns interim placeholder responses to customers.
+Deploy AWS Lambda functions to handle inference requests across multiple AWS Regions. Increase 
+Lambda concurrency limits. Scale down Amazon CloudWatch Logs retention to reduce backend load 
+during peak periods.
+Answer: A
+Explanation
+Option A is correct because the problem is not total model runtime; the problem is perceived UI 
+responsiveness. AWS documentation states that the Amazon Bedrock InvokeModelWithResponseStream API 
+returns the model response as a stream. AWS also explains that streaming allows an application to access 
+responses in chunks without waiting for the entire result. This lets the frontend display generated content as 
+tokens or chunks arrive, improving the user experience even when the total inference duration remains 
+unchanged.
+This option also preserves the stated constraints. It does not require changing the foundation model, 
+increasing token counts, provisioning extra compute, or reducing the model’s actual inference time. Instead, it 
+changes how the response is delivered to the user. This is exactly the right pattern when users perceive 
+slowness because the interface waits for the full completion before rendering anything. AWS examples for 
+Bedrock streaming show applications processing response streams in real time, which supports interactive 
+applications during high-concurrency periods.
+The monitoring portion of option A is also aligned with AWS guidance. Amazon Bedrock runtime publishes 
+CloudWatch metrics for invocation volume, latency, token consumption, error rates, and model invocation 
+logging delivery. CloudWatch GenAI observability can track invocation count, token usage, and errors using 
+built-in views. This supports audit and compliance visibility across Regions.
+Option B adds caching of partially processed fraud explanations, which can be risky for regulated transaction-
+specific explanations and does not solve the UI issue for unique requests. Option C changes inputs by 
+condensing them, which violates the constraint not to modify token counts or inputs. Option D focuses on 
+Lambda concurrency and log retention, which does not address waiting for the full model response. 
+Therefore, response streaming with CloudWatch and tracing is the correct solution.
+Question #:94 - [Implementation and Integration]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

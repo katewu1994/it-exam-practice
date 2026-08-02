@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+A company uses Amazon Bedrock to generate technical content for customers. The company has recently 
+experienced a surge in hallucinated outputs when the company’s model generates summaries of long technical 
+documents. The model outputs include inaccurate or fabricated details. The company’s current solution uses a 
+large foundation model (FM) with a basic one-shot prompt that includes the full document in a single input.
+The company needs a solution that will reduce hallucinations and meet factual accuracy goals. The solution 
+must process more than 1,000 documents each hour and deliver summaries within 3 seconds for each 
+document.
+Which combination of solutions will meet these requirements? (Select TWO.)
+Implement zero-shot chain-of-thought (CoT) instructions that require step-by-step reasoning with 
+explicit fact verification before the model generates each summary.
+Use Retrieval Augmented Generation (RAG) with an Amazon Bedrock knowledge base. Apply 
+semantic chunking and tuned embeddings to ground summaries in source content.
+Configure Amazon Bedrock guardrails to block any generated output that matches patterns that are 
+associated with hallucinated content.
+Increase the temperature parameter in Amazon Bedrock.
+Prompt the Amazon Bedrock model to summarize each full document in one pass.
+Answer: B C
+Explanation
+The correct answers are B and C because they directly address hallucination reduction while maintaining high 
+throughput and low latency.
+Option B reduces hallucinations at their source by grounding model outputs in verified content through 
+Retrieval Augmented Generation (RAG). Using an Amazon Bedrock knowledge base with semantic chunking 
+ensures that long technical documents are broken into meaningfully coherent sections. This allows the model 
+to retrieve only the most relevant chunks, rather than processing an entire document in one pass, which 
+significantly improves factual accuracy and reduces cognitive overload on the model. This approach scales 
+efficiently and supports processing more than 1,000 documents per hour.
+Option C adds a defense-in-depth safety layer by using Amazon Bedrock guardrails to detect and block 
+hallucination-like output patterns. Guardrails operate at inference time with minimal performance overhead, 
+making them suitable for low-latency requirements. While guardrails do not eliminate hallucinations entirely, 
+they effectively prevent unsafe or clearly fabricated outputs from reaching users.
+Option A increases latency and cost due to explicit reasoning steps and does not scale well for high-
+throughput workloads. Option D increases randomness and worsens hallucinations. Option E repeats the 
+existing flawed approach.
+Therefore, Options B and C together provide scalable grounding and runtime protection that meet accuracy, 
+performance, and throughput requirements.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

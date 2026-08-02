@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+D.  
+A.  
+Use Amazon DynamoDB to store financial data in a custom indexing system. Use AWS Lambda to 
+query relevant records. Use Amazon SageMaker to generate responses.
+Answer: A
+Explanation
+Option A best satisfies the requirement to capture multi-hop, highly interconnected relationships with minimal 
+operational overhead. Traditional vector similarity search excels at finding semantically similar text but is not 
+optimized for reasoning over explicit entity-to-entity relationships, especially when analysts need indirect, 
+multi-hop connections (for example, fund # holding # issuer # sector # regulation). Graph-based retrieval is 
+designed specifically for these kinds of relationship traversals.
+GraphRAG combines retrieval-augmented generation with graph-aware context selection. By representing 
+entities and their relationships in a graph store, the system can traverse multiple hops to assemble a holistic set 
+of relevant facts. This improves completeness and reduces the chance that the model misses indirect 
+relationships that are essential for accurate investment guidance.
+Amazon Neptune Analytics provides a managed graph analytics environment capable of efficiently traversing 
+and analyzing complex relationship networks. When integrated with Amazon Bedrock Knowledge Bases, it 
+reduces custom engineering by providing managed ingestion, retrieval, and orchestration patterns suitable for 
+GenAI applications. This lowers operational overhead compared to building and maintaining custom multi-
+stage retrieval logic.
+Meeting the sub-3-second requirement is also more feasible with a graph-optimized engine because multi-hop 
+traversals can be executed efficiently compared to chaining multiple vector searches and joining results in an 
+application layer. The managed nature of Knowledge Bases and Neptune Analytics reduces maintenance, 
+scaling, and operational burden while enabling strong performance.
+Option B and C require extensive custom logic and orchestration, increasing complexity and latency. Option 
+D is not designed for graph-style multi-hop exploration and would require significant custom indexing and 
+retrieval logic.
+Therefore, Option A is the most AWS-aligned and operationally efficient approach for multi-hop relationship-
+aware RAG with strong performance.
+Question #:27 - [AI Safety, Security, and Governance]
+A company uses AWS Lake Formation to set up a data lake that contains databases and tables for multiple 
+business units across multiple AWS Regions. The company wants to use a foundation model (FM) through 
+Amazon Bedrock to perform fraud detection. The FM must ingest sensitive financial data from the data lake. 
+The data includes some customer personally identifiable information (PII).
+The company must design an access control solution that prevents PII from appearing in a production 
+environment. The FM must access only authorized data subsets that have PII redacted from specific data 
+columns. The company must capture audit trails for all data access.
+Which solution will meet these requirements?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

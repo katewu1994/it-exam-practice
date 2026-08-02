@@ -1,0 +1,42 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Answer: C
+Explanation
+Option C best meets the requirements by aligning with AWS best practices for data isolation, access control, 
+and scalable GenAI retrieval. Implementing a separate Amazon Bedrock knowledge base for each hotel 
+ensures strict separation of data and permissions. This approach naturally enforces hotel-level access control 
+without requiring complex policy logic or post-query filtering.
+A multi-account structure further strengthens security and governance by isolating each hotel’s data plane. 
+AWS recommends account-level isolation for workloads with strong tenancy or compliance boundaries. Hotel 
+staff can be granted access only to their hotel’s account and corresponding knowledge base, eliminating the 
+risk of cross-hotel data exposure.
+Direct data ingestion into each knowledge base enables near real-time updates for critical data such as room 
+availability. For information that does not change frequently, scheduled synchronization reduces ingestion 
+cost while maintaining accuracy. This hybrid ingestion model balances freshness and operational efficiency.
+Because Amazon Bedrock Knowledge Bases are fully managed, performance remains consistent during peak 
+usage periods without the company managing indexing, scaling, or retrieval infrastructure. Each knowledge 
+base scales independently, preventing noisy-neighbor issues that could arise in a centralized design.
+Option A and B rely on a centralized knowledge base, which increases policy complexity and introduces risk 
+of misconfigured access controls. Option D adds unnecessary orchestration complexity and does not 
+inherently solve real-time data freshness requirements.
+Therefore, Option C provides the most secure, scalable, and operationally efficient solution for enhancing the 
+PMS with Amazon Bedrock Knowledge Bases.
+Question #:110 - [Foundation Model Integration, Data Management, and Compliance]
+A book publishing company wants to build a book recommendation system that uses an AI assistant. The AI 
+assistant will use ML to generate a list of recommended books from the company ' s book catalog. The system 
+must suggest books based on conversations with customers.
+The company stores the text of the books, customers ' and editors ' reviews of the books, and extracted book 
+metadata in Amazon S3. The system must support low-latency responses and scale efficiently to handle more 
+than 10,000 concurrent users.
+Which solution will meet these requirements?
+Use Amazon Bedrock Knowledge Bases to generate embeddings. Store the embeddings as a vector 
+store in Amazon OpenSearch Service. Create an AWS Lambda function that queries the knowledge 
+base. Configure Amazon API Gateway to invoke the Lambda function when handling user requests.
+Use Amazon Bedrock Knowledge Bases to generate embeddings. Store the embeddings as a vector 
+store in Amazon DynamoDB. Create an AWS Lambda function that queries the knowledge base. 
+Configure Amazon API Gateway to invoke the Lambda function when handling user requests.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

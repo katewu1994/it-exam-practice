@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+C.  
+D.  
+A.  
+Set up auto scaling AWS Lambda functions in each Region. Implement client-side round-robin request 
+distribution. Purchase one model unit (MU) of provisioned throughput as a backup.
+Implement batch inference for all requests by using Amazon S3 buckets across multiple Regions. Use 
+Amazon SQS to set up an asynchronous retrieval process.
+Answer: B
+Explanation
+Option B is the correct solution because it directly addresses both throughput bottlenecks and latency 
+requirements using native Amazon Bedrock performance optimization features that are designed for real-time, 
+high-volume generative AI workloads.
+Amazon Bedrock supports cross-Region inference profiles, which allow applications to transparently route 
+inference requests across multiple AWS Regions. During peak usage periods, traffic is automatically 
+distributed to Regions with available capacity, reducing throttling, request queuing, and timeout risks. This 
+approach aligns with AWS guidance for building highly available, low-latency GenAI applications that must 
+scale elastically across geographic boundaries.
+Token batching further improves efficiency by combining multiple inference requests into a single model 
+invocation where applicable. AWS Generative AI documentation highlights batching as a key optimization 
+technique to reduce per-request overhead, improve throughput, and better utilize model capacity. This is 
+especially effective for lightweight, low-latency models such as Claude 3 Haiku, which are designed for fast 
+responses and high request volumes.
+Option A does not meet the requirement because purchasing provisioned throughput in a single Region 
+creates a regional bottleneck and does not address multi-Region availability or traffic spikes beyond reserved 
+capacity. Retries increase load and latency rather than resolving the root cause.
+Option C improves application-layer scaling but does not solve model-side throughput limits. Client-side 
+round-robin routing lacks awareness of real-time model capacity and can still send traffic to saturated Regions.
+Option D is unsuitable because batch inference with asynchronous retrieval is designed for offline or non-
+interactive workloads. It cannot meet a strict 2-second response time requirement for an interactive AI 
+assistant.
+Therefore, Option B provides the most effective and AWS-aligned solution to achieve low latency, global 
+scalability, and high throughput during peak usage periods.
+Question #:9 - [Implementation and Integration]
+A company is creating a workflow to review customer-facing communications before the company sends the 
+communications. The company uses a pre-defined message template to generate the communications and 
+stores the communications in an Amazon S3 bucket. The workflow needs to capture a specific portion from 
+the template and send it to an Amazon Bedrock model. The workflow must store model responses back to the 
+original S3 bucket.
+Which solution will meet these requirements?
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

@@ -1,0 +1,41 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Answer: C
+Explanation
+This scenario requires strict data residency, regional processing, classification, and auditable decision trails, 
+which Option C addresses using AWS-native governance services.
+Region-specific Amazon S3 buckets enforce geographic data boundaries. Amazon S3 Object Lock ensures 
+immutability of stored data and logs, supporting regulatory retention and non-repudiation requirements. Pre-
+processing data within the same Region before invoking Amazon Bedrock ensures that inference and data 
+handling do not cross continental boundaries.
+Amazon Macie provides managed, automated data classification for sensitive data types such as PII and 
+financial records, fulfilling the classification requirement without custom tooling.
+AWS CloudTrail immutable logs provide comprehensive audit trails of all API calls, model invocations, and 
+data access events, ensuring traceability of AI decision-making processes.
+Option A violates residency rules through cross-Region inference. Option B does not provide data 
+classification. Option D introduces high operational overhead and relies on manual compliance reporting.
+Therefore, Option C is the most compliant, scalable, and operationally efficient solution for regionally 
+governed GenAI workloads.
+Question #:79 - [Testing, Validation, and Troubleshooting]
+A company uses Amazon Bedrock to implement a Retrieval Augmented Generation (RAG)-based system to 
+serve medical information to users. The company needs to compare multiple chunking strategies, evaluate the 
+generation quality of two foundation models (FMs), and enforce quality thresholds for deployment.
+Which Amazon Bedrock evaluation configuration will meet these requirements?
+Create a retrieve-only evaluation job that uses a supported version of Anthropic Claude Sonnet as the 
+evaluator model. Configure metrics for context relevance and context coverage. Define deployment 
+thresholds in a separate CI/CD pipeline.
+Create a retrieve-and-generate evaluation job that uses custom precision-at-k metrics and an LLM-as-a-
+judge metric with a scale of 1–5. Include each chunking strategy in the evaluation dataset. Use a 
+supported version of Anthropic Claude Sonnet to evaluate responses from both FMs.
+Create a separate evaluation job for each chunking strategy and FM combination. Use Amazon Bedrock 
+built-in metrics for correctness and completeness. Manually review scores before deployment approval.
+Set up a pipeline that uses multiple retrieve-only evaluation jobs to assess retrieval quality. Create 
+separate evaluation jobs for both FMs that use Amazon Nova Pro as the LLM-as-a-judge model. 
+Evaluate based on faithfulness and citation precision metrics.
+Answer: B
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

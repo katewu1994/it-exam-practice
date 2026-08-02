@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+Answer: B
+Explanation
+Option B is the correct solution because it delivers end-to-end governance, security, and auditability across 
+Amazon Bedrock, Amazon Rekognition, and the underlying data layer while meeting strict privacy and 
+compliance requirements.
+Using IAM attribute-based access control (ABAC) allows the company to control access to foundation 
+models and data based on department, role, or workload attributes rather than static permissions. This is 
+critical for controlling FM access patterns at scale. Enforcing specific ModelId and GuardrailIdentifier values 
+with IAM condition keys ensures that only approved models and guardrails are used, which directly supports 
+secure model I/O and governance requirements.
+Configuring VPC endpoints for Amazon Bedrock ensures that all model invocations remain on private AWS 
+network paths, reducing data exfiltration risk and supporting privacy standards. AWS CloudTrail captures 
+both management and data events, providing a definitive audit trail of who accessed which resources and 
+when. Sending logs to CloudTrail Lake enables centralized, long-term, queryable auditing across services.
+Amazon S3 server access logging adds file-level visibility into video archive access, which is essential for 
+compliance and forensic analysis. Amazon CloudWatch alarms provide near real-time detection of anomalous 
+or unauthorized activity across Amazon Bedrock, Amazon Rekognition, and AWS KMS.
+Option A focuses primarily on model-level tracing but lacks comprehensive IAM governance and S3 access 
+auditing. Option C provides partial controls but lacks identity-aware auditing and model governance. Option 
+D focuses on anomaly detection and classification but does not explicitly control FM access patterns.
+Therefore, Option B best satisfies all stated requirements in a unified, auditable, and security-first architecture.
+Question #:26 - [Foundation Model Integration, Data Management, and Compliance]
+A financial services company is developing a Retrieval Augmented Generation (RAG) application to help 
+investment analysts query complex financial relationships across multiple investment vehicles, market 
+sectors, and regulatory environments. The dataset contains highly interconnected entities that have multi-hop 
+relationships. Analysts must examine relationships holistically to provide accurate investment guidance. The 
+application must deliver comprehensive answers that capture indirect relationships between financial entities 
+and must respond in less than 3 seconds.
+Which solution will meet these requirements with the LEAST operational overhead?
+Use Amazon Bedrock Knowledge Bases with GraphRAG and Amazon Neptune Analytics to store 
+financial data. Analyze multi-hop relationships between entities and automatically identify related 
+information across documents.
+Use Amazon Bedrock Knowledge Bases and an Amazon OpenSearch Service vector store to implement 
+custom relationship identification logic that uses AWS Lambda to query multiple vector embeddings in 
+sequence.
+Use Amazon OpenSearch Serverless vector search with k-nearest neighbor (k-NN). Implement manual 
+relationship mapping in an application layer that runs on Amazon EC2 Auto Scaling.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

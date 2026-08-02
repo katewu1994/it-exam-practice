@@ -1,0 +1,128 @@
+site   1 -> source  75 (0.974; next 52 0.038) answer A
+site   2 -> source   9 (0.950; next 124 0.114) answer A
+site   3 -> source  65 (0.957; next 70 0.154) answer B
+site   4 -> source 121 (0.960; next 24 0.122) answer C
+site   5 -> source 119 (0.957; next 128 0.152) answer A
+site   6 -> source  30 (0.429; next 24 0.117) answer C
+site   7 -> source 115 (0.943; next 69 0.076) answer A D
+site   8 -> source   3 (0.968; next 82 0.115) answer A
+site   9 -> source 124 (0.957; next 88 0.114) answer A
+site  10 -> source   5 (0.953; next 52 0.101) answer B
+site  11 -> source  81 (0.961; next 128 0.108) answer B
+site  12 -> source  76 (0.970; next 45 0.969) answer C
+site  13 -> source  45 (0.970; next 76 0.969) answer C
+site  14 -> source 104 (0.970; next 29 0.103) answer D
+site  15 -> source  25 (0.066; next 35 0.063) answer B
+site  16 -> source  51 (0.976; next 10 0.975) answer A
+site  17 -> source  15 (0.939; next 55 0.152) answer D
+site  18 -> source  66 (0.974; next 74 0.121) answer B
+site  19 -> source  13 (0.942; next 113 0.112) answer A
+site  20 -> source  91 (0.963; next 119 0.098) answer B
+site  21 -> source 100 (0.968; next 52 0.077) answer A
+site  22 -> source  52 (0.925; next 128 0.111) answer B C
+site  23 -> source  41 (0.961; next 11 0.076) answer D
+site  24 -> source 113 (0.946; next 63 0.072) answer B
+site  25 -> source 126 (0.948; next 65 0.159) answer D
+site  26 -> source  37 (0.962; next 94 0.960) answer A
+site  27 -> source  98 (0.060; next 35 0.059) answer D
+site  28 -> source  59 (0.944; next 114 0.118) answer B
+site  29 -> source  25 (0.939; next 71 0.091) answer B
+site  30 -> source 125 (0.940; next 54 0.266) answer A
+site  31 -> source   8 (0.962; next 128 0.099) answer B
+site  32 -> source  95 (0.929; next 85 0.049) answer A C
+site  33 -> source  62 (0.950; next 123 0.144) answer D
+site  34 -> source 123 (0.928; next 62 0.139) answer A
+site  35 -> source  77 (0.968; next 114 0.491) answer C
+site  36 -> source  38 (0.919; next 37 0.088) answer C D
+site  37 -> source  24 (0.896; next 19 0.172) answer D
+site  38 -> source  37 (0.574; next 94 0.571) answer A
+site  39 -> source 114 (0.955; next 77 0.493) answer C
+site  40 -> source 108 (0.946; next 95 0.033) answer D
+site  41 -> source  87 (0.931; next 88 0.137) answer C
+site  42 -> source  96 (0.957; next 71 0.120) answer B
+site  43 -> source  34 (0.938; next 127 0.931) answer B
+site  44 -> source  60 (0.532; next 98 0.113) answer B
+site  45 -> source  71 (0.962; next 62 0.140) answer D
+site  46 -> source  14 (0.948; next 67 0.129) answer B
+site  47 -> source  50 (0.960; next 73 0.959) answer B
+site  48 -> source  22 (0.962; next 83 0.108) answer C
+site  49 -> source  28 (0.971; next 119 0.049) answer B E
+site  50 -> source  82 (0.807; next 64 0.804) answer B
+site  51 -> source  84 (0.936; next 62 0.104) answer A B D
+site  52 -> source  97 (0.938; next 125 0.152) answer B
+site  53 -> source  17 (0.951; next 88 0.096) answer A D
+site  54 -> source 107 (0.950; next 85 0.065) answer B
+site  55 -> source  79 (0.435; next 91 0.154) answer B
+site  56 -> source  11 (0.964; next 41 0.066) answer B
+site  57 -> source  49 (0.971; next 97 0.087) answer B
+site  58 -> source  73 (0.962; next 50 0.957) answer B
+site  59 -> source 117 (0.928; next 65 0.122) answer B
+site  60 -> source  32 (0.945; next 88 0.054) answer B
+site  61 -> source  20 (0.961; next 88 0.103) answer C
+site  62 -> source 106 (0.935; next 16 0.058) answer C
+site  63 -> source  16 (0.938; next 77 0.142) answer A
+site  64 -> source   7 (0.951; next 64 0.082) answer A
+site  65 -> source 102 (0.330; next 63 0.077) answer B
+site  66 -> source 101 (0.961; next 73 0.125) answer A B
+site  67 -> source 116 (0.761; next 92 0.733) answer B
+site  68 -> source 127 (0.939; next 34 0.931) answer D
+site  69 -> source  35 (0.067; next 31 0.061) answer A E
+site  70 -> source  64 (0.969; next 82 0.963) answer B
+site  71 -> source 103 (0.963; next 105 0.123) answer B
+site  72 -> source   6 (0.981; next 62 0.062) answer A
+site  73 -> source  80 (0.919; next 25 0.112) answer A
+site  74 -> source  19 (0.890; next 24 0.160) answer B
+site  75 -> source 109 (0.955; next 35 0.106) answer C
+site  76 -> source  44 (0.821; next 18 0.067) answer B
+site  77 -> source  18 (0.567; next 37 0.074) answer A D
+site  78 -> source  85 (0.970; next 55 0.146) answer D
+site  79 -> source  67 (0.929; next 125 0.131) answer A
+site  80 -> source 120 (0.969; next 15 0.098) answer C
+site  81 -> source  40 (0.888; next 35 0.079) answer D
+site  82 -> source 110 (0.932; next 94 0.083) answer A
+site  83 -> source  42 (0.967; next 128 0.141) answer C
+site  84 -> source  26 (0.935; next 50 0.128) answer A
+site  85 -> source  33 (0.924; next 58 0.113) answer B C
+site  86 -> source 128 (0.924; next 42 0.171) answer A
+site  87 -> source  52 (0.065; next 58 0.062) answer B C
+site  88 -> source  83 (0.945; next 25 0.088) answer B
+site  89 -> source  51 (0.976; next 10 0.975) answer A
+site  90 -> source  56 (0.958; next 80 0.142) answer B
+site  91 -> source   1 (0.961; next 52 0.072) answer B
+site  92 -> source  48 (0.934; next 115 0.126) answer D
+site  93 -> source 105 (0.930; next 73 0.113) answer C
+site  94 -> source  43 (0.928; next 63 0.130) answer B
+site  95 -> source  55 (0.948; next 54 0.245) answer A
+site  96 -> source  12 (0.969; next 22 0.057) answer D
+site  97 -> source  89 (0.905; next 128 0.116) answer B
+site  98 -> source 122 (0.975; next 126 0.137) answer C
+site  99 -> source  99 (0.967; next 90 0.525) answer C
+site 100 -> source   4 (0.964; next 27 0.103) answer C
+site 101 -> source  69 (0.943; next 57 0.943) answer B
+site 102 -> source  31 (0.965; next 54 0.184) answer C
+site 103 -> source  29 (0.945; next 2 0.943) answer B
+site 104 -> source  61 (0.962; next 101 0.048) answer B
+site 105 -> source  58 (0.916; next 100 0.074) answer C D
+site 106 -> source  27 (0.314; next 9 0.077) answer B
+site 107 -> source   2 (0.965; next 29 0.963) answer B
+site 108 -> source  78 (0.964; next 96 0.134) answer C
+site 109 -> source  46 (0.965; next 118 0.076) answer A
+site 110 -> source  90 (0.965; next 99 0.226) answer C
+site 111 -> source  74 (0.965; next 54 0.168) answer B
+site 112 -> source  88 (0.881; next 90 0.151) answer B D
+site 113 -> source  72 (0.962; next 74 0.127) answer B
+site 114 -> source  47 (0.899; next 22 0.098) answer C
+site 115 -> source  54 (0.570; next 55 0.226) answer B
+site 116 -> source  21 (0.958; next 127 0.085) answer A
+site 117 -> source  53 (0.862; next 47 0.093) answer A B
+site 118 -> source  36 (0.313; next 9 0.074) answer D
+site 119 -> source  86 (0.863; next 55 0.104) answer B C
+site 120 -> source  35 (0.965; next 109 0.089) answer A E
+site 121 -> source  68 (0.980; next 121 0.053) answer C
+site 122 -> source  69 (0.964; next 57 0.964) answer B
+site 123 -> source  70 (0.969; next 65 0.092) answer A
+site 124 -> source  93 (0.976; next 98 0.091) answer A
+site 125 -> source  37 (0.962; next 94 0.960) answer A
+site 126 -> source  98 (0.956; next 3 0.117) answer D
+site 127 -> source 112 (0.964; next 67 0.103) answer C
+site 128 -> source 118 (0.964; next 15 0.133) answer C

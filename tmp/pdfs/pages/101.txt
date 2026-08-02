@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+E.  
+Therefore, Option C is the most robust, AWS-aligned solution for resolving truncation and consistency issues 
+when processing large technical documents with Amazon Bedrock.
+Question #:88 - [Implementation and Integration]
+A financial services company wants to use Amazon Bedrock foundation models (FMs) to analyze call center 
+recordings. When calls end, the call center stores recordings as MP3 files in an Amazon S3 bucket. The 
+company needs to generate summaries and sentiment analysis for the recordings in a structured format as soon 
+as new files are created. The recordings average 20 MB in size. Which combination of solutions will meet 
+these requirements? (Select TWO.)
+Use AWS Step Functions to orchestrate a workflow to process the recordings. Configure steps to 
+invoke Amazon Transcribe to convert audio to text, validate job completion, and to invoke an AWS 
+Lambda function to process the text by using Amazon Bedrock FMs to generate structured analysis 
+output.
+Use AWS Step Functions to orchestrate a workflow to process the recordings. Configure steps to 
+invoke Amazon Transcribe to convert audio to text, validate job completion, and to directly invoke 
+Amazon Bedrock FMs to generate summaries and sentiment analysis in JSON format.
+Use AWS Step Functions to orchestrate a workflow to process the recordings. Configure steps to 
+invoke Amazon Transcribe to convert audio to text, validate job completion, and to invoke an AWS 
+Lambda function to create a prompt to invoke Amazon Bedrock FMs to generate structured analysis 
+output.
+Configure the source S3 bucket to send events to Amazon EventBridge. Create an EventBridge rule to 
+invoke the Step Functions workflow when an object is created in the bucket.
+Configure the source S3 bucket to send notifications to the Step Functions workflow when an object is 
+created in the bucket.
+Answer: B D
+Explanation
+ provides native service integrations that minimize code and operational overhead. For AWS Step Functions
+this workflow, Step Functions can directly invoke  and, upon completion, directly invoke Amazon Transcribe
+ foundation models. Modern foundation models can be prompted to return outputs in Amazon Bedrock JSON 
+ , fulfilling the requirement for structured analysis without needing an intermediate Lambda function format
+to format the request or response. To trigger the process " as soon as new files are created, " configuring 
+ is the recommended event-driven pattern. This allows Amazon S3 to send events to Amazon EventBridge
+for fine-grained routing and decouples the storage layer from the processing logic, ensuring the workflow 
+scales reliably as call volume grows.
+Question #:89 - [Operational Efficiency and Optimization for GenAI Applications]
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

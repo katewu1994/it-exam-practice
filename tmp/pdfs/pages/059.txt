@@ -1,0 +1,44 @@
+Amazon Web Services - AIP-C01
+A.  
+B.  
+C.  
+D.  
+Option D introduces high operational complexity and inconsistent document handling at scale. Therefore, 
+Option B best meets the requirement to preserve semantic context across related paragraphs and improve 
+citation relevance across scientific paper sections.
+Question #:51 - [AI Safety, Security, and Governance]
+A specialty coffee company has a mobile app that generates personalized coffee roast profiles by using 
+Amazon Bedrock with a three-stage prompt chain. The prompt chain converts user inputs into structured 
+metadata, retrieves relevant logs for coffee roasts, and generates a personalized roast recommendation for 
+each customer.
+Users in multiple AWS Regions report inconsistent roast recommendations for identical inputs, slow 
+inference during the retrieval step, and unsafe recommendations such as brewing at excessively high 
+temperatures. The company must improve the stability of outputs for repeated inputs. The company must also 
+improve app performance and the safety of the app’s outputs. The updated solution must ensure 99.5% output 
+consistency for identical inputs and achieve inference latency of less than 1 second. The solution must also 
+block unsafe or hallucinated recommendations by using validated safety controls.
+Which solution will meet these requirements?
+Deploy Amazon Bedrock with provisioned throughput to stabilize inference latency. Apply Amazon 
+Bedrock guardrails with semantic denial rules to block unsafe outputs. Use Amazon Bedrock Prompt 
+Management to manage prompts by using approval workflows.
+Use Amazon Bedrock Agents to manage chaining. Log model inputs and outputs to Amazon 
+CloudWatch Logs . Use logs from CloudWatch to perform A/B testing for prompt versions.
+Cache prompt results in Amazon ElastiCache . Use AWS Lambda functions to pre-process metadata 
+and to trace end-to-end latency. Use AWS X-Ray to identify and remediate performance bottlenecks.
+Use Amazon Kendra to improve roast log retrieval accuracy. Store normalized prompt metadata within 
+Amazon DynamoDB. Use AWS Step Functions to orchestrate multi-step prompts.
+Answer: A
+Explanation
+Option A is the only choice that simultaneously addresses all three requirements: (1) higher output 
+consistency for identical inputs, (2) sub-1-second performance, and (3) validated safety controls that block 
+unsafe or hallucinated recommendations.
+Provisioned throughput in Amazon Bedrock reserves capacity for the chosen model, which helps stabilize 
+latency and reduces the chance of throttling or variable response times across Regions. This is important for a 
+mobile app with strict latency goals and users distributed across multiple Regions. While provisioned 
+throughput primarily improves performance predictability, it also reduces variability caused by contention 
+during peak demand.
+Amazon Bedrock guardrails provide validated safety controls to filter or block unsafe content. Semantic 
+denial rules are appropriate for preventing dangerous brewing guidance (for example, excessively high 
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/

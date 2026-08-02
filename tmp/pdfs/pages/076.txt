@@ -1,0 +1,43 @@
+Amazon Web Services - AIP-C01
+D.  
+trimming for each request. Resume broken streams by requesting only missing chunks from the point of 
+failure. Maintain a small in-memory buffer of the most recent chunks.
+Set Amazon Bedrock client request timeouts to 30 seconds. Implement client-side load shedding. 
+Buffer partial results and stop new requests when application performance degrades. Set static token 
+usage caps for all requests. Configure exponential backoff retries, dynamic chunk sizing, and context-
+aware token limits.
+Answer: B
+Explanation
+Option B best meets all requirements because it combines AWS-recommended resiliency patterns for 
+transient failures with streaming-aware handling and adaptive protection against cascading retries during peak 
+load. When timeouts and throttling occur, naïve retries can amplify traffic and worsen outages. Exponential 
+backoff with jitter is the standard AWS best practice because it spreads retry attempts over time, reduces 
+synchronized retry storms, and lowers the probability of repeatedly colliding with service limits.
+The requirement also states the strategy must “adapt to changing service availability” and “prevent 
+overwhelming Amazon Bedrock.” A circuit breaker pattern directly addresses this by temporarily stopping or 
+reducing retries when failure rates exceed a threshold, allowing the system to degrade gracefully instead of 
+continually hammering the service. This is a key mechanism to prevent cascading failures during throttling 
+events.
+Because the application uses response streaming and experiences broken chunks, the retry strategy must be 
+streaming-aware. A streaming response handler that detects chunk delivery timeouts and buffers already 
+received chunks prevents the user from losing progress when a connection drops. Resuming from the last 
+successfully received chunk minimizes redundant generation and reduces additional load on the model 
+compared with restarting the entire stream. This supports better user experience and better service efficiency 
+during intermittent failures.
+Token-aware request handling is supported in this architecture because the application can apply token 
+budgeting before invoking the model (for example, trimming or summarizing excessive context) while still 
+preserving streaming output behavior. Option B provides the correct backbone for this by focusing on 
+adaptive control and robust streaming recovery.
+Option A is too simplistic and risks retry storms. Option C combines conflicting elements (global token limit, 
+cached completions for streaming) and includes impractical “request only missing chunks” behavior that is 
+not a reliable property of streamed generative output. Option D includes useful ideas (load shedding) but 
+relies on static caps and does not provide as strong adaptive retry control as circuit breaking.
+Therefore, Option B is the most correct and operationally safe strategy for peak-load Bedrock streaming 
+workloads.
+Question #:67 - [AI Safety, Security, and Governance]
+A medical company is creating a generative AI (GenAI) system by using Amazon Bedrock. The system 
+processes data from various sources and must maintain end-to-end data lineage. The system must also use real-
+time personally identifiable information (PII) filtering and audit trails to automatically report compliance.
+店铺：学习小店66
+店铺：学习小店66
+https://shop63989109.taobao.com/
