@@ -31,7 +31,7 @@
       "HNSW algorithm",
       "vertical scaling policy"
     ],
-    "explanationZh": "题干的数据集较小且优先追求最高准确性。Flat 索引会比较全部向量，不像 HNSW 或 IVFFlat 那样以近似搜索换取速度；MemoryDB 则能提供低延迟的在线检索。随着负载增长再水平扩展，可在不牺牲召回准确性的前提下维持性能。",
+    "explanationZh": "【核心判断】题干的数据集较小且优先追求最高准确性。Flat 索引会比较全部向量，不像 HNSW 或 IVFFlat 那样以近似搜索换取速度；MemoryDB 则能提供低延迟的在线检索。随着负载增长再水平扩展，可在不牺牲召回准确性的前提下维持性能。\n【取舍】HNSW 和 IVFFlat 在更大规模时能降低检索成本，但属于近似检索，和“最大准确性”的优先级相冲突；Aurora 或 DocumentDB 的选项也没有给出更适合小型在线向量集的直接组合。\n【结论】A 用精确检索满足质量优先，再以水平扩展应对增长。",
     "pdfAnswer": "B",
     "needsConfirmation": false
   },
@@ -408,7 +408,7 @@
     "answer": "B+D",
     "pdfAnswer": "B+E",
     "needsConfirmation": false,
-    "explanationZh": "跨区域推理调用的是推理配置文件，而不是单一地区的基础模型 ARN；因此 SCP 必须明确允许该 EU 配置文件。配置文件可能把流量发送到多个欧盟服务区域，角色和 SCP 也必须在这些目的区域允许 InvokeModel，否则仍会出现显式拒绝。",
+    "explanationZh": "【核心判断】跨区域推理调用的是推理配置文件，而不是单一地区的基础模型 ARN；因此 SCP 必须精确允许 eu.amazon.nova-pro-v1:0 配置文件。配置文件可能把流量发送到多个欧盟服务区域，角色和 SCP 也必须在这些目的区域允许 InvokeModel，否则仍会出现显式拒绝。\n【取舍】AdministratorAccess 无法覆盖 SCP 的显式拒绝；只在 eu-west-3 启用模型访问也不能修复配置文件授权；放开全部 eu-* profile 又超出最小权限范围。\n【结论】B 精确放通所需 profile，D 验证其全部 EU 目的区域权限，从而在不破坏驻留策略的前提下恢复 CRI。",
     "keywords": []
   },
   {
@@ -432,7 +432,7 @@
     "answer": "A",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "Bedrock 的默认调用指标无法判断不同人群是否获得不同推荐，必须从模型输出按人口群体计算自定义公平性指标。将这些指标接入 CloudWatch 后可在差异超过 15% 时告警，并按周比较两种提示策略。",
+    "explanationZh": "【核心判断】Bedrock 的默认调用指标只反映调用量、令牌和延迟，不能衡量不同人口群体是否得到不同质量的推荐。A 从模型输出按群体计算自定义公平性指标，再发布到 CloudWatch，才能把 15% 的差异设为实时告警；EventBridge 和 Lambda 负责必要的后处理与指标发布。\n【取舍】仅用默认指标无法发现偏差；离线或人工报表也不能满足实时监控。\n【结论】A 以最少的自定义逻辑补齐公平性度量，并同时支持周度比较。",
     "keywords": []
   },
   {
@@ -440,7 +440,7 @@
     "answer": "A+D+F",
     "pdfAnswer": "A+D",
     "needsConfirmation": false,
-    "explanationZh": "Denied topics 直接表达“投资建议/保证回报”这类高风险会话主题，因此是阻断不当财务建议的正确控制。\nCustom word filters 适合精确识别竞争对手名称；同时对输入和输出设为 block，覆盖用户诱导和模型主动生成两条路径。\n更高的 grounding score 阈值要求生成内容与获批的公司指导资料有更强的依据关联，降低无事实支撑主张。",
+    "explanationZh": "【核心判断】Denied topics 直接表达“投资建议/保证回报”这类高风险会话主题，因此适合阻断不当财务建议。Custom word filters 可精确识别竞争对手名称，并对输入和输出同时设为 block，覆盖用户诱导与模型主动生成两条路径；更高的 grounding score 阈值则要求内容与获批公司资料有更强依据关联。\n【取舍】只做 PII 过滤或只依赖系统提示，无法完整处理投资建议、竞品提及和无依据主张三种不同风险。\n【结论】A+D+F 分别在主题、词汇和事实接地层面建立互补控制。",
     "keywords": []
   },
   {
@@ -472,7 +472,7 @@
     "answer": "A",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "接口 VPC 终端节点让模型调用不经过互联网或 NAT 网关，满足私有网络边界。配合 IAM 的最小权限和调用日志，既能限制访问又能保留审计证据。",
+    "explanationZh": "【核心判断】接口 VPC 终端节点让私有子网中的 Lambda 通过 PrivateLink 调用 Bedrock Runtime，不经过公网或 NAT 网关，直接满足专用连接要求。LF-Tag 授权可将跨账户数据湖的业务属性映射到表和列级权限，确保摘要应用只读取获准字段。\n【取舍】仅使用 IAM 或 S3 桶策略难以实现数据湖的细粒度列级跨账户治理；公网 API 端点也不符合网络隔离约束。\n【结论】A 将私网模型调用、最小权限和数据湖列级授权放在各自正确的控制层。",
     "keywords": []
   },
   {
@@ -504,7 +504,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "explanationZh": "【核心判断】C 用知识库为代理提供可追溯的事实来源，减少投资建议中的无依据内容；Guardrails 负责实时内容安全，OpenSearch 保存并索引提示—响应对，QuickSight 则利用这些记录生成合规报告和识别行为漂移。\n【取舍】单独使用护栏只能过滤风险内容，不能建立事实依据、长期审计记录和偏差趋势；自建多套监控管道会增加 60 天交付期限内的运维风险。\n【结论】C 以 Bedrock、OpenSearch 和 QuickSight 的受管组合同时覆盖接地、安全、漂移监测和审计。",
     "keywords": []
   },
   {
@@ -528,7 +528,7 @@
     "answer": "C",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "explanationZh": "【核心判断】C 用知识库为代理提供可追溯的事实来源，减少投资建议中的无依据内容；Guardrails 负责实时内容安全，OpenSearch 保存并索引提示—响应对，QuickSight 则利用这些记录生成合规报告和识别行为漂移。\n【取舍】单独使用护栏只能过滤风险内容，不能建立事实依据、长期审计记录和偏差趋势；自建多套监控管道会增加 60 天交付期限内的运维风险。\n【结论】C 以 Bedrock、OpenSearch 和 QuickSight 的受管组合同时覆盖接地、安全、漂移监测和审计。",
     "keywords": []
   },
   {
@@ -560,7 +560,7 @@
     "answer": "B",
     "pdfAnswer": "D",
     "needsConfirmation": false,
-    "explanationZh": "将餐厅数据迁移到 Amazon OpenSearch Service。使用 Amazon Bedrock 中的基础模型 (FM) 根据餐厅描述、评论和菜单项生成矢量嵌入。当用户提交自然语言查询时，使用相同的 FM 将查询转换为嵌入。执行 k 最近邻 (k-NN) 搜索以查找语义相似的结果。",
+    "explanationZh": "【核心判断】该场景同时要求海量评论的语义检索、500 ms 延迟、每小时更新和峰值弹性。B 将餐厅资料、评论和菜单嵌入写入 OpenSearch，并用同一模型嵌入用户查询后执行 k-NN 搜索，因此查询与索引位于同一向量空间；OpenSearch 也适合持续索引更新和横向扩展。\n【取舍】关键词规则无法稳定理解复杂自然语言；继续在 PostgreSQL 上自建大规模向量检索会增加开发和扩容成本。\n【结论】B 是满足规模、语义质量和低开发工作量的直接方案。",
     "keywords": []
   },
   {
@@ -696,7 +696,7 @@
     "answer": "A+B",
     "pdfAnswer": "B+C",
     "needsConfirmation": false,
-    "explanationZh": "事实验证指令促使模型在生成前检查结论，RAG 则把摘要建立在检索到的源材料上。语义分块保留可验证的上下文，两项共同降低整篇文档一次性输入时出现的无依据摘要。",
+    "explanationZh": "【核心判断】A 要求模型在生成前进行显式事实验证，减少一次性提示中直接编造结论的风险；B 将长文档按语义切块并通过知识库检索相关片段，使摘要依据可验证的源材料。二者分别改善生成阶段的自检和输入阶段的事实接地。\n【取舍】只增加模型规模或把整篇文档继续塞入上下文，既不能保证事实依据，也难以在每小时 1,000 份文档、3 秒目标下稳定扩展。\n【结论】A+B 共同针对幻觉根因，而不是只在生成后做补救。",
     "keywords": []
   },
   {
@@ -712,7 +712,7 @@
     "answer": "D",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "响应流把已生成的内容立即发送给客户端，令牌限制在 Lambda 入口统一执行，避免单个请求过度消耗资源。Lambda 与 API Gateway 的超时和重试配置集中处理部分响应和模型暂时失败，运维面较小。",
+    "explanationZh": "【核心判断】D 复用 API Gateway 与 Lambda 的受管入口：Lambda 响应流将生成内容立即转给客户端，降低首字节等待；令牌限制在同一函数入口强制执行，避免单个请求耗尽计算资源；Lambda 和 API Gateway 的超时与重试配置统一处理模型超时和部分响应。\n【取舍】自建长连接、队列或独立网关会增加组件和运维，而单纯延长超时并不能改善流式体验。\n【结论】D 用最少的服务组合同时满足流式、限额和故障处理。",
     "keywords": []
   },
   {
@@ -968,7 +968,7 @@
     "answer": "A+B",
     "pdfAnswer": "B+C",
     "needsConfirmation": false,
-    "explanationZh": "将数据集导入 Amazon S3 存储桶。提供适当的 IAM 权限和跨源资源共享 (CORS) 权限，以便评估作业能够访问数据集。\n接口 VPC 终端节点提供题干要求的私有调用路径；选项中的 IAM/审计配置同时限定访问范围并保留记录。",
+    "explanationZh": "【核心判断】A 将标准化电商数据集放入 S3，并通过 IAM 与 CORS 让评估作业读取，是托管模型评估的标准输入路径。B 同样以 S3 和正确的 IAM、VPC 终端节点配置提供受控访问；两项组合让平台能对文本生成和摘要运行统一评估，并把指标供仪表板使用。\n【取舍】把数据集放在非受管位置或依赖手工上传，会削弱可重复性和访问控制；自行搭建评测管道也违背最少运营开销。\n【结论】A+B 先建立可安全复用的 S3 评估输入，再使用 Bedrock 托管评估能力。",
     "keywords": []
   },
   {
