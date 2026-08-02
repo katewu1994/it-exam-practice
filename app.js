@@ -169,11 +169,11 @@ clearAnswers.addEventListener('click', () => {
 window.addEventListener('hashchange', render);
 
 Promise.all([
-  fetch("data/questions-zh.json?v=meaningful-explanations-20260801").then((response) => {
+  fetch("data/questions-zh.json?v=expanded-explanations-20260803").then((response) => {
     if (!response.ok) throw new Error("题库数据无法加载。");
     return response.json();
   }),
-  fetch("data/solutions.json?v=meaningful-explanations-20260801").then((response) => {
+  fetch("data/solutions.json?v=expanded-explanations-20260803").then((response) => {
     if (!response.ok) throw new Error("解说数据无法加载。");
     return response.json();
   }),
