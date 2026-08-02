@@ -53,6 +53,42 @@ function escapeHtml(value) {
     .replaceAll("'", '&#039;');
 }
 
+function formatExplanation(value) {
+  return escapeHtml(value)
+    .replace(/^【([^】]+)】/gm, '<strong>【$1】</strong>')
+    .replace(/^• /gm, '&bull; ')
+    .replaceAll('\n', '<br>');
+}
+
+function parseReviewExplanations(markdown) {
+  const sections = new Map();
+  const matches = markdown.matchAll(/^## 第 (\d+) 题[^\n]*\n([\s\S]*?)(?=^## 第 \d+ 题|(?![\s\S]))/gm);
+
+  for (const match of matches) {
+    const explanation = match[2]
+      .split('\n')
+      .filter((line) => !/^- (原 PDF 答案|复核答案|题干关键词)：/.test(line))
+      .map((line) => line
+        .replace(/^- 关键词如何指向正确答案：/, '【核心判断】')
+        .replace(/^### 为什么不是其他选项$/, '【其他选项】')
+        .replace(/^- /, '• ')
+        .replace(/^最终结论：/, '【结论】'))
+      .join('\n')
+      .trim();
+    sections.set(Number(match[1]), explanation);
+  }
+
+  return sections;
+}
+
+function parseSiteQuestionMap(text) {
+  const mapping = new Map();
+  for (const match of text.matchAll(/^site\s+(\d+)\s+-> source\s+(\d+)/gm)) {
+    mapping.set(Number(match[1]), Number(match[2]));
+  }
+  return mapping;
+}
+
 function questionUrl(id) {
   return `?question=${id}`;
 }
@@ -98,7 +134,7 @@ function render() {
     '<div class="result-content">',
     '<div class="answer-line"><span>答案</span><strong>' + solution.answer + '</strong></div>',
     reviewNotice,
-    '<p class="explanation-text">' + escapeHtml(solution.explanationZh).replaceAll('\n', ' ') + '</p>',
+    '<p class="explanation-text">' + formatExplanation(solution.explanationZh) + '</p>',
     '</div></details>'
   ].join('') : '';
 
@@ -177,10 +213,28 @@ Promise.all([
     if (!response.ok) throw new Error("解说数据无法加载。");
     return response.json();
   }),
+  fetch("pdf/AIP-C01_128题_独立复核分析.md?v=expanded-explanations-20260803").then((response) => {
+    if (!response.ok) throw new Error("逐题复核资料无法加载。");
+    return response.text();
+  }),
+  fetch("tmp/pdfs/site_question_map.txt?v=expanded-explanations-20260803").then((response) => {
+    if (!response.ok) throw new Error("题目映射资料无法加载。");
+    return response.text();
+  }),
 ])
-  .then(([questionData, solutionData]) => {
+  .then(([questionData, solutionData, reviewMarkdown, mapText]) => {
     questions = questionData;
     solutions = new Map(solutionData.map((item) => [item.id, item]));
+    const reviewExplanations = parseReviewExplanations(reviewMarkdown);
+    const siteQuestionMap = parseSiteQuestionMap(mapText);
+    solutions.forEach((solution, id) => {
+      const sourceId = siteQuestionMap.get(id);
+      const reviewExplanation = reviewExplanations.get(sourceId);
+      // 已独立修正过答案的题目不采用原 PDF 的复核文本，避免解释与当前答案冲突。
+      if (reviewExplanation && solution.answer === solution.pdfAnswer) {
+        solution.explanationZh = reviewExplanation;
+      }
+    });
     Object.entries(answerRecords).forEach(([id, record]) => {
       const expected = (solutions.get(Number(id))?.answer || '').split('+').filter(Boolean).sort();
       const selected = [...record.answers].sort();
