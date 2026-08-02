@@ -1419,17 +1419,17 @@
       {
         "label": "A",
         "text": "Add an AdministratorAccess policy to the GenAI developer IAM role",
-        "textZh": "Add an AdministratorAccess policy to the GenAI developer IAM role"
+        "textZh": "向 GenAI 开发人员的 IAM 角色添加 AdministratorAccess 策略"
       },
       {
         "label": "B",
         "text": "Extend the existing SCPs to enable CRI for the eu.amazon.nova-pro-v1:0 inference profile",
-        "textZh": "Extend the existing SCPs to enable CRI for the eu.amazon.nova-pro-v1:0 inference profile"
+        "textZh": "扩展现有 SCP，以允许 eu.amazon.nova-pro-v1:0 推理配置文件使用 CRI"
       },
       {
         "label": "C",
         "text": "Enable Amazon Bedrock model access for Amazon Nova Pro in the eu-west-3 Region",
-        "textZh": "Enable Amazon Bedrock model access for Amazon Nova Pro in the eu-west-3 Region"
+        "textZh": "在 eu-west-3 区域为 Amazon Nova Pro 启用 Amazon Bedrock 模型访问权限"
       },
       {
         "label": "D",
@@ -1443,7 +1443,7 @@
       }
     ],
     "categoryZh": "人工智能安全、安保和治理",
-    "promptZh": "Company configures a landing zone in AWS Control Tower. The company handles sensitive data that must remain within the European Union. The company must use only the eu-central-1 Region. The company uses Service Control Policies (SCPs) to enforce data residency policies. GenAI developers at the company are assigned IAM roles that have full permissions for Amazon Bedrock.该公司必须确保 GenAI 开发人员只能通过使用跨区域推理 (CRI) 并且只能在 eu-central-1 中通过 Amazon Bedrock 使用 Amazon Nova Pro 模型。 The company enables model access for the GenAI developer IAM roles in Amazon Bedrock.但是，当 GenAI 开发人员尝试通过 Amazon Bedrock 聊天/文本游乐场调用模型时，GenAI 开发人员会收到以下错误： User arn:aws:sts:123456789012:assumed-role/AssumedDevRole/DevUserName Action: bedrock:InvokeModelWithResponseStream On resources: arn:aws:bedrock:eu-west-3::foundation-model/amazon.nova-pro-v1:0 上下文：服务控制策略明确拒绝该操作 公司需要一个解决方案来解决该错误。 The solution must retain the company's existing governance controls and must provide precise access control. The solution must comply with the company's existing data residency policies.哪种解决方案组合可以满足这些要求？ （选择两项。）"
+    "promptZh": "一家公司在 AWS Control Tower 中配置了 landing zone。该公司处理的敏感数据必须保留在欧盟境内，并且只能使用 eu-central-1 区域。公司使用服务控制策略（SCP）来强制执行数据驻留策略。公司的 GenAI 开发人员被分配了对 Amazon Bedrock 具有完全权限的 IAM 角色。公司必须确保 GenAI 开发人员只能通过跨区域推理（CRI）在 eu-central-1 中使用 Amazon Bedrock 的 Amazon Nova Pro 模型。公司已在 Amazon Bedrock 中为这些 IAM 角色启用了模型访问权限。但是，当开发人员通过 Amazon Bedrock Chat/Text playground 调用模型时，收到错误：用户 arn:aws:sts:123456789012:assumed-role/AssumedDevRole/DevUserName 对资源 arn:aws:bedrock:eu-west-3::foundation-model/amazon.nova-pro-v1:0 执行 bedrock:InvokeModelWithResponseStream 操作时，被服务控制策略显式拒绝。公司需要解决该错误，同时保留现有治理控制、提供精确的访问控制，并继续符合现有的数据驻留策略。哪两个方案的组合可以满足这些要求？（选择两项。）"
   },
   {
     "id": 50,

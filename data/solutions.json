@@ -31,7 +31,7 @@
       "HNSW algorithm",
       "vertical scaling policy"
     ],
-    "explanationZh": "题干是小型数据集且“最大准确性”优先。Flat 比较全部向量，不采用 HNSW/IVFFlat 的近似检索折衷，最贴合该优先级。",
+    "explanationZh": "题干的数据集较小且优先追求最高准确性。Flat 索引会比较全部向量，不像 HNSW 或 IVFFlat 那样以近似搜索换取速度；MemoryDB 则能提供低延迟的在线检索。随着负载增长再水平扩展，可在不牺牲召回准确性的前提下维持性能。",
     "pdfAnswer": "B",
     "needsConfirmation": false
   },
@@ -43,7 +43,7 @@
       "Amazon Bedrock guardrails",
       "CloudWatch anomaly detection alarms"
     ],
-    "explanationZh": "上下文接地检查直接针对“回答是否有提供的上下文支持”；异常检测警报直接针对代币消耗偏离，两项分别覆盖幻觉与成本预警。",
+    "explanationZh": "护栏的上下文接地检查会判断摘要是否由提供的临床上下文支持，因此直接针对事实幻觉。模型调用日志保留可审计的输出证据，CloudWatch 异常检测则从正常用量基线识别异常的输入或输出令牌消耗。该组合使用托管能力，同时覆盖质量、成本和近乎实时预警。",
     "pdfAnswer": "C",
     "needsConfirmation": false
   },
@@ -64,7 +64,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "在现有知识库中使用元数据过滤，直接缩小检索候选范围；这是针对问题根因的最小架构改动。",
+    "explanationZh": "问题的根因是检索范围过宽，而不是嵌入模型能力不足。为 S3 对象元数据建索引后，知识库可先按内容类型、时间或主题过滤，再进行向量检索，从而同时减少无关长文档和响应时间。该做法保留现有 Bedrock 知识库，改动和运维开销都小于迁移检索引擎。",
     "keywords": []
   },
   {
@@ -72,7 +72,7 @@
     "answer": "A+D",
     "pdfAnswer": "A+D",
     "needsConfirmation": false,
-    "explanationZh": "在容器启动时启用模型预加载。实现动态批处理以在单个推理过程中一起处理多个用户请求。\n将最小实例数设置为大于 0。启用响应流式传输。",
+    "explanationZh": "A 通过预加载模型权重消除冷启动，并以动态批处理提高 GPU 利用率和吞吐。D 通过保留至少一个热实例避免缩容后的首次调用延迟，流式响应会在完整生成前返回首个令牌。两项分别降低服务端处理时间和用户感知等待，才有机会满足 800 ms 的 p95 交互延迟。",
     "keywords": []
   },
   {
@@ -80,7 +80,7 @@
     "answer": "A",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "在现有知识库中使用元数据过滤，直接缩小检索候选范围；这是针对问题根因的最小架构改动。",
+    "explanationZh": "OpenSearch Serverless 同时提供托管向量检索和元数据过滤，且能与 Bedrock 知识库直接组成 RAG。它可在千万级多语言文档上按发布日期、监管机构和文档类型先缩小范围，再做低延迟的语义检索。自行运维 Aurora 或 Neptune 会增加容量、索引和跨语言检索的维护负担。",
     "keywords": []
   },
   {
@@ -88,7 +88,7 @@
     "answer": "A",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "将文档时间戳存储在 Amazon S3 系统元数据中。使用 S3 对象标签进行域分类。实现自定义用户定义的元数据来存储作者信息。",
+    "explanationZh": "A 把三类元数据放在语义匹配的位置：S3 系统元数据记录对象时间戳，对象标签适合受控的研究领域分类，自定义用户元数据可保存作者。它们会随对象上传统一写入，使后续检索可利用上下文而不必读取论文全文；对象锁、清单和 Storage Lens 都不是作者或领域分类的元数据框架。",
     "keywords": []
   },
   {
@@ -112,7 +112,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "explanationZh": "路由规则变化频繁且包含用户层级、合规区域和实时成本等业务判断，因此应由 Lambda 在请求时计算。AppConfig 负责将规则以受控方式发布、验证和回滚，代理可让 Lambda 无需重新部署就读取最新配置。环境变量、阶段变量或授权器都不适合承载这类复杂、持续变化的运行时路由逻辑。",
     "keywords": []
   },
   {
@@ -120,7 +120,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "explanationZh": "路由规则变化频繁且包含用户层级、合规区域和实时成本等业务判断，因此应由 Lambda 在请求时计算。AppConfig 负责将规则以受控方式发布、验证和回滚，代理可让 Lambda 无需重新部署就读取最新配置。环境变量、阶段变量或授权器都不适合承载这类复杂、持续变化的运行时路由逻辑。",
     "keywords": []
   },
   {
@@ -128,7 +128,7 @@
     "answer": "D",
     "pdfAnswer": "D",
     "needsConfirmation": false,
-    "explanationZh": "模型评估作业用标准测试集和量化指标比较输出，适合把质量阈值接入 CI/CD 的发布门禁。",
+    "explanationZh": "题目要求在 45 分钟内并行评估至少 15,000 个多语言对话，并在部署前自动阻止不达标版本。Bedrock 模型评估作业可用同义的标准测试集批量运行，再以相似性和幻觉阈值量化跨语言一致性；把结果接入 CI/CD 的发布门禁，才能自动阻止失败的升级。基础设施压测或事后人工审查均不能验证模型回答质量。",
     "keywords": []
   },
   {
@@ -136,7 +136,7 @@
     "answer": "B",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "explanationZh": "该题同时需要规模化质量评估、金融政策约束和对高风险交互的人工复核。Bedrock 评估以 judge model 批量衡量准确性与适当性，Guardrails 将金融政策落实到生成边界，A2I 仅把需要升级的关键交互交给人工。相比让专家审阅全部回复，这既保留人工把关也能扩展。",
     "keywords": []
   },
   {
@@ -144,7 +144,7 @@
     "answer": "A",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "explanationZh": "A 同时覆盖了题干的三个独立目标：预置吞吐量提供可预测容量以降低延迟波动，语义拒绝规则在调用边界阻断危险建议，Prompt Management 的审批与版本控制使三阶段提示保持一致。仅记录日志、缓存或改用其他编排服务都不能同时保证低延迟、99.5% 稳定性和经过验证的安全控制。",
     "keywords": []
   },
   {
@@ -152,7 +152,7 @@
     "answer": "D",
     "pdfAnswer": "D",
     "needsConfirmation": false,
-    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "explanationZh": "D 使用 Step Functions 协调 PII 检测、嵌入生成和写入向量库，服务集成、重试和状态跟踪均为托管能力。Comprehend 先移除敏感信息，Bedrock 生成嵌入，OpenSearch Serverless 提供无需管理集群的相似性搜索。相比自行调优 Lambda、EMR 或多个处理框架，这条路径更适合 50 GB 批处理和低运维要求。",
     "keywords": []
   },
   {
@@ -184,7 +184,7 @@
     "answer": "A",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "explanationZh": "金丝雀发布需要有状态的阶段等待、指标判断和自动回滚。A 的 Step Functions 工作流可逐步调整流量、等待观察窗口并调用 Lambda 检查 CloudWatch；指标健康时继续放量，低于阈值时立即回滚。EventBridge 负责在新版本发布时启动流程，避免人工介入或在无状态脚本中维护复杂的部署状态。",
     "keywords": []
   },
   {
@@ -216,7 +216,7 @@
     "answer": "D",
     "pdfAnswer": "D",
     "needsConfirmation": false,
-    "explanationZh": "重排序正好处理“初始召回语义相近、但上下文不相关”的候选集，不必迁移现有 RAG 架构。",
+    "explanationZh": "初始向量召回已经找到了语义相近的文档，问题是跨法规、判例和政策时排序不够贴合具体上下文。知识库中的 reranking 配置会用重排序模型重新评估候选文档与查询的相关性，再把最有用的片段交给生成模型。它直接修正排序问题，无需迁移知识库或重建整个 RAG 架构。",
     "keywords": []
   },
   {
@@ -232,7 +232,7 @@
     "answer": "B",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "Prompt Management 原生提供版本化与参数化，正好对应多团队、多提示模板的治理和可追溯要求。",
+    "explanationZh": "Prompt Management 为数百个模板提供集中版本、参数化、审批和可追溯管理；CloudTrail 记录变更与调用，IAM 把提交、审批和使用权限分离。这样各区域的团队使用受控模板，而不是在代码、S3 或各自的 Lambda 配置中维护副本。",
     "keywords": []
   },
   {
@@ -240,7 +240,7 @@
     "answer": "B",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "混合搜索同时保留向量语义匹配与关键字精确匹配，直接避免医学术语和缩写被纯向量检索漏掉。",
+    "explanationZh": "法律研究既需要向量检索理解概念相近性，也需要关键字检索精确命中法条术语、引文和案件名称。OpenSearch 的混合搜索将两类信号结合，随后由 Bedrock 重排序模型按查询上下文重新排序候选结果。单一向量搜索容易遗漏精确术语，单一关键词搜索又无法覆盖同义或概念性表述。",
     "keywords": []
   },
   {
@@ -288,7 +288,7 @@
     "answer": "A",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "混合搜索同时保留向量语义匹配与关键字精确匹配，直接避免医学术语和缩写被纯向量检索漏掉。",
+    "explanationZh": "医疗检索同时依赖语义相近性和准确的医学术语、首字母缩略词。混合搜索把向量相似度与关键词匹配融合，因此既能召回同义描述，也不会漏掉精确的药名或缩写；只调整嵌入模型或纯向量参数不能可靠解决精确术语缺失的问题。",
     "keywords": []
   },
   {
@@ -344,7 +344,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "语义分块在自然意义边界切分，RetrieveAndGenerate 只动态取与查询相关的块，避免把整份长文档硬塞入上下文。",
+    "explanationZh": "文档超过上下文窗口时，直接整篇输入会截断内容并使回答不稳定。语义分块按自然含义边界切分，缓冲区保留相邻语句；RetrieveAndGenerate 只根据嵌入相似度取回与当前问题最相关的块。这样既保留局部上下文，也避免把 50 到 200 页文档硬塞进模型上下文。",
     "keywords": []
   },
   {
@@ -360,7 +360,7 @@
     "answer": "B",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "OpenSearch Service 的向量索引/k-NN 适合大规模低延迟语义搜索；同一嵌入模型处理文档和查询，支持持续索引更新。",
+    "explanationZh": "该场景有数千万餐厅、数亿评论、复杂自然语言查询和 500 ms 目标，必须使用可横向扩展的向量检索服务。OpenSearch 的向量索引和 k-NN 可对餐厅描述、评论和菜单进行低延迟语义搜索；同一嵌入模型处理文档和查询，才能使向量空间可比较。它也比继续在 PostgreSQL 上自行扩展向量检索更适合该规模。",
     "keywords": []
   },
   {
@@ -400,7 +400,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "限制发生在不同时区的高峰期，跨区域推理可把请求分配到有可用容量的区域，而不必购买全天固定吞吐量。调用日志和限流指标用于确认瓶颈并监控分流效果。",
+    "explanationZh": "各时区的晚间高峰互不重叠，固定预置吞吐量会在低峰时浪费容量。跨区域推理配置文件可将请求分配到仍有容量的区域，缓解单一区域的限流；调用日志和 CloudWatch 指标可验证限流是否下降并持续观测令牌使用。仅增加 Lambda 并发或重试不会增加可用模型容量。",
     "keywords": []
   },
   {
@@ -416,7 +416,7 @@
     "answer": "B",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "将模型 ID 参数替换为 CreateProvisionedModelThroughput API 返回的预配置模型的 ARN。",
+    "explanationZh": "购买预置吞吐量后，调用仍使用基础模型 ID，就会继续走按需容量并被限流。CreateProvisionedModelThroughput 返回的 ARN 才是已购买容量对应的模型标识；将 InvokeModel 的 modelId 改为该 ARN，流量才会命中预置吞吐量。增加 MU、重试或改用流式 API 都无法修正错误的路由目标。",
     "keywords": []
   },
   {
@@ -576,7 +576,7 @@
     "answer": "B",
     "pdfAnswer": "B",
     "needsConfirmation": false,
-    "explanationZh": "将模型 ID 参数替换为 CreateProvisionedModelThroughput API 返回的预配置模型的 ARN。",
+    "explanationZh": "购买预置吞吐量后，调用仍使用基础模型 ID，就会继续走按需容量并被限流。CreateProvisionedModelThroughput 返回的 ARN 才是已购买容量对应的模型标识；将 InvokeModel 的 modelId 改为该 ARN，流量才会命中预置吞吐量。增加 MU、重试或改用流式 API 都无法修正错误的路由目标。",
     "keywords": []
   },
   {
@@ -616,7 +616,7 @@
     "answer": "C",
     "pdfAnswer": "C",
     "needsConfirmation": false,
-    "explanationZh": "为多账户结构中的每家酒店实施一个 Amazon Bedrock 知识库。使用直接数据摄取来提供近乎实时的房间可用性信息。安排定期同步不太重要的信息。",
+    "explanationZh": "每家酒店独立知识库天然形成访问边界，避免员工检索到其他酒店的房态或内部信息。直接摄取可快速反映频繁变动的房间可用性，较少变化的酒店资料再定期同步，兼顾实时性与成本。把所有酒店放入一个知识库后再自行实现复杂过滤，既增加权限风险也提高维护成本。",
     "keywords": []
   },
   {
@@ -784,7 +784,7 @@
     "answer": "D",
     "pdfAnswer": "D",
     "needsConfirmation": false,
-    "explanationZh": "通过在 FM 提示中使用输出指示器，强化将新促销信息包含在产品推荐中的要求。",
+    "explanationZh": "问题在于促销语句只是宽泛指令，模型没有稳定地把它作为输出格式约束。D 在提示中加入明确的输出指示器，将促销信息作为必须出现且应与推荐文本融合的结构性要求。Guardrails 用于安全过滤，重排序或生成后拼接要么不能保证包含，要么会破坏文本连贯性。",
     "keywords": []
   },
   {
@@ -888,7 +888,7 @@
     "answer": "A",
     "pdfAnswer": "A",
     "needsConfirmation": false,
-    "explanationZh": "Amplify AI Kit 支持在现有 Amplify/AppSync 客户端模式中处理流式 AI 响应与渲染，直接降低等待首段结果的时间。",
+    "explanationZh": "现有架构已经是 Amplify、AppSync 和 GraphQL，瓶颈是 RequestResponse 调用必须等完整结果返回。Amplify AI Kit 能在这一栈中实现流式响应并优化客户端渐进式渲染，因此用户会先看到首段内容，而不必等待复杂 RetrieveAndGenerate 请求结束。延长超时只掩盖等待，改成 WebSocket 会增加不必要的架构改造。",
     "keywords": []
   },
   {
