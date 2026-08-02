@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AWS AIP-C01 中文题库：逐题浏览中英文题目，不含答案与解析。" />
+    <title>AWS AIP-C01 中文题库</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="site-header">
+        <a class="brand" href="?question=1" aria-label="回到第 1 题">
+          <span class="brand-mark">AI</span>
+          <span>AIP-C01 <em>中文题库</em></span>
+        </a>
+      </header>
+
+      <section class="toolbar" aria-label="题目导航">
+        <label class="search">
+          <span>查找题目</span>
+          <input id="question-search" type="search" placeholder="输入题号，如 24" inputmode="numeric" />
+        </label>
+        <div class="answer-record">
+          <span>已作答 <strong id="answered-count">0</strong> 题 · 答对 <strong id="correct-count">0</strong> 题</span>
+          <button id="clear-answers" class="clear-answers" type="button">清空作答记录</button>
+        </div>
+        <div class="progress"><span id="current-position">1</span> / <span id="total-count">128</span></div>
+      </section>
+
+      <section id="question-view" aria-live="polite"></section>
+    </main>
+
+    <script type="module" src="app.js?v=meaningful-explanations-20260801"></script>
+  </body>
+</html>

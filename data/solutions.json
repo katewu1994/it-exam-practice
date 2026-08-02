@@ -1,0 +1,1089 @@
+[
+  {
+    "id": 1,
+    "answer": "A",
+    "keywords": [
+      "Amazon Q Business index",
+      "data accessor",
+      "enrich prompts at runtime"
+    ],
+    "explanationZh": "A 的关键不是“也能做 RAG”，而是客户自行持有 Amazon Q Business 索引和其内部数据，Example Corp 仅被客户指定为 data accessor 后通过安全 API 取回相关内容。因此数据所有权、索引控制和授权边界仍在客户侧。Amazon Q Business 已提供企业内容检索能力，可直接把检索结果用于运行时的 prompt augmentation；同时该方案不要求 Example Corp 为每个客户自建 MCP 服务、知识库或搜索集群。",
+    "pdfAnswer": "A",
+    "needsConfirmation": false
+  },
+  {
+    "id": 2,
+    "answer": "A",
+    "keywords": [
+      "Step Functions Express workflow",
+      "S3 integration GetObject",
+      "Amazon Bedrock InvokeModel step"
+    ],
+    "explanationZh": "Bedrock Flows 的 S3 retrieval/storage 节点分别处理读取和写回；表达式可提取模板片段；Prompt/Agent 节点把片段交给模型。因此一个 Flow 即覆盖四个步骤。",
+    "pdfAnswer": "A",
+    "needsConfirmation": false
+  },
+  {
+    "id": 3,
+    "answer": "A",
+    "keywords": [
+      "Amazon MemoryDB cluster",
+      "HNSW algorithm",
+      "vertical scaling policy"
+    ],
+    "explanationZh": "题干是小型数据集且“最大准确性”优先。Flat 比较全部向量，不采用 HNSW/IVFFlat 的近似检索折衷，最贴合该优先级。",
+    "pdfAnswer": "B",
+    "needsConfirmation": false
+  },
+  {
+    "id": 4,
+    "answer": "C",
+    "keywords": [
+      "S3 bucket store logs",
+      "Amazon Bedrock guardrails",
+      "CloudWatch anomaly detection alarms"
+    ],
+    "explanationZh": "上下文接地检查直接针对“回答是否有提供的上下文支持”；异常检测警报直接针对代币消耗偏离，两项分别覆盖幻觉与成本预警。",
+    "pdfAnswer": "C",
+    "needsConfirmation": false
+  },
+  {
+    "id": 5,
+    "answer": "A",
+    "keywords": [
+      "Lambda function tokenizers",
+      "estimate token usage",
+      "CloudWatch publish metrics"
+    ],
+    "explanationZh": "先按模型估算令牌，才能在请求发出前发现即将超限的调用。CloudWatch 告警负责主动通知，DynamoDB 中按业务部门保存的用量可用于成本分摊；这同时覆盖高吞吐场景的预防、告警和计量。",
+    "pdfAnswer": "A",
+    "needsConfirmation": false
+  },
+  {
+    "id": 6,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "在现有知识库中使用元数据过滤，直接缩小检索候选范围；这是针对问题根因的最小架构改动。",
+    "keywords": []
+  },
+  {
+    "id": 7,
+    "answer": "A+D",
+    "pdfAnswer": "A+D",
+    "needsConfirmation": false,
+    "explanationZh": "在容器启动时启用模型预加载。实现动态批处理以在单个推理过程中一起处理多个用户请求。\n将最小实例数设置为大于 0。启用响应流式传输。",
+    "keywords": []
+  },
+  {
+    "id": 8,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "在现有知识库中使用元数据过滤，直接缩小检索候选范围；这是针对问题根因的最小架构改动。",
+    "keywords": []
+  },
+  {
+    "id": 9,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "将文档时间戳存储在 Amazon S3 系统元数据中。使用 S3 对象标签进行域分类。实现自定义用户定义的元数据来存储作者信息。",
+    "keywords": []
+  },
+  {
+    "id": 10,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "流式转写以很小的音频块持续产出文本，模型再以流式响应返回建议，避免等待整段通话结束，才能满足亚秒级交互。主管评分写入 DynamoDB 后可在通话过程中记录反馈并用于后续审计。",
+    "keywords": []
+  },
+  {
+    "id": 11,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "按文档布局分块能让表格中的数字与紧邻的解释文字一起被检索，而不是把财务指标切成孤立片段。知识库只取相关上下文并附带引用，因此既能扩展到长文档，也便于分析师核查答案来源。",
+    "keywords": []
+  },
+  {
+    "id": 12,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "keywords": []
+  },
+  {
+    "id": 13,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "keywords": []
+  },
+  {
+    "id": 14,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "模型评估作业用标准测试集和量化指标比较输出，适合把质量阈值接入 CI/CD 的发布门禁。",
+    "keywords": []
+  },
+  {
+    "id": 15,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 16,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 17,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 18,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "带抖动的指数退避会分散重试，断路器会在服务异常时停止继续施压；两者共同避免高峰期的重试风暴。可恢复的流式处理保留已收到的块并在断线后续传，从而避免完整响应丢失。",
+    "keywords": []
+  },
+  {
+    "id": 19,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "匿名样本让概念验证可在隐私边界内快速开展；受控的 RAG 知识库则让摘要有可追溯的依据。用同一评估集比较多个模型和处理时间，能在三周内形成量化的选型结论，而不是只依赖主观反馈。",
+    "keywords": []
+  },
+  {
+    "id": 20,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "CloudFormation 将安全、可观测性和 RAG 模式固化为可复用组件，版本库与 CI/CD 让各业务部门和区域使用同一受控版本。CloudFormation Guard 在部署时阻止不符合标准的变更，避免配置逐渐漂移。",
+    "keywords": []
+  },
+  {
+    "id": 21,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 22,
+    "answer": "B+C",
+    "pdfAnswer": "B+C",
+    "needsConfirmation": false,
+    "explanationZh": "预置吞吐量用于稳定、可预测的模型容量；选项还明确给出与题干负载相对应的流量或模型标识配置。\n使用 Amazon SageMaker Neo 将 FM 部署到 Amazon SageMaker AI 终端节点，并支持边缘部署。使用 AWS Lambda 编排 FM 以支持混合部署。",
+    "keywords": []
+  },
+  {
+    "id": 23,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "Amazon Q Developer 自定义可把批准的库、算法和代码示例作为统一上下文提供给开发人员。它在开发者工具层面生效，因此无需把规则文件或资源复制到每个 Java 项目。",
+    "keywords": []
+  },
+  {
+    "id": 24,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "将示例提示合并到单个 JSONL 文档中。将文档存储在 Amazon S3 存储桶中。创建使用判断模型的 Amazon Bedrock 评估作业。将 S3 位置指定为输入，并将不同的 S3 位置指定为输出。为每个 FM 运行评估作业并选择 FM 作为生成器。",
+    "keywords": []
+  },
+  {
+    "id": 25,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "重排序正好处理“初始召回语义相近、但上下文不相关”的候选集，不必迁移现有 RAG 架构。",
+    "keywords": []
+  },
+  {
+    "id": 26,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "主管代理先识别意图并路由到领域协作代理，避免一个通用代理同时处理临床、理赔和预约逻辑。各代理使用独立知识库并受 IAM 过滤，既减少跨部门数据泄露，也允许按领域独立扩展或新增功能。",
+    "keywords": []
+  },
+  {
+    "id": 27,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Prompt Management 原生提供版本化与参数化，正好对应多团队、多提示模板的治理和可追溯要求。",
+    "keywords": []
+  },
+  {
+    "id": 28,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "混合搜索同时保留向量语义匹配与关键字精确匹配，直接避免医学术语和缩写被纯向量检索漏掉。",
+    "keywords": []
+  },
+  {
+    "id": 29,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "ABAC 将部门属性映射到权限；VPC endpoint 保证私有 Bedrock 调用；ModelId 与 GuardrailIdentifier 条件限制模型与护栏；CloudTrail Lake、S3 data events 和 KMS events 提供审计证据。",
+    "keywords": []
+  },
+  {
+    "id": 30,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "SAML 联合解决 Entra ID 身份接入，部门 IAM 角色按 ModelId 限定可调用的模型系列。PrivateLink 将 Bedrock 调用留在私网；CloudTrail 与模型调用日志分别保留 API 审计和交互详情，覆盖网络、授权和追踪要求。",
+    "keywords": []
+  },
+  {
+    "id": 31,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "令牌批处理减少每次调用的协议与调度开销，而跨区域推理配置文件会在可用区域之间分配突发流量。它能缓解高峰期的限流和超时，同时不需要为低峰时段长期购买固定容量。",
+    "keywords": []
+  },
+  {
+    "id": 32,
+    "answer": "A+C",
+    "pdfAnswer": "A+C",
+    "needsConfirmation": false,
+    "explanationZh": "Prompt Management 原生提供版本化与参数化，正好对应多团队、多提示模板的治理和可追溯要求。\n使用 Amazon Bedrock Flows 创建结合 FM 和 AWS 服务的工作流程。",
+    "keywords": []
+  },
+  {
+    "id": 33,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "Glue Data Catalog 为每个数据源建立可查询的登记和元数据，标签把生成内容关联回来源。CloudTrail 记录跨服务的访问事件，因此可以追溯数据从进入管道到被使用的过程。",
+    "keywords": []
+  },
+  {
+    "id": 34,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "混合搜索同时保留向量语义匹配与关键字精确匹配，直接避免医学术语和缩写被纯向量检索漏掉。",
+    "keywords": []
+  },
+  {
+    "id": 35,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "Knowledge Bases 的 RAG 先从产品目录检索事实，再让模型基于检索结果回答；optimized latency 配置直接改善交互时延。",
+    "keywords": []
+  },
+  {
+    "id": 36,
+    "answer": "C+D",
+    "pdfAnswer": "C+D",
+    "needsConfirmation": false,
+    "explanationZh": "SCP 对没有指定集中 guardrail identifier 的调用显式拒绝；权限边界把每位员工可调用的模型限制在批准集合。\nCloudFormation StackSets 将配置好阻断策略的 Guardrail 一致部署到组织账户。",
+    "keywords": []
+  },
+  {
+    "id": 37,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "LLM-as-a-judge 可以大规模筛查检索准确性和幻觉风险，把人工审核集中在低置信度或边界案例。Bedrock 评估指标持续量化检索质量与幻觉率，因此兼顾临床场景所需的准确性和审核成本。",
+    "keywords": []
+  },
+  {
+    "id": 38,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "supervisor agent 负责自然语言意图分类和路由，collaborator agent 负责领域任务；每个协作者使用隔离知识库和 RAG，减少跨部门数据串用。",
+    "keywords": []
+  },
+  {
+    "id": 39,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "Bedrock Knowledge Bases RAG 用目录数据 grounding 推荐内容，optimized latency 降低调用时延。",
+    "keywords": []
+  },
+  {
+    "id": 40,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "Titan Embeddings 提供受管嵌入，Aurora PostgreSQL Serverless + pgvector 同时容纳向量和关系型元数据，并按负载自动伸缩。",
+    "keywords": []
+  },
+  {
+    "id": 41,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "语义分块在自然意义边界切分，RetrieveAndGenerate 只动态取与查询相关的块，避免把整份长文档硬塞入上下文。",
+    "keywords": []
+  },
+  {
+    "id": 42,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "实时优化模型缩短单次推理路径，预置吞吐量为峰值并发提供可预测容量，自动扩展则随负载调整。相比自建推理集群，这种组合更容易同时守住 200 毫秒延迟和预算上限。",
+    "keywords": []
+  },
+  {
+    "id": 43,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "OpenSearch Service 的向量索引/k-NN 适合大规模低延迟语义搜索；同一嵌入模型处理文档和查询，支持持续索引更新。",
+    "keywords": []
+  },
+  {
+    "id": 44,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Glue 爬网和 Data Catalog 提供可审核的数据清单，ETL 作业承载清洗、元数据补充和自定义分块。Glue Data Quality 直接验证并监控质量，因此无需分别搭建编目、转换和质量检测平台。",
+    "keywords": []
+  },
+  {
+    "id": 45,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "Converse API 在 Python 和 JavaScript SDK 中使用一致的请求模型，两个运行环境可调用同一 FM。将历史消息随请求传递可保持多轮上下文，IAM 角色则让 Lambda 与 EKS 使用统一的 AWS 身份控制。",
+    "keywords": []
+  },
+  {
+    "id": 46,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "把提示词和评测样本一起版本化，才能比较某次提示修改是否只在复杂临床文档上造成退化。自动化测试把质量指标按版本和文档类型保存，便于定位不一致的根因并安全回退。",
+    "keywords": []
+  },
+  {
+    "id": 47,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "子块用于精确匹配查询，父块在生成时补回方法、结果和讨论之间的较大语境；重叠可避免关键信息恰好落在分块边界。该结构比固定小块更能保持跨段落的科学论证关系。",
+    "keywords": []
+  },
+  {
+    "id": 48,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "限制发生在不同时区的高峰期，跨区域推理可把请求分配到有可用容量的区域，而不必购买全天固定吞吐量。调用日志和限流指标用于确认瓶颈并监控分流效果。",
+    "keywords": []
+  },
+  {
+    "id": 49,
+    "answer": "B+D",
+    "pdfAnswer": "B+E",
+    "needsConfirmation": false,
+    "explanationZh": "跨区域推理调用的是推理配置文件，而不是单一地区的基础模型 ARN；因此 SCP 必须明确允许该 EU 配置文件。配置文件可能把流量发送到多个欧盟服务区域，角色和 SCP 也必须在这些目的区域允许 InvokeModel，否则仍会出现显式拒绝。",
+    "keywords": []
+  },
+  {
+    "id": 50,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "将模型 ID 参数替换为 CreateProvisionedModelThroughput API 返回的预配置模型的 ARN。",
+    "keywords": []
+  },
+  {
+    "id": 51,
+    "answer": "A+B+D",
+    "pdfAnswer": "A+B+D",
+    "needsConfirmation": false,
+    "explanationZh": "Textract 提取，A2I 将低置信度页面交给同区域人工审核。\nLambda 在推理前编辑 PII，Guardrails 保护输出，区域 IAM 角色限制数据访问。\nS3 按申请人区域保存原件并以对象标签保留审计属性。",
+    "keywords": []
+  },
+  {
+    "id": 52,
+    "answer": "A",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Bedrock 的默认调用指标无法判断不同人群是否获得不同推荐，必须从模型输出按人口群体计算自定义公平性指标。将这些指标接入 CloudWatch 后可在差异超过 15% 时告警，并按周比较两种提示策略。",
+    "keywords": []
+  },
+  {
+    "id": 53,
+    "answer": "A+D+F",
+    "pdfAnswer": "A+D",
+    "needsConfirmation": false,
+    "explanationZh": "Denied topics 直接表达“投资建议/保证回报”这类高风险会话主题，因此是阻断不当财务建议的正确控制。\nCustom word filters 适合精确识别竞争对手名称；同时对输入和输出设为 block，覆盖用户诱导和模型主动生成两条路径。\n更高的 grounding score 阈值要求生成内容与获批的公司指导资料有更强的依据关联，降低无事实支撑主张。",
+    "keywords": []
+  },
+  {
+    "id": 54,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "keywords": []
+  },
+  {
+    "id": 55,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "评估作业能在同一数据集上同时比较分块策略和模型输出；precision-at-k 衡量检索命中，LLM-as-a-judge 衡量回答质量。这样可用量化结果选择方案，而不是仅凭单次示例判断。",
+    "keywords": []
+  },
+  {
+    "id": 56,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Amazon Q Developer 的管理员仪表盘和用户活动报告已包含采用率、活跃用户和接受代码行等数据。直接使用这些内置报告比自行埋点、汇总 IDE 行为更省维护。",
+    "keywords": []
+  },
+  {
+    "id": 57,
+    "answer": "A",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "接口 VPC 终端节点让模型调用不经过互联网或 NAT 网关，满足私有网络边界。配合 IAM 的最小权限和调用日志，既能限制访问又能保留审计证据。",
+    "keywords": []
+  },
+  {
+    "id": 58,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "父子分块让检索阶段使用小块获得精确命中，生成阶段使用父块保留完整上下文；重叠减少了段落边界导致的信息丢失。它比单一固定块更适合长文档中的跨段内容。",
+    "keywords": []
+  },
+  {
+    "id": 59,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 60,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Step Functions 的 Bedrock 优化集成可用 S3 URI 作为大输入/输出位置，ResultPath/ResultSelector 只在状态间传递引用。",
+    "keywords": []
+  },
+  {
+    "id": 61,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 62,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 63,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "Guardrails 可配置 prompt-attack filter；guardrail profile 支持跨区域 guardrail inference；CloudWatch Logs/自定义指标可记录干预事件。",
+    "keywords": []
+  },
+  {
+    "id": 64,
+    "answer": "C",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 65,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "访问控制文件把部门 S3 前缀与 IAM Identity Center 组显式对应，数据源在检索时据此过滤结果。这样权限规则随数据源集中维护，而不会把所有文档暴露给同一个知识库用户。",
+    "keywords": []
+  },
+  {
+    "id": 66,
+    "answer": "A+B",
+    "pdfAnswer": "A+B",
+    "needsConfirmation": false,
+    "explanationZh": "Lambda 的 IAM 角色解决调用 Bedrock 和访问 OpenSearch Serverless API 的身份权限，但它本身不授予集合内的数据面权限。还必须在 data access policy 中允许对应集合和索引；两项缺一都会导致请求失败。",
+    "keywords": []
+  },
+  {
+    "id": 67,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Glue Catalog 和对象标签保存来源及摘要的可追溯元数据，模型调用日志记录生成过程。对日志桶启用对象锁可防止审计记录被改写，因此适合需要长期可验证审计链的场景。",
+    "keywords": []
+  },
+  {
+    "id": 68,
+    "answer": "B",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "将餐厅数据迁移到 Amazon OpenSearch Service。使用 Amazon Bedrock 中的基础模型 (FM) 根据餐厅描述、评论和菜单项生成矢量嵌入。当用户提交自然语言查询时，使用相同的 FM 将查询转换为嵌入。执行 k 最近邻 (k-NN) 搜索以查找语义相似的结果。",
+    "keywords": []
+  },
+  {
+    "id": 69,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 70,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "将模型 ID 参数替换为 CreateProvisionedModelThroughput API 返回的预配置模型的 ARN。",
+    "keywords": []
+  },
+  {
+    "id": 71,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Transcribe 的部分结果在说话过程中就提供文本，Bedrock 流式调用无需等待完整转写即可开始生成。通过 WebSocket 持续把增量结果推给客户端，可显著降低用户感知延迟。",
+    "keywords": []
+  },
+  {
+    "id": 72,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "keywords": []
+  },
+  {
+    "id": 73,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "Knowledge Bases 提供托管 RAG 和 source attribution；Claude Messages API 生成带检索上下文的建议，S3 可保存审计材料。",
+    "keywords": []
+  },
+  {
+    "id": 74,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "知识库限定在批准的临床文档中检索，RetrieveAndGenerate 返回引用，使回答有可核查的医学依据。它使用托管检索和生成能力，比自建检索管道更符合低运维要求。",
+    "keywords": []
+  },
+  {
+    "id": 75,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "为多账户结构中的每家酒店实施一个 Amazon Bedrock 知识库。使用直接数据摄取来提供近乎实时的房间可用性信息。安排定期同步不太重要的信息。",
+    "keywords": []
+  },
+  {
+    "id": 76,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 77,
+    "answer": "A+D",
+    "pdfAnswer": "A+D",
+    "needsConfirmation": false,
+    "explanationZh": "Prompt Management 原生提供版本化与参数化，正好对应多团队、多提示模板的治理和可追溯要求。\n创建一个应用了 insults 内容过滤器的 Amazon Bedrock guardrail。将过滤器响应设置为 detect。将该 guardrail 添加到流程的 prompts 节点。",
+    "keywords": []
+  },
+  {
+    "id": 78,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "prompt safety classification 与 PII detection/redaction 并行，toxicity detection 覆盖冒犯内容；并行路径降低前处理总时延，且 PII 明确编辑。",
+    "keywords": []
+  },
+  {
+    "id": 79,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 80,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "接口 VPC 终端节点使 Bedrock 运行时调用走私有地址；IAM 条件和日志记录则把访问范围与审计责任绑定到调用者。该组合同时满足网络隔离、最小权限和可追溯性。",
+    "keywords": []
+  },
+  {
+    "id": 81,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 82,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "知识库负责托管式摄取、嵌入和检索，OpenSearch 提供向量搜索；Lambda 与 API Gateway 只作为应用入口。它用受管组件组成完整 RAG 路径，避免自行实现索引和检索服务。",
+    "keywords": []
+  },
+  {
+    "id": 83,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 84,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "金融问题经常需要跨文档追踪实体、交易和关联关系，GraphRAG 能执行这种多跳检索。Neptune Analytics 保存关系图，知识库提供向量语义检索，两者结合比仅按文本相似度检索更完整。",
+    "keywords": []
+  },
+  {
+    "id": 85,
+    "answer": "A+B",
+    "pdfAnswer": "B+C",
+    "needsConfirmation": false,
+    "explanationZh": "事实验证指令促使模型在生成前检查结论，RAG 则把摘要建立在检索到的源材料上。语义分块保留可验证的上下文，两项共同降低整篇文档一次性输入时出现的无依据摘要。",
+    "keywords": []
+  },
+  {
+    "id": 86,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "代理追踪记录推理与工具调用，知识库引用让用户能看到答案基于哪些权威资料，二者共同提供透明性和审计线索。托管的 Bedrock、API Gateway 和 Lambda 扩展路径能支撑高并发，而无需自建检索或追踪平台。",
+    "keywords": []
+  },
+  {
+    "id": 87,
+    "answer": "D",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "响应流把已生成的内容立即发送给客户端，令牌限制在 Lambda 入口统一执行，避免单个请求过度消耗资源。Lambda 与 API Gateway 的超时和重试配置集中处理部分响应和模型暂时失败，运维面较小。",
+    "keywords": []
+  },
+  {
+    "id": 88,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "keywords": []
+  },
+  {
+    "id": 89,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "护栏将题干要求的内容、敏感信息或主题策略放在模型调用边界执行，避免只依赖提示词约束。",
+    "keywords": []
+  },
+  {
+    "id": 90,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 91,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "BDA、Textract 和 Transcribe 分别处理文档结构、PDF 与多媒体提取，可覆盖多种输入源而无需为每种文件类型自建管道。S3 版本控制和 DynamoDB 元数据支持内容追溯，AppSync 订阅提供实时协作。",
+    "keywords": []
+  },
+  {
+    "id": 92,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "模型重训和部署通常超过短时任务限制，Standard Step Functions 能持久保存长流程状态、重试和可观测性。由 S3 上传触发工作流后再启动 SageMaker Pipeline，可把新数据到重新部署串成自动闭环。",
+    "keywords": []
+  },
+  {
+    "id": 93,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "AppConfig 让路由规则可受控发布、验证和回滚；业务逻辑仍由 Lambda 按请求计算，因此无需为模型切换重新部署代码。",
+    "keywords": []
+  },
+  {
+    "id": 94,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "简单查询交给较小模型可以降低成本和延迟，复杂政策问题才升级到强模型以维持回答质量。智能提示路由负责自动判断复杂度，避免自行编写和维护分类路由逻辑。",
+    "keywords": []
+  },
+  {
+    "id": 95,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "WebSocket 保持长连接，模型每产生一段内容就通过 InvokeModelWithResponseStream 推送给前端，不必等待 15 到 45 秒的完整回复。它适合大量并发的交互式流式输出。",
+    "keywords": []
+  },
+  {
+    "id": 96,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "通过在 FM 提示中使用输出指示器，强化将新促销信息包含在产品推荐中的要求。",
+    "keywords": []
+  },
+  {
+    "id": 97,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "查询分解将复杂医疗问题拆成更聚焦的子查询，减少一个宽泛向量查询造成的语义稀释。知识库负责带来源的受管检索，Flow 负责组合步骤，因此能在低运维下提高术语和上下文的准确性。",
+    "keywords": []
+  },
+  {
+    "id": 98,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "固定长度分块会把法律论证和引用拆开，语义边界分块则保留条款、意见和论证的完整含义。重新生成嵌入使索引与新边界一致，从根源提升召回相关性并减少无关上下文。",
+    "keywords": []
+  },
+  {
+    "id": 99,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "为应用程序资源启用 Amazon CloudWatch Application Insights。使用具有请求类型和用户细分维度的 CloudWatch 嵌入式指标格式，创建推荐质量、令牌使用情况和响应延迟的自定义指标。针对模型指标配置 CloudWatch 异常检测。使用 CloudWatch L…。",
+    "keywords": []
+  },
+  {
+    "id": 100,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "CDK 将模型标识和环境资源定义为可版本化的基础设施，CodePipeline 为开发与生产分别部署相同结构。产品负责人可以通过配置切换或比较模型，而不必手动复制环境。",
+    "keywords": []
+  },
+  {
+    "id": 101,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "将每个模型部署到单独的 Amazon SageMaker Serverless Inference 终端节点。设置预配置并发来处理峰值负载。根据每个模型的具体要求配置最大并发限制和内存大小。",
+    "keywords": []
+  },
+  {
+    "id": 102,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "指标过滤器把调用日志按工具维度拆开，因此能找出究竟是哪一个集成推高了输入或输出令牌。异常检测基于动态基线而非固定阈值，可随稳定流量模式的变化自动调整告警灵敏度。",
+    "keywords": []
+  },
+  {
+    "id": 103,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "EU 和 US 地理 CRI profiles 在相应地理边界内自动选取可用区域、提高吞吐并吸收突发；分别 API Gateway 入口保持就近访问。",
+    "keywords": []
+  },
+  {
+    "id": 104,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Prompt Management 原生提供版本化与参数化，正好对应多团队、多提示模板的治理和可追溯要求。",
+    "keywords": []
+  },
+  {
+    "id": 105,
+    "answer": "C+D",
+    "pdfAnswer": "C+D",
+    "needsConfirmation": false,
+    "explanationZh": "CloudWatch 提供实时令牌和调用指标、仪表盘及阈值告警，适合运营人员即时处置。zero-ETL 将数据送入 Managed Grafana 后，可按模型、部门或受众展示长期趋势，无需维护自定义日志管道。",
+    "keywords": []
+  },
+  {
+    "id": 106,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "LF 标签授权可把业务属性映射为跨账户的表、列级授权，直接对应细粒度数据湖治理。",
+    "keywords": []
+  },
+  {
+    "id": 107,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "地理 CRI inference profile 在 EU 或 US 边界内自动路由到可用区域，扩大吞吐而不需要应用自行跨区选路。",
+    "keywords": []
+  },
+  {
+    "id": 108,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "按地理来源在同一大陆预处理并存入区域桶，避免数据在处理或存储时跨越驻留边界。Macie 负责识别敏感数据，对象锁和不可变 CloudTrail 日志分别保护记录与决策审计链。",
+    "keywords": []
+  },
+  {
+    "id": 109,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "Amplify AI Kit 支持在现有 Amplify/AppSync 客户端模式中处理流式 AI 响应与渲染，直接降低等待首段结果的时间。",
+    "keywords": []
+  },
+  {
+    "id": 110,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "自定义指标把推荐质量、令牌用量和延迟按请求类型及用户群体拆分，才能发现“总体流量正常但某类推荐退化”的问题。Application Insights、异常检测和 Logs Insights 提供基线比较、告警和根因查询。",
+    "keywords": []
+  },
+  {
+    "id": 111,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "带抖动的指数退避在瞬时错误或限流时降低同步重试造成的级联压力。X-Ray 注释可把一次请求关联到具体 FM 和服务组件，从而定位延迟或故障来自哪里。",
+    "keywords": []
+  },
+  {
+    "id": 112,
+    "answer": "B+D",
+    "pdfAnswer": "B+D",
+    "needsConfirmation": false,
+    "explanationZh": "Step Functions 直接编排 Transcribe、等待完成和 Bedrock 模型调用，可要求 JSON 结构化输出。\nS3 Object Created 经 EventBridge 触发状态机，形成事件驱动入口。",
+    "keywords": []
+  },
+  {
+    "id": 113,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "评估作业用固定提示集和量化指标比较变更前后的输出，CodePipeline 在每次模板修改时自动运行它。将阈值作为部署门禁可阻止质量不达标的提示或模型配置进入生产环境。",
+    "keywords": []
+  },
+  {
+    "id": 114,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "Lambda 加 HTTP API 提供可扩展的 MCP 服务入口，Streamable HTTP 与代理的调用方式兼容。Cognito 的 OAuth 2.1 在入口处验证用户和令牌，因此不是仅依靠代理内部约定来保护用户信息。",
+    "keywords": []
+  },
+  {
+    "id": 115,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "题目是确定性的步骤编排；Step Functions 的服务集成、状态传递、并行/重试能力直接覆盖该流程，不需要把编排逻辑藏在代理或自定义代码中。",
+    "keywords": []
+  },
+  {
+    "id": 116,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "DynamoDB 的按需容量/全局表与选项中的会话或结果设计相结合，适合高并发、低延迟和多区域需求。",
+    "keywords": []
+  },
+  {
+    "id": 117,
+    "answer": "A+B",
+    "pdfAnswer": "A+B",
+    "needsConfirmation": false,
+    "explanationZh": "AgentCore 负责会话记忆、身份和事件处理，满足多轮交互中的共享状态与权限控制。API Gateway 和 EventBridge 将既有 REST API、Lambda 和异步事件注册为操作，使代理能在不自建编排层的情况下调用它们。",
+    "keywords": []
+  },
+  {
+    "id": 118,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "业务指标导入 CloudWatch 后，单一 CloudWatch dashboard 展示两类指标；异常检测与 composite alarm 可在相关运营异常时通过 SNS 通知。",
+    "keywords": []
+  },
+  {
+    "id": 119,
+    "answer": "A+B",
+    "pdfAnswer": "B+C",
+    "needsConfirmation": false,
+    "explanationZh": "将数据集导入 Amazon S3 存储桶。提供适当的 IAM 权限和跨源资源共享 (CORS) 权限，以便评估作业能够访问数据集。\n接口 VPC 终端节点提供题干要求的私有调用路径；选项中的 IAM/审计配置同时限定访问范围并保留记录。",
+    "keywords": []
+  },
+  {
+    "id": 120,
+    "answer": "A+E",
+    "keywords": [
+      "context window",
+      "chunking",
+      "Amazon Bedrock Knowledge Bases",
+      "RAG"
+    ],
+    "explanationZh": "先按可控大小切分资料，分别处理后再汇总，避免单次请求超过模型上下文窗口，同时不会直接丢弃历史信息。\n用 Bedrock Knowledge Bases 建立向量索引，并按当前客户上下文检索最相关片段；这是把“全部资料可用”和“单次上下文受限”同时满足的 RAG 做法。",
+    "pdfAnswer": "A+E",
+    "needsConfirmation": false
+  },
+  {
+    "id": 121,
+    "answer": "C",
+    "keywords": [
+      "Agent tracing",
+      "Prompt Management",
+      "A/B testing",
+      "Guardrails"
+    ],
+    "explanationZh": "Bedrock agent tracing 为代理调用和推理路径提供可追溯记录；Prompt Management 的版本与 A/B 测试可用统一提示在不同人群样本上比较结果；Guardrails 把内容和政策约束放在模型调用边界执行。",
+    "pdfAnswer": "C",
+    "needsConfirmation": false
+  },
+  {
+    "id": 122,
+    "answer": "B",
+    "keywords": [
+      "SageMaker Serverless Inference",
+      "provisioned concurrency",
+      "maximum concurrency"
+    ],
+    "explanationZh": "为每个模型使用独立的 SageMaker Serverless Inference 端点，可按模型的内存和最大并发分别调优；预置并发在短峰值期间维持热实例，避免冷启动影响延迟，而非峰值时可按需收缩。",
+    "pdfAnswer": "B",
+    "needsConfirmation": false
+  },
+  {
+    "id": 123,
+    "answer": "A",
+    "keywords": [
+      "AgentCore Observability",
+      "trace collection",
+      "AWS X-Ray",
+      "CloudWatch"
+    ],
+    "explanationZh": "AgentCore Observability 与追踪可关联代理、工具调用及错误路径；X-Ray 用于分布式调用链，CloudWatch 面板汇总错误、限流和延迟。该组合让问题可按团队、工具和调用链定位，而不必自行构建采集管道。",
+    "pdfAnswer": "A",
+    "needsConfirmation": false
+  },
+  {
+    "id": 124,
+    "answer": "A",
+    "keywords": [
+      "InvokeModelWithResponseStream",
+      "response streaming",
+      "CloudWatch",
+      "distributed tracing"
+    ],
+    "explanationZh": "InvokeModelWithResponseStream 在生成令牌到达时立即推送给前端，降低首字节时间和用户感知等待；CloudWatch 指标与分布式追踪保留对流式延迟、区域性能和故障的监控。",
+    "pdfAnswer": "A",
+    "needsConfirmation": false
+  },
+  {
+    "id": 125,
+    "answer": "A",
+    "keywords": [
+      "supervisor agent",
+      "collaborator agents",
+      "department-specific knowledge bases",
+      "RAG"
+    ],
+    "explanationZh": "监督代理先根据自然语言意图路由请求，再交给对应的协作代理；每个协作代理只用本部门知识库进行 RAG。数据隔离和 IAM 过滤控制访问边界，专业代理可独立扩展或新增。",
+    "pdfAnswer": "A",
+    "needsConfirmation": false
+  },
+  {
+    "id": 126,
+    "answer": "D",
+    "keywords": [
+      "provisioned throughput",
+      "geographic inference profile",
+      "data sovereignty",
+      "cross-Region failover"
+    ],
+    "explanationZh": "美国应用使用预置吞吐量保证稳定容量；欧洲应用使用欧洲地理推理配置文件，使推理流量保持在合规区域边界内。根据利用率调整预置容量，并用 EventBridge 与 Lambda 编排故障转移，分别处理性能、主权和韧性。",
+    "pdfAnswer": "D",
+    "needsConfirmation": false
+  },
+  {
+    "id": 127,
+    "answer": "C",
+    "keywords": [
+      "Amazon SQS",
+      "AWS Fargate",
+      "asynchronous escalation",
+      "confidence score"
+    ],
+    "explanationZh": "请求先经 SQS 解耦并由 Fargate 弹性消费，小模型先完成分类；只有低置信度请求进入第二个队列，由大模型异步处理。这样昂贵模型只处理必要的升级请求，队列还能吸收突发流量并隔离故障。",
+    "pdfAnswer": "C",
+    "needsConfirmation": false
+  },
+  {
+    "id": 128,
+    "answer": "C",
+    "keywords": [
+      "hierarchical chunking",
+      "hybrid search",
+      "relevance score threshold"
+    ],
+    "explanationZh": "200-token 子块提高细粒度召回，1,000-token 父块在生成时保留更完整上下文；混合检索同时处理语义相似与精确术语；提高相关性阈值可滤掉低质量检索结果，减少无关上下文诱发的幻觉。",
+    "pdfAnswer": "C",
+    "needsConfirmation": false
+  }
+]
