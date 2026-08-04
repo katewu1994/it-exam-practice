@@ -6,7 +6,7 @@ from pathlib import Path
 import pdfplumber
 
 
-SOURCE = Path('/Users/wujingjing/Desktop/AIP-C01 128题.pdf')
+SOURCE = Path(__file__).resolve().parent / 'pdf' / 'AIP-C01 128题.pdf'
 OUTPUT = Path('data/questions-en.json')
 
 
