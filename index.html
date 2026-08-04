@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="AWS AIP-C01 中文题库：逐题浏览中英文题目，不含答案与解析。" />
     <title>AWS AIP-C01 中文题库</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=question-marks-20260804" />
   </head>
   <body>
     <main class="shell">
@@ -14,6 +14,7 @@
           <span class="brand-mark">AI</span>
           <span>AIP-C01 <em>中文题库</em></span>
         </a>
+        <p class="header-tag">系统化练习 · 快速复盘</p>
       </header>
 
       <section class="toolbar" aria-label="题目导航">
@@ -23,6 +24,7 @@
         </label>
         <div class="answer-record">
           <span>已作答 <strong id="answered-count">0</strong> 题 · 答对 <strong id="correct-count">0</strong> 题</span>
+          <a class="overview-link" href="overview.html">答题一览</a>
           <button id="clear-answers" class="clear-answers" type="button">清空作答记录</button>
         </div>
         <div class="progress"><span id="current-position">1</span> / <span id="total-count">128</span></div>
@@ -31,6 +33,6 @@
       <section id="question-view" aria-live="polite"></section>
     </main>
 
-    <script type="module" src="app.js?v=meaningful-explanations-20260801"></script>
+    <script type="module" src="app.js?v=question-marks-20260804"></script>
   </body>
 </html>
