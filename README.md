@@ -2,6 +2,8 @@
 
 一个用于复习 AWS Certified AI Practitioner（AIP-C01）的静态中文练习网站。题目默认显示中文，可展开查看英文原题与选项；作答、正确性统计和重点标记都保存在浏览器本地。
 
+**在线访问：** [aws-test-opusvs5y8-neocrea.vercel.app](https://aws-test-opusvs5y8-neocrea.vercel.app/)
+
 > 非官方学习项目，仅供个人学习与复习参考。题目、答案与解析可能存在错误或歧义，请以 [AWS 官方考试指南](https://aws.amazon.com/certification/certified-ai-practitioner/) 和官方文档为准。
 
 ## 功能
