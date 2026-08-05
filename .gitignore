@@ -1,5 +1,6 @@
 # macOS Finder metadata
 .DS_Store
 
-# PDFs are retained locally and must not be published.
+# Source and review artifacts are retained locally and must not be published.
+pdf/
 *.pdf
