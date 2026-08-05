@@ -26,10 +26,12 @@ python3 -m http.server 8000
 ## 项目结构
 
 ```text
-index.html / app.js       题目练习页
-overview.html / overview.js  学习进度总览页
-data/                    中英文题面、答案与解析数据
-styles.css               页面样式
+index.html / app.js          题目练习页与启动入口
+overview.html / overview.js  学习进度总览页与启动入口
+js/core/                    数据加载、本地存储、判题与文本格式化等共享逻辑
+js/pages/                   各页面的渲染与交互逻辑
+data/                       中英文题面、答案与解析数据
+styles.css                  页面样式
 ```
 
 ## 使用与声明
