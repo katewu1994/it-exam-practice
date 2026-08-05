@@ -3,4 +3,5 @@
 
 # Source and review artifacts are retained locally and must not be published.
 pdf/
+tmp/pdfs/
 *.pdf
