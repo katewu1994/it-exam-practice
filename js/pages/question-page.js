@@ -1,4 +1,5 @@
 import { isAnswerCorrect, refreshAnswerRecords } from '../core/answers.js';
+import { EXAM } from '../core/config.js';
 import { loadStudyData } from '../core/data.js';
 import { displayedAnswer, displayedOptionLabel, escapeHtml, formatExplanation } from '../core/format.js';
 import {
@@ -9,12 +10,28 @@ import {
   saveMarkedQuestions,
 } from '../core/storage.js';
 
-const REVIEW_NOTICES = {
-  53: (choices) => '<p class="review-notice"><strong>本轮复核更新：</strong>源 PDF 此题答案仅列两项，但题干要求选择三项；站点已按复核结果使用 <strong>' + displayedAnswer('A+D+F', choices) + '</strong>。</p>',
-  64: () => '<p class="review-notice ambiguity-notice"><strong>需人工确认：</strong>本题的选项与题干约束存在解释空间；当前答案为独立判断，暂不将其视为完全确定的结论。</p>',
-  85: () => '<p class="review-notice ambiguity-notice"><strong>需人工确认：</strong>本题选项的能力边界与组合条件表述不够严谨；当前答案保留为独立判断，建议结合官方题源再确认。</p>',
-  119: () => '<p class="review-notice ambiguity-notice"><strong>需人工确认：</strong>本题候选方案均有部分合理性，题干未充分给出取舍条件；当前答案属于暂定判断。</p>',
-};
+const LEGACY_AMBIGUOUS_QUESTIONS = new Set([64, 85, 119]);
+
+function normalizedAnswer(value) {
+  return String(value || '').split('+').filter(Boolean).sort().join('+');
+}
+
+function reviewNotices(solution, choices) {
+  if (!solution) return '';
+  const notices = [];
+  if (solution.pdfAnswer && normalizedAnswer(solution.answer) !== normalizedAnswer(solution.pdfAnswer)) {
+    notices.push(
+      '<p class="review-notice"><strong>独立答案与 PDF 不同：</strong>'
+      + '本站独立判断为 <strong>' + displayedAnswer(solution.answer, choices) + '</strong>，'
+      + '源 PDF 标注为 <strong>' + displayedAnswer(solution.pdfAnswer, choices) + '</strong>。'
+      + '本题按本站的独立答案判分。</p>',
+    );
+  }
+  if (solution.needsConfirmation || (EXAM.slug === 'aws-cip' && LEGACY_AMBIGUOUS_QUESTIONS.has(solution.id))) {
+    notices.push('<p class="review-notice ambiguity-notice"><strong>需人工确认：</strong>题干或选项存在解释空间；当前答案为独立判断，建议结合官方资料再确认。</p>');
+  }
+  return notices.join('');
+}
 
 function currentId() {
   const legacyMatch = location.hash.match(/^#\/question\/(\d+)$/);
@@ -73,11 +90,11 @@ export function initQuestionPage() {
     const recordedAnswers = new Set(record.answers);
     const isMarked = state.markedQuestionIds.has(question.id);
     const displayedChoices = createQuestionOrder(question, state.choiceOrders);
-    const reviewNotice = REVIEW_NOTICES[question.id]?.(displayedChoices) || '';
+    const reviewNotice = reviewNotices(solution, displayedChoices);
     position.textContent = currentIndex + 1;
     updateAnsweredCount();
     search.value = question.id;
-    document.title = `第 ${question.id} 题｜AWS AIP-C01 中文题库`;
+    document.title = `第 ${question.id} 题｜${EXAM.title}`;
 
     const chineseChoices = displayedChoices.map((choice, index) => `
       <button class="choice${recordedAnswers.has(choice.label) ? ' user-selected' : ''}${record.isCorrect === true ? ' user-correct' : record.isCorrect === false ? ' user-incorrect' : ''}" type="button" data-answer="${choice.label}" aria-pressed="${recordedAnswers.has(choice.label)}">

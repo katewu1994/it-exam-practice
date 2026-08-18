@@ -1,11 +1,41 @@
-export const DATA_VERSION = 'expanded-explanations-20260803';
+export const DATA_VERSION = 'dual-exams-20260810';
+
+const EXAMS = {
+  'aws-cip': {
+    slug: 'aws-cip',
+    code: 'AIP-C01',
+    title: 'AWS AIP-C01 中文题库',
+    questionsPath: '../../data/questions-zh.json',
+    solutionsPath: '../../data/solutions.json',
+    storagePrefix: 'aws-aip-c01',
+  },
+  'ccar-f': {
+    slug: 'ccar-f',
+    code: 'CCAR-F',
+    title: 'Claude CCAR-F 中文题库',
+    questionsPath: '../../data/ccar-f/questions-zh.json',
+    solutionsPath: '../../data/ccar-f/solutions.json',
+    storagePrefix: 'anthropic-ccar-f',
+  },
+};
+
+const examSlug = document.documentElement.dataset.exam;
+export const EXAM = EXAMS[examSlug];
+
+if (!EXAM) throw new Error(`未知题库：${examSlug || '未指定'}`);
+
+function versionedDataUrl(path) {
+  const url = new URL(path, import.meta.url);
+  url.searchParams.set('v', DATA_VERSION);
+  return url.href;
+}
 
 export const DATA_PATHS = {
-  questions: `data/questions-zh.json?v=${DATA_VERSION}`,
-  solutions: `data/solutions.json?v=${DATA_VERSION}`,
+  questions: versionedDataUrl(EXAM.questionsPath),
+  solutions: versionedDataUrl(EXAM.solutionsPath),
 };
 
 export const STORAGE_KEYS = {
-  answers: 'aws-aip-c01-answer-records-v1',
-  markedQuestions: 'aws-aip-c01-marked-questions-v1',
+  answers: `${EXAM.storagePrefix}-answer-records-v1`,
+  markedQuestions: `${EXAM.storagePrefix}-marked-questions-v1`,
 };

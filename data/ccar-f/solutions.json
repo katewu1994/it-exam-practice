@@ -1,0 +1,1218 @@
+[
+  {
+    "id": 1,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "这些例外不是临时情况，而是仓库长期遵循的事实，应该在模型判断代码之前就提供。项目级 CLAUDE.md 会随仓库共享并在会话中加载，既能说明允许什么，也能限定允许范围；裁剪上下文或事后按关键词屏蔽，都可能同时漏掉真正的问题。",
+    "keywords": []
+  },
+  {
+    "id": 2,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "展示形式应服务于信息本身：数值需要对齐比较，新闻需要保留时间和因果脉络，分类结果适合列表。统一的内部数据契约可以保留来源，但不应强迫最终读者面对同一种版式；因此应在综合阶段按语义选择呈现方式。",
+    "keywords": []
+  },
+  {
+    "id": 3,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "工具参数把输出结构变成机器可检查的接口；配合严格工具使用时，字段名、必填项和类型会受 Schema 约束。其余方法只是提高模型遵守文本要求的概率，无法阻止缺字段、错类型或结构损坏。",
+    "keywords": []
+  },
+  {
+    "id": 4,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "提示词说“只负责综合”，工具清单却告诉模型它也可以搜索，这两个信号彼此矛盾，模型自然可能越界补资料。工具数量会影响选择难度，但题目没有任何固定阈值；根本配置问题是角色边界没有通过最小权限的工具集合落实。",
+    "keywords": []
+  },
+  {
+    "id": 5,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Schema 只能保证“容器”合法，不能教模型在不同版式里找到证据。覆盖真实失败形态的示例能具体展示哪些内容算引用、方法信息应提取到什么粒度；不改提示直接重试通常会重复漏项，正则也难以理解多变的语义结构。",
+    "keywords": []
+  },
+  {
+    "id": 6,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "改动位置和目标都非常明确，阅读函数、加入判断并运行针对性测试即可。计划模式适合方案不确定或影响面较大的任务，这里额外规划不会解决新的未知，只会增加流程开销。",
+    "keywords": []
+  },
+  {
+    "id": 7,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "同一条模型响应中可以包含多个独立工具调用，运行时据此并行执行，并在两者都返回后汇合。换模型没有消除串行等待，单纯写一条“请并行”的指令也不如明确要求产生同一轮的两个调用可靠。",
+    "keywords": []
+  },
+  {
+    "id": 8,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "财务指标需要行列对齐才能比较，新闻需要连贯文字保留时序和因果，技术分类则适合列表。内部可以统一保存事实与来源，但面向读者的格式应随内容而变，不能把所有信息压成同一种最低公分母。",
+    "keywords": []
+  },
+  {
+    "id": 9,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "寻找测试、追踪退款路径和梳理依赖是可独立推进的有界问题，分别放进子智能体的上下文能避免 45 个文件挤满主线程。主智能体只接收带文件路径和证据的结论，再做综合，既保留整体脉络，也不会把调查压缩成一份容易丢细节的单一摘要。",
+    "keywords": []
+  },
+  {
+    "id": 10,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "客户已经明确要求人工，而且说明自己重复解释过。继续劝留、调查或追问都会增加阻力；应立即执行升级，并把已有对话一并交接，避免客户第三次复述。",
+    "keywords": []
+  },
+  {
+    "id": 11,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "问题分布还在变化，固定规则和预训练分类器都容易落后于新用途。协调智能体可以根据当前问题所需的检索、分析与呈现深度逐次决定调用范围，简单题少走步骤，复杂题仍可扩展到完整流程。",
+    "keywords": []
+  },
+  {
+    "id": 12,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "开放任务需要先用低成本搜索建立地图，再按依赖中心度和影响面决定优先级。随着读取和测试暴露新依赖，计划应能调整；平均分配、全量预读或按字母开始都没有把有限精力放在风险最高的地方。",
+    "keywords": []
+  },
+  {
+    "id": 13,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "升级并不意味着丢弃已经完成的调查。把已核实的客户、订单、原因和所需批准组织成简洁交接，可以让人工直接处理；只传原话会造成重复劳动，越权尝试退款则违反权限边界。",
+    "keywords": []
+  },
+  {
+    "id": 14,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "--continue 只会选择当前目录最近的会话，不保证是认证调查。已命名会话可以直接用 --resume 加名称精确恢复，原来的对话、工具调用和分析上下文都会随之回来。",
+    "keywords": []
+  },
+  {
+    "id": 15,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "模型缺少的不是更多重试机会，而是判断下一步所需的事实。明确区分“换查询方式才能解决”和“原调用稍后重试即可”，再给出可执行建议，能让同一循环采取不同恢复路径，同时保留错误标志的语义。",
+    "keywords": []
+  },
+  {
+    "id": 16,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "只有知道哪种具体模式触发了评论，才能把“style 类经常被驳回”进一步定位为某个可修正的规则或示例。自报置信度不能解释误报来源，更长描述也只是扩写结论；保留类别并增加触发模式，才便于聚合反馈和定向改提示词。",
+    "keywords": []
+  },
+  {
+    "id": 17,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "多条问题线索最怕在压缩或滑动窗口中混在一起。按 issue 保存标识符、状态、已采取动作和待办事项，可以在切换话题时精确恢复；工具重查能更新后端状态，却不能完整重建客户已说过的目标和处理过程。",
+    "keywords": []
+  },
+  {
+    "id": 18,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "起点未知且错误是间歇性的，第一处路由或日志线索会决定下一步应追哪条调用链。动态拆解能沿证据收窄范围；一开始并行扫四层容易缺少共同关联信息，固定计划则可能继续检查已经被排除的方向。",
+    "keywords": []
+  },
+  {
+    "id": 19,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "合同修订关系本身就是需要保存的事实。把每个候选值连同出处和生效时间结构化，下游才能确定当前值并保留审计链；直接删除或忽略旧条款会丢失历史，正则也难以可靠判断复杂修订关系。",
+    "keywords": []
+  },
+  {
+    "id": 20,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "这批任务互相独立、规模大且不要求即时返回，正适合异步批处理。批量接口保持每个请求的模型和提示词不变，用 custom_id 对应乱序结果，同时直接降低输入输出令牌价格；合并请求或并发本身没有这种计价优惠。",
+    "keywords": []
+  },
+  {
+    "id": 21,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "--bare 跳过造成启动延迟的动态发现，而 append 文件仍保留 Claude Code 的默认编码代理提示并显式加入团队规范。完全替换系统提示会丢掉内置工具使用与代码导航指导，把规则复制进每次命令也会造成维护分叉。",
+    "keywords": []
+  },
+  {
+    "id": 22,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "这里真正未确定的是架构选择，不只是代码写法。先检查部署环境、连接规模、单向或双向需求和兼容性，再把取舍交给团队确认，可以避免先写一种方案后才发现基础设施不支持。",
+    "keywords": []
+  },
+  {
+    "id": 23,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "模型选择工具时主要依据名称、描述和参数契约。说明专用工具能保持语法结构、处理引用并返回什么结果，才能让模型看出它与文本替换的边界；强制移除通用工具会让不适合专用工具的编辑也无路可走。",
+    "keywords": []
+  },
+  {
+    "id": 24,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "MCP 客户端会聚合已连接服务器暴露的能力，工具带有可区分的服务器命名空间，模型可在同一会话中先调用 Git 工具再调用 Jira 工具。它不需要把整轮对话绑定到某一台服务器，也不要求应用手工逐次切换。",
+    "keywords": []
+  },
+  {
+    "id": 25,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "错误已经能在结构上合法，因此仅看空字段或版式无法覆盖高风险项。字段级分数只有经过真实标注校准后才有意义；据此按预计错误概率排序，能把有限人工优先用在最可能出错的字段，同时保留抽样监测校准是否漂移。",
+    "keywords": []
+  },
+  {
+    "id": 26,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "目标、证据质量和停止条件应明确，但搜索路径需要根据结果调整。只给笼统目标缺少验收标准，硬编码回退仍局限在预想路径；以结果标准约束、把方法选择留给子智能体，才能在新主题上主动改词、换来源并追踪旁支线索。",
+    "keywords": []
+  },
+  {
+    "id": 27,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "抽取、总结和核验有不同的成功标准和输出结构，把它们建成独立工具能让名称、参数和 Schema 一起表达意图。一个带自由文本的大工具即使增加说明，仍容易混淆任务边界；前置分类也没有修复工具本身含糊的契约。",
+    "keywords": []
+  },
+  {
+    "id": 28,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "97% 的总体值可能掩盖某类文档或某个关键字段持续出错，自动放行后这些小群体会成为系统性风险。先做分层校准才能知道“高置信度”在各切片是否同义；随后才有依据选择阈值并安排试点。",
+    "keywords": []
+  },
+  {
+    "id": 29,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "缓存最危险的部分往往不是读写 Redis，而是过期数据、失效时机、击穿、依赖不可用和一致性目标。先通过针对性问题把这些约束显化，才能形成可评审的需求；边写边发现或让 Claude 在实现中替团队做决定，返工和隐性风险都更大。",
+    "keywords": []
+  },
+  {
+    "id": 30,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "缺口只有在综合后才完全显现，因此需要一个反馈环：把每个未回答问题变成目标明确的新检索任务，再让综合阶段吸收新证据。单纯扩大首轮会增加噪声，报告中声明缺失也没有真正补全研究。",
+    "keywords": []
+  },
+  {
+    "id": 31,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "基类和依赖关系提供了这套缓存设计的骨架，从接口出发再沿实现追踪，比按文件大小或关键词零散采样更容易形成正确模型。全读会快速消耗上下文，而只看几行又可能看不到装饰器、中间件与服务之间的调用关系。",
+    "keywords": []
+  },
+  {
+    "id": 32,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "任务已明确给出权威范例，直接引用能保留函数签名、调用方式和细微约定，减少转述失真。把一次性上下文塞进长期 CLAUDE.md 会增加所有会话负担，重新全库探索则浪费时间且可能选错示例。",
+    "keywords": []
+  },
+  {
+    "id": 33,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "普通月报没有即时价值，可以用批处理换取折扣；紧急报告的 30 分钟硬约束与最长可达 24 小时的批处理不相容。按服务等级分流既不牺牲告警时效，也避免为所有普通文档支付实时价格。",
+    "keywords": []
+  },
+  {
+    "id": 34,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "必须保证的规则要落在确定性控制层，而不能依赖模型是否遵守提示。调用前 Hook 可以检查真实参数并阻止违规动作，同时走升级路径；仅让工具返回错误仍需要模型收到错误后再正确行动，不能保证交接完成。",
+    "keywords": []
+  },
+  {
+    "id": 35,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "12 个判例之间可独立分析，协调层直接扇出并在同一层收集结果，可以明显缩短总时长，也让每个分支的输入、状态和失败清晰可见。嵌套或递归代理会把执行藏到更深层，消息队列则为一次可控的并行任务增加不必要基础设施。",
+    "keywords": []
+  },
+  {
+    "id": 36,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "先定位抽象入口，再沿依赖追到具体实现，可以用最少文件建立缓存层的结构化模型。关键词片段不足以说明装饰器和中间件如何协作，按大小或全量读取则会把大量低价值细节塞进上下文。",
+    "keywords": []
+  },
+  {
+    "id": 37,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "MCP 的错误工具结果既要用 isError 明确表明调用失败，也要在 content 中提供模型可读的原因和下一步建议。空结果或伪装成成功会让模型误判，未转换的异常则无法成为智能体循环中的可操作信息。",
+    "keywords": []
+  },
+  {
+    "id": 38,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "智能体已经能解决认知部分，但不能把尚未执行的退款说成完成。透明说明已确认事项和技术阻碍，再让客户选择人工接手或稍后重试，既保留已完成的价值，也不会做虚假承诺或把所有瞬时故障都无条件升级。",
+    "keywords": []
+  },
+  {
+    "id": 39,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "当前描述没有告诉模型专用工具比文本搜索多做什么，所以 Grep 看起来已经足够。把能力、适用时机和返回结果写清楚，模型才能为传递依赖或环检测选择它；硬编码路由或删除 Grep 会损害那些确实只需文本搜索的任务。",
+    "keywords": []
+  },
+  {
+    "id": 40,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "失败原因是输入总上下文过长，不是输出上限不足。custom_id 已精确给出失败集合，因此只需对这 3% 分块重跑并在文档级合并；重跑全部或换模型会为 97% 已成功结果重复付费。",
+    "keywords": []
+  },
+  {
+    "id": 41,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "漏报来自“发现阶段就丢弃不确定项”，重复相同流程或增加思考不会改变这道门槛。先让模型保留候选并附上严重度、置信度和证据，后续才能用可调规则筛选，同时还能审计哪些低置信候选后来被证实。",
+    "keywords": []
+  },
+  {
+    "id": 42,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "综合阶段发现的缺口应反馈给负责调度的协调层，变成更具体的新检索任务，补到覆盖标准后再生成报告。首轮无限扩宽既昂贵又不针对真正缺口，把搜索工具塞给综合智能体也会打破清晰的角色和可监控流程。",
+    "keywords": []
+  },
+  {
+    "id": 43,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "不同关注点在同一提示中争夺注意力，添加一类示例已经实际损害了另一类。独立审查让每个调用拥有自己的目标、例子和评测标准，再做去重合并，能提高两边召回而不要求一个上下文同时优化冲突目标。",
+    "keywords": []
+  },
+  {
+    "id": 44,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "目标是查文件内容中的导入语句，而不是按文件名或目录名找路径。Grep 能一次跨仓库定位准确文本并返回行号，再针对命中文件读取上下文；读取清单或 auth 命名路径都会漏掉实际导入。",
+    "keywords": []
+  },
+  {
+    "id": 45,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "这里的问题是“重要性”而非“真假”：轻微风格建议可能很确定，却仍无价值。把报告范围和项目例外写成可验证标准，能在生成前排除噪声；置信度阈值或泛泛要求保守，无法区分确定但不重要的评论。",
+    "keywords": []
+  },
+  {
+    "id": 46,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "max-turns 和 max-budget-usd 是调用级的两个独立硬边界，任一达到即由 Claude Code 终止循环。外部超时不满足“由 Claude Code 执行”，更便宜模型和权限模式也不能保证轮次或总金额不超限。",
+    "keywords": []
+  },
+  {
+    "id": 47,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "当前线程已经出现上下文退化，应先把项目特有的接口、数据流和待验证假设压缩成可传递材料。物理探索放到新子智能体可获得干净窗口，同时摘要保留两套系统衔接所需的 VulkanPipeline 与 FrameGraph 事实。",
+    "keywords": []
+  },
+  {
+    "id": 48,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "保守指令把召回率问题放在了候选生成阶段，候选一旦不输出，下游再也无法恢复。先完整报告并结构化标注，再在单独步骤按严重度、证据和置信度筛选，才既能提高覆盖又能控制噪声。",
+    "keywords": []
+  },
+  {
+    "id": 49,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "项目约定应在模型判断前进入上下文，并明确适用路径与例外条件。CLAUDE.md 能由团队版本控制并持续加载；关键词过滤和行内抑制只是隐藏结果，裁掉上下文反而会让模型更难判断真实缺陷。",
+    "keywords": []
+  },
+  {
+    "id": 50,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "验证器已经给出精确、可操作的差异，应把原结果和错误一起反馈，让模型只修正不合规字段。原样重试没有新信息，temperature 为零甚至更容易重复同一错误；为少量可修复格式问题全面预处理或换模型都成本更高。",
+    "keywords": []
+  },
+  {
+    "id": 51,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "同一线程既提出方案又实施，会把先前选择和论证带入复核，形成锚定效应，较难以全新视角挑战自己的假设。题目没有证据表明上下文已满、提示不同或本地权限受限；独立 CI 会话的价值正是没有这段实施历史。",
+    "keywords": []
+  },
+  {
+    "id": 52,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "别名会让只搜原始符号漏掉真实调用点。先沿导出链建立“原名—别名”集合，再搜索每个公开名称，既比扫描所有相关模块精确，也不依赖可能过期的文档。",
+    "keywords": []
+  },
+  {
+    "id": 53,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "批处理接口正好利用可容忍的延迟，以相同模型和请求内容提供令牌折扣；custom_id 负责把可能乱序的结果映射回提交。并发只改善墙钟时间，合并会改变上下文和输出行为，换模型则违反题目约束。",
+    "keywords": []
+  },
+  {
+    "id": 54,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "结构化检查点可精确保留已完成文档、来源、抽取结果、验证状态和待办项，清单则让协调层决定每个阶段该载入什么。完整日志浪费上下文，向量搜索可能漏掉精确事实，各代理自行恢复又难以保证跨阶段一致。",
+    "keywords": []
+  },
+  {
+    "id": 55,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "输出规模随文件数增长，分片让每个结构化响应都有可预测上限，任何一组失败也可独立重试，最后按稳定键合并去重。单纯提高上限只是推迟再次截断，改 Markdown 会丢掉 Schema 保证，重试时删掉低级发现则改变审查目标。",
+    "keywords": []
+  },
+  {
+    "id": 56,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "子智能体拥有隔离的上下文，不会自动看到协调线程或其他子智能体的历史。协调层应在委派消息中明确传入要综合的材料；除非系统另行实现共享存储和取回契约，否则仅给 ID 或假定自动继承都无法工作。",
+    "keywords": []
+  },
+  {
+    "id": 57,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "--system-prompt 会替换 Claude Code 内置的编码代理提示，连同其中的文件探索和工具使用指导一起丢掉。append 方式保留默认能力，再叠加审查角色；标准输入和 -p 本身不会禁止工具，所以无需为了这一点改传输方式或额外解锁工具。",
+    "keywords": []
+  },
+  {
+    "id": 58,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "MCP 的 prompts、resources 和 tools 是三种不同能力。Prompt 会被 Claude Code 动态发现并以 `/mcp__服务器__提示名` 暴露；资源才通过 @ 引用，工具则由模型按 Schema 调用。",
+    "keywords": []
+  },
+  {
+    "id": 59,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "来源应作为与声明绑定的结构化字段贯穿每次交接，而不是靠散文中的标记或事后重新搜索。这样综合阶段可以合并事实而不丢 claim-to-source 关系，报告器也只需读取对应元数据，无须吞下所有原文。",
+    "keywords": []
+  },
+  {
+    "id": 60,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "Schema 定义的工具把结构化结果放进 tool_use 参数，而不是从自由文本中猜测 JSON 边界；启用严格模式还可保证参数满足支持的 Schema。提示、正则和重试都只能处理已经生成后的概率性失败。",
+    "keywords": []
+  },
+  {
+    "id": 61,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "批处理最关键的代价是结果可能在 24 小时内才完成。乱序可用 custom_id 解决，单次请求形态也能调整；只有团队确认延迟后的安全反馈仍能推动后续修复，50% 的成本优势才真正可用。",
+    "keywords": []
+  },
+  {
+    "id": 62,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "200,000 并不是留给文档正文的净容量，系统提示、消息封装和 2,500-token 工具 Schema 都要计入。190,000-token 文档把总输入推到边界，最靠后的内容最容易被截断或在极窄余量下处理不完整；字段数量本身无法解释长度相关的突降。",
+    "keywords": []
+  },
+  {
+    "id": 63,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "有限名额应优先覆盖预计错误风险最高的结果，低置信和源文本矛盾都是直接风险信号。按实体类型全审会浪费名额在清晰样本上，只听下游反馈太迟；随机抽样适合测总体误差，却不是发现单个高风险结果的主要路由。",
+    "keywords": []
+  },
+  {
+    "id": 64,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "正反示例不仅列出例外，还展示了判断所依据的上下文差异，模型可据此类推到新的相似结构。穷举规范无法跟上新模式，关键词会误删真正问题，泛泛要求保守则常以降低召回为代价。",
+    "keywords": []
+  },
+  {
+    "id": 65,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "这些问题都来自模型缺少项目特有的“好测试”定义和可复用 fixture 上下文。把标准和例子作为每次生成前的项目约定，能改变候选本身；事后评分仍为低质量候选付费，行覆盖率也无法衡量断言是否有意义。",
+    "keywords": []
+  },
+  {
+    "id": 66,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "失败模式已经明确且可用少量代表性例子表达：“保留原词，不猜数字”。这能直接改变语义抽取规则；增加类型字段没有告诉模型 value 怎样填，正则难覆盖丰富表达，而几百条数据通常不足以优先考虑成本更高的微调。",
+    "keywords": []
+  },
+  {
+    "id": 67,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "子智能体上下文彼此隔离，默认既不会继承协调线程，也不能直接向已完成的子智能体索取历史。把待综合内容随委派消息明确传入是题目现有架构下唯一完整路径；共享存储只有在另行设计和授权后才成立。",
+    "keywords": []
+  },
+  {
+    "id": 68,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "两个数字可能使用不同方法和样本，并不是可直接平均的同一测量。报告应保留来源、方法、区间和争议状态，让读者理解差异；强行量化或过滤会制造虚假的统一结论并丢失有价值的少数证据。",
+    "keywords": []
+  },
+  {
+    "id": 69,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "示例可以同时说明材料出现时必须抽取、复合材料怎样分隔以及大小写或词汇如何规范。低温度只会稳定当前含糊规则，必填字段可能在原文缺失时诱发编造，升级模型也没有补上具体格式契约。",
+    "keywords": []
+  },
+  {
+    "id": 70,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "人工需要足够事实直接继续操作，却不需要重读 25 轮噪声。结构化交接把身份、证据、金额、已做动作和待办集中在一起，既保留可核验细节，也避免遗漏交易 ID 或重复调查。",
+    "keywords": []
+  },
+  {
+    "id": 71,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "当前漏检说明模型没有执行“路径清单与断言逐项对应”这一步。把这项可检查任务写进同一提示即可直接补足分析过程，不必增加第二个调用；单个示例有帮助，但不如对每个条件和异常都建立对应关系完整。",
+    "keywords": []
+  },
+  {
+    "id": 72,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "Resources 适合暴露可发现、可按需读取的只读上下文目录。智能体可以先查看工单、文档结构和 Schema 资源，再只对必要对象调用工具，减少盲目搜索；合并服务器或做单服务器路由会破坏跨系统问题，通用摘要工具又把语义工作藏进每个后端。",
+    "keywords": []
+  },
+  {
+    "id": 73,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "题目已经提供了稳定、经数据验证的来源优先规则，因此可在抽取时确定单一值，同时维持下游契约。全部转人工或拒绝会浪费已知的 90% 规律，把决策推给每个下游则会产生不一致实现。",
+    "keywords": []
+  },
+  {
+    "id": 74,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "对照示例展示的是判断边界，而不是一张永远列不完的例外清单。模型可以从“相似表面模式为何在此安全、在彼处危险”的证据中归纳；关键词和保守措辞则可能把真实新问题一并压掉。",
+    "keywords": []
+  },
+  {
+    "id": 75,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "可运行的失败样例把“正确处理”变成明确、可重复验证的契约。Claude 可以针对测试做最小修改并持续重跑，既防止同一缺陷复发，也避免因整份重写引入无关变化；抽象地要求多想并没有增加判定依据。",
+    "keywords": []
+  },
+  {
+    "id": 76,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "三类破坏性变化跨越类型、异步控制流和已移除 API，单靠测试失败很可能漏掉未覆盖路径。先建立使用清单和依赖影响图，决定转换顺序与验证范围，再分阶段实施，能避免机械替换在不同模块产生不一致行为。",
+    "keywords": []
+  },
+  {
+    "id": 77,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "模型当前不知道该参数的可信来源和前置依赖，所以会为了完成调用自行补值。把“只能使用 lookup_order 已返回的 ID”写进工具契约能改变调用计划；后端验证虽必要，却只能在编造发生后拒绝，不能消除无效尝试。",
+    "keywords": []
+  },
+  {
+    "id": 78,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "托管 Code Review 会把根目录 REVIEW.md 作为审查专用且高优先级的规则注入每个审查代理，正适合定义跳过路径、排除 CI 重复项和提高证据门槛。GitHub Actions 的提示不会配置这项托管服务；CLAUDE.md 是所有 Claude Code 任务共享的项目上下文，不如 REVIEW.md 精准。",
+    "keywords": []
+  },
+  {
+    "id": 79,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "工具结果作为新的对话内容返回 Claude，下一轮模型据此判断退货期限、权限和用户意图，再选择工具或结束。除非应用另行编写规则引擎，Agent SDK 不会按 status 自动路由，也不会强制执行一开始固定好的序列。",
+    "keywords": []
+  },
+  {
+    "id": 80,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "文本与工具调用可以同时出现在响应中，所以是否有文字不能作为可靠终止信号。stop_reason 明确表示模型是在等待应用执行工具，还是已经结束当前轮；最大轮次只是安全上限，不能代替正常状态机。",
+    "keywords": []
+  },
+  {
+    "id": 81,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "恢复能保留 47 个文件的分析成本，而把已变更文件和重命名事实明确告诉智能体，可让它定向重读并更新引用。无提示恢复会把旧名称当成当前状态；新开会话不是丢细节，就是要把庞大转录重新塞入上下文。",
+    "keywords": []
+  },
+  {
+    "id": 82,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "Messages API 本身是无状态的，每次请求都必须带上需要保留的先前 user、assistant、tool_use 和 tool_result 消息。若应用只发送最新一轮，模型没有任何方式知道姓名；这不是提示措辞或固定两轮记忆限制能解决的。",
+    "keywords": []
+  },
+  {
+    "id": 83,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "外部 scratchpad 可以持续保存文件路径、接口、数据流和未决问题，即使对话压缩也能按需重新读取。定时清空会丢失工作，换大窗口只是推迟退化，全库预摘要则在不知道哪些细节重要时就做了有损压缩。",
+    "keywords": []
+  },
+  {
+    "id": 84,
+    "answer": "D",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "下游通常需要稳定的受控类别，同时又不能丢掉源文档里的真实类型。`other` 保证新类型不会破坏 Schema，detail 则保留“duplex”或“converted warehouse”等信息，之后还可据数据决定是否提升为正式类别；完全放宽为自由文本会把拼写和同义词不一致重新推给每个下游。",
+    "keywords": []
+  },
+  {
+    "id": 85,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "新会话把“上次做了什么”与“当前事实是什么”明确分离：摘要保留问题、动作和待办，实时工具调用提供唯一的当前状态。继续携带旧工具结果会让相互冲突的证据同时占据上下文；仅用一句优先最新的指令仍可能受旧信息锚定。",
+    "keywords": []
+  },
+  {
+    "id": 86,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "格式化是确定性机械操作，应在文件写入后由工具执行，而不是继续依赖模型遵守文字规则。PostToolUse 在每次 Edit 或 Write 后运行 Prettier，能得到实际格式化结果；技能、规则或模型复核仍然存在不执行或判断不一致的概率。",
+    "keywords": []
+  },
+  {
+    "id": 87,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "同批请求并不保证在五分钟内全部开始推理，后处理项的共享前缀缓存已经过期，正好解释命中率随时间下降。延长到一小时能覆盖批处理窗口并保持并发；预热仍会按五分钟过期，顺序提交反而增加总延迟。",
+    "keywords": []
+  },
+  {
+    "id": 88,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "Schema 已经允许表达“未知”，但提示没有规定何时使用 null。把证据边界写清楚能让模型在缺失信息时选择合法空值；不可空反而会加剧编造，第二次模型核验则为一个可直接说明的规则增加成本。",
+    "keywords": []
+  },
+  {
+    "id": 89,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "Fork 会复制共同的完整分析历史，但给每个方案独立的新会话 ID，后续假设、工具调用和代码设想不会互相污染。顺序探索容易让第二方案受第一方案锚定，手工摘要则会丢掉昨天读取文件的细节。",
+    "keywords": []
+  },
+  {
+    "id": 90,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "简单总结不需要隔离上下文或专门能力，协调线程已经具备全部材料，直接回答可省掉一次 80,000-token 委派和模型往返。缓存仍要启动子智能体，预生成所有粒度会为许多从未被问到的摘要提前付费。",
+    "keywords": []
+  },
+  {
+    "id": 91,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "把项目特有的测试哲学和现成 fixture 在生成前提供，模型才能选择正确断言与复用方式。行覆盖增长不代表行为被有效验证，二次评分只是事后筛选，按目录禁用则会放弃本可通过更好上下文产生的有效测试。",
+    "keywords": []
+  },
+  {
+    "id": 92,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "协调智能体可以对每个新问题判断是否需要搜索、文档分析、综合或完整报告，因此无需为持续变化的用途穷举规则。固定快慢路径和类别映射会把边界案例路由错，训练分类器也需要持续标注和更新。",
+    "keywords": []
+  },
+  {
+    "id": 93,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "结构形状、数字格式和日期格式都有明确验证错误，模型拿到反馈后能改写。完整作者名单不在输入上下文中，重试再多也不会产生缺失事实；若强迫填写，反而只会诱发编造，必须先取回外部文档。",
+    "keywords": []
+  },
+  {
+    "id": 94,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "清单是按需重复的工作流，不应占用每次非审查会话的上下文。项目级 /review 技能可版本控制、团队共享并在需要时明确触发；专用子智能体只有在确实需要隔离上下文和工具时才值得增加。",
+    "keywords": []
+  },
+  {
+    "id": 95,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "两个 fork 都继承 23 个文件形成的共同背景，却能分别推进而不让一种策略的实现选择影响另一种。新会话要重复探索或依赖有损摘要，单线程顺序比较则更容易产生路径依赖。",
+    "keywords": []
+  },
+  {
+    "id": 96,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "两项估算的方法和误差表达不同，直接平均或压成统一概率会伪造可比性。保留原始方法、区间和争议状态，读者才能判断差异来自测量口径还是事实冲突；过滤单独来源也会丢失重要研究。",
+    "keywords": []
+  },
+  {
+    "id": 97,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "角色描述限制职责，但工具许可又把越界行为呈现为合法能力，两个配置给出相反信号。应按职责缩小每个子智能体的工具集合；题目没有固定数量阈值，而且误用发生在任务已分派之后，并非协调层路由失败。",
+    "keywords": []
+  },
+  {
+    "id": 98,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "从路由、登录处理或令牌验证入口沿实际调用链前进，能只加载与身份流相关的文件，并逐步形成可证实的架构图。关键词全扫噪声太多，遍历所有服务成本失控，让新人预先选关键文件也违背其尚不了解架构的前提。",
+    "keywords": []
+  },
+  {
+    "id": 99,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "任务步骤固定且每一步都有清晰中间产物，适合用提示链分别保持关注点，最后统一合并。动态编排适用于子任务事先不可知的场景，这里每个请求都要做同样三项检查；路由反而可能跳过必需关注点。",
+    "keywords": []
+  },
+  {
+    "id": 100,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "把成功条件说清楚能保证输出可验收，同时不给搜索路径上锁，子智能体才能根据实时结果改词、换来源或追踪意外线索。完全放任缺少质量边界，固定回退和二分类仍只能处理预先设想的情况。",
+    "keywords": []
+  },
+  {
+    "id": 101,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "REVIEW.md 专门控制托管 Code Review，会以高优先级进入每个审查代理，能够直接设置跳过规则和验证标准。该服务并不是题目中的 GitHub Actions 流水线，CLAUDE.md 又会影响仓库内其他 Claude 任务，因此都不如审查专用文件准确。",
+    "keywords": []
+  },
+  {
+    "id": 102,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "分页依赖实际内容高度，而内容高度又受列宽和日期渲染影响，应按依赖顺序稳定底层布局，再处理上层分页。每一步渲染验证能隔离回归来源；一次同时改三项会让失败原因难以判断，也可能反复推翻前一步假设。",
+    "keywords": []
+  },
+  {
+    "id": 103,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "完整错误码或独特消息是高选择性的内容锚点，Grep 通常能一次定位定义或格式化位置。按目录和通用错误模块搜索范围更大且可能漏掉内联消息，逐服务阅读更没有必要。",
+    "keywords": []
+  },
+  {
+    "id": 104,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "三项要求强度不同：不可修改是权限边界，应由 deny 强制；日志模块是需要模型判断的编码偏好，适合 CLAUDE.md；格式化是确定性动作，应由编辑后 Hook 执行。把硬禁令写成说明或路径规则仍然只是行为指导，不能保证阻止写入。",
+    "keywords": []
+  },
+  {
+    "id": 105,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "按文件组划分能从输入侧控制每次可能产生的发现数量，使结构化输出完整且单组可重试。提高上限不能为任意大的拉取请求提供保证，改格式会牺牲机器契约，只保留高严重度则会悄悄降低审查覆盖。",
+    "keywords": []
+  },
+  {
+    "id": 106,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "项目级技能目录会生成团队可调用的斜杠命令，随仓库版本控制后每个人获得同一流程和更新历史。用户目录只服务个人，CLAUDE.md 会在不迁移组件时也占上下文，settings 也不是定义技能正文的位置。",
+    "keywords": []
+  },
+  {
+    "id": 107,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "协调层直接掌握每个并行分支的任务、结果和失败，既能利用判例之间的独立性，也能在综合前设置统一同步点。嵌套和递归让可观测性变差，消息队列则增加持久调度和状态管理成本。",
+    "keywords": []
+  },
+  {
+    "id": 108,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "把来源当作结构化字段与声明一起传递，综合阶段可以保留和合并映射，而不依赖容易在改写中损坏的行内文本标记。全量原文浪费上下文，事后重新搜索也可能找不到当时使用的同一证据。",
+    "keywords": []
+  },
+  {
+    "id": 109,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "草稿提供报告结构，来源索引则为每个关键声明保留足够的 URL 和证据片段，报告器无需重读 120,000 tokens。只给来源名不足以核验，事后匹配容易误归因，传完整上下文则把已完成的压缩工作全部抵消。",
+    "keywords": []
+  },
+  {
+    "id": 110,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "AgentDefinition 只定义可用的子智能体，真正启动仍要通过 Agent 工具。若 allowedTools 把它排除，模型只能用文字描述委派而无法产生工具调用；上下文转发在调用发生之后才相关，截断通常也会留下明确的 stop_reason。",
+    "keywords": []
+  },
+  {
+    "id": 111,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "问题同时涉及边界、证据和粒度，几组覆盖这些差异的完整示例能展示预期判断。固定 10–20 项可能截断确实包含更多技能的文档，后处理只能规范已经抽出的值，扩展 Schema 也不会自动阻止推断或错误拆分。",
+    "keywords": []
+  },
+  {
+    "id": 112,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "语义验证已经产生了针对当前结果的诊断，把诊断反馈给模型可以只修正相关字段，并再次验证。自动改总额可能把 OCR 错误当真，原样重试缺少新信息；Schema 对跨字段求和或外部 ID 格式的语义约束能力有限。",
+    "keywords": []
+  },
+  {
+    "id": 113,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "批量接口主要用延迟换成本，最坏可能等到 24 小时。乱序有 custom_id 可关联，审查形态也可设计；如果一天后的安全发现已经失去意义，再大的折扣也不适合该工作流。",
+    "keywords": []
+  },
+  {
+    "id": 114,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "输出契约若强制模型为不存在的信息填值，就与事实边界冲突。让这些字段可省略（或在实际设计中显式允许 null）为“原文没有”提供合法表示；占位文本污染类型，自报置信度也不能弥补 Schema 的错误要求。",
+    "keywords": []
+  },
+  {
+    "id": 115,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "分析阶段最清楚“已经有什么、还缺什么”，应把缺口结构化成下一轮检索目标，形成可停止的反馈循环。预规划无法预见读完资料后才暴露的空白，只再次搜索却不重做分析也无法判断新证据是否真正填上缺口。",
+    "keywords": []
+  },
+  {
+    "id": 116,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "运行时只有看到同一响应里的两个独立 tool_use 才能把它们作为一个并行组执行。换模型仍是串行，文字要求若没转化成调用结构就没有并发，复制协调智能体则增加状态聚合和一致性问题。",
+    "keywords": []
+  },
+  {
+    "id": 117,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "测试把正确性和性能变成每轮都可重复测量的反馈，而不是依赖人工描述“看起来还不对”。实现可以从最小可行版本开始，针对失败逐步修正，同时防止后续优化破坏已通过的环或断开图场景。",
+    "keywords": []
+  },
+  {
+    "id": 118,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "参数描述需要告诉模型数据的来源约束和调用前置条件，才能让它先查订单再退款。强制“调用某个工具”并未指定调用顺序，后端校验只拦截后果，预处理也无法为没有说出订单号的客户创造真实 ID。",
+    "keywords": []
+  },
+  {
+    "id": 119,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "机器可读的 retriable 字段消除了模型从措辞猜测错误类别的工作，友好说明又让它能立刻解释为何不能退款并给出下一步。前置资格工具不能覆盖“已退款”等执行时状态变化，纯文本即使工具层处理了技术重试，仍可能让模型误重试业务错误。",
+    "keywords": []
+  },
+  {
+    "id": 120,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "第一轮明确强制 extract_metadata 能建立所需 DOI，再把工具结果加入消息，后续恢复 auto 让 Claude 选择引用查询或 DOI 核验。工具排列没有优先保证，永久强制同一工具会阻止补充阶段，any 也不保证选中哪一个。",
+    "keywords": []
+  },
+  {
+    "id": 121,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "产生错误的工具最接近真实异常，应该一次返回类别、可重试性和可操作说明。这样智能体无需再调用分类工具或猜纯文本；对权限或验证错误统一重试既浪费时间，也无法解决根因。",
+    "keywords": []
+  },
+  {
+    "id": 122,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "工具调用把结果放进 Schema 定义的参数边界，严格工具使用还能约束必填项和类型。自由文本模板和二次格式化都仍可能在某一轮生成无效结构，正则只是在错误发生后尝试挽救。",
+    "keywords": []
+  },
+  {
+    "id": 123,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "Edit 做精确字符串替换，匹配不唯一时应扩大 old_string 的前后上下文，直到只出现一次；这样修改仍局限于目标位置。replace_all 会改到多处，追加不符合位置要求，整文件 Write 虽能完成，却扩大了覆盖范围并增加无关内容被误改的风险。",
+    "keywords": []
+  },
+  {
+    "id": 124,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "分层随机样本能产生有统计意义的高置信错误率时间序列，同时不会只看到已知版式问题。第二次模型可能重复同一自信错误，启发式只能抓已知模式，单纯下调阈值也无法识别置信度本身失准的样本。",
+    "keywords": []
+  },
+  {
+    "id": 125,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "两个命令行参数分别是 Claude Code 对当前调用的轮次和预算硬限制，达到任一边界即可停止。模型价格、权限和外部任务超时都不能同时约束实际循环次数与累计美元成本。",
+    "keywords": []
+  },
+  {
+    "id": 126,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "实测已经表明两类示例在同一上下文中互相稀释。分开调用能给每个目标独立的注意力、例子和质量阈值，再统一去重；单纯增加上下文或换模型并没有消除提示目标之间的竞争。",
+    "keywords": []
+  },
+  {
+    "id": 127,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "实施历史会把模型锚定在自己已经接受的设计和假设上，自审时更容易沿原论证确认，而不是从敌对视角重新推翻。其他选项都假设了题目没有说明的提示、权限或容量差异。",
+    "keywords": []
+  },
+  {
+    "id": 128,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "标准协调模式由父智能体收集一个分支的结果，再构造下一个子任务的委派上下文。子智能体默认彼此隔离，不会自动互调或共享记忆；消息队列和共享存储都需要应用另外实现。",
+    "keywords": []
+  },
+  {
+    "id": 129,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "三种操作的产物和验收方式不同，独立工具能在模型选择阶段就把意图和输出 Schema 对齐。枚举改善了一部分歧义，但仍让一个工具承担多个不相同契约；外部预分类也不能修复工具返回格式不明确的问题。",
+    "keywords": []
+  },
+  {
+    "id": 130,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "九个未变文件的分析仍有价值，没必要全部推倒。明确列出三处变更可让智能体重读、比较并更新受影响的调用关系，同时保留昨天的整体理解；静默恢复则会把旧代码当现状。",
+    "keywords": []
+  },
+  {
+    "id": 131,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "当前瓶颈是候选在第一阶段就被保守门槛删除。先扩大候选集，再用独立验证检查具体代码行为和证据，能够分别优化召回与精度；保留原指令会继续漏报，只用历史类别程序过滤也难识别新的误报模式。",
+    "keywords": []
+  },
+  {
+    "id": 132,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "指标必须连同观测时间才有意义；有了采集期，综合阶段才能判断是趋势、口径差异还是真冲突。只保留新值会丢掉增长基线，把发布日期等同数据时间也可能犯错，因此应让时间元数据随数字一起传递。",
+    "keywords": []
+  },
+  {
+    "id": 133,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "path-scoped rules 只有当 Claude 处理匹配路径时才进入上下文，正面解决无关规则占用。标题和 @ 导入只改善组织，导入内容仍会随根文件加载；子目录 CLAUDE.md 也可按读取触发，但专门的 paths 能同时按目录和扩展名精确声明范围。",
+    "keywords": []
+  },
+  {
+    "id": 134,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "升级原因既包括用户明确选择，也包括权限边界和实际无法推进，三者比固定调用次数或情绪分数更贴近任务状态。纯规则引擎难覆盖高度模糊的新问题，三次失败可能过早或过晚，客户也可能语气平静却明确需要人工。",
+    "keywords": []
+  },
+  {
+    "id": 135,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "出处关系应是中间数据模型的一部分，而不是写进容易被改写的散文或事后猜回。结构化映射能在去重、合并和改写声明时同步维护来源集合，也比保留整段日志节省大量上下文。",
+    "keywords": []
+  },
+  {
+    "id": 136,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "“确定”与“值得报告”是两条不同轴，确定的风格意见仍可能无价值。直接定义严重性范围和项目例外，能让模型在生成前按团队目标筛选；置信阈值只衡量真假，不衡量处理收益。",
+    "keywords": []
+  },
+  {
+    "id": 137,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "--bare 针对造成延迟的动态加载，append 文件又保留 Claude Code 默认代理能力并注入唯一必需的规范。替换系统提示会失去内置代码导航指导，复制规则到命令行则容易与仓库文件不同步。",
+    "keywords": []
+  },
+  {
+    "id": 138,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "项目作用域的 .mcp.json 可以提交版本控制，让仓库成员共享同一服务器配置；用户或本地个人配置保存在 ~/.claude.json，不会影响团队。把实验服务器提交项目会强迫别人看到它，反过来把共享服务器只放个人配置又无法同步。",
+    "keywords": []
+  },
+  {
+    "id": 139,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "替换整个系统提示会移除 Claude Code 默认的代理身份、仓库探索和工具使用引导。append 在保留这些内置行为的同时加入审查目标；-p 和标准输入并不会天然关闭文件工具，所以另加允许清单或改输入形式不是根本修复。",
+    "keywords": []
+  },
+  {
+    "id": 140,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "不一致本身是重要证据，不能为了通过验证而偷偷改金额。分别保留票面值和计算值能指出冲突并让人工回看 OCR；比例调整会制造不存在的账目，第二个模型也无法凭同一份含糊输入保证判断正确。",
+    "keywords": []
+  },
+  {
+    "id": 141,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "错误来自多个工具表达同一业务动作或返回同一数据，合并后模型不再需要在近义工具间猜测，只需在一个清晰 Schema 内选择动作或可选信息。拆代理只是把补偿工具仍放在同一财务代理中，延迟加载和示例也没有消除接口本身的重叠。",
+    "keywords": []
+  },
+  {
+    "id": 142,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "草稿负责内容结构，来源索引负责证据可核验性，两者合起来已覆盖报告器需要的信息。来源名称没有具体证据，事后匹配容易错连，完整原文则让前序 120,000 到 3,000 tokens 的压缩失去意义。",
+    "keywords": []
+  },
+  {
+    "id": 143,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "静态提示无法检查未提供的调用点，再多推理要求也不能创造证据。赋予受轮次限制的 Read/Grep/Glob 能力后，模型可从变更符号出发搜索真实引用，只加载相关上下文；固定两跳图既可能漏动态关系，也可能塞入大量无关文件。",
+    "keywords": []
+  },
+  {
+    "id": 144,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "目标字符串位于文件内容，Grep 可直接跨仓库匹配并返回文件与行号。Glob 和 ls 只看路径名称，沿导入阅读又可能漏掉未从主入口可达或动态加载的代码。",
+    "keywords": []
+  },
+  {
+    "id": 145,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "简单归纳不需要上下文隔离，现有协调线程直接作答消除了额外模型调用和大上下文交接。缓存只能降低重复前缀成本而不能消除等待，预生成会为未必发生的问题付费，按需回调又增加多轮编排。",
+    "keywords": []
+  },
+  {
+    "id": 146,
+    "answer": "A",
+    "pdfAnswer": "A",
+    "needsConfirmation": false,
+    "explanationZh": "漏报的直接原因是模型无法访问未改调用者。智能体工具让它根据具体符号选择性搜索和读取，并用真实代码验证猜测；单靠提示无法看到缺失内容，固定依赖扩张则容易在大型仓库中过载或漏掉非静态关系。",
+    "keywords": []
+  },
+  {
+    "id": 147,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "子智能体定义只有通过 Agent 工具才会被实例化；工具未获准时，模型最多用自然语言表达意图。上下文隔离不会阻止调用本身，若是输出截断通常也会有相应终止原因，而不是安静地继续。",
+    "keywords": []
+  },
+  {
+    "id": 148,
+    "answer": "C",
+    "pdfAnswer": "C",
+    "needsConfirmation": false,
+    "explanationZh": "max_turns 触发后模型已没有机会再遵守提示或调用工具，保证必须由模型循环外的确定性代码完成。终态检查还能只对真正未结束的会话执行幂等升级；80% 阈值会过早放弃可解决案例，增加第二个代理仍可能耗尽自己的预算。",
+    "keywords": []
+  },
+  {
+    "id": 149,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "结构化检查点和协调清单能准确记录完成的文档、来源、Schema 版本、验证状态和剩余任务，恢复时只加载当前阶段所需部分。向量检索不是完整恢复记录，完整日志浪费窗口，各代理各自恢复又缺少统一进度真相。",
+    "keywords": []
+  },
+  {
+    "id": 150,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "模型擅长识别图标或文字表达的语义，应用代码则更适合移除货币符号、解析小数和映射受控标签。把规范化规则做成可测试代码可得到一致、可审计结果；提示式转换和多数投票仍是概率行为。",
+    "keywords": []
+  },
+  {
+    "id": 151,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "错误处理涉及哪些异常该捕获、怎样保持原子性、记录哪些诊断信息以及恢复行为，必须先理解多条执行路径再提出一致策略并复核。函数改名目标和变换都确定，搜索全部引用、修改并运行测试即可，额外审批阶段收益较小。",
+    "keywords": []
+  },
+  {
+    "id": 152,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "需求只是读取标准 Jira 能力，可信的现成 MCP 服务器已经封装认证、Schema 和可发现工具，无需维护另一层自建服务。curl 容易暴露凭据并重复拼请求，导出文件会过期；只有出现现成服务器不支持的专有工作流时才值得自建。",
+    "keywords": []
+  }
+]

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN" data-exam="aws-cip">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AWS AIP-C01 中文题库：逐题练习中英文题目，查看答案与解析。" />
+    <title>AWS AIP-C01 中文题库</title>
+    <link rel="stylesheet" href="../styles.css?v=dual-exams-20260810" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="site-header">
+        <a class="brand" href="?question=1" aria-label="回到第 1 题">
+          <span class="brand-mark">AI</span>
+          <span>AIP-C01 <em>中文题库</em></span>
+        </a>
+        <nav class="exam-switcher" aria-label="切换题库">
+          <a class="is-current" href="./" aria-current="page">AWS</a>
+          <a href="../ccar-f/">CCAR-F</a>
+          <a href="../">全部</a>
+        </nav>
+      </header>
+
+      <section class="toolbar" aria-label="题目导航">
+        <label class="search">
+          <span>查找题目</span>
+          <input id="question-search" type="search" placeholder="输入题号，如 24" inputmode="numeric" />
+        </label>
+        <div class="answer-record">
+          <span>已作答 <strong id="answered-count">0</strong> 题 · 答对 <strong id="correct-count">0</strong> 题</span>
+          <a class="overview-link" href="overview.html">答题一览</a>
+          <button id="clear-answers" class="clear-answers" type="button">清空作答记录</button>
+        </div>
+        <div class="progress"><span id="current-position">1</span> / <span id="total-count">128</span></div>
+      </section>
+
+      <section id="question-view" aria-live="polite"></section>
+    </main>
+
+    <script type="module" src="../app.js?v=dual-exams-20260810"></script>
+  </body>
+</html>

@@ -3,36 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="AWS AIP-C01 中文题库：逐题浏览中英文题目，不含答案与解析。" />
-    <title>AWS AIP-C01 中文题库</title>
-    <link rel="stylesheet" href="styles.css?v=question-marks-20260804" />
+    <meta name="description" content="中文认证考试练习题库：选择 AWS AIP-C01 或 Claude CCAR-F 开始练习。" />
+    <title>中文认证考试题库</title>
+    <link rel="stylesheet" href="styles.css?v=dual-exams-20260810" />
   </head>
   <body>
-    <main class="shell">
+    <main class="shell catalog-shell">
       <header class="site-header">
-        <a class="brand" href="?question=1" aria-label="回到第 1 题">
-          <span class="brand-mark">AI</span>
-          <span>AIP-C01 <em>中文题库</em></span>
+        <a class="brand" href="./" aria-label="题库首页">
+          <span class="brand-mark">IT</span>
+          <span>认证考试 <em>中文题库</em></span>
         </a>
-        <p class="header-tag">系统化练习 · 快速复盘</p>
+        <p class="header-tag">选择题库 · 开始练习</p>
       </header>
 
-      <section class="toolbar" aria-label="题目导航">
-        <label class="search">
-          <span>查找题目</span>
-          <input id="question-search" type="search" placeholder="输入题号，如 24" inputmode="numeric" />
-        </label>
-        <div class="answer-record">
-          <span>已作答 <strong id="answered-count">0</strong> 题 · 答对 <strong id="correct-count">0</strong> 题</span>
-          <a class="overview-link" href="overview.html">答题一览</a>
-          <button id="clear-answers" class="clear-answers" type="button">清空作答记录</button>
-        </div>
-        <div class="progress"><span id="current-position">1</span> / <span id="total-count">128</span></div>
+      <section class="catalog-hero" aria-labelledby="catalog-title">
+        <p class="section-kicker">PRACTICE LIBRARY</p>
+        <h1 id="catalog-title">选择要练习的题库</h1>
+        <p>中文题面、英文原题、即时判题、逐题解析与独立学习进度。</p>
       </section>
 
-      <section id="question-view" aria-live="polite"></section>
+      <section class="catalog-grid" aria-label="可用题库">
+        <a class="catalog-card aws" href="aws-cip/">
+          <span class="catalog-route">/aws-cip</span>
+          <div>
+            <p class="catalog-provider">Amazon Web Services</p>
+            <h2>AWS AIP-C01</h2>
+            <p>128 道中文练习题，覆盖 AWS Certified Generative AI Developer – Professional 相关知识。</p>
+          </div>
+          <span class="catalog-enter">进入题库 <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="catalog-card ccar" href="ccar-f/">
+          <span class="catalog-route">/ccar-f</span>
+          <div>
+            <p class="catalog-provider">Anthropic</p>
+            <h2>Claude CCAR-F</h2>
+            <p>152 道中文练习题，附独立答案、推理解析及 PDF 答案差异提示。</p>
+          </div>
+          <span class="catalog-enter">进入题库 <span aria-hidden="true">→</span></span>
+        </a>
+      </section>
+
+      <p class="catalog-note">非官方学习项目，仅供个人学习与复习参考；认证名称及商标归各自权利人所有。</p>
     </main>
 
-    <script type="module" src="app.js?v=architecture-20260805"></script>
+    <script>
+      if (new URLSearchParams(location.search).has('question')) {
+        location.replace(`aws-cip/${location.search}`);
+      }
+    </script>
   </body>
 </html>
