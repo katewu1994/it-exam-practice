@@ -96,12 +96,16 @@ export function initQuestionPage() {
     search.value = question.id;
     document.title = `第 ${question.id} 题｜${EXAM.title}`;
 
-    const chineseChoices = displayedChoices.map((choice, index) => `
+    const englishFirst = EXAM.primaryLanguage === 'en';
+    const secondaryLanguage = englishFirst ? 'zh-CN' : 'en';
+    const primaryCategory = englishFirst ? question.category : question.categoryZh;
+    const secondaryCategory = englishFirst ? question.categoryZh : question.category;
+    const primaryChoices = displayedChoices.map((choice, index) => `
       <button class="choice${recordedAnswers.has(choice.label) ? ' user-selected' : ''}${record.isCorrect === true ? ' user-correct' : record.isCorrect === false ? ' user-incorrect' : ''}" type="button" data-answer="${choice.label}" aria-pressed="${recordedAnswers.has(choice.label)}">
         <span class="choice-label">${displayedOptionLabel(index)}</span>
-        <p>${escapeHtml(choice.textZh)}</p>
+        <p lang="${EXAM.primaryLanguage}">${escapeHtml(englishFirst ? choice.text : choice.textZh)}</p>
       </button>`).join('');
-    const englishChoices = displayedChoices.map((choice, index) => `<li><strong>${displayedOptionLabel(index)}.</strong> ${escapeHtml(choice.text)}</li>`).join('');
+    const secondaryChoices = displayedChoices.map((choice, index) => `<li><strong>${displayedOptionLabel(index)}.</strong> ${escapeHtml(englishFirst ? choice.textZh : choice.text)}</li>`).join('');
     const answerFeedback = record.isCorrect === true
       ? '<p class="answer-feedback correct">本题回答正确，已记录。</p>'
       : record.isCorrect === false
@@ -123,23 +127,23 @@ export function initQuestionPage() {
           <div class="eyebrow">
             <div class="question-meta">
               <span>第 ${question.id} 题</span>
-              ${question.categoryZh ? `<span class="badge">${escapeHtml(question.categoryZh)}</span>` : ''}
+              ${primaryCategory ? `<span class="badge" lang="${EXAM.primaryLanguage}">${escapeHtml(primaryCategory)}</span>` : ''}
             </div>
             <button class="mark-question${isMarked ? ' is-marked' : ''}" type="button" data-mark-question aria-pressed="${isMarked}" aria-label="${isMarked ? '取消标记' : '标记'}第 ${question.id} 题">
               <span class="mark-icon" aria-hidden="true">${isMarked ? '&#9733;' : '&#9734;'}</span>
               <span>${isMarked ? '已标记' : '标记此题'}</span>
             </button>
           </div>
-          <h1>${escapeHtml(question.promptZh)}</h1>
+          <h1 lang="${EXAM.primaryLanguage}">${escapeHtml(englishFirst ? question.prompt : question.promptZh)}</h1>
         </header>
-        <section class="choices" aria-label="中文选项">${chineseChoices}</section>
+        <section class="choices" aria-label="${englishFirst ? '英文' : '中文'}选项">${primaryChoices}</section>
         ${answerFeedback}
         <details>
-          <summary>显示英文原题与选项</summary>
-          <div class="english">
-            ${question.category ? `<h2>${escapeHtml(question.category)}</h2>` : ''}
-            <p>${escapeHtml(question.prompt)}</p>
-            <ul>${englishChoices}</ul>
+          <summary>${englishFirst ? '显示中文题目与选项' : '显示英文原题与选项'}</summary>
+          <div class="translation" lang="${secondaryLanguage}">
+            ${secondaryCategory ? `<h2>${escapeHtml(secondaryCategory)}</h2>` : ''}
+            <p>${escapeHtml(englishFirst ? question.promptZh : question.prompt)}</p>
+            <ul>${secondaryChoices}</ul>
           </div>
         </details>
         ${result}

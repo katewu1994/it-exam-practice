@@ -1,6 +1,6 @@
 # 中文认证考试练习题库
 
-一个静态中文练习网站，目前包含 AWS Certified Generative AI Developer – Professional（AIP-C01）与 Claude Certified Architect – Foundations（CCAR-F）两套题库。题目默认显示中文，可展开查看英文原题与选项；作答、正确性统计和重点标记都保存在浏览器本地，并按题库隔离。
+一个静态中文练习网站，目前包含 AWS Certified Generative AI Developer – Professional（AIP-C01）与 Claude Certified Architect – Foundations（CCAR-F）两套题库。AWS 题库默认显示中文，下方可展开英文原题与选项；CCAR-F 默认显示英文原题与选项，下方可展开中文翻译。作答、正确性统计和重点标记都保存在浏览器本地，并按题库隔离。
 
 
 > 非官方学习项目，仅供个人学习与复习参考。题目、答案与解析可能存在错误或歧义，请以相应认证的官方考试指南和产品文档为准。
@@ -9,7 +9,7 @@
 
 - 从首页选择 `/aws-cip`（128 题）或 `/ccar-f`（152 题）
 - 支持题号跳转与前后题切换
-- 默认中文题面，可按需展开英文原题及选项
+- AWS 默认中文题面、下方展开英文；CCAR-F 默认英文题面、下方展开中文
 - 作答后即时记录对错；每次会话随机排列选项
 - 标记重点题目，并在“答题一览”中按已标记、未作答、答对和答错分类查看
 - CCAR-F 解析不采用来源 PDF 的解析文字；先独立判断，再仅用 PDF 标注答案做差异核对

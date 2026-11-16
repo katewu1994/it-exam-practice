@@ -100,10 +100,11 @@ button, input { font: inherit; }
 details { margin: 0 30px 24px; border: 1px solid #e1e7f0; border-radius: 13px; background: #fafbfe; }
 summary { padding: 14px 16px; color: #465f87; cursor: pointer; font-size: 13px; font-weight: 750; user-select: none; }
 details[open] summary { border-bottom: 1px solid #e7ebf2; }
-.english { padding: 3px 17px 19px; color: #56647b; font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.7; }
-.english h2 { margin: 14px 0 9px; color: #3f567b; font-family: Inter, "PingFang SC", sans-serif; font-size: 12px; }
-.english p { margin: 0 0 13px; }
-.english ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.translation { padding: 3px 17px 19px; color: #56647b; font-size: 15px; line-height: 1.7; }
+.translation:lang(en) { font-family: Georgia, "Times New Roman", serif; }
+.translation h2 { margin: 14px 0 9px; color: #3f567b; font-family: Inter, "PingFang SC", sans-serif; font-size: 12px; }
+.translation p { margin: 0 0 13px; }
+.translation ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 
 .result { overflow: hidden; padding: 0; border-color: #c9dbfa; background: #f6f9ff; }
 .result summary { color: #2455a2; background: #edf4ff; }
