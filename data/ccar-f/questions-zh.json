@@ -4401,5 +4401,121 @@
     ],
     "categoryZh": "工具设计与 MCP 集成",
     "promptZh": "你正在使用 Claude Agent SDK 构建开发者效率工具。该智能体帮助工程师探索陌生代码库、理解遗留系统、生成样板代码并自动处理重复任务。它会使用 Read、Write、Bash、Grep 和 Glob 等内置工具，也会连接模型上下文协议（MCP）服务器。工程师审查代码时经常要对照 Jira 工单的描述、验收标准和最新评论，目前只能手工复制到对话。团队希望智能体直接访问这些标准 Jira 数据。最有效的做法是什么？"
+  },
+  {
+    "id": 153,
+    "category": "Prompt Engineering and Structured Output",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your system must extract event details from calendar invitations and output JSON that strictly conforms to a schema with fields for title, date, time, location, and attendees. Downstream systems reject any malformed or non-conformant JSON. What approach provides the most reliable schema compliance?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Include detailed JSON formatting instructions and the target schema in your prompt, then parse Claude's text response as JSON.",
+        "textZh": "在提示中加入详细的 JSON 格式说明和目标 Schema，再把 Claude 的文本响应解析为 JSON。"
+      },
+      {
+        "label": "B",
+        "text": "Use structured outputs: define the JSON schema in output_config.format so responses match it.",
+        "textZh": "使用结构化输出：在 output_config.format 中定义 JSON Schema，使响应符合该结构。"
+      },
+      {
+        "label": "C",
+        "text": "Append instructions like \"Output only valid JSON matching the schema exactly\" and implement retry logic to re-prompt when JSON parsing fails.",
+        "textZh": "追加“只输出完全符合 Schema 的有效 JSON”等指令，并在 JSON 解析失败时重新提示模型。"
+      },
+      {
+        "label": "D",
+        "text": "Instruct Claude in the system prompt to respond only with valid JSON matching the schema, and wrap it in a json fence for extraction.",
+        "textZh": "在系统提示中要求 Claude 只返回符合 Schema 的有效 JSON，并用 json 代码围栏包裹以便提取。"
+      }
+    ],
+    "categoryZh": "提示工程与结构化输出",
+    "promptZh": "你正在使用 Claude 构建结构化数据抽取系统。系统从非结构化文档中提取信息，用 JavaScript 对象表示法（JSON）Schema 验证输出，并保持较高准确率；它还必须妥善处理边界情况并与下游系统集成。系统必须从日历邀请中提取事件详情，并输出严格符合 Schema 的 JSON，字段包括标题、日期、时间、地点和参与者。下游系统会拒绝任何格式错误或不符合 Schema 的 JSON。哪种方法最能可靠地保证输出符合 Schema？"
+  },
+  {
+    "id": 154,
+    "category": "Context Management and Reliability",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction tool's JSON schema has 12 fields with detailed descriptions. Each document is sent in its own request with a 200-token system prompt, and documents average 800 tokens, which led to a pre-launch estimate of about 1,000 input tokens per request. After the first week, usage.input_tokens averages about 3,900 per request. What is the most likely explanation?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Ticket text tokenizes less efficiently than estimated because of special characters and non-English content.",
+        "textZh": "工单文本含有特殊字符和非英文内容，分词效率低于预期。"
+      },
+      {
+        "label": "B",
+        "text": "Tokens generated for the tool call are being reported as input tokens.",
+        "textZh": "工具调用生成的 tokens 被计入了输入 tokens。"
+      },
+      {
+        "label": "C",
+        "text": "Prompt caching is not enabled, so the system prompt is counted at full weight each time.",
+        "textZh": "没有启用提示缓存，所以每次都按完整数量计算系统提示的 tokens。"
+      },
+      {
+        "label": "D",
+        "text": "The tool definition is sent with every request and counts toward input tokens.",
+        "textZh": "每次请求都会发送工具定义，而工具定义也计入输入 tokens。"
+      }
+    ],
+    "categoryZh": "上下文管理与可靠性",
+    "promptZh": "你正在使用 Claude 构建结构化数据抽取系统。系统从非结构化文档中提取信息，用 JavaScript 对象表示法（JSON）Schema 验证输出，并保持较高准确率；它还必须妥善处理边界情况并与下游系统集成。抽取工具的 JSON Schema 包含 12 个字段及详细说明。每份文档单独发送一次请求，系统提示为 200 tokens，文档平均为 800 tokens，因此上线前预计每次请求约消耗 1,000 个输入 tokens。运行第一周后，usage.input_tokens 却平均达到约 3,900。最可能的原因是什么？"
+  },
+  {
+    "id": 155,
+    "category": "Agentic Architecture and Orchestration",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction system exposes three tools: extract_fields, whose schema-validated JSON output is written to your database, plus lookup_vendor and flag_for_review, which support operator questions and edge cases. Every submitted document must produce an extract_fields record. In testing, when an operator submits a document with a request like \"extract this invoice and check whether the vendor already exists,\" Claude sometimes calls only lookup_vendor and never calls extract_fields, so no record is written. Which approach guarantees an extract_fields call for every submitted document while still allowing Claude to handle the rest of the operator's request?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Set tool_choice to \"auto\" and reorder the tool definitions so extract_fields appears first in the tools array, since Claude prioritizes earlier-listed tools.",
+        "textZh": "将 tool_choice 设为 \"auto\"，并把 extract_fields 放在 tools 数组首位，因为 Claude 会优先使用排在前面的工具。"
+      },
+      {
+        "label": "B",
+        "text": "Set tool_choice to {\"type\": \"tool\", \"name\": \"extract_fields\"} on the first request after submission, then return tool_choice to \"auto\" on subsequent turns so Claude can address the rest of the operator's request.",
+        "textZh": "文档提交后的首次请求将 tool_choice 设为 {\"type\": \"tool\", \"name\": \"extract_fields\"}，后续轮次恢复为 \"auto\"，让 Claude 处理其余事项。"
+      },
+      {
+        "label": "C",
+        "text": "Set tool_choice to {\"type\": \"tool\", \"name\": \"extract_fields\"} for every API call in the pipeline, ensuring Claude always extracts fields before addressing the rest of the operator's request.",
+        "textZh": "流水线中的每次 API 调用都将 tool_choice 设为 {\"type\": \"tool\", \"name\": \"extract_fields\"}，确保 Claude 始终先抽取字段再处理其他事项。"
+      },
+      {
+        "label": "D",
+        "text": "Set tool_choice to \"any\" so Claude must use a tool, combined with system prompt instructions prioritizing extract_fields.",
+        "textZh": "将 tool_choice 设为 \"any\"，要求使用某个工具，并在系统提示中要求优先调用 extract_fields。"
+      }
+    ],
+    "categoryZh": "智能体架构与编排",
+    "promptZh": "你正在使用 Claude 构建结构化数据抽取系统。系统从非结构化文档中提取信息，用 JavaScript 对象表示法（JSON）Schema 验证输出，并保持较高准确率；它还必须妥善处理边界情况并与下游系统集成。抽取系统提供三个工具：extract_fields 的输出经过 JSON Schema 校验后写入数据库，lookup_vendor 和 flag_for_review 则用于处理操作人员的其他问题和边界情况。每份提交的文档都必须生成一条 extract_fields 记录。测试时，操作人员要求“提取这张发票，并检查供应商是否已经存在”，Claude 有时只调用 lookup_vendor 而不调用 extract_fields，导致没有记录写入。哪种方式既能确保每次提交文档都调用 extract_fields，又允许 Claude 继续处理请求中的其他事项？"
+  },
+  {
+    "id": 156,
+    "category": "Prompt Engineering and Structured Output",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction pipeline occasionally receives responses that don't parse as valid JSON, causing downstream processing failures. The current implementation prompts Claude to return JSON in the response text and then parses it. What is the most reliable approach to ensure Claude returns valid, schema-compliant structured data?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Add explicit formatting instructions to the prompt with JSON examples, emphasizing that Claude must return only valid JSON with no surrounding text.",
+        "textZh": "在提示中加入明确的格式说明和 JSON 示例，强调只能返回有效 JSON，不能有任何外围文本。"
+      },
+      {
+        "label": "B",
+        "text": "Implement a retry loop that catches JSON parse errors and re-prompts Claude with the error details, asking it to correct the malformed output.",
+        "textZh": "捕获 JSON 解析错误后循环重试，把错误详情发给 Claude，要求修正格式错误的输出。"
+      },
+      {
+        "label": "C",
+        "text": "Use regular expressions to locate and extract JSON from the response text, handling cases where Claude includes explanatory text around the JSON block.",
+        "textZh": "用正则表达式从响应文本中定位并提取 JSON，以处理 Claude 在 JSON 块前后附加解释文字的情况。"
+      },
+      {
+        "label": "D",
+        "text": "Define the expected structure as a JSON schema and provide it in output_config.format so the API constrains Claude's output to that structure.",
+        "textZh": "用 JSON Schema 定义预期结构，并通过 output_config.format 提供给 API，在生成时约束 Claude 的输出结构。"
+      }
+    ],
+    "categoryZh": "提示工程与结构化输出",
+    "promptZh": "你正在使用 Claude 构建结构化数据抽取系统。系统从非结构化文档中提取信息，用 JavaScript 对象表示法（JSON）Schema 验证输出，并保持较高准确率；它还必须妥善处理边界情况并与下游系统集成。抽取流水线偶尔收到无法解析为有效 JSON 的响应，导致下游处理失败。目前的实现只在提示中要求 Claude 在响应文本中返回 JSON，然后进行解析。哪种方法最能可靠地确保 Claude 返回有效且符合 Schema 的结构化数据？"
   }
 ]

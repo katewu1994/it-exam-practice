@@ -1214,5 +1214,37 @@
     "needsConfirmation": false,
     "explanationZh": "需求只是读取标准 Jira 能力，可信的现成 MCP 服务器已经封装认证、Schema 和可发现工具，无需维护另一层自建服务。curl 容易暴露凭据并重复拼请求，导出文件会过期；只有出现现成服务器不支持的专有工作流时才值得自建。",
     "keywords": []
+  },
+  {
+    "id": 153,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "日历抽取需要保证输出结构，output_config.format 将目标 JSON Schema 交给 API 的结构化输出机制，在生成阶段约束字段和类型。普通格式指令、代码围栏和解析失败后的重试都不能提供同等的结构约束。Schema 合规不代表抽取的事实必然正确，应用仍需校验日期等业务语义，并处理拒绝或输出截断。",
+    "keywords": []
+  },
+  {
+    "id": 154,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "1,000 tokens 的估算只包含系统提示和文档，遗漏了随请求发送的工具名称、描述及包含 12 个字段的 JSON Schema；这些内容同样属于模型输入，工具使用还可能引入额外系统提示。当前响应中生成的工具调用属于输出，而未启用缓存也无法解释已经计入估算的 200-token 系统提示之外的大幅增量。应对完整请求做 token 统计。",
+    "keywords": []
+  },
+  {
+    "id": 155,
+    "answer": "B",
+    "pdfAnswer": "B",
+    "needsConfirmation": false,
+    "explanationZh": "在支持强制工具调用的模型与配置下，首次请求指定 extract_fields 可保证模型先生成该工具调用；应用执行、校验并持久化结果后，再恢复 auto，模型才能选择查询供应商或标记人工复核。仅调整工具顺序或要求 any 都不能保证选中指定工具，每轮强制同一工具又会妨碍后续任务。工具调用本身不保证数据库写入成功，应用仍需处理执行失败；部分模型或思考配置不支持强制工具调用，应核对适用条件。",
+    "keywords": []
+  },
+  {
+    "id": 156,
+    "answer": "D",
+    "pdfAnswer": "D",
+    "needsConfirmation": false,
+    "explanationZh": "仅要求文本看起来像 JSON，仍可能产生额外说明、语法错误或不符合字段类型的内容。把预期 Schema 传入 output_config.format，可在生成阶段约束 JSON 结构；正则提取只能定位文本，重试与提示示例也不能替代结构约束。调用方还应检查拒绝、截断等终止状态，再进行解析和业务语义校验。",
+    "keywords": []
   }
 ]

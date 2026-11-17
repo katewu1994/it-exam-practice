@@ -1,4 +1,4 @@
-export const DATA_VERSION = 'dual-exams-20260810';
+export const DATA_VERSION = 'dual-exams-20261118';
 
 const EXAMS = {
   'aws-cip': {

@@ -3490,5 +3490,97 @@
         "text": "Integrate an existing Jira MCP server that exposes tickets, comments, and metadata through discoverable tool interfaces."
       }
     ]
+  },
+  {
+    "id": 153,
+    "category": "Prompt Engineering and Structured Output",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your system must extract event details from calendar invitations and output JSON that strictly conforms to a schema with fields for title, date, time, location, and attendees. Downstream systems reject any malformed or non-conformant JSON. What approach provides the most reliable schema compliance?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Include detailed JSON formatting instructions and the target schema in your prompt, then parse Claude's text response as JSON."
+      },
+      {
+        "label": "B",
+        "text": "Use structured outputs: define the JSON schema in output_config.format so responses match it."
+      },
+      {
+        "label": "C",
+        "text": "Append instructions like \"Output only valid JSON matching the schema exactly\" and implement retry logic to re-prompt when JSON parsing fails."
+      },
+      {
+        "label": "D",
+        "text": "Instruct Claude in the system prompt to respond only with valid JSON matching the schema, and wrap it in a json fence for extraction."
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "category": "Context Management and Reliability",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction tool's JSON schema has 12 fields with detailed descriptions. Each document is sent in its own request with a 200-token system prompt, and documents average 800 tokens, which led to a pre-launch estimate of about 1,000 input tokens per request. After the first week, usage.input_tokens averages about 3,900 per request. What is the most likely explanation?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Ticket text tokenizes less efficiently than estimated because of special characters and non-English content."
+      },
+      {
+        "label": "B",
+        "text": "Tokens generated for the tool call are being reported as input tokens."
+      },
+      {
+        "label": "C",
+        "text": "Prompt caching is not enabled, so the system prompt is counted at full weight each time."
+      },
+      {
+        "label": "D",
+        "text": "The tool definition is sent with every request and counts toward input tokens."
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "category": "Agentic Architecture and Orchestration",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction system exposes three tools: extract_fields, whose schema-validated JSON output is written to your database, plus lookup_vendor and flag_for_review, which support operator questions and edge cases. Every submitted document must produce an extract_fields record. In testing, when an operator submits a document with a request like \"extract this invoice and check whether the vendor already exists,\" Claude sometimes calls only lookup_vendor and never calls extract_fields, so no record is written. Which approach guarantees an extract_fields call for every submitted document while still allowing Claude to handle the rest of the operator's request?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Set tool_choice to \"auto\" and reorder the tool definitions so extract_fields appears first in the tools array, since Claude prioritizes earlier-listed tools."
+      },
+      {
+        "label": "B",
+        "text": "Set tool_choice to {\"type\": \"tool\", \"name\": \"extract_fields\"} on the first request after submission, then return tool_choice to \"auto\" on subsequent turns so Claude can address the rest of the operator's request."
+      },
+      {
+        "label": "C",
+        "text": "Set tool_choice to {\"type\": \"tool\", \"name\": \"extract_fields\"} for every API call in the pipeline, ensuring Claude always extracts fields before addressing the rest of the operator's request."
+      },
+      {
+        "label": "D",
+        "text": "Set tool_choice to \"any\" so Claude must use a tool, combined with system prompt instructions prioritizing extract_fields."
+      }
+    ]
+  },
+  {
+    "id": 156,
+    "category": "Prompt Engineering and Structured Output",
+    "prompt": "You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction pipeline occasionally receives responses that don't parse as valid JSON, causing downstream processing failures. The current implementation prompts Claude to return JSON in the response text and then parses it. What is the most reliable approach to ensure Claude returns valid, schema-compliant structured data?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Add explicit formatting instructions to the prompt with JSON examples, emphasizing that Claude must return only valid JSON with no surrounding text."
+      },
+      {
+        "label": "B",
+        "text": "Implement a retry loop that catches JSON parse errors and re-prompts Claude with the error details, asking it to correct the malformed output."
+      },
+      {
+        "label": "C",
+        "text": "Use regular expressions to locate and extract JSON from the response text, handling cases where Claude includes explanatory text around the JSON block."
+      },
+      {
+        "label": "D",
+        "text": "Define the expected structure as a JSON schema and provide it in output_config.format so the API constrains Claude's output to that structure."
+      }
+    ]
   }
 ]
