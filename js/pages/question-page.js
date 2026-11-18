@@ -6,8 +6,10 @@ import {
   clearAnswerRecords,
   loadAnswerRecords,
   loadMarkedQuestions,
+  loadMemorizationMode,
   saveAnswerRecords,
   saveMarkedQuestions,
+  saveMemorizationMode,
 } from '../core/storage.js';
 
 const LEGACY_AMBIGUOUS_QUESTIONS = new Set([64, 85, 119]);
@@ -62,13 +64,16 @@ export function initQuestionPage() {
   const answeredCount = document.querySelector('#answered-count');
   const correctCount = document.querySelector('#correct-count');
   const clearAnswers = document.querySelector('#clear-answers');
+  const memorizationToggle = document.querySelector('#memorization-mode');
   const state = {
     questions: [],
     solutions: new Map(),
     answerRecords: loadAnswerRecords(),
     markedQuestionIds: loadMarkedQuestions(),
     choiceOrders: new Map(),
+    memorizationMode: loadMemorizationMode(),
   };
+  memorizationToggle.checked = state.memorizationMode;
 
   function updateAnsweredCount() {
     const records = Object.values(state.answerRecords);
@@ -86,7 +91,10 @@ export function initQuestionPage() {
     const previous = state.questions[currentIndex - 1];
     const next = state.questions[currentIndex + 1];
     const solution = state.solutions.get(question.id);
-    const record = state.answerRecords[question.id] || { answers: [], isCorrect: null };
+    // 背题版只改变显示，不将正确答案写入实际作答记录。
+    const record = state.memorizationMode
+      ? { answers: (solution?.answer || '').split('+').map((label) => label.trim()).filter(Boolean), isCorrect: solution ? true : null }
+      : state.answerRecords[question.id] || { answers: [], isCorrect: null };
     const recordedAnswers = new Set(record.answers);
     const isMarked = state.markedQuestionIds.has(question.id);
     const displayedChoices = createQuestionOrder(question, state.choiceOrders);
@@ -101,18 +109,20 @@ export function initQuestionPage() {
     const primaryCategory = englishFirst ? question.category : question.categoryZh;
     const secondaryCategory = englishFirst ? question.categoryZh : question.category;
     const primaryChoices = displayedChoices.map((choice, index) => `
-      <button class="choice${recordedAnswers.has(choice.label) ? ' user-selected' : ''}${record.isCorrect === true ? ' user-correct' : record.isCorrect === false ? ' user-incorrect' : ''}" type="button" data-answer="${choice.label}" aria-pressed="${recordedAnswers.has(choice.label)}">
+      <button class="choice${recordedAnswers.has(choice.label) ? ' user-selected' : ''}${record.isCorrect === true ? ' user-correct' : record.isCorrect === false ? ' user-incorrect' : ''}" type="button" data-answer="${choice.label}" aria-pressed="${recordedAnswers.has(choice.label)}" ${state.memorizationMode ? 'disabled' : ''}>
         <span class="choice-label">${displayedOptionLabel(index)}</span>
         <p lang="${EXAM.primaryLanguage}">${escapeHtml(englishFirst ? choice.text : choice.textZh)}</p>
       </button>`).join('');
     const secondaryChoices = displayedChoices.map((choice, index) => `<li><strong>${displayedOptionLabel(index)}.</strong> ${escapeHtml(englishFirst ? choice.textZh : choice.text)}</li>`).join('');
-    const answerFeedback = record.isCorrect === true
+    const answerFeedback = state.memorizationMode
+      ? '<p class="answer-feedback">背题版：直接显示题库答案，不计入作答记录。</p>'
+      : record.isCorrect === true
       ? '<p class="answer-feedback correct">本题回答正确，已记录。</p>'
       : record.isCorrect === false
         ? '<p class="answer-feedback incorrect">当前选择不正确，已记录；可继续增减选项。</p>'
         : '';
     const result = solution ? [
-      '<details class="result" aria-label="答案">',
+      `<details class="result" aria-label="答案"${state.memorizationMode ? ' open' : ''}>`,
       '<summary>查看答案与解析</summary>',
       '<div class="result-content">',
       '<div class="answer-line"><span>答案</span><strong>' + displayedAnswer(solution.answer, displayedChoices) + '</strong></div>',
@@ -172,6 +182,7 @@ export function initQuestionPage() {
 
     view.querySelectorAll('[data-answer]').forEach((choice) => {
       choice.addEventListener('click', () => {
+        if (state.memorizationMode) return;
         const answers = new Set(state.answerRecords[question.id]?.answers || []);
         const label = choice.dataset.answer;
         if (answers.has(label)) answers.delete(label);
@@ -196,6 +207,12 @@ export function initQuestionPage() {
     const question = state.questions.find((item) => item.id === Number(search.value));
     if (question) location.href = questionUrl(question.id);
     else search.value = currentId();
+  });
+
+  memorizationToggle.addEventListener('change', () => {
+    state.memorizationMode = memorizationToggle.checked;
+    saveMemorizationMode(state.memorizationMode);
+    render();
   });
 
   clearAnswers.addEventListener('click', () => {

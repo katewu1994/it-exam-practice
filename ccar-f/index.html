@@ -29,7 +29,13 @@
         <div class="answer-record">
           <span>已作答 <strong id="answered-count">0</strong> 题 · 答对 <strong id="correct-count">0</strong> 题</span>
           <a class="overview-link" href="overview.html">答题一览</a>
-          <button id="clear-answers" class="clear-answers" type="button">清空作答记录</button>
+          <div class="answer-actions">
+            <button id="clear-answers" class="clear-answers" type="button">清空作答记录</button>
+            <label class="memorization-toggle" for="memorization-mode">
+              <input id="memorization-mode" type="checkbox" />
+              <span>背题版</span>
+            </label>
+          </div>
         </div>
         <div class="progress"><span id="current-position">1</span> / <span id="total-count">156</span></div>
       </section>

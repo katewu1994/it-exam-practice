@@ -27,6 +27,18 @@ export function clearAnswerRecords() {
   localStorage.removeItem(STORAGE_KEYS.answers);
 }
 
+export function loadMemorizationMode() {
+  try {
+    return localStorage.getItem(STORAGE_KEYS.memorizationMode) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+export function saveMemorizationMode(enabled) {
+  localStorage.setItem(STORAGE_KEYS.memorizationMode, String(enabled));
+}
+
 export function loadMarkedQuestions() {
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEYS.markedQuestions) || '[]');

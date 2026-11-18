@@ -40,4 +40,5 @@ export const DATA_PATHS = {
 export const STORAGE_KEYS = {
   answers: `${EXAM.storagePrefix}-answer-records-v1`,
   markedQuestions: `${EXAM.storagePrefix}-marked-questions-v1`,
+  memorizationMode: `${EXAM.storagePrefix}-memorization-mode-v1`,
 };
